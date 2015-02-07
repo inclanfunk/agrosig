@@ -33,7 +33,7 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
+/*Route::filter('auth', function()
 {
 	if (Auth::guest())
 	{
@@ -42,6 +42,14 @@ Route::filter('auth', function()
 			return Response::make('Unauthorized', 401);
 		}
 		return Redirect::guest('login');
+	}
+});*/
+
+Route::filter('auth', function()
+{
+	if (!Sentry::check())
+	{
+		return Redirect::guest('/');
 	}
 });
 
@@ -62,9 +70,14 @@ Route::filter('auth.basic', function()
 |
 */
 
-Route::filter('guest', function()
+/*Route::filter('guest', function()
 {
 	if (Auth::check()) return Redirect::to('/');
+});*/
+
+Route::filter('guest', function()
+{
+	if (Sentry::check()) return Redirect::to('/dashboard');
 });
 
 /*
