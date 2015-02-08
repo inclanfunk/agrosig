@@ -14,16 +14,18 @@ class UserTableSeeder extends Seeder {
 		DB::table('groups')->truncate();
 
 		Sentry::getGroupProvider()->create(array(
-			'name'        => 'Super Administrators',
+			'name'        => 'Super Administrator',
 			'permissions' => array(
 			        'system' => 1,
 			),
 		));
 
 		$user = Sentry::createUser(array(
-			'email'     => 'admin@admin.com',
-			'password'  => 'test',
-			'activated' => true,
+			'email'     	=> 'julienbaudet@sigagro.com',
+			'password'  	=> 'password',
+			'first_name'	=> 'Julien',
+			'last_name'		=> 'Baudet',
+			'activated' 	=> true,
 		));
 
 		$superAdmin = Sentry::findGroupById(1);

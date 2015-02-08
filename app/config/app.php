@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-		'Greggilbert\Recaptcha\RecaptchaServiceProvider'
+		'Greggilbert\Recaptcha\RecaptchaServiceProvider',
+		'Intervention\Image\ImageServiceProvider'
 
 	),
 
@@ -192,6 +193,8 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Sentry' 			=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Image' 			=> 'Intervention\Image\Facades\Image',
+		'Carbon' 			=> 'Carbon\Carbon'
 
 	),
 
