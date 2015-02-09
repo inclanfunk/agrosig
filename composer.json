@@ -7,7 +7,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"cartalyst/sentry": "2.1.*",
-		"greggilbert/recaptcha": "dev-master",
+		"greggilbert/recaptcha": "1.1.5",
 		"intervention/image": "~2.1",
 		"nesbot/carbon": "~1.14"
 	},
