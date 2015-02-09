@@ -27,15 +27,22 @@ class ProfileController extends \BaseController {
 			unset($data['password_confirm']);
 		}elseif($data['password'] != $data['password_confirm']){
 			return Redirect::to('profile');
+		}else{
+			unset($data['password_confirm']);
 		}
+
+		$user = Sentry::getUser();
 		
 		if(Input::hasFile('photo')){
 			$hashName = sha1(time() . Sentry::getUser());
 			Image::make(Input::file('photo'))->resize(100, 100)->save(public_path() . '/photos/' . $hashName . '.jpg');
-			$data['photo'] = $hashName;
+			$data['photo'] = $hashName . '.jpg';
+			File::delete(public_path() . '/photos/' . $user->photo);
+		}else{
+			unset($data['photo']);
 		}
 
-		$user = Sentry::getUser();
+		
 		$user->update($data);
 
 		return Redirect::to('profile');

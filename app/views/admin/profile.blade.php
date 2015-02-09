@@ -58,7 +58,7 @@
 
                                         <div class="col-sm-3 profile-pic">
                                             @if(Sentry::getUser()->photo)
-                                            <img src="{{URL::to('/photos/' . Sentry::getUser()->photo . '.jpg')}}" alt="demo user">
+                                            <img src="{{URL::to('/photos/' . Sentry::getUser()->photo)}}" alt="demo user">
                                             @else
                                              <img src=" {{URL::to('/img/avatar.png') }} " alt="demo user">
                                             @endif
