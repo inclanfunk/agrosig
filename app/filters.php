@@ -19,7 +19,11 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-	//
+	if(Sentry::check()){
+		Sentry::getUser()->update([
+			'last_active' => Carbon::now()
+		]);
+	}
 });
 
 /*

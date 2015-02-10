@@ -17,6 +17,7 @@ class AddExtraColumnsToUsersTable extends Migration {
 			$table->string('phone')->nullable();
 			$table->string('photo')->nullable();
 			$table->string('description')->nullable();
+			$table->timestamp('last_active')->nullable();
 		});
 	}
 
@@ -32,7 +33,8 @@ class AddExtraColumnsToUsersTable extends Migration {
 		{
 			$table->dropColumn('phone');
 			$table->dropColumn('photo');
-			$table->dropColumn('description');	
+			$table->dropColumn('description');
+			$table->dropColumn('last_active');
 		});
 	}
 
