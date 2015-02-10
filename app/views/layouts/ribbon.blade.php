@@ -6,8 +6,18 @@
 				</span>
 
 	<!-- breadcrumb -->
+	<!--
 	<ol class="breadcrumb">
 		<li>Home</li><li>Inbox</li>
 	</ol>
+	-->
+
+	@if($breadcrumbs)
+		<ol class="breadcrumb">
+			@foreach($breadcrumbs as $breadcrumb)
+				<li>{{$breadcrumb}}</li>
+			@endforeach
+		</ol>
+	@endif
 
 </div>

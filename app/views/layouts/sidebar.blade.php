@@ -6,8 +6,8 @@
 
 					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
 
-					     @if(Sentry::getUser()->pics)
-                            <img src=" {{URL::to('/uploads/'.Sentry::getUser()->pics->name)}} " alt="me" class="online">
+					     @if(Sentry::getUser()->photo)
+                            <img src=" {{URL::to('/photos/'.Sentry::getUser()->photo)}} " alt="me" class="online">
                             @else
                              <img src=" {{URL::to('/img/avatar.png') }} "alt="me" class="online">
                          @endif
@@ -35,9 +35,24 @@
 				-->
 
 				<ul>
-					<li>
+					<li class="{{ Request::is('dashboard') ? 'active' : '' }}">
 						<a href="{{ URL::to('dashboard') }}" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
 					</li>
+
+
+                    @if(Sentry::getUser()->hasAnyAccess(['system']))
+                    <li>
+                        <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Manage Companies</span></a>
+                        <ul>
+                            <li class="{{ Request::is('companies') ? 'active' : '' }}">
+                                <a href="{{ URL::to('companies') }}">List Companies</a>
+                            </li>
+                            <li class="{{ Request::is('companies/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('companies/create') }}">Create Company</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
 
 
                     @if(Sentry::getUser()->hasAnyAccess(['system']))

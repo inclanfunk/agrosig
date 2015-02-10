@@ -25,7 +25,8 @@ Route::group(['before' => 'auth'], function(){
 		'uses' => 'ProfileController@editProfile'
 	]);
 
-	Route::resource('user', 'UserController');
+	Route::resource('users', 'UserController');
+	Route::resource('companies', 'CompanyController');
 });
 
 

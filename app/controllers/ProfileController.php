@@ -5,7 +5,8 @@ class ProfileController extends \BaseController {
 	public function showProfile()
 	{
 		if(Sentry::getUser()->hasAccess('system')){
-			return View::make('admin.profile');
+			$breadcrumbs = ['Home', 'Profile'];
+			return View::make('admin.profile')->withBreadcrumbs($breadcrumbs);
 		}
 	}
 

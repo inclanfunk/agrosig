@@ -215,17 +215,21 @@
                                                            </section>
                                                       </div>
 
-                                                      <div class="row">
-                                                        <section class="col col-6">
-                                                          <label class="input"> <i class="icon-append fa fa-user"></i>
-                                                            <input type="text" name="description" placeholder="Description" value="{{ Sentry::getUser()->description }}">
-                                                          </label>
-                                                        </section>
-                                                      </div>
-
-
-
                                        							</fieldset>
+
+                                                    <fieldset>
+                                                      <section>
+                                                          
+                                                          <label class="textarea">                    
+                                                            <textarea name="description" rows="4" class="custom-scroll">{{ Sentry::getUser()->description }}</textarea> 
+                                                          </label>
+                                                          <div class="note">
+                                                            <strong>Provide a small description about yourself!</strong>
+                                                          </div>
+                
+                                                        </section>
+
+                                                    </fieldset>
 
 
                                        							<fieldset>
