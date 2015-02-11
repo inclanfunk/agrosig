@@ -39,7 +39,7 @@
 					<!-- widget content -->
 					<div class="widget-body no-padding">
 
-						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{ URL::to('companies') }}" method="post" >
+						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{ URL::to('companies') }}" method="post" enctype="multipart/form-data">
 							<header>
 								Create a New Company
 							</header>
@@ -96,6 +96,10 @@
 									</section>
 								</div>
 
+							</fieldset>
+
+							<fieldset>
+
 								<div class="row">
 									<section class="col col-4">
 										<label class="input"> <i class="icon-append fa fa-globe"></i>
@@ -150,6 +154,10 @@
 									</section>
 								</div>
 
+							</fieldset>
+
+							<fieldset>
+
 								<div class="row">
                                     <section class="col col-6">
                                         <label class="input"> <i class="icon-append fa fa-globe"></i>
@@ -171,7 +179,7 @@
                                </div>
 
                                <div class="row">
-                                    <section class="col col-4">
+                                    <section class="col col-6">
 										<div class="input input-file">
 											<span class="button"><input id="file" name="geojson" onchange="this.parentNode.nextSibling.value = this.value" type="file">Browse</span><input placeholder="Upload GeoJSON" readonly="" type="text">
 										</div>
@@ -179,15 +187,34 @@
 												<em class="invalid">{{ $errors->first('geojson') }}</em>
 										@endif
 									</section>
-									<section class="col col-8">
-                                        <label class="input"> <i class="icon-append fa fa-file-text-o"></i>
-                                            <input type="Description" name="description" placeholder="Description">
-                                        </label>
-                                        @if($errors->first('description'))
+                                    <section class="col col-6">
+										<div class="input input-file">
+											<span class="button"><input id="file" name="logo" onchange="this.parentNode.nextSibling.value = this.value" type="file">Browse</span><input placeholder="Upload Logo" readonly="" type="text">
+										</div>
+										@if($errors->first('logo'))
+												<em class="invalid">{{ $errors->first('logo') }}</em>
+										@endif
+									</section>
+                               </div>
+
+                            </fieldset>
+
+							<fieldset>
+
+                               <div class="row">
+                                    <section class="col col-6">
+										<label class="textarea"> 										
+											<textarea rows="2" class="custom-scroll" name="description" placeholder="Description"></textarea> 
+										</label>
+										<div class="note">
+											<strong>Enter a description for the company.</strong>
+										</div>
+										@if($errors->first('description'))
 											<em class="invalid">{{ $errors->first('description') }}</em>
 										@endif
-                                    </section>
+									</section>
                                </div>
+
 							</fieldset>
 
 

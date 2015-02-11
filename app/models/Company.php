@@ -14,6 +14,8 @@ class Company extends \Eloquent {
 		'fax',
 		'website',
 		'email',
+		'geojson',
+		'logo',
 		'description'
 	];
 }

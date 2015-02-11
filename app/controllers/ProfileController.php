@@ -36,9 +36,9 @@ class ProfileController extends \BaseController {
 		
 		if(Input::hasFile('photo')){
 			$hashName = sha1(time() . Sentry::getUser());
-			Image::make(Input::file('photo'))->resize(100, 100)->save(public_path() . '/photos/' . $hashName . '.jpg');
+			Image::make(Input::file('photo'))->resize(100, 100)->save(Config::get('path.photos') . $hashName . '.jpg');
 			$data['photo'] = $hashName . '.jpg';
-			File::delete(public_path() . '/photos/' . $user->photo);
+			File::delete(Config::get('path.photos') . $user->photo);
 		}else{
 			unset($data['photo']);
 		}

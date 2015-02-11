@@ -52,6 +52,7 @@ class CompanyController extends \BaseController {
 				'website' => 'required',
 				'email' => 'required',
 				'geojson' => 'required',
+				'logo' => 'required',
 				'description' => 'required'
 			]
 		);
@@ -60,7 +61,14 @@ class CompanyController extends \BaseController {
 			return Redirect::route('companies.create')->withErrors($validator->messages());
 		}
 
-		Input::file('geojson')->move(public_path() . '/geojson/' , 'geojson.json');
+		$hash_name = sha1(time() . Sentry::getUser());
+		Image::make(Input::file('logo'))->resize(100, 100)->save(Config::get('path.logos') . $hash_name . '.jpg');
+		$data['logo'] = $hash_name . '.jpg';
+
+		$destination_path = Config::get('path.geojson');
+		$file_name =  $hash_name . '.json';
+		Input::file('geojson')->move($destination_path, $file_name);
+		$data['geojson'] = $hash_name . '.json';
 
 		Company::create($data);
 

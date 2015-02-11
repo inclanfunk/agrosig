@@ -3,99 +3,115 @@
 @section('content')
 <div class="row">
 
-      					<!-- col -->
-      					<div class="col-xs-12 col-sm-3 col-md-4 col-lg-4">
+	<!-- col -->
+	<div class="col-xs-12 col-sm-3 col-md-4 col-lg-4">
 
-      					</div>
-      					<!-- end col -->
+	</div>
+	<!-- end col -->
 
-                        <!-- col -->
-                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-                            <!-- sparks -->
-                            <ul id="sparks">
+	<!-- col -->
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	    <!-- sparks -->
+	    <ul id="sparks">
 
-                                <li class="sparks-info">
-                                    <a href="{{ URL::to('companies/create') }}" class="btn btn-success">Create A New Company</a>
-                                </li>
+	        <li class="sparks-info">
+	            <a href="{{ URL::to('companies/create') }}" class="btn btn-success">Create A New Company</a>
+	        </li>
 
-                            </ul>
-                            <!-- end sparks -->
-                        </div>
-                         <!-- end col -->
+	    </ul>
+	    <!-- end sparks -->
+	</div>
+	 <!-- end col -->
 
 
-      				</div>
+</div>
 
-<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
-    <!-- widget options:
-    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-    data-widget-colorbutton="false"
-    data-widget-editbutton="false"
-    data-widget-togglebutton="false"
-    data-widget-deletebutton="false"
-    data-widget-fullscreenbutton="false"
-    data-widget-custombutton="false"
-    data-widget-collapsed="true"
-    data-widget-sortable="false"
-    -->
+        				<!-- widget grid -->
+				<section id="widget-grid" class="">
+				
+					<!-- row -->
+					<div class="row">
+				
+						<!-- NEW WIDGET START -->
+						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+								<header>
+									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+									<h2>All Companies</h2>
+								</header>
+				
+								<!-- widget div-->
+								<div>
+				
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+				
+									</div>
+									<!-- end widget edit box -->
+				
+									<!-- widget content -->
+									<div class="widget-body no-padding">
+				
+										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+											<thead>			                
+												<tr>
+													<th data-hide="phone">ID</th>
+						                            <th data-class="expand">Name</th>
+						                            <th data-hide="phone">Type</th>
+						                            <th data-hide="phone,tablet">CEO Name</th>
+						                            <th data-hide="phone,tablet">Phone</th>
+						                            <th data-hide="phone,tablet">Email</th>
+						                            <th>Edit/Delete</th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach($companies as $company)
+							                        <tr>
+							                            <td>{{ $company->id }}</td>
+							                            <td>{{ $company->name }}</td>
+							                            <td>{{ $company->type }}</td>
+							                            <td>{{ $company->ceo_first_name }} {{ $company->ceo_last_name }}</td>
+							                            <td>{{ $company->phone }}</td>
+							                            <td>{{ $company->email }}</td>
+							                            <td>
+							                                <a href="#" class="btn btn-info btn-xs">View</a>
+							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>
+							                            </td>
+							                        </tr>
+						                        @endforeach
+											</tbody>
+										</table>
 
-        <header>
-            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-            <h2>All Companies</h2>
-        </header>
-
-        <!-- widget div-->
-        <div>
-
-            <!-- widget edit box -->
-            <div class="jarviswidget-editbox">
-                <!-- This area used as dropdown edit box -->
-
-            </div>
-            <!-- end widget edit box -->
-
-            <!-- widget content -->
-            <div class="widget-body no-padding">
-
-                <table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-                    <thead>                         
-                        <tr>
-                            <th data-hide="phone">ID</th>
-                            <th data-class="expand">Name</th>
-                            <th data-hide="phone">Type</th>
-                            <th data-hide="phone,tablet">CEO Name</th>
-                            <th data-hide="phone,tablet">Phone</th>
-                            <th data-hide="phone,tablet">Fax</th>
-                            <th data-hide="phone,tablet">Website</th>
-                            <th data-hide="phone,tablet">Email</th>
-                            <th>Edit/Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($companies as $company)
-                        <tr>
-                            <td>{{ $company->id }}</td>
-                            <td>{{ $company->name }}</td>
-                            <td>{{ $company->type }}</td>
-                            <td>{{ $company->ceo_first_name }} {{ $company->ceo_last_name }}</td>
-                            <td>{{ $company->phone }}</td>
-                            <td>{{ $company->fax }}</td>
-                            <td>{{ $company->website }}</td>
-                            <td>{{ $company->email }}</td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-xs">View</a>
-                                <a href="#" class="btn btn-danger btn-xs">Delete</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-            </div>
-            <!-- end widget content -->
-
-        </div>
-        <!-- end widget div -->
+									</div>
+									<!-- end widget content -->
+				
+								</div>
+								<!-- end widget div -->
+				
+							</div>
+							<!-- end widget -->
+						</article>
+						<!-- new end widget -->
+					</div>
+					<!-- end row -->
+				</section>
+				<!-- end section -->
 @stop
 
 
@@ -202,6 +218,8 @@
 
 		    } );
 		    /* END COLUMN FILTER */
+
+		    $('header h2').text('All Companies');
 
 
 

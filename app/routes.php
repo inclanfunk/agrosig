@@ -32,5 +32,6 @@ Route::group(['before' => 'auth'], function(){
 
 // Just for testing. To be removed before production.
 Route::get('test', function(){
-	dd(Carbon::createFromFormat('Y-m-d H:i:s', Sentry::getUser()->last_active)->diffForHumans());
+	// dd(Carbon::createFromFormat('Y-m-d H:i:s', Sentry::getUser()->last_active)->diffForHumans());
+	dd(Config::get('path.logo'));
 });

@@ -26,7 +26,7 @@
                                             <h4 class="txt-color-black font-md">
                                               <span title="{{Sentry::getUser()->created_at}}">
                                                 Member since 
-                                                {{ Sentry::getUser()->created_at->diffForHumans(Carbon::now()) }}
+                                                {{ Sentry::getUser()->created_at->diffForHumans() }}
                                               </span>
                                             </h4>
                                         </div>

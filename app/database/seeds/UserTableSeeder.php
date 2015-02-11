@@ -25,6 +25,7 @@ class UserTableSeeder extends Seeder {
 			'password'  	=> 'password',
 			'first_name'	=> 'Julien',
 			'last_name'		=> 'Baudet',
+			'phone'			=> $faker->phoneNumber,
 			'activated' 	=> true,
 		));
 

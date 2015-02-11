@@ -29,6 +29,7 @@ class CreateCompaniesTable extends Migration {
 			$table->string('email');
 			$table->string('description');
 			$table->string('geojson');
+			$table->string('logo');
 			$table->timestamps();
 		});
 	}

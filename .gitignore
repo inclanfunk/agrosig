@@ -1,6 +1,8 @@
 /bootstrap/compiled.php
 /vendor
 /public/photos/
+/public/geojson/
+/public/logos/
 composer.phar
 composer.lock
 .env.*.php
