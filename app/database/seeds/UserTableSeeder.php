@@ -10,9 +10,6 @@ class UserTableSeeder extends Seeder {
 		// Creatin an instance of Faker
 		$faker = Faker::create();
 
-		DB::table('users')->truncate();
-		DB::table('groups')->truncate();
-
 		Sentry::getGroupProvider()->create(array(
 			'name'        => 'Super Administrator',
 			'permissions' => array(

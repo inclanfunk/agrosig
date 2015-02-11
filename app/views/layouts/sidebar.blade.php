@@ -54,6 +54,20 @@
                     </li>
                     @endif
 
+                    @if(Sentry::getUser()->hasAnyAccess(['system']))
+                    <li>
+                        <a href="#"><i class="fa fa-lg fa-fw fa-tree"></i> <span class="menu-item-parent">Manage Farms</span></a>
+                        <ul>
+                            <li class="{{ Request::is('farms') ? 'active' : '' }}">
+                                <a href="{{ URL::to('farms') }}">List Farms</a>
+                            </li>
+                            <li class="{{ Request::is('farms/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('farms/create') }}">Create Farm</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
+
 
                     @if(Sentry::getUser()->hasAnyAccess(['system']))
 					<li>
