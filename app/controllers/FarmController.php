@@ -2,6 +2,11 @@
 
 class FarmController extends \BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('admin', ['only' => ['index', 'create']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -25,7 +30,7 @@ class FarmController extends \BaseController {
 	public function create()
 	{
 		$breadcrumbs = ['Home', 'Farms', 'Create'];
-		$companies = Company::all();
+		$companies = Company::where('type', '=', 'Farm')->get();
 		return View::make('admin.farm.create')
 					->withBreadcrumbs($breadcrumbs)
 					->withCompanies($companies);

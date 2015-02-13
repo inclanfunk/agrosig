@@ -30,9 +30,13 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('farms', 'FarmController');
 });
 
-
 // Just for testing. To be removed before production.
 Route::get('test', function(){
 	// dd(Carbon::createFromFormat('Y-m-d H:i:s', Sentry::getUser()->last_active)->diffForHumans());
-	dd(Config::get('path.logo'));
+	// dd(Config::get('path.logo'));
+	// $faker = Faker::create();
+	// $farm_companies = Company::where('type', '=', 'Farm')->get();
+	// return $farm_companies->shuffle()->first();
+	// return $farms = Farm::all()->shuffle()->first();
+	// if(Sentry::getUser()->hasAccess('system')) return 5;
 });

@@ -25,7 +25,8 @@ class CompanyController extends \BaseController {
 	public function create()
 	{
 		$breadcrumbs = ['Home', 'Companies', 'Create'];
-		return View::make('admin.company.create')->withBreadcrumbs($breadcrumbs);
+		return View::make('admin.company.create')
+					->withBreadcrumbs($breadcrumbs);
 	}
 
 

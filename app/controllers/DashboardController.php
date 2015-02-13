@@ -8,6 +8,10 @@ class DashboardController extends \BaseController {
 			$breadcrumbs = ['Home', 'Dashboard'];
 			return View::make('admin.dashboard')
 						->withBreadcrumbs($breadcrumbs);
+		}else{
+			$breadcrumbs = ['Home', 'Dashboard'];
+			return View::make('admin.dashboard')
+						->withBreadcrumbs($breadcrumbs);
 		}
 	}
 

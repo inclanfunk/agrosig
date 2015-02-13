@@ -204,7 +204,7 @@
                                <div class="row">
                                     <section class="col col-6">
 										<label class="textarea"> 										
-											<textarea rows="2" class="custom-scroll" name="description" placeholder="Description"></textarea> 
+											<textarea rows="3" class="custom-scroll" name="description" placeholder="Description"></textarea> 
 										</label>
 										<div class="note">
 											<strong>Enter a description for the company.</strong>

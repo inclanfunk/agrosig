@@ -15,7 +15,7 @@ class CreateCompaniesTable extends Migration {
 		Schema::create('companies', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->enum('type', array('Farm', 'Distributer', 'Water Pump'));
+			$table->enum('type', array('Farm', 'Distributor', 'Water Pump'));
 			$table->string('name');
 			$table->string('ceo_first_name');
 			$table->string('ceo_last_name');

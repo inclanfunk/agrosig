@@ -84,6 +84,11 @@ Route::filter('guest', function()
 	if (Sentry::check()) return Redirect::to('/dashboard');
 });
 
+Route::filter('admin', function()
+{
+	if(!Sentry::getUser()->hasAccess('system')) return Response::make('<h1>403 Forbidden</h1>', 403);
+});
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter

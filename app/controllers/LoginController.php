@@ -54,7 +54,7 @@ class LoginController extends \BaseController {
 		}
 
 		Sentry::login($user, Input::get('remember'));
-		return Redirect::to('dashboard');
+		return Redirect::intended('dashboard');
 
 	}
 
