@@ -87,10 +87,18 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-wrench"></i> <span class="menu-item-parent">Manage Equipment</span></a>
                 <ul>
                     <li class="{{ Request::is('equipment') ? 'active' : '' }}">
-                        <a href="{{ URL::to('equipment') }}">List Equipment</a>
+                        <a href="#">List Equipment</a>
                     </li>
                     <li class="{{ Request::is('equipment/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('equipment/create') }}">Create Equipment</a>
+                        <a href="#">Create Eqiupment</a>
+                        <ul>
+                            <li class="{{ Request::is('pivots/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('pivots/create') }}">Create Pivot</a>
+                            </li>   
+                            <li>
+                                <a href="#">Create Water Pump</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>

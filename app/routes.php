@@ -28,6 +28,8 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('companies', 'CompanyController');
 	Route::resource('farms', 'FarmController');
+	Route::resource('equipment', 'EquipmentController');
+	Route::resource('pivots', 'PivotController');
 });
 
 // Just for testing. To be removed before production.

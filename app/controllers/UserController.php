@@ -2,6 +2,11 @@
 
 class UserController extends \BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('admin', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
