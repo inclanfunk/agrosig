@@ -10,25 +10,6 @@ class UserTableSeeder extends Seeder {
 		// Creatin an instance of Faker
 		$faker = Faker::create();
 
-		Sentry::getGroupProvider()->create(array(
-			'name'        => 'Super Administrator',
-			'permissions' => array(
-			        'system' => 1,
-			),
-		));
-
-		Sentry::getGroupProvider()->create(array(
-			'name'        => 'Manager',
-		));
-
-		Sentry::getGroupProvider()->create(array(
-			'name'        => 'Distributor',
-		));
-
-		Sentry::getGroupProvider()->create(array(
-			'name'        => 'Water Pump Reseller',
-		));
-
 		$user = Sentry::createUser(array(
 			'email'     	=> 'julienbaudet@sigagro.com',
 			'password'  	=> 'password',
@@ -51,7 +32,7 @@ class UserTableSeeder extends Seeder {
 
 					$user = Sentry::createUser(array(
 						'email'     	=> $faker->email,
-						'password'  	=> $faker->word,
+						'password'  	=> 'password',
 						'first_name'	=> $faker->firstName,
 						'last_name'		=> $faker->lastName,
 						'phone'			=> $faker->phoneNumber,
@@ -73,32 +54,6 @@ class UserTableSeeder extends Seeder {
 					];
 
 					Manager::create($manager_details);
-
-					break;
-				case 3:
-
-					$user = Sentry::createUser(array(
-						'email'     	=> $faker->email,
-						'password'  	=> $faker->word,
-						'first_name'	=> $faker->firstName,
-						'last_name'		=> $faker->lastName,
-						'phone'			=> $faker->phoneNumber,
-						'activated' 	=> true,
-					));
-
-					// Decide group for user using random number which is used later to create add. info
-					$group = Sentry::findGroupById(3);
-
-					$user->addGroup($group);
-
-					$distributor_companies = Company::where('type', '=', 'Distributor')->get();
-
-					$distributor_details = [
-						'user_id' => $user->id,
-						'company_id' => $distributor_companies->shuffle()->first()->id,
-					];
-
-					Distributor::create($distributor_details);
 
 					break;
 				case 4:

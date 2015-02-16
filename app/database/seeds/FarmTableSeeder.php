@@ -9,11 +9,15 @@ class FarmTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
+		$group = Sentry::findGroupByName('Distributor');
+		$users = Sentry::findAllUsersInGroup($group);
+
 		foreach(range(1, 100) as $index)
 		{
 			Farm::create([
 				'name' => $faker->company,
 				'company_id' => $faker->numberBetween(1, 100),
+				'distributor_id' => $users->shuffle()->first()->id,
 				'direction' => $faker->buildingNumber . ' ' . $faker->streetSuffix,
 				'zip' => $faker->postcode,
 				'state' => $faker->state,

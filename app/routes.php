@@ -41,4 +41,9 @@ Route::get('test', function(){
 	// return $farm_companies->shuffle()->first();
 	// return $farms = Farm::all()->shuffle()->first();
 	// if(Sentry::getUser()->hasAccess('system')) return 5;
+
+	$group = Sentry::findGroupByName('Distributor');
+	$users = Sentry::findAllUsersInGroup($group);
+
+	dd($users);
 });
