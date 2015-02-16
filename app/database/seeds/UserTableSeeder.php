@@ -93,12 +93,9 @@ class UserTableSeeder extends Seeder {
 
 					$distributor_companies = Company::where('type', '=', 'Distributor')->get();
 
-					$farms = Farm::all();
-
 					$distributor_details = [
 						'user_id' => $user->id,
 						'company_id' => $distributor_companies->shuffle()->first()->id,
-						'farm_id' => $farms->shuffle()->first()->id,
 					];
 
 					Distributor::create($distributor_details);

@@ -243,21 +243,6 @@
 											<em class="invalid">{{ $errors->first('company_id') }}</em>
 										@endif
                                 </section>
-
-                                <section class="col col-4">
-                                    <label class="select">
-                                        <select name="farm_id" class="distributor">
-                                            <option selected="" disabled="">Please Select a Farm</option>
-                                            @foreach($farms as $farm)
-                                                <option value="{{ $farm->id }}">
-                                                    {{ $farm->name }}
-                                                </option>
-                                            @endforeach
-                                        </select> <i></i> </label>
-                                        @if($errors->first('farm_id'))
-                                            <em class="invalid">{{ $errors->first('farm_id') }}</em>
-                                        @endif
-                                </section>
                             </div>
                         </fieldset>
 
@@ -318,26 +303,14 @@
 					$('.distributor').prop('disabled', true);
 					$('.water').prop('disabled', true);
 					$('.farm').prop('disabled', false);
-
-                    $('.distributor').parent().addClass('state-disabled');
-                    $('.water').parent().addClass('state-disabled');
-                    $('.farm').parent().removeClass('state-disabled');
 				}else if($('#type').val() == 2){
 					$('.water').prop('disabled', true);
 					$('.farm').prop('disabled', true);
 					$('.distributor').prop('disabled', false);
-
-                    $('.water').parent().addClass('state-disabled');
-                    $('.farm').parent().addClass('state-disabled');
-                    $('.distributor').parent().removeClass('state-disabled');
 				}else{
 					$('.farm').prop('disabled', true);
 					$('.distributor').prop('disabled', true);
 					$('.water').prop('disabled', false);
-
-                    $('.farm').parent().addClass('state-disabled');
-                    $('.distributor').parent().addClass('state-disabled');
-                    $('.water').parent().removeClass('state-disabled');
 				}
 			});
 		});

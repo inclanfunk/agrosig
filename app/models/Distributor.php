@@ -3,12 +3,6 @@
 class Distributor extends \Eloquent {
 	protected $fillable = [
 		'user_id',
-		'company_id',
-		'farm_id'
+		'company_id'
 	];
-
-	public function farms()
-	{
-		return $this->hasMany('farms');
-	}
 }
