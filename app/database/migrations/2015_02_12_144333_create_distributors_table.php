@@ -19,6 +19,8 @@ class CreateDistributorsTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->integer('company_id')->unsigned();
 			$table->foreign('company_id')->references('id')->on('companies');
+			$table->integer('farm_id')->unsigned();
+			$table->foreign('farm_id')->references('id')->on('farms');
 			$table->timestamps();
 		});
 	}

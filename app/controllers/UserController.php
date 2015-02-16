@@ -131,6 +131,7 @@ class UserController extends \BaseController {
 					$data = Input::all(),
 					$rules = [
 						'company_id' 	=> 'required',
+						'farm_id' 		=> 'required',
 					]
 				);
 
@@ -163,7 +164,8 @@ class UserController extends \BaseController {
 
 				Distributor::create([
 					'user_id' => $user->id,
-					'company_id' => $data['company_id']
+					'company_id' => $data['company_id'],
+					'farm_id' => $data['farm_id']
 				]);
 
 				return Redirect::back();
