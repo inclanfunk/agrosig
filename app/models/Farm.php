@@ -4,6 +4,7 @@ class Farm extends \Eloquent {
 	protected $fillable = [
 		'name',
 		'company_id',
+		'distributor_id',
 		'direction',
 		'zip',
 		'state',
@@ -18,5 +19,10 @@ class Farm extends \Eloquent {
 	public function company()
 	{
 		return $this->belongsTo('Company');
+	}
+
+	public function distributor()
+	{
+		return $this->belongsTo('User');
 	}
 }

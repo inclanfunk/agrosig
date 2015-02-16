@@ -46,17 +46,8 @@
 
 							<fieldset>
 
-                                <div class="row" id="admin" style="display:none; ">
-                                    <section class="col col-10">
-                                        <label class="select">
-                                            <select name="admin_id" id="admin_role">
-
-                                            </select> <i></i> </label>
-                                    </section>
-                                </div>
-
 								<div class="row">
-									<section class="col col-4">
+									<section class="col col-3">
 										<label class="input"> <i class="icon-append fa fa-briefcase"></i>
 											<input type="text" name="name" placeholder="Company Name" required>
 										</label>
@@ -64,7 +55,7 @@
 											<em class="invalid">{{ $errors->first('name') }}</em>
 										@endif
 									</section>
-									<section class="col col-4">
+									<section class="col col-3">
                                         <label class="input"> <i class="icon-append fa fa-envelope"></i>
                                             <input type="text" name="email" placeholder="Email">
                                         </label>
@@ -72,7 +63,7 @@
 											<em class="invalid">{{ $errors->first('email') }}</em>
 										@endif
                                     </section>
-                                    <section class="col col-4">
+                                    <section class="col col-3">
                                         <label class="select">
                                             <select name="company_id">
                                                 <option selected="" disabled="">Please Select a Company</option>
@@ -82,8 +73,22 @@
                                                 	</option>
                                                 @endforeach
                                             </select> <i></i> </label>
-                                            @if($errors->first('type'))
-												<em class="invalid">{{ $errors->first('type') }}</em>
+                                            @if($errors->first('company_id'))
+												<em class="invalid">{{ $errors->first('company_id') }}</em>
+											@endif
+                                    </section>
+                                    <section class="col col-3">
+                                        <label class="select">
+                                            <select name="distributor_id">
+                                                <option selected="" disabled="">Please Select a Distributor</option>
+                                                @foreach($distributors as $distributor)
+                                                	<option value="{{ $distributor->id }}">
+                                                		{{ $distributor->first_name }} {{ $distributor->last_name }}
+                                                	</option>
+                                                @endforeach
+                                            </select> <i></i> </label>
+                                            @if($errors->first('distributor_id'))
+												<em class="invalid">{{ $errors->first('distributor_id') }}</em>
 											@endif
                                     </section>
 								</div>

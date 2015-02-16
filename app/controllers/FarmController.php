@@ -31,8 +31,11 @@ class FarmController extends \BaseController {
 	{
 		$breadcrumbs = ['Home', 'Farms', 'Create'];
 		$companies = Company::where('type', '=', 'Farm')->get();
+		$group = Sentry::findGroupByName('Distributor');
+		$distributors = Sentry::findAllUsersInGroup($group);
 		return View::make('admin.farm.create')
 					->withBreadcrumbs($breadcrumbs)
+					->withDistributors($distributors)
 					->withCompanies($companies);
 	}
 
@@ -49,6 +52,7 @@ class FarmController extends \BaseController {
 			$rules = [
 				'name' => 'required|alpha',
 				'company_id' => 'required|exists:companies,id',
+				'distributor_id' => 'required|exists:users,id',
 				'direction' => 'required',
 				'zip' => 'required',
 				'state' => 'required',

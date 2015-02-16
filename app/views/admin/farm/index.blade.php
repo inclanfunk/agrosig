@@ -52,7 +52,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>All Companies</h2>
+									<h2>All Farms</h2>
 								</header>
 				
 								<!-- widget div-->
@@ -73,6 +73,7 @@
 												<tr>
 													<th data-hide="phone">ID</th>
 													<th data-hide="phone,tablet">Company</th>
+													<th data-hide="phone,tablet">Distributor</th>
 						                            <th data-class="expand">Name</th>
 						                            <th data-hide="phone,tablet">Phone</th>
 						                            <th data-hide="phone,tablet">Email</th>
@@ -84,6 +85,7 @@
 							                        <tr>
 							                            <td>{{ $farm->id }}</td>
 							                            <td>{{ $farm->company->name }}</td>
+							                            <td>{{ $farm->distributor->first_name }} {{ $farm->distributor->last_name }}</td>
 							                            <td>{{ $farm->name }}</td>
 							                            <td>{{ $farm->phone }}</td>
 							                            <td>{{ $farm->email }}</td>
@@ -217,7 +219,7 @@
 		    } );
 		    /* END COLUMN FILTER */
 
-		    $('header h2').text('All Companies');
+		    $('header h2').text('All Farms');
 
 
 
