@@ -652,10 +652,10 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="electrical_board_contractors" placeholder="Contractors" required>
+                                        <input type="text" name="electrical_board_contactors" placeholder="Contactors" required>
                                     </label>
-                                    @if($errors->first('electrical_board_contractors'))
-                                        <em class="invalid">{{ $errors->first('electrical_board_contractors') }}</em>
+                                    @if($errors->first('electrical_board_contactors'))
+                                        <em class="invalid">{{ $errors->first('electrical_board_contactors') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
@@ -677,7 +677,7 @@
                         </fieldset>
                         <fieldset>
                             <div class="row">
-                                <section class="col col-4">
+                                <section class="col col-6">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
                                         <input type="text" name="relay_board" placeholder="Relay Board" required>
                                     </label>
@@ -685,18 +685,7 @@
                                         <em class="invalid">{{ $errors->first('relay_board') }}</em>
                                     @endif
                                 </section>
-                                <section class="col col-4">
-                                    <label class="select">
-                                        <select name="sub_monitor" class="farm">
-                                            <option selected="" disabled="">Sub Monitor</option>
-                                                <option value="1">Yes</option>
-                                                <option value="2">No</option>
-                                        </select> <i></i> </label>
-                                        @if($errors->first('sub_monitor'))
-                                            <em class="invalid">{{ $errors->first('sub_monitor') }}</em>
-                                        @endif
-                                </section>
-                                <section class="col col-4">
+                                <section class="col col-6">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
                                         <input type="text" name="protections" placeholder="Other Protections" required>
                                     </label>

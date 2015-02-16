@@ -95,8 +95,8 @@
                             <li class="{{ Request::is('pivots/create') ? 'active' : '' }}">
                                 <a href="{{ URL::to('pivots/create') }}">Create Pivot</a>
                             </li>   
-                            <li>
-                                <a href="#">Create Water Pump</a>
+                            <li class="{{ Request::is('waterpumps/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('waterpumps/create') }}">Create Water Pump</a>
                             </li>
                         </ul>
                     </li>

@@ -243,21 +243,6 @@
 											<em class="invalid">{{ $errors->first('company_id') }}</em>
 										@endif
                                 </section>
-
-                                <section class="col col-4">
-                                    <label class="select">
-                                        <select name="farm_id" class="distributor">
-                                            <option selected="" disabled="">Please Select a Farm</option>
-                                            @foreach($farms as $farm)
-                                                <option value="{{ $farm->id }}">
-                                                    {{ $farm->name }}
-                                                </option>
-                                            @endforeach
-                                        </select> <i></i> </label>
-                                        @if($errors->first('farm_id'))
-                                            <em class="invalid">{{ $errors->first('farm_id') }}</em>
-                                        @endif
-                                </section>
                             </div>
                         </fieldset>
 
