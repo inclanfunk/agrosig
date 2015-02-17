@@ -176,13 +176,13 @@
                                 </section>
                                 <section class="col col-3">
                                     <label class="select">
-                                        <select name="model" class="farm">
+                                        <select name="coa_model" class="farm">
                                             <option selected="" disabled="">Model</option>
-                                                <option value="1">8000</option>
-                                                <option value="2">8120</option>
+                                                <option value="1">Flexible</option>
+                                                <option value="2">Metalic</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('model'))
-                                            <em class="invalid">{{ $errors->first('model') }}</em>
+                                        @if($errors->first('coa_model'))
+                                            <em class="invalid">{{ $errors->first('coa_model') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-3">
@@ -335,17 +335,13 @@
                                             <em class="invalid">{{ $errors->first('co_diameter') }}</em>
                                         @endif
                                 </section>
-                                <section class="col col-4">
-                                    <label class="select">
-                                        <select name="co_drops" class="farm">
-                                            <option selected="" disabled="">Drops</option>
-                                                <option value="1">All Range</option>
-                                                <option value="2">Low Flow</option>
-                                                <option value="2">High Flow</option>
-                                        </select> <i></i> </label>
-                                        @if($errors->first('co_drops'))
-                                            <em class="invalid">{{ $errors->first('co_drops') }}</em>
-                                        @endif
+                                <section class="col col-3">
+                                    <label class="input"> <i class="icon-append fa fa-arrow-circle-down"></i>
+                                        <input type="number" name="co_drops" placeholder="Distance between downspout drops" required>
+                                    </label>
+                                    @if($errors->first('co_drops'))
+                                        <em class="invalid">{{ $errors->first('co_drops') }}</em>
+                                    @endif
                                 </section>
                             </div>
                         </fieldset>
@@ -364,24 +360,6 @@
                                         </select> <i></i> </label>
                                         @if($errors->first('alignment'))
                                             <em class="invalid">{{ $errors->first('alignment') }}</em>
-                                        @endif
-                                </section>
-                            </div>
-                        </fieldset>
-                        <header>
-                            Wheels
-                        </header>
-                        <fieldset>
-                            <div class="row">
-                                <section class="col col-4">
-                                    <label class="select">
-                                        <select name="wheel_size" class="farm">
-                                            <option selected="" disabled="">Size</option>
-                                                <option value="1">14x9x24</option>
-                                                <option value="2">16x10x20</option>
-                                        </select> <i></i> </label>
-                                        @if($errors->first('wheel_size'))
-                                            <em class="invalid">{{ $errors->first('wheel_size') }}</em>
                                         @endif
                                 </section>
                             </div>
@@ -663,7 +641,7 @@
                                         <select name="electrical_board_brand" class="farm">
                                             <option selected="" disabled="">Brand</option>
                                                 <option value="1">Weg</option>
-                                                <option value="2">Siemens </option>
+                                                <option value="2">Siemens</option>
                                                 <option value="3">Lindsay</option>
                                                 <option value="4">TL</option>
                                                 <option value="5">Reinke</option>
