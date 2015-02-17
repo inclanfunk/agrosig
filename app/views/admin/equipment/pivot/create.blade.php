@@ -60,6 +60,13 @@
 	            <div class="tab-content padding-10">
 	            	<!-- tab1 -->
 	                <div class="tab-pane fade in active" id="tab1">
+                        @if(Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <a class="close" data-dismiss="alert" href="#">×</a>
+                                <h4 class="alert-heading">Success!</h4>
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <header>
                             Farm and Distributor
                         </header>
@@ -373,7 +380,7 @@
                                 <section class="col col-3">
                                     <label class="select">
                                         <select name="re_brand" class="farm">
-                                            <option selected="" disabled="">Length</option>
+                                            <option selected="" disabled="">Brand</option>
                                                 <option value="1">Baldor</option>
                                                 <option value="2">Emmerson</option>
                                         </select> <i></i> </label>
