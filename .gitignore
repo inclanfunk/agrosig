@@ -3,6 +3,7 @@
 /public/photos/
 /public/geojson/
 /public/logos/
+/public/deepwell/
 composer.phar
 composer.lock
 .env.*.php

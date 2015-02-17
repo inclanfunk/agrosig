@@ -21,7 +21,7 @@ class CreatePivotsTable extends Migration {
 			$table->foreign('distributor_id')->references('id')->on('users');
 			$table->double('lat', 15, 8);
 			$table->double('long', 15, 8);
-			$table->decimal('length', 5, 2);
+			$table->decimal('radius', 5, 2);
 			$table->enum('brand', array('Valley', 'Linjsey', 'BTL', 'Reinke'));
 			$table->enum('model', array('8000', '8120'));
 			$table->enum('coa', array('8 5/8', '6 5/8', '10'));

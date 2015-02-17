@@ -103,7 +103,7 @@
                             </div>
                         </fieldset>
                         <header>
-                            Coordinates &amp; Length
+                            Coordinates &amp; Radius
                         </header>
                         <fieldset>
                             <div class="row">
@@ -125,10 +125,10 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-arrows"></i>
-                                        <input type="number" name="length" placeholder="Length" required>
+                                        <input type="number" name="radius" placeholder="Radius" required>
                                     </label>
-                                    @if($errors->first('length'))
-                                        <em class="invalid">{{ $errors->first('length') }}</em>
+                                    @if($errors->first('radius'))
+                                        <em class="invalid">{{ $errors->first('radius') }}</em>
                                     @endif
                                 </section>
                             </div>

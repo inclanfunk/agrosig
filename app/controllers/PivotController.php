@@ -38,6 +38,8 @@ class PivotController extends \BaseController {
 	 */
 	public function store()
 	{
+
+		//dd(Input::all());
 		// Need to work on validation
 		Pivot::create(Input::all());
 		return Redirect::back()->with('success', 'Pivot Created Successfully');

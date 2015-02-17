@@ -38,7 +38,28 @@ class WaterpumpController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// Need to work on validation
+
+		$data = Input::all();
+
+		if(Input::hasFile('deepwell_info')){
+			if(Input::file('deepwell_info')->getClientOriginalExtension() == 'jpeg' || Input::file('deepwell_info')->getClientOriginalExtension() == 'jpg'){
+				$hash_name = sha1(time() . Sentry::getUser());
+				Image::make(Input::file('deepwell_info'))->resize(100, 100)->save(Config::get('path.deepwell') . $hash_name . '.jpg');
+				$data['deepwell_info'] = $hash_name . '.jpg';
+			}
+
+			if(Input::file('deepwell_info')->getClientOriginalExtension() == 'pdf'){
+				$hash_name = sha1(time() . Sentry::getUser());
+				$destination_path = Config::get('path.deepwell');
+				$file_name =  $hash_name . '.pdf';
+				Input::file('deepwell_info')->move($destination_path, $file_name);
+				$data['deepwell_info'] = $hash_name . '.pdf';
+			}
+		}
+
+		Waterpump::create($data);
+		return Redirect::back()->with('success', 'Waterpump Created Successfully');
 	}
 
 

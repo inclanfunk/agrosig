@@ -6,7 +6,7 @@ class Pivot extends \Eloquent {
 		'distributor_id',
 		'lat',
 		'long',
-		'length',
+		'radius',
 		'brand',
 		'model',
 		'coa',

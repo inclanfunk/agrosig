@@ -38,6 +38,10 @@
                 <a data-toggle="tab" href="#tab3"> <i class="fa fa-gear"></i> <span class="hidden-mobile hidden-tablet">Electical Board</span></a>
             </li>
 
+            <li>
+                <a data-toggle="tab" href="#tab4"> <i class="fa fa-gear"></i> <span class="hidden-mobile hidden-tablet">Deep Well Info</span></a>
+            </li>
+
         </ul>
 
     </header>
@@ -60,6 +64,13 @@
 	            <div class="tab-content padding-10">
 	            	<!-- tab1 -->
 	                <div class="tab-pane fade in active" id="tab1">
+                        @if(Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <a class="close" data-dismiss="alert" href="#">×</a>
+                                <h4 class="alert-heading">Success!</h4>
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <header>
                             Farm and Distributor
                         </header>
@@ -393,10 +404,10 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="light_fuse_caliber" placeholder="Light Fuse Caliber" required>
+                                        <input type="text" name="line_fuse_caliber" placeholder="Line Fuse Caliber" required>
                                     </label>
-                                    @if($errors->first('light_fuse_caliber'))
-                                        <em class="invalid">{{ $errors->first('light_fuse_caliber') }}</em>
+                                    @if($errors->first('line_fuse_caliber'))
+                                        <em class="invalid">{{ $errors->first('line_fuse_caliber') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -420,7 +431,7 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="contactors_power" placeholder="Power" required>
+                                        <input type="text" name="contactor_power" placeholder="Power" required>
                                     </label>
                                     @if($errors->first('contactor_power'))
                                         <em class="invalid">{{ $errors->first('contactor_power') }}</em>
@@ -498,7 +509,7 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="contactors_line_comment" placeholder="Contactors of Line Comment" required>
+                                        <input type="text" name="contactor_line_comment" placeholder="Contactors of Line Comment" required>
                                     </label>
                                     @if($errors->first('contactor_line_comment'))
                                         <em class="invalid">{{ $errors->first('contactor_line_comment') }}</em>
@@ -509,11 +520,28 @@
                     </div>
                     <!-- end tab3 -->
 
+                    <!-- tab4 -->
+                    <div class="tab-pane fade" id="tab4">
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-6">
+                                    <div class="input input-file">
+                                        <span class="button"><input id="file" name="deepwell_info" onchange="this.parentNode.nextSibling.value = this.value" type="file">Browse</span><input placeholder="Upload Deep Well Info" readonly="" type="text">
+                                    </div>
+                                    @if($errors->first('deepwell_info'))
+                                            <em class="invalid">{{ $errors->first('deepwell_info') }}</em>
+                                    @endif
+                                </section>
+                           </div>
+                        </fieldset>
+                    </div>
+                    <!-- end tab4 -->
+
 	            </div>
 
                 <footer>
                     <button type="submit" class="btn btn-primary">
-                        Create Pivot
+                        Create Waterpump
                     </button>
                 </footer>
 
