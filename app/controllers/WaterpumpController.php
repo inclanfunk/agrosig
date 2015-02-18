@@ -45,7 +45,7 @@ class WaterpumpController extends \BaseController {
 		if(Input::hasFile('deepwell_info')){
 			if(Input::file('deepwell_info')->getClientOriginalExtension() == 'jpeg' || Input::file('deepwell_info')->getClientOriginalExtension() == 'jpg'){
 				$hash_name = sha1(time() . Sentry::getUser());
-				Image::make(Input::file('deepwell_info'))->resize(100, 100)->save(Config::get('path.deepwell') . $hash_name . '.jpg');
+				Image::make(Input::file('deepwell_info'))->save(Config::get('path.deepwell') . $hash_name . '.jpg');
 				$data['deepwell_info'] = $hash_name . '.jpg';
 			}
 

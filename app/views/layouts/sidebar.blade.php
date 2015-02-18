@@ -104,6 +104,20 @@
             </li>
             @endif
 
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">Maps</span></a>
+                <ul>
+                    <li>
+                        <a href="#">Crops</a>
+                    </li>
+                    <li>
+                        <a href="#">Equipment</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
 		</ul>
 
 	</nav>

@@ -121,7 +121,7 @@ class UserController extends \BaseController {
 					'farm_id' => $data['farm_id']
 				]);
 
-				return Redirect::back();
+				return Redirect::back()->with('success', 'Manager Created Successfully');
 
 				break;
 
@@ -166,7 +166,7 @@ class UserController extends \BaseController {
 					'company_id' => $data['company_id']
 				]);
 
-				return Redirect::back();
+				return Redirect::back()->with('success', 'Distributor Created Successfully');
 
 				break;
 
@@ -211,7 +211,7 @@ class UserController extends \BaseController {
 					'company_id' => $data['company_id']
 				]);
 
-				return Redirect::back();
+				return Redirect::back()->with('success', 'Water Pump Reseller Created Successfully');
 
 				break;
 		}

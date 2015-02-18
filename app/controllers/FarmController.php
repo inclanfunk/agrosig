@@ -80,7 +80,7 @@ class FarmController extends \BaseController {
 
 		Farm::create($data);
 
-		return Redirect::route('farms.create');
+		return Redirect::back()->with('success', 'Farm Created Successfully');
 	}
 
 

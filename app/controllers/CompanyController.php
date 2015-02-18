@@ -78,7 +78,7 @@ class CompanyController extends \BaseController {
 
 		Company::create($data);
 
-		return Redirect::route('companies.create');
+		return Redirect::back()->with('success', 'Company Created Successfully');
 	}
 
 

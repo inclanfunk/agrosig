@@ -44,6 +44,14 @@
 								Create a New Company
 							</header>
 
+							@if(Session::get('success'))
+	                            <div class="alert alert-success alert-block">
+	                                <a class="close" data-dismiss="alert" href="#">×</a>
+	                                <h4 class="alert-heading">Success!</h4>
+	                                {{ Session::get('success') }}
+	                            </div>
+	                        @endif
+
 							<fieldset>
 								<div class="row">
                                     <section class="col col-10">
