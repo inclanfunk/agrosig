@@ -51,6 +51,9 @@
 		<link rel="apple-touch-startup-image" href="{{URL::to('img/splash/ipad-portrait.png')}}" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="{{URL::to('img/splash/iphone.png')}}" media="screen and (max-device-width: 320px)">
 
+		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+
 	</head>
 	<body class="">
 		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->

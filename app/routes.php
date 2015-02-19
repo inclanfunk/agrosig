@@ -28,9 +28,18 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('companies', 'CompanyController');
 	Route::resource('farms', 'FarmController');
-	Route::resource('equipment', 'EquipmentController');
+	Route::resource('equipment', 'EquipmentController'); // No use right now!
 	Route::resource('pivots', 'PivotController');
 	Route::resource('waterpumps', 'WaterpumpController');
+
+	Route::get('/equipment-map', [
+		'as' => 'equipmentMap',
+		'uses' => 'EquipmentMapController@showMap'
+	]);
+
+	Route::get('/distributor-companies', 'EquipmentMapController@findCompaniesByDistributor');
+	Route::get('/distributors/{id}/farms', 'EquipmentMapController@findFarmsByDistributor');
+
 });
 
 // Just for testing. To be removed before production.

@@ -111,8 +111,8 @@
                     <li>
                         <a href="#">Crops</a>
                     </li>
-                    <li>
-                        <a href="#">Equipment</a>
+                    <li class="{{ Request::is('equipment-map') ? 'active' : '' }}">
+                        <a href="{{ URL::to('equipment-map') }}">Equipment</a>
                     </li>
                 </ul>
             </li>

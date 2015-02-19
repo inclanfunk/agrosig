@@ -5,4 +5,9 @@ class Distributor extends \Eloquent {
 		'user_id',
 		'company_id'
 	];
+
+	public function company()
+	{
+		return $this->belongsTo('Company');
+	}
 }
