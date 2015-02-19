@@ -73,30 +73,30 @@
                                     </section>
                                     <section class="col col-3">
                                         <label class="select">
-                                            <select name="company_id">
-                                                <option selected="" disabled="">Please Select a Company</option>
-                                                @foreach($companies as $company)
+                                            <select name="farm_company_id">
+                                                <option selected="" disabled="">Please Select a Farm Company</option>
+                                                @foreach($farm_companies as $company)
                                                 	<option value="{{ $company->id }}">
                                                 		{{ $company->name }}
                                                 	</option>
                                                 @endforeach
                                             </select> <i></i> </label>
-                                            @if($errors->first('company_id'))
-												<em class="invalid">{{ $errors->first('company_id') }}</em>
+                                            @if($errors->first('farm_company_id'))
+												<em class="invalid">{{ $errors->first('farm_company_id') }}</em>
 											@endif
                                     </section>
                                     <section class="col col-3">
                                         <label class="select">
-                                            <select name="distributor_id">
-                                                <option selected="" disabled="">Please Select a Distributor</option>
-                                                @foreach($distributors as $distributor)
-                                                	<option value="{{ $distributor->id }}">
-                                                		{{ $distributor->first_name }} {{ $distributor->last_name }}
+                                            <select name="distributor_company_id">
+                                                <option selected="" disabled="">Please Select a Distributor Company</option>
+                                                @foreach($distributor_companies as $company)
+                                                	<option value="{{ $company->id }}">
+                                                		{{ $company->name }}
                                                 	</option>
                                                 @endforeach
                                             </select> <i></i> </label>
-                                            @if($errors->first('distributor_id'))
-												<em class="invalid">{{ $errors->first('distributor_id') }}</em>
+                                            @if($errors->first('distributor_company_id'))
+												<em class="invalid">{{ $errors->first('distributor_company_id') }}</em>
 											@endif
                                     </section>
 								</div>

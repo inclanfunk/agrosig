@@ -15,10 +15,10 @@ class CreateFarmsTable extends Migration {
 		Schema::create('farms', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('company_id')->unsigned();
-			$table->foreign('company_id')->references('id')->on('companies');
-			$table->integer('distributor_id')->unsigned();
-			$table->foreign('distributor_id')->references('id')->on('users');
+			$table->integer('farm_company_id')->unsigned();
+			$table->foreign('farm_company_id')->references('id')->on('companies');
+			$table->integer('distributor_company_id')->unsigned();
+			$table->foreign('distributor_company_id')->references('id')->on('companies');
 			$table->string('name');
 			$table->string('direction');
 			$table->integer('zip');

@@ -3,8 +3,8 @@
 class Farm extends \Eloquent {
 	protected $fillable = [
 		'name',
-		'company_id',
-		'distributor_id',
+		'farm_company_id',
+		'distributor_company_id',
 		'direction',
 		'zip',
 		'state',
@@ -16,13 +16,13 @@ class Farm extends \Eloquent {
 		'logo',
 	];
 
-	public function company()
+	public function farmCompany()
 	{
-		return $this->belongsTo('Company');
+		return $this->belongsTo('Company', 'farm_company_id');
 	}
 
-	public function distributor()
+	public function distributorCompany()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('Company', 'distributor_company_id');
 	}
 }

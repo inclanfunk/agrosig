@@ -72,8 +72,8 @@
 											<thead>			                
 												<tr>
 													<th data-hide="phone">ID</th>
-													<th data-hide="phone,tablet">Company</th>
-													<th data-hide="phone,tablet">Distributor</th>
+													<th data-hide="phone,tablet">Farm Company</th>
+													<th data-hide="phone,tablet">Distributor Company</th>
 						                            <th data-class="expand">Name</th>
 						                            <th data-hide="phone,tablet">Phone</th>
 						                            <th data-hide="phone,tablet">Email</th>
@@ -84,8 +84,8 @@
 												@foreach($farms as $farm)
 							                        <tr>
 							                            <td>{{ $farm->id }}</td>
-							                            <td>{{ $farm->company->name }}</td>
-							                            <td>{{ $farm->distributor->first_name }} {{ $farm->distributor->last_name }}</td>
+							                            <td>{{ $farm->farm_company->name }}</td>
+							                            <td>{{ $farm->distributor_company->name }}</td>
 							                            <td>{{ $farm->name }}</td>
 							                            <td>{{ $farm->phone }}</td>
 							                            <td>{{ $farm->email }}</td>
