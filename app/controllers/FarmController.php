@@ -49,7 +49,8 @@ class FarmController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make(
+		// Need to work on validation later.
+		/*$validator = Validator::make(
 			$data = Input::all(),
 			$rules = [
 				'name' => 'required|alpha',
@@ -69,8 +70,9 @@ class FarmController extends \BaseController {
 
 		if($validator->fails()){
 			return Redirect::route('farms.create')->withErrors($validator->messages());
-		}
+		}*/
 
+		$data = Input::all();
 		$hash_name = sha1(time() . Sentry::getUser());
 		Image::make(Input::file('logo'))->resize(100, 100)->save(Config::get('path.logos') . $hash_name . '.jpg');
 		$data['logo'] = $hash_name . '.jpg';

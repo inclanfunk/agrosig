@@ -42,7 +42,8 @@ class CompanyController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make(
+		// Need to work on validations later
+		/*$validator = Validator::make(
 			$data = Input::all(),
 			$rules = [
 				'type' => 'required',
@@ -65,8 +66,9 @@ class CompanyController extends \BaseController {
 
 		if($validator->fails()){
 			return Redirect::route('companies.create')->withErrors($validator->messages());
-		}
+		}*/
 
+		$data = Input::all();
 		$hash_name = sha1(time() . Sentry::getUser());
 		Image::make(Input::file('logo'))->resize(100, 100)->save(Config::get('path.logos') . $hash_name . '.jpg');
 		$data['logo'] = $hash_name . '.jpg';

@@ -108,22 +108,55 @@
 
 	<script type="text/javascript">
 		L.mapbox.accessToken = 'pk.eyJ1Ijoicm9oYW4wNzkzIiwiYSI6IjhFeGVzVzgifQ.MQBzoHJmjH19bXDW0b8nKQ';
-		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99')
-			.setView([-39.67, -69.26], 4);
+		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99', {
+			zoomControl: false
+		}).setView([-39.67, -69.26], 4);
+
+		// Disable drag and zoom handlers.
+		map.dragging.disable();
+		map.touchZoom.disable();
+		map.doubleClickZoom.disable();
+		map.scrollWheelZoom.disable();
+
+		// Disable tap handler, if present.
+		if (map.tap) map.tap.disable();
 
 		$(document).ready(function(){
-			$('header h2').text('Equipment Map');
-
-			$.getJSON('distributor-companies', function (data) {
-				$.each(data, function(i, item) {
-					if(item.geojson != ''){
-						var file = item.geojson;
-						$.getJSON('/geojson/' + file, function(data){
-							L.geoJson(data, { style: L.mapbox.simplestyle.style }).addTo(map);
-						});
-					}
-				});
+		    $('header h2').text('Equipment Map');
+		    map.on('click', function(e){
+				map.setView([-39.67, -69.26], 4);
 			});
+		    $.getJSON('distributor-companies', function (data) {
+		        var layers = [];
+		        $.each(data, function (i, item) {
+		            if (item.geojson != '') {
+		                layers[i] = L.mapbox.featureLayer().addTo(map);
+		                $.getJSON('/geojson/' + item.geojson, function (data) {
+		                    layers[i].setGeoJSON(data);
+		                    // Loop over the added layer
+		                    layers[i].eachLayer(function (layer) {
+		                        // Add click event
+		                        layer.on('click', function (e) {
+		                            // Do stuff
+		                            // console.log(layers[i]);
+		                            map.fitBounds(layers[i].getBounds());
+		                            $.getJSON('distributor/' + item.id + '/farms', function(data){
+		                            	var farm_layers = [];
+		                            	$.each(data, function(farm_i, farm_item){
+		                            		if(farm_item.geojson != ''){
+		                            			farm_layers[farm_i] = L.mapbox.featureLayer().addTo(map);
+		                            			$.getJSON('/geojson/' + farm_item.geojson, function(data){
+		                            				farm_layers[farm_i].setGeoJSON(data);
+		                            			});
+		                            		}
+		                            	});
+		                            });
+		                        });
+		                    });
+		                });
+		            }
+		        });
+		    });
 		});
 	</script>
 

@@ -18,4 +18,9 @@ class Company extends \Eloquent {
 		'logo',
 		'description'
 	];
+
+	public function farms()
+	{
+		return $this->hasMany('Farm', 'distributor_company_id');
+	}
 }

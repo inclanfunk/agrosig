@@ -11,12 +11,10 @@ class EquipmentMapController extends \BaseController {
 
 	}
 
-	public function findFarmsByDistributor($id)
+	public function findFarmsByDistributorCompanies($id)
 	{
-		$group = Sentry::findGroupById('3');
-		$farms = Sentry::findUserByGroup($group)->distributor->company->farms;
-
-		dd($farms);
+		$farms = Company::find($id)->farms;
+		return Response::json($farms, 200);
 	}
 
 	public function findCompaniesByDistributor()
