@@ -123,40 +123,69 @@
 
 		$(document).ready(function(){
 		    $('header h2').text('Equipment Map');
+
+		    plotDistributorCompanies();
+
 		    map.on('click', function(e){
 				map.setView([-39.67, -69.26], 4);
+				removeFarmsLayers();
+				plotDistributorCompanies();
 			});
-		    $.getJSON('distributor-companies', function (data) {
-		        var layers = [];
-		        $.each(data, function (i, item) {
-		            if (item.geojson != '') {
-		                layers[i] = L.mapbox.featureLayer().addTo(map);
-		                $.getJSON('/geojson/' + item.geojson, function (data) {
-		                    layers[i].setGeoJSON(data);
-		                    // Loop over the added layer
-		                    layers[i].eachLayer(function (layer) {
-		                        // Add click event
-		                        layer.on('click', function (e) {
-		                            // Do stuff
-		                            // console.log(layers[i]);
-		                            map.fitBounds(layers[i].getBounds());
-		                            $.getJSON('distributor/' + item.id + '/farms', function(data){
-		                            	var farm_layers = [];
-		                            	$.each(data, function(farm_i, farm_item){
-		                            		if(farm_item.geojson != ''){
-		                            			farm_layers[farm_i] = L.mapbox.featureLayer().addTo(map);
-		                            			$.getJSON('/geojson/' + farm_item.geojson, function(data){
-		                            				farm_layers[farm_i].setGeoJSON(data);
-		                            			});
-		                            		}
-		                            	});
-		                            });
-		                        });
-		                    });
-		                });
-		            }
-		        });
-		    });
+
+			var distributorCompaniesLayer = L.layerGroup().addTo(map);
+			var farmsLayer = L.layerGroup().addTo(map);
+
+			/*map.on('zoomend', function() {
+			if (map.getZoom() >= 7) {
+	                myFarms.setFilter(function() { return true; });
+	    		} else {
+	        		myFarms.setFilter(function() { return false; });
+	    		}
+			});*/
+
+			function plotFarms(distributor_id){
+				$.getJSON('distributor/' + distributor_id + '/farms', function(data){
+                	$.each(data, function(farm_i, farm_item){
+                		if(farm_item.geojson != ''){
+                			var featureLayer = L.mapbox.featureLayer().addTo(farmsLayer);
+                			$.getJSON('/geojson/' + farm_item.geojson, function(data){
+                				featureLayer.setGeoJSON(data);
+                			});
+                		}
+                	});
+                });
+			}
+
+			function removeDistributorCompaniesLayers(){
+				distributorCompaniesLayer.clearLayers();
+			}
+
+			function removeFarmsLayers(){
+				farmsLayer.clearLayers();
+			}
+
+			function plotDistributorCompanies(){
+				$.getJSON('distributor-companies', function (data) {
+				    $.each(data, function (i, item) {
+				        if (item.geojson != '') {
+				            // Add the new featureLayer to the distributorCompaniesLayer
+				            var featureLayer = L.mapbox.featureLayer().addTo(distributorCompaniesLayer);
+				            $.getJSON('/geojson/' + item.geojson, function (data) {
+				                featureLayer.setGeoJSON(data);
+				                featureLayer.eachLayer(function (layer) {
+				                    layer.on('click', function (e) {
+				                        map.fitBounds(featureLayer.getBounds());
+				                        removeDistributorCompaniesLayers();
+				                        plotFarms(item.id);
+				                    });
+				                });
+				            });
+				        }
+				    });
+				});
+			}
+
+			    
 		});
 	</script>
 
