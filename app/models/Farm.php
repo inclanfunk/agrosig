@@ -30,4 +30,9 @@ class Farm extends \Eloquent {
 	{
 		return $this->hasMany('Pivot');
 	}
+
+	public function waterpumps()
+	{
+		return $this->hasMany('Waterpump');
+	}
 }

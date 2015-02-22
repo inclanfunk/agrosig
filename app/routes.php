@@ -40,6 +40,7 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('/distributor-companies', 'EquipmentMapController@findCompaniesByDistributor');
 	Route::get('/distributor/{id}/farms', 'EquipmentMapController@findFarmsByDistributorCompanies');
 	Route::get('/farm/{id}/pivots', 'EquipmentMapController@findPivotsByFarms');
+	Route::get('/farm/{id}/waterpumps', 'EquipmentMapController@findWaterpumpsByFarms');
 
 });
 

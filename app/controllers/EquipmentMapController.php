@@ -28,4 +28,10 @@ class EquipmentMapController extends \BaseController {
 		$pivots = Farm::find($id)->pivots;
 		return Response::json($pivots, 200);
 	}
+
+	public function findWaterpumpsByFarms($id)
+	{
+		$waterpumps = Farm::find($id)->waterpumps;
+		return Response::json($waterpumps, 200);
+	}
 }

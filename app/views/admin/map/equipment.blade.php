@@ -112,15 +112,13 @@
 			zoomControl: false
 		}).setView([-39.67, -69.26], 4);
 
-		// L.circle([-28.67, -69.26], 1000).addTo(map);
+		// Disable drag and zoom handlers.
+		map.touchZoom.disable();
+		map.doubleClickZoom.disable();
+		map.scrollWheelZoom.disable();
 
-		// // Disable drag and zoom handlers.
-		// map.touchZoom.disable();
-		// map.doubleClickZoom.disable();
-		// map.scrollWheelZoom.disable();
-
-		// // Disable tap handler, if present.
-		// if (map.tap) map.tap.disable();
+		// Disable tap handler, if present.
+		if (map.tap) map.tap.disable();
 
 		$(document).ready(function(){
 		    $('header h2').text('Equipment Map');
@@ -130,8 +128,12 @@
 		    map.on('click', function(e){
 				map.setView([-39.67, -69.26], 4);
 				removeFarmsLayers();
+				removePivotsLayer();
+				removeWaterpumpsLayer();
 				map.addLayer(distributorCompaniesLayer);
 				map.addLayer(farmsLayer);
+				map.addLayer(pivotsLayer);
+				map.addLayer(waterpumpsLayer);
 				plotDistributorCompanies();
 			});
 
@@ -140,6 +142,7 @@
 			var farmsLayer = L.layerGroup().addTo(map);
 
 			var pivotsLayer = L.mapbox.featureLayer().addTo(map);
+			var waterpumpsLayer = L.mapbox.featureLayer().addTo(map);
 
 			function removeDistributorCompaniesLayers(){
 				distributorCompaniesLayer.clearLayers();
@@ -149,6 +152,16 @@
 			function removeFarmsLayers(){
 				farmsLayer.clearLayers();
 				map.removeLayer(farmsLayer);
+			}
+
+			function removePivotsLayer(){
+				pivotsLayer.clearLayers();
+				map.removeLayer(pivotsLayer);
+			}
+
+			function removeWaterpumpsLayer(){
+				waterpumpsLayer.clearLayers();
+				map.removeLayer(waterpumpsLayer);
 			}
 
 			function plotDistributorCompanies(){
@@ -187,6 +200,7 @@
 				                        map.fitBounds(featureLayer.getBounds());
 				                        removeFarmsLayers();
 				                        plotPivots(farm_item.id);
+				                        plotWaterpumps(farm_item.id);
 				                    });
 				                });
                 			});
@@ -199,15 +213,17 @@
 				$.getJSON('farm/' + farm_id + '/pivots', function(data){
 					$.each(data, function(pivot_i, pivot_item){
 						if(pivot_item.lat != ''){
-							// L.circle([-39.67, -69.26], 10000).addTo(map);
-							// console.log(pivot_item);
-							// console.log(parseFloat(pivot_item.long));
-							circle_coords = [parseFloat(pivot_item.lat), parseFloat(pivot_item.long)];
-							circle_radius = parseFloat(pivot_item.radius);
-							console.log(circle_coords);
-							console.log(circle_radius);
-							var circle = L.circle(circle_coords, circle_radius).addTo(map);
-							console.log(circle);
+							var circle = L.circle([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], parseFloat(pivot_item.radius)).addTo(pivotsLayer);
+						}
+					});
+				});
+			}
+
+			function plotWaterpumps(farm_id){
+				$.getJSON('farm/' + farm_id + '/waterpumps', function(data){
+					$.each(data, function(pivot_i, pivot_item){
+						if(pivot_item.lat != ''){
+							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
 						}
 					});
 				});
