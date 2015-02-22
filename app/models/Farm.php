@@ -25,4 +25,9 @@ class Farm extends \Eloquent {
 	{
 		return $this->belongsTo('Company', 'distributor_company_id');
 	}
+
+	public function pivots()
+	{
+		return $this->hasMany('Pivot');
+	}
 }

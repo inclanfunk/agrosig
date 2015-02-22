@@ -112,14 +112,15 @@
 			zoomControl: false
 		}).setView([-39.67, -69.26], 4);
 
-		// Disable drag and zoom handlers.
-		map.dragging.disable();
-		map.touchZoom.disable();
-		map.doubleClickZoom.disable();
-		map.scrollWheelZoom.disable();
+		// L.circle([-28.67, -69.26], 1000).addTo(map);
 
-		// Disable tap handler, if present.
-		if (map.tap) map.tap.disable();
+		// // Disable drag and zoom handlers.
+		// map.touchZoom.disable();
+		// map.doubleClickZoom.disable();
+		// map.scrollWheelZoom.disable();
+
+		// // Disable tap handler, if present.
+		// if (map.tap) map.tap.disable();
 
 		$(document).ready(function(){
 		    $('header h2').text('Equipment Map');
@@ -138,24 +139,7 @@
 			var distributorCompaniesLayer = L.layerGroup().addTo(map);
 			var farmsLayer = L.layerGroup().addTo(map);
 
-			function plotFarms(distributor_id){
-				$.getJSON('distributor/' + distributor_id + '/farms', function(data){
-                	$.each(data, function(farm_i, farm_item){
-                		if(farm_item.geojson != ''){
-                			var featureLayer = L.mapbox.featureLayer().addTo(farmsLayer);
-                			$.getJSON('/geojson/' + farm_item.geojson, function(data){
-                				featureLayer.setGeoJSON(data);
-                				featureLayer.eachLayer(function (layer) {
-				                    layer.on('click', function (e) {
-				                        map.fitBounds(featureLayer.getBounds());
-				                        removeFarmsLayers();
-				                    });
-				                });
-                			});
-                		}
-                	});
-                });
-			}
+			var pivotsLayer = L.mapbox.featureLayer().addTo(map);
 
 			function removeDistributorCompaniesLayers(){
 				distributorCompaniesLayer.clearLayers();
@@ -189,6 +173,44 @@
 					    });
 					});
 				}
+			}
+
+			function plotFarms(distributor_id){
+				$.getJSON('distributor/' + distributor_id + '/farms', function(data){
+                	$.each(data, function(farm_i, farm_item){
+                		if(farm_item.geojson != ''){
+                			var featureLayer = L.mapbox.featureLayer().addTo(farmsLayer);
+                			$.getJSON('/geojson/' + farm_item.geojson, function(data){
+                				featureLayer.setGeoJSON(data);
+                				featureLayer.eachLayer(function (layer) {
+				                    layer.on('click', function (e) {
+				                        map.fitBounds(featureLayer.getBounds());
+				                        removeFarmsLayers();
+				                        plotPivots(farm_item.id);
+				                    });
+				                });
+                			});
+                		}
+                	});
+                });
+			}
+
+			function plotPivots(farm_id){
+				$.getJSON('farm/' + farm_id + '/pivots', function(data){
+					$.each(data, function(pivot_i, pivot_item){
+						if(pivot_item.lat != ''){
+							// L.circle([-39.67, -69.26], 10000).addTo(map);
+							// console.log(pivot_item);
+							// console.log(parseFloat(pivot_item.long));
+							circle_coords = [parseFloat(pivot_item.lat), parseFloat(pivot_item.long)];
+							circle_radius = parseFloat(pivot_item.radius);
+							console.log(circle_coords);
+							console.log(circle_radius);
+							var circle = L.circle(circle_coords, circle_radius).addTo(map);
+							console.log(circle);
+						}
+					});
+				});
 			}
 
 			    

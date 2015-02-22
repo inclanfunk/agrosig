@@ -11,15 +11,21 @@ class EquipmentMapController extends \BaseController {
 
 	}
 
+	public function findCompaniesByDistributor()
+	{
+		$companies = Company::where('type', '=', 'Distributor')->get();
+		return Response::json($companies, 200);
+	}
+
 	public function findFarmsByDistributorCompanies($id)
 	{
 		$farms = Company::find($id)->farms;
 		return Response::json($farms, 200);
 	}
 
-	public function findCompaniesByDistributor()
+	public function findPivotsByFarms($id)
 	{
-		$companies = Company::where('type', '=', 'Distributor')->get();
-		return Response::json($companies, 200);
+		$pivots = Farm::find($id)->pivots;
+		return Response::json($pivots, 200);
 	}
 }
