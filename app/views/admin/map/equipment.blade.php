@@ -18,19 +18,32 @@
 		height: 500px;
 	}
 
-	#box {
+	#waterpumpTab {
 		margin: 10px;
-	    padding:5px 10px;
-	    background: rgba(0,0,0,0.5);
-	    color: #fff;
 	    font-size: 11px;
 	    line-height: 18px;
 	    border-radius: 2px;
 	}
 
-	#box:empty {
-	    display: none;
+	#waterpumpTab ul{
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
 	}
+
+	#pivotTab{
+		margin: 10px;
+	    font-size: 11px;
+	    line-height: 18px;
+	    border-radius: 2px;
+	}
+
+	#pivotTab ul{
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+	}
+
 </style>
 
 <!-- widget grid -->
@@ -99,7 +112,70 @@
 					<!-- widget content -->
 					<div class="widget-body no-padding">
 						<div id='map'></div>
-						<div id="box" class="col-xs-6 col-sm-4 col-md-3 col-lg-3">Hello</div>
+						<div id="pivotTab" class="col-xs-6 col-md-4 hidden">
+							<ul>
+								<li>
+									<a href="#tabs-a">Pivot</a>
+								</li>
+								<li>
+									<a href="#tabs-b">Settings</a>
+								</li>
+								<li>
+									<a href="#tabs-c">Electircal Board</a>
+								</li>
+							</ul>
+							<div id="tabs-a">
+								<ul id="pivotGeneral">
+									
+								</ul>
+							</div>
+							<div id="tabs-b">
+								<ul id="pivotSettings">
+									
+								</ul>
+							</div>
+							<div id="tabs-c">
+								<ul id="pivotEbSettings">
+									
+								</ul>
+							</div>
+						</div>
+						<div id="waterpumpTab" class="col-xs-6 col-md-4 hidden">
+							<ul>
+								<li>
+									<a href="#tabs-a">Waterpump</a>
+								</li>
+								<li>
+									<a href="#tabs-b">Settings</a>
+								</li>
+								<li>
+									<a href="#tabs-c">Electircal Board</a>
+								</li>
+								<li>
+									<a href="#tabs-d">Deep Well Info</a>
+								</li>
+							</ul>
+							<div id="tabs-a">
+								<ul id="waterpumpGeneral">
+									
+								</ul>
+							</div>
+							<div id="tabs-b">
+								<ul id="waterpumpSettings">
+									
+								</ul>
+							</div>
+							<div id="tabs-c">
+								<ul id="waterpumpEbSettings">
+									
+								</ul>
+							</div>
+							<div id="tabs-d">
+								<ul id="waterpumpDwInfo">
+									
+								</ul>
+							</div>
+						</div>
 					</div>
 					<!-- end widget content -->
 
@@ -129,6 +205,8 @@
 
 		$(document).ready(function(){
 		    $('header h2').text('Equipment Map');
+		    $('#pivotTab').tabs();
+		    $('#waterpumpTab').tabs();
 
 		    plotDistributorCompanies();
 
@@ -142,6 +220,8 @@
 				map.addLayer(pivotsLayer);
 				map.addLayer(waterpumpsLayer);
 				plotDistributorCompanies();
+				$('#pivotTab').addClass('hidden');
+				$('#waterpumpTab').addClass('hidden');
 			});
 
 		    var distributorCompanies = false;
@@ -221,6 +301,33 @@
 					$.each(data, function(pivot_i, pivot_item){
 						if(pivot_item.lat != ''){
 							var circle = L.circle([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], parseFloat(pivot_item.radius)).addTo(pivotsLayer);
+							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], {
+								icon: L.mapbox.marker.icon({
+							        'marker-symbol': 'circle-stroked',
+							        'marker-color': '#74DF00'
+							    })
+							}).addTo(pivotsLayer);
+							$('#pivotGeneral')
+									.append("<li>Brand: " + pivot_item.brand + "</li>")
+									.append("<li>Model: " + pivot_item.model + "</li>")
+									.append("<li>QOA: " + pivot_item.coa + "</li>")
+									.append("<li>QOA Model: " + pivot_item.coa_model + "</li>")
+									.append("<li>No. of Downspot Drops: " + pivot_item.ndd + "</li>")
+									.append("<li>Distance Between Downspot Drops: " + pivot_item.ddd + "</li>")
+									.append("<li>Sprinkler Model: " + pivot_item.sprinkler_model + "</li>")
+									.append("<li>Sprinkler Type: " + pivot_item.sprikler_type + "</li>");
+							$('#pivotSettings')
+									.append("<li>Minimum Rotation Time: " + pivot_item.rotation_time + "</li>")
+									.append("<li>Sheet: " + pivot_item.sheet + "</li>")
+									.append("<li>Minimum Working Pressure: " + pivot_item.minimum_working_pressure + "</li>");
+							$('#pivotEbSettings')
+									.append("<li>Model: " + pivot_item.electrical_board_model + "</li>")
+									.append("<li>Contactors: " + pivot_item.electrical_board_contactors + "</li>")
+									.append("<li>Brand: " + pivot_item.electrical_board_brand + "</li>");
+							marker.on('click', function(e){
+								$('#pivotTab').removeClass('hidden');
+								$('#waterpumpTab').addClass('hidden');
+							});
 						}
 					});
 				});
@@ -231,6 +338,24 @@
 					$.each(data, function(pivot_i, pivot_item){
 						if(pivot_item.lat != ''){
 							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
+							$('#waterpumpGeneral')
+									.append("<li>Type: " + pivot_item.type + "</li>")
+									.append("<li>Power: " + pivot_item.power + "</li>")
+									.append("<li>Brand: " + pivot_item.brand + "</li>")
+									.append("<li>Voltage: " + pivot_item.voltage + "</li>");
+							$('#waterpumpSettings')
+									.append("<li>Time Shift Boot: " + pivot_item.time_shift_boot + "</li>")
+									.append("<li>Imbalance: " + pivot_item.imbalance + "</li>")
+									.append("<li>Restart Time: " + pivot_item.restart_time + "</li>");
+							$('#waterpumpEbSettings')
+									.append("<li>Type: " + pivot_item.electrical_board_type + "</li>")
+									.append("<li>Protection: " + pivot_item.electrical_board_protection + "</li>");
+							$('#waterpumpDwInfo')
+									.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>')
+							marker.on('click', function(e){
+								$('#waterpumpTab').removeClass('hidden');
+								$('#pivotTab').addClass('hidden');
+							});
 						}
 					});
 				});
