@@ -42,6 +42,10 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('/farm/{id}/pivots', 'EquipmentMapController@findPivotsByFarms');
 	Route::get('/farm/{id}/waterpumps', 'EquipmentMapController@findWaterpumpsByFarms');
 
+	Route::get('/calendar', 'CalendarController@showCalendar');
+
+	Route::get('/forum', 'ForumController@showForum');
+
 });
 
 // Just for testing. To be removed before production.

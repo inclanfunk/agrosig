@@ -118,6 +118,18 @@
             </li>
             @endif
 
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li class="{{ Request::is('calendar') ? 'active' : '' }}">
+                <a href="{{ URL::to('calendar') }}"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Calendar</span></a>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li class="{{ Request::is('forum') ? 'active' : '' }}">
+                <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">Forum</span></a>
+            </li>
+            @endif
+
 		</ul>
 
 	</nav>

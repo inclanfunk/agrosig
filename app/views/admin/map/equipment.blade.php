@@ -17,6 +17,20 @@
 	div.widget-body.no-padding {
 		height: 500px;
 	}
+
+	#box {
+		margin: 10px;
+	    padding:5px 10px;
+	    background: rgba(0,0,0,0.5);
+	    color: #fff;
+	    font-size: 11px;
+	    line-height: 18px;
+	    border-radius: 2px;
+	}
+
+	#box:empty {
+	    display: none;
+	}
 </style>
 
 <!-- widget grid -->
@@ -85,6 +99,7 @@
 					<!-- widget content -->
 					<div class="widget-body no-padding">
 						<div id='map'></div>
+						<div id="box" class="col-xs-6 col-sm-4 col-md-3 col-lg-3">Hello</div>
 					</div>
 					<!-- end widget content -->
 
@@ -111,14 +126,6 @@
 		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99', {
 			zoomControl: false
 		}).setView([-39.67, -69.26], 4);
-
-		// Disable drag and zoom handlers.
-		map.touchZoom.disable();
-		map.doubleClickZoom.disable();
-		map.scrollWheelZoom.disable();
-
-		// Disable tap handler, if present.
-		if (map.tap) map.tap.disable();
 
 		$(document).ready(function(){
 		    $('header h2').text('Equipment Map');
