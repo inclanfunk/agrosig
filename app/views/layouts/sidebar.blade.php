@@ -106,6 +106,20 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Order Parts</span></a>
+                <ul>
+                    <li class="{{ Request::is('parts') ? 'active' : '' }}">
+                        <a href="{{ URL::to('parts') }}">List</a>
+                    </li>
+                    <li class="{{ Request::is('parts/create') ? 'active' : '' }}">
+                        <a href="{{ URL::to('parts/create') }}">Create</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">Maps</span></a>
                 <ul>
                     <li>

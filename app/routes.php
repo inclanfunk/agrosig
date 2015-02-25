@@ -31,6 +31,7 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('equipment', 'EquipmentController'); // No use right now!
 	Route::resource('pivots', 'PivotController');
 	Route::resource('waterpumps', 'WaterpumpController');
+	Route::resource('parts', 'PartController');
 
 	Route::get('/equipment-map', [
 		'as' => 'equipmentMap',
