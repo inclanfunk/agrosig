@@ -169,30 +169,35 @@
                         </header>
                         <fieldset>
                             <div class="row">
-                                <section class="col col-3">
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrows"></i>
+                                        <input type="number" name="quantity" placeholder="Quantity" required>
+                                    </label>
+                                    @if($errors->first('quantity'))
+                                        <em class="invalid">{{ $errors->first('quantity') }}</em>
+                                    @endif
+                                </section>
+                                <section class="col col-4">
                                     <label class="select">
-                                        <select name="coa" class="farm">
-                                            <option selected="" disabled="">Number</option>
+                                        <select name="coa_diameter" class="farm">
+                                            <option selected="" disabled="">Diameter</option>
                                                 <option value="1">8 5/8</option>
                                                 <option value="2">6 5/8</option>
                                                 <option value="3">10</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('coa'))
-                                            <em class="invalid">{{ $errors->first('coa') }}</em>
+                                        @if($errors->first('coa_diameter'))
+                                            <em class="invalid">{{ $errors->first('coa_diameter') }}</em>
                                         @endif
                                 </section>
-                                <section class="col col-3">
-                                    <label class="select">
-                                        <select name="coa_model" class="farm">
-                                            <option selected="" disabled="">Model</option>
-                                                <option value="1">Flexible</option>
-                                                <option value="2">Metalic</option>
-                                        </select> <i></i> </label>
-                                        @if($errors->first('coa_model'))
-                                            <em class="invalid">{{ $errors->first('coa_model') }}</em>
-                                        @endif
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrows"></i>
+                                        <input type="number" name="coa_length" placeholder="Length" required>
+                                    </label>
+                                    @if($errors->first('coa_length'))
+                                        <em class="invalid">{{ $errors->first('coa_length') }}</em>
+                                    @endif
                                 </section>
-                                <section class="col col-3">
+                                <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-arrow-circle-down"></i>
                                         <input type="number" name="ndd" placeholder="Number of Downspout Drops" required>
                                     </label>
@@ -200,7 +205,7 @@
                                         <em class="invalid">{{ $errors->first('ndd') }}</em>
                                     @endif
                                 </section>
-                                <section class="col col-3">
+                                <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-arrow-circle-down"></i>
                                         <input type="number" name="ddd" placeholder="Distance between downspout drops" required>
                                     </label>
@@ -311,7 +316,7 @@
                             </div>
                         </fieldset>
                         <header>
-                            Cantilever Overhang
+                            Overhang
                         </header>
                         <fieldset>
                             <div class="row">

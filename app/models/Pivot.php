@@ -59,4 +59,9 @@ class Pivot extends \Eloquent {
 		'voltage_source_code',
 		'pressure_sensor_code',
 	];
+
+	public function farm()
+	{
+		return $this->belongsTo('Farm');
+	}
 }

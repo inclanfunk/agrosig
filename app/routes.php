@@ -28,7 +28,10 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('companies', 'CompanyController');
 	Route::resource('farms', 'FarmController');
-	Route::resource('equipment', 'EquipmentController'); // No use right now!
+	// Route::resource('equipment', 'EquipmentController'); // No use right now!
+
+	Route::get('equipment', 'EquipmentController@listAllEquipment');
+
 	Route::resource('pivots', 'PivotController');
 	Route::resource('waterpumps', 'WaterpumpController');
 	Route::resource('parts', 'PartController');

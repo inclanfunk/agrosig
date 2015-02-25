@@ -42,4 +42,9 @@ class Waterpump extends \Eloquent {
 		'pit_info',
 		'deepwell_info',
 	];
+
+	public function farm()
+	{
+		return $this->belongsTo('Farm');
+	}
 }

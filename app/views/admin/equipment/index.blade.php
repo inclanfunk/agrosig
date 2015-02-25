@@ -26,7 +26,7 @@
 
 </div>
 
-        				<!-- widget grid -->
+        		<!-- widget grid -->
 				<section id="widget-grid" class="">
 				
 					<!-- row -->
@@ -52,7 +52,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>All Parts</h2>
+									<h2>All Equipment</h2>
 								</header>
 				
 								<!-- widget div-->
@@ -71,20 +71,32 @@
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>			                
 												<tr>
-													<th data-hide="phone">ID</th>
+													<th data-hide="phone">Name</th>
 						                            <th data-class="expand">Type</th>
-						                            <th data-hide="phone">Code</th>
-						                            <th data-hide="phone,tablet">Description</th>
+						                            <th data-hide="phone">Farm</th>
+						                            <th data-hide="phone,tablet">Brand</th>
 						                            <th>Edit/Delete</th>
 												</tr>
 											</thead>
 											<tbody>
-												@foreach($parts as $part)
+												@foreach($pivots as $pivot)
 							                        <tr>
-							                            <td>{{ $part->id }}</td>
-							                            <td>{{ $part->type }}</td>
-							                            <td>{{ $part->code }}</td>
-							                            <td>{{ $part->description }}</td>
+							                            <td>Pivot{{ $pivot->id }}</td>
+							                            <td>Pivot</td>
+							                            <td>{{ $pivot->farm->name }}</td>
+							                            <td>{{ $pivot->brand }}</td>
+							                            <td>
+							                                <a href="#" class="btn btn-info btn-xs">View</a>
+							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>
+							                            </td>
+							                        </tr>
+						                        @endforeach
+						                        @foreach($waterpumps as $waterpump)
+							                        <tr>
+							                            <td>Waterpump{{ $waterpump->id }}</td>
+							                            <td>Waterpump</td>
+							                            <td>{{ $waterpump->farm->name }}</td>
+							                            <td>{{ $waterpump->brand }}</td>
 							                            <td>
 							                                <a href="#" class="btn btn-info btn-xs">View</a>
 							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>
@@ -215,7 +227,7 @@
 		    } );
 		    /* END COLUMN FILTER */
 
-		    $('header h2').text('All Parts');
+		    $('header h2').text('All Equipment');
 
 
 

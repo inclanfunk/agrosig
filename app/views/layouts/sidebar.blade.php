@@ -87,9 +87,9 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-wrench"></i> <span class="menu-item-parent">Manage Equipment</span></a>
                 <ul>
                     <li class="{{ Request::is('equipment') ? 'active' : '' }}">
-                        <a href="#">List Equipment</a>
+                        <a href="{{ URL::to('equipment') }}">List Equipment</a>
                     </li>
-                    <li class="{{ Request::is('equipment/create') ? 'active' : '' }}">
+                    <li>
                         <a href="#">Create Eqiupment</a>
                         <ul>
                             <li class="{{ Request::is('pivots/create') ? 'active' : '' }}">
