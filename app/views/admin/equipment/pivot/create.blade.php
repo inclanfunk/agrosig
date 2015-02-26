@@ -216,6 +216,57 @@
                             </div>
                         </fieldset>
                         <header>
+                            Quantity of Arms 2
+                        </header>
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrows"></i>
+                                        <input type="number" name="quantity2" placeholder="Quantity" required>
+                                    </label>
+                                    @if($errors->first('quantity2'))
+                                        <em class="invalid">{{ $errors->first('quantity2') }}</em>
+                                    @endif
+                                </section>
+                                <section class="col col-4">
+                                    <label class="select">
+                                        <select name="coa_diameter2" class="farm">
+                                            <option selected="" disabled="">Diameter</option>
+                                                <option value="1">8 5/8</option>
+                                                <option value="2">6 5/8</option>
+                                                <option value="3">10</option>
+                                        </select> <i></i> </label>
+                                        @if($errors->first('coa_diameter2'))
+                                            <em class="invalid">{{ $errors->first('coa_diameter2') }}</em>
+                                        @endif
+                                </section>
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrows"></i>
+                                        <input type="number" name="coa_length2" placeholder="Length" required>
+                                    </label>
+                                    @if($errors->first('coa_length2'))
+                                        <em class="invalid">{{ $errors->first('coa_length2') }}</em>
+                                    @endif
+                                </section>
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrow-circle-down"></i>
+                                        <input type="number" name="ndd2" placeholder="Number of Downspout Drops" required>
+                                    </label>
+                                    @if($errors->first('ndd2'))
+                                        <em class="invalid">{{ $errors->first('ndd2') }}</em>
+                                    @endif
+                                </section>
+                                <section class="col col-4">
+                                    <label class="input"> <i class="icon-append fa fa-arrow-circle-down"></i>
+                                        <input type="number" name="ddd2" placeholder="Distance between downspout drops" required>
+                                    </label>
+                                    @if($errors->first('ddd2'))
+                                        <em class="invalid">{{ $errors->first('ddd2') }}</em>
+                                    @endif
+                                </section>
+                            </div>
+                        </fieldset>
+                        <header>
                             Sprinklers
                         </header>
                         <fieldset>

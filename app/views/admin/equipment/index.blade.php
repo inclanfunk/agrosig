@@ -15,7 +15,11 @@
 	    <ul id="sparks">
 
 	        <li class="sparks-info">
-	            <a href="{{ URL::to('parts/create') }}" class="btn btn-success">Create A New Part</a>
+	            <a href="{{ URL::to('pivots/create') }}" class="btn btn-success">Create A New Pivot</a>
+	        </li>
+
+	        <li class="sparks-info">
+	            <a href="{{ URL::to('waterpumps/create') }}" class="btn btn-success">Create A New Water Pump</a>
 	        </li>
 
 	    </ul>
@@ -74,6 +78,7 @@
 													<th data-hide="phone">Name</th>
 						                            <th data-class="expand">Type</th>
 						                            <th data-hide="phone">Farm</th>
+						                            <th data-hide="phone">Distributor Company</th>
 						                            <th data-hide="phone,tablet">Brand</th>
 						                            <th>Edit/Delete</th>
 												</tr>
@@ -84,6 +89,7 @@
 							                            <td>Pivot{{ $pivot->id }}</td>
 							                            <td>Pivot</td>
 							                            <td>{{ $pivot->farm->name }}</td>
+							                            <td>{{ $pivot->farm->distributorCompany->name }}</td>
 							                            <td>{{ $pivot->brand }}</td>
 							                            <td>
 							                                <a href="#" class="btn btn-info btn-xs">View</a>
@@ -96,6 +102,7 @@
 							                            <td>Waterpump{{ $waterpump->id }}</td>
 							                            <td>Waterpump</td>
 							                            <td>{{ $waterpump->farm->name }}</td>
+							                            <td>{{ $waterpump->farm->distributorCompany->name }}</td>
 							                            <td>{{ $waterpump->brand }}</td>
 							                            <td>
 							                                <a href="#" class="btn btn-info btn-xs">View</a>
