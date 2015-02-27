@@ -46,7 +46,7 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('/farm/{id}/pivots', 'EquipmentMapController@findPivotsByFarms');
 	Route::get('/farm/{id}/waterpumps', 'EquipmentMapController@findWaterpumpsByFarms');
 
-	Route::get('/calendar', 'CalendarController@showCalendar');
+	Route::resource('calendar', 'CalendarController');
 
 	Route::get('/forum', 'ForumController@showForum');
 
@@ -65,4 +65,7 @@ Route::get('test', function(){
 	// $users = Sentry::findAllUsersInGroup($group);
 	// dd($users);
 	// dd(Farm::find(1)->distributor_company);
+	// dd(Sentry::getUser()->id);
+	$calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))->get();
+	dd($calendar);
 });
