@@ -409,7 +409,37 @@ $(document).ready(function() {
 	        },
 
 	        eventDrop: function( event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view ) {
+	        	var copiedEventObject = $.extend({}, event);
+	        	copiedEventObject.start = copiedEventObject.start.getTime()/1000;
+	        	if(copiedEventObject.end != null){
+	        		copiedEventObject.end = copiedEventObject.end.getTime()/1000;
+	        	}
+	        	console.log(copiedEventObject);
+				$.ajax({
+					type: "PUT",
+					url: 'calendar/' + copiedEventObject.id,
+					data: copiedEventObject,
+					success: function(response){
+						console.log(response);
+					},
+				});
+	        },
 
+	        eventResize: function( event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ) {
+	        	var copiedEventObject = $.extend({}, event);
+	        	copiedEventObject.start = copiedEventObject.start.getTime()/1000;
+	        	if(copiedEventObject.end != null){
+	        		copiedEventObject.end = copiedEventObject.end.getTime()/1000;
+	        	}
+	        	console.log(copiedEventObject);
+				$.ajax({
+					type: "PUT",
+					url: 'calendar/' + copiedEventObject.id,
+					data: copiedEventObject,
+					success: function(response){
+						console.log(response);
+					},
+				});
 	        },
 
 	        events: 'calendar',

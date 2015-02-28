@@ -102,7 +102,24 @@ class CalendarController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$data = Input::all();
+
+		if($data['user_id'] == Sentry::getUser()->id){
+			$data['start'] = Carbon::createFromTimeStamp($data['start'])->toDateTimeString();
+
+			if(Input::has('end')){
+				$data['end'] = Carbon::createFromTimeStamp($data['end'])->toDateTimeString();
+			}else{
+				$data['end'] = $data['start'];
+			}
+		}
+
+		$calendar = Calendar::find($data['id'])->update($data);
+
+		return Response::json([
+				'status' => 'success',
+				'data' => $calendar
+			], 200);
 	}
 
 	/**
