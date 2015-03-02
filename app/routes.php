@@ -47,6 +47,7 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('/farm/{id}/waterpumps', 'EquipmentMapController@findWaterpumpsByFarms');
 
 	Route::resource('calendar', 'CalendarController');
+	Route::resource('chat', 'ChatController');
 
 	Route::get('/forum', 'ForumController@showForum');
 
@@ -68,6 +69,9 @@ Route::get('test', function(){
 	// dd(Sentry::getUser()->id);
 	// $calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))->get();
 	// dd($calendar);
-	$data = Sentry::getUser()->groups->first()->name;
-	dd($data);
+	// $data = Sentry::getUser()->groups->first()->name;
+	// dd($data);
+	// $pusher = new Pusher('082bab423e2a8be3da2a', '23f89ae57ba5ff17c82d', '109193');
+	// $pusher->trigger('chat', 'new_message', []);
+	// return 'Done';
 });

@@ -123,30 +123,9 @@
 
 							<!-- CHAT BODY -->
 							<div id="chat-body" class="chat-body custom-scroll">
-								<ul>
-									<li class="message">
-										<img src="img/avatars/5.png" class="online" alt="">
-										<div class="message-text">
-											<time>
-												2014-01-13
-											</time> <a href="javascript:void(0);" class="username">Sadi Orlaf</a> Hey did you meet the new board of director? He's a bit of an arse if you ask me...anyway here is the report you requested. I am off to launch with Lisa and Andrew, you wanna join?
-											<p class="chat-file row">
-												<b class="pull-left col-sm-6"> <!--<i class="fa fa-spinner fa-spin"></i>--> <i class="fa fa-file"></i> report-2013-demographic-report-annual-earnings.xls </b>
-												<span class="col-sm-6 pull-right"> <a href="javascript:void(0);" class="btn btn-xs btn-default">cancel</a> <a href="javascript:void(0);" class="btn btn-xs btn-success">save</a> </span>
-											</p>
-											<p class="chat-file row">
-												<b class="pull-left col-sm-6"> <i class="fa fa-ok txt-color-green"></i> tobacco-report-2012.doc </b>
-												<span class="col-sm-6 pull-right"> <a href="javascript:void(0);" class="btn btn-xs btn-primary">open</a> </span>
-											</p> </div>
-									</li>
-									<li class="message">
-										<img src="img/avatars/sunny.png" class="online" alt="">
-										<div class="message-text">
-											<time>
-												2014-01-13
-											</time> <a href="javascript:void(0);" class="username">John Doe</a> Haha! Yeah I know what you mean. Thanks for the file Sadi! <i class="fa fa-smile-o txt-color-orange"></i> 
-										</div>
-									</li>
+								<div class="text-center text-info" id="click"><a id="load" href="#">Click to load older messages</a></div>
+								<ul id="chat">
+									
 								</ul>
 
 							</div>
@@ -165,7 +144,7 @@
 
 								<!-- CHAT REPLY/SEND -->
 								<span class="textarea-controls">
-									<button class="btn btn-sm btn-primary pull-right">
+									<button id="reply" class="btn btn-sm btn-primary pull-right">
 										Reply
 									</button> <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> <label class="checkbox pull-right">
 											<input type="checkbox" name="subscription" id="subscription">
@@ -212,6 +191,72 @@
 			$this.parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
 			$this.parents('.dropdown-menu').find('li').removeClass('active');
 			$this.parent().addClass('active');
+		});
+
+		$(function() {
+
+			$('#load').on('click', function(e){
+				$.ajax({
+					type: "GET",
+					url: 'chat',
+					data: {
+						date: $('#chat time').first().text()
+					},
+					success: function(response){
+						$.each(response, function(i, item){
+							if(item.user.photo != null){
+								image = '/photos/' + item.user.photo;
+							}else{
+								image = '/img/avatar.png';
+							}
+							var new_message = '<li class="message">' +
+													'<img style="width:50px; height:50px;" src="' + image + '" class="online" alt="">' +
+													'<div class="message-text">' +
+														'<time>' +
+															item.created_at +
+														'</time> <a href="javascript:void(0);" class="username">' + item.user.first_name + '</a> ' + item.body + ' ' +
+													'</div>' +
+												'</li>';
+							$('#chat').prepend(new_message);
+						});
+					}
+				});
+			});
+
+			$('#reply').on('click', function(e){
+				if($('#textarea-expand').val() != ''){
+					var message = {
+						body: $('#textarea-expand').val()
+					};
+
+					$.ajax({
+						type: "POST",
+						url: 'chat',
+						data: message
+					});
+				}
+			});
+
+			var pusher = new Pusher('082bab423e2a8be3da2a');
+			var chat = pusher.subscribe('chat');
+			chat.bind('new_message', function(response){
+				$.each(response, function(i, item){
+					if(item.user.photo != null){
+						image = '/photos/' + item.user.photo;
+					}else{
+						image = '/img/avatar.png';
+					}
+					var new_message = '<li class="message">' +
+											'<img style="width:50px; height:50px;" src="' + image + '" class="online" alt="">' +
+											'<div class="message-text">' +
+												'<time>' +
+													item.created_at +
+												'</time> <a href="javascript:void(0);" class="username">' + item.user.first_name + '</a> ' + item.body + ' ' +
+											'</div>' +
+										'</li>';
+					$('#chat').append(new_message);
+				});
+			});
 		});
 
 		/*

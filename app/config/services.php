@@ -28,4 +28,10 @@ return array(
 		'secret' => '',
 	),
 
+	'pusher' => array(
+		'public' => getenv('pusher.public'),
+		'private' => getenv('pusher.private'),
+		'app_id' => getenv('pusher.app_id')
+	),
+
 );
