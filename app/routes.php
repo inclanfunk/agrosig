@@ -66,6 +66,8 @@ Route::get('test', function(){
 	// dd($users);
 	// dd(Farm::find(1)->distributor_company);
 	// dd(Sentry::getUser()->id);
-	$calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))->get();
-	dd($calendar);
+	// $calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))->get();
+	// dd($calendar);
+	$data = Sentry::getUser()->groups->first()->name;
+	dd($data);
 });

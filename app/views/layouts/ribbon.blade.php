@@ -4,14 +4,7 @@
 						<i class="fa fa-refresh"></i>
 					</span>
 				</span>
-
-	<!-- breadcrumb -->
-	<!--
-	<ol class="breadcrumb">
-		<li>Home</li><li>Inbox</li>
-	</ol>
-	-->
-
+				
 	@if($breadcrumbs)
 		<ol class="breadcrumb">
 			@foreach($breadcrumbs as $breadcrumb)
