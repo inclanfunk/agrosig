@@ -71,7 +71,7 @@
 
 							<!-- CHAT CONTAINER -->
 							<div id="chat-container">
-								<span class="chat-list-open-close"><i class="fa fa-user"></i><b>!</b></span>
+								<span class="chat-list-open-close"><i class="fa fa-users" title="Chatrooms"></i></span>
 
 								<div class="chat-list-body custom-scroll">
 									<ul id="chat-users">
@@ -271,7 +271,7 @@
 											'</div>' +
 										'</li>';
 					$('#chat').append(new_message);
-					$("#chat-body").scrollTop($("#chat-body").get(0).scrollHeight);
+					$("#chat-body").animate({scrollTop: $("#chat-body").get(0).scrollHeight}, 900);
 				});
 			});
 		});
