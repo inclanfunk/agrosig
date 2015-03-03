@@ -223,19 +223,35 @@
 				});
 			});
 
+			function reply(){
+				var message = {
+					body: $('#textarea-expand').val()
+				};
+
+				$.ajax({
+					type: "POST",
+					url: 'chat',
+					data: message
+				});
+			}
+
 			$('#reply').on('click', function(e){
 				if($('#textarea-expand').val() != ''){
-					var message = {
-						body: $('#textarea-expand').val()
-					};
-
-					$.ajax({
-						type: "POST",
-						url: 'chat',
-						data: message
-					});
+					reply();
+					$('#textarea-expand').val('');
 				}
 			});
+
+			
+			$('#textarea-expand').keydown(function(e){
+				if($('#subscription').is(':checked') && $('#textarea-expand').val() != ''){
+					if(e.which == 13){
+						reply();
+						$('#textarea-expand').val('');
+					}
+				}
+			});
+
 
 			var pusher = new Pusher('082bab423e2a8be3da2a');
 			var chat = pusher.subscribe('chat');
@@ -255,6 +271,7 @@
 											'</div>' +
 										'</li>';
 					$('#chat').append(new_message);
+					$("#chat-body").scrollTop($("#chat-body").get(0).scrollHeight);
 				});
 			});
 		});
