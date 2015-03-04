@@ -6,6 +6,7 @@ class Waterpump extends \Eloquent {
 		'waterpump_reseller_id',
 		'lat',
 		'long',
+		'name',
 		'brand',
 		'type',
 		'power',

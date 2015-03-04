@@ -9,10 +9,11 @@
 		padding: 0; 
 	}
 	#map {
-		position: absolute;
+		position: relative;
 		top: 0;
 		bottom: 0;
 		width: 100%;
+		height: 100%;
 	}
 	div.widget-body.no-padding {
 		height: 500px;
@@ -57,7 +58,7 @@
 		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 			<!-- Widget ID (each widget will need unique ID)-->
-			<div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+			<div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 

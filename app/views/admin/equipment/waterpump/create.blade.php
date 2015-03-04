@@ -108,7 +108,7 @@
                         </fieldset>
                         <fieldset>
                             <div class="row">
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="input"> <i class="icon-append fa fa-arrows"></i>
                                         <input type="number" name="lat" placeholder="Latitude" required>
                                     </label>
@@ -116,7 +116,7 @@
                                         <em class="invalid">{{ $errors->first('lat') }}</em>
                                     @endif
                                 </section>
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="input"> <i class="icon-append fa fa-arrows"></i>
                                         <input type="number" name="long" placeholder="Longitude" required>
                                     </label>
@@ -124,16 +124,27 @@
                                         <em class="invalid">{{ $errors->first('long') }}</em>
                                     @endif
                                 </section>
-                                <section class="col col-4">
+                                <section class="col col-3">
                                     <label class="select">
                                         <select name="brand" class="farm">
                                             <option selected="" disabled="">Brand</option>
                                                 <option value="1">Rotorpump</option>
                                                 <option value="2">KSB</option>
+                                                <option value="3">Grundfos</option>
+                                                <option value="4">Sylwan</option>
+                                                <option value="5">Banfy</option>
                                         </select> <i></i> </label>
                                         @if($errors->first('brand'))
                                             <em class="invalid">{{ $errors->first('brand') }}</em>
                                         @endif
+                                </section>
+                                <section class="col col-3">
+                                    <label class="input"> <i class="icon-append fa fa-wrench"></i>
+                                        <input type="text" name="name" placeholder="Name" required>
+                                    </label>
+                                    @if($errors->first('name'))
+                                        <em class="invalid">{{ $errors->first('name') }}</em>
+                                    @endif
                                 </section>
                             </div>
                         </fieldset>
@@ -152,15 +163,12 @@
                                         @endif
                                 </section>
                                 <section class="col col-4">
-                                    <label class="select">
-                                        <select name="power" class="farm">
-                                            <option selected="" disabled="">Power</option>
-                                                <option value="1">200 HP</option>
-                                                <option value="2">300 HP</option>
-                                        </select> <i></i> </label>
-                                        @if($errors->first('power'))
-                                            <em class="invalid">{{ $errors->first('power') }}</em>
-                                        @endif
+                                    <label class="input"> <i class="icon-append fa fa-gear"></i>
+                                        <input type="number" name="power" placeholder="Power" required>
+                                    </label>
+                                    @if($errors->first('power'))
+                                        <em class="invalid">{{ $errors->first('power') }}</em>
+                                    @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
@@ -385,6 +393,7 @@
                                                 <option value="1">Triangle</option>
                                                 <option value="2">Star</option>
                                                 <option value="3">Soft</option>
+                                                <option value="4">Direct</option>
                                         </select> <i></i> </label>
                                         @if($errors->first('electrical_board_type'))
                                             <em class="invalid">{{ $errors->first('electrical_board_type') }}</em>
@@ -394,9 +403,9 @@
                                     <label class="select">
                                         <select name="electrical_board_protection" class="farm">
                                             <option selected="" disabled="">Protection Type</option>
-                                                <option value="1">Triangle</option>
-                                                <option value="2">Star</option>
-                                                <option value="3">Soft</option>
+                                                <option value="1">Thermal</option>
+                                                <option value="2">Electrical</option>
+                                                <option value="3">Sub-Monitor</option>
                                         </select> <i></i> </label>
                                         @if($errors->first('electrical_board_protection'))
                                             <em class="invalid">{{ $errors->first('electrical_board_protection') }}</em>
@@ -424,6 +433,9 @@
                                                 <option value="1">Weg</option>
                                                 <option value="2">Siemens</option>
                                                 <option value="3">Telemecanique</option>
+                                                <option value="4">AEG</option>
+                                                <option value="5">Schneider</option>
+                                                <option value="6">Others</option>
                                         </select> <i></i> </label>
                                         @if($errors->first('contactor_brand'))
                                             <em class="invalid">{{ $errors->first('contactor_brand') }}</em>

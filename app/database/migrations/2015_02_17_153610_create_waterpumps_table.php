@@ -21,9 +21,10 @@ class CreateWaterpumpsTable extends Migration {
 			$table->foreign('waterpump_reseller_id')->references('id')->on('users');
 			$table->double('lat', 15, 8);
 			$table->double('long', 15, 8);
-			$table->enum('brand', array('Rotorpump', 'KSB'));
+			$table->string('name');
+			$table->enum('brand', array('Rotorpump', 'KSB', 'Grundfos', 'Sylwan', 'Banfy'));
 			$table->enum('type', array('Submergible', 'Mechanical', 'Centrifuged'));
-			$table->enum('power', array('200 HP', '300 HP'));
+			$table->string('power');
 			$table->string('volume');
 			$table->string('height');
 			$table->enum('engine_type', array('Capped', 'Rewindable'));
@@ -44,10 +45,10 @@ class CreateWaterpumpsTable extends Migration {
 			$table->string('power_phase_r');
 			$table->string('power_phase_s');
 			$table->string('power_phase_t');
-			$table->enum('electrical_board_type', array('Triangle', 'Star', 'Soft'));
-			$table->enum('electrical_board_protection', array('Triangle', 'Star', 'Soft'));
+			$table->enum('electrical_board_type', array('Triangle', 'Star', 'Soft', 'Direct'));
+			$table->enum('electrical_board_protection', array('Thermal', 'Electronic', 'Sub-Monior'));
 			$table->string('line_fuse_caliber');
-			$table->enum('contactor_brand', array('Weg', 'Siemens', 'Telemecanique'));
+			$table->enum('contactor_brand', array('Weg', 'Siemens', 'Telemecanique', 'AEG', 'Schneider', 'Others',));
 			$table->string('contactor_power');
 			$table->enum('contactor_triange', array('Yes', 'No'));
 			$table->string('contactor_triangle_comment');
