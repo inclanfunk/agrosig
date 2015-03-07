@@ -106,7 +106,35 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Order Parts</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-reorder"></i> <span class="menu-item-parent">Manage W. Orders</span></a>
+                <ul>
+                    <li class="{{ Request::is('orders') ? 'active' : '' }}">
+                        <a href="{{ URL::to('orders') }}">List</a>
+                    </li>
+                    <li class="{{ Request::is('orders/create') ? 'active' : '' }}">
+                        <a href="{{ URL::to('orders/create') }}">Create</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">Manage Chatrooms</span></a>
+                <ul>
+                    <li class="{{ Request::is('chatrooms') ? 'active' : '' }}">
+                        <a href="{{ URL::to('chatrooms') }}">List</a>
+                    </li>
+                    <li class="{{ Request::is('chatrooms/create') ? 'active' : '' }}">
+                        <a href="{{ URL::to('chatrooms/create') }}">Create</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Manage Order Parts</span></a>
                 <ul>
                     <li class="{{ Request::is('parts') ? 'active' : '' }}">
                         <a href="{{ URL::to('parts') }}">List</a>

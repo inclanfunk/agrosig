@@ -36,12 +36,15 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('waterpumps', 'WaterpumpController');
 	Route::resource('parts', 'PartController');
 
+	Route::resource('orders', 'OrderController');
+
 	Route::get('/equipment-map', [
 		'as' => 'equipmentMap',
 		'uses' => 'EquipmentMapController@showMap'
 	]);
 
 	Route::get('/distributor-companies', 'EquipmentMapController@findCompaniesByDistributor');
+
 	Route::get('/distributor/{id}/farms', 'EquipmentMapController@findFarmsByDistributorCompanies');
 	Route::get('/farm/{id}/pivots', 'EquipmentMapController@findPivotsByFarms');
 	Route::get('/farm/{id}/waterpumps', 'EquipmentMapController@findWaterpumpsByFarms');
