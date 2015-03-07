@@ -51,6 +51,7 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::resource('calendar', 'CalendarController');
 	Route::resource('chat', 'ChatController');
+	Route::resource('chatrooms', 'ChatroomController');
 
 	Route::get('/forum', 'ForumController@showForum');
 
