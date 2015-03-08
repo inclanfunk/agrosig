@@ -39,7 +39,7 @@
 					<!-- widget content -->
 					<div class="widget-body no-padding">
 
-						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{ URL::to('parts') }}" method="post" enctype="multipart/form-data">
+						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{ URL::to('orders') }}" method="post" enctype="multipart/form-data">
 							<header>
 								Create a New Working Order
 							</header>

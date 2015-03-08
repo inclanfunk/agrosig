@@ -41,7 +41,13 @@ class OrderController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::all();
+
+		$data['total_cost'] = $data['pivot_cost'] + $data['waterpump_cost'];
+
+		Order::create($data);
+
+		return Redirect::back()->with('success', 'Working Order Created Successfully');
 	}
 
 
