@@ -55,7 +55,7 @@
 							<fieldset>
 
 								<div class="row">
-									<section class="col col-6">
+									<section class="col col-10">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
 											<input type="text" name="name" placeholder="Name" required>
 										</label>
@@ -63,15 +63,6 @@
 											<em class="invalid">{{ $errors->first('name') }}</em>
 										@endif
 									</section>
-									<section class="col col-6">
-										<label class="input"> <i class="icon-append fa fa-pencil"></i>
-											<input type="text" name="description" placeholder="Small Description" required>
-										</label>
-										@if($errors->first('description'))
-											<em class="invalid">{{ $errors->first('description') }}</em>
-										@endif
-									</section>
-									
 								</div>
 
 							</fieldset>

@@ -55,7 +55,7 @@
 							<fieldset>
 
 								<div class="row">
-									<section class="col col-4">
+									<section class="col col-6">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
 											<input type="text" name="name" placeholder="Name" required>
 										</label>
@@ -63,7 +63,7 @@
 											<em class="invalid">{{ $errors->first('name') }}</em>
 										@endif
 									</section>
-									<section class="col col-4">
+									<section class="col col-6">
                                         <label class="select">
                                             <select name="section_id">
                                                 <option selected="" disabled="">Please Select a Section</option>
@@ -77,12 +77,20 @@
 												<em class="invalid">{{ $errors->first('section_id') }}</em>
 											@endif
                                     </section>
-                                    <section class="col col-4">
+                                    <section class="col col-6">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
 											<input type="text" name="icon" placeholder="fa-icon" required>
 										</label>
 										@if($errors->first('icon'))
 											<em class="invalid">{{ $errors->first('icon') }}</em>
+										@endif
+									</section>
+									<section class="col col-6">
+										<label class="input"> <i class="icon-append fa fa-pencil"></i>
+											<input type="text" name="description" placeholder="Small Description" required>
+										</label>
+										@if($errors->first('description'))
+											<em class="invalid">{{ $errors->first('description') }}</em>
 										@endif
 									</section>
 								</div>

@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration {
 			$table->integer('section_id')->unsigned();
 			$table->foreign('section_id')->references('id')->on('sections');
 			$table->string('name');
+			$table->string('description');
 			$table->string('icon');
 			$table->timestamps();
 		});

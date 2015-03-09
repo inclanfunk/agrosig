@@ -73,7 +73,6 @@
 												<tr>
 													<th data-hide="phone">ID</th>
 						                            <th data-hide="phone">Name</th>
-						                            <th data-hide="phone,tablet">Description</th>
 						                            <th>Edit/Delete</th>
 												</tr>
 											</thead>
@@ -82,7 +81,6 @@
 							                        <tr>
 							                            <td>{{ $section->id }}</td>
 							                            <td>{{ $section->name }}</td>
-							                            <td>{{ $section->description }}</td>
 							                            <td>
 							                                <a href="#" class="btn btn-info btn-xs">View</a>
 							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>

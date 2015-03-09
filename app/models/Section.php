@@ -2,7 +2,11 @@
 
 class Section extends \Eloquent {
 	protected $fillable = [
-		'name',
-		'description',
+		'name'
 	];
+
+	public function topics()
+	{
+		return $this->hasMany('Topic');
+	}
 }
