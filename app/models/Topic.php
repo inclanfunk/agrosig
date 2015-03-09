@@ -3,7 +3,8 @@
 class Topic extends \Eloquent {
 	protected $fillable = [
 		'section_id',
-		'name'
+		'name',
+		'icon'
 	];
 
 	public function section()

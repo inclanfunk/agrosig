@@ -17,7 +17,6 @@ class CreateSectionsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('description');
-			$table->string('icon');
 			$table->timestamps();
 		});
 	}
