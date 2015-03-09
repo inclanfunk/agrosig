@@ -148,6 +148,48 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Manage Forum</span></a>
+                <ul>
+                    <li class="{{ Request::is('chatrooms') ? 'active' : '' }}">
+                        <a href="#">Manage Sections</a>
+                        <ul>
+                            <li class="{{ Request::is('sections') ? 'active' : '' }}">
+                                <a href="{{ URL::to('sections') }}">
+                                    <i class="fa fa-table"></i>
+                                    List
+                                </a>
+                            </li>   
+                            <li class="{{ Request::is('sections/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('sections/create') }}">
+                                    <i class="fa fa-pencil"></i>
+                                    Create
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Manage Topics</a>
+                        <ul>
+                            <li class="{{ Request::is('topics') ? 'active' : '' }}">
+                                <a href="{{ URL::to('topics') }}">
+                                    <i class="fa fa-table"></i>
+                                    List
+                                </a>
+                            </li>   
+                            <li class="{{ Request::is('topics/create') ? 'active' : '' }}">
+                                <a href="{{ URL::to('topics/create') }}">
+                                    <i class="fa fa-pencil"></i>
+                                    Create
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">Maps</span></a>
                 <ul>
                     <li>

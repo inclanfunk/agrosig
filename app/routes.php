@@ -55,6 +55,9 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::get('/forum', 'ForumController@showForum');
 
+	Route::resource('sections', 'SectionController');
+	Route::resource('topics', 'TopicController');
+
 });
 
 // Just for testing. To be removed before production.

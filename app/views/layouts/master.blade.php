@@ -14,6 +14,9 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/bootstrap.min.css')  }}">
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/font-awesome.min.css')  }} ">
 
+		<!-- Font Awesome Icon Picker Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/fontawesome-iconpicker.min.css')  }} ">
+
 		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
 		<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('css/smartadmin-production.min.css')}} ">
 		<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('css/smartadmin-skins.min.css')}}  ">
