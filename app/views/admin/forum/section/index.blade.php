@@ -72,7 +72,7 @@
 											<thead>			                
 												<tr>
 													<th data-hide="phone">ID</th>
-						                            <th data-hide="phone">Name</th>
+						                            <th data-hide="phone">Title</th>
 						                            <th>Edit/Delete</th>
 												</tr>
 											</thead>
@@ -80,7 +80,7 @@
 												@foreach($sections as $section)
 							                        <tr>
 							                            <td>{{ $section->id }}</td>
-							                            <td>{{ $section->name }}</td>
+							                            <td>{{ $section->title }}</td>
 							                            <td>
 							                                <a href="#" class="btn btn-info btn-xs">View</a>
 							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>

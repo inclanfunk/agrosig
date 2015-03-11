@@ -57,10 +57,10 @@
 								<div class="row">
 									<section class="col col-10">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
-											<input type="text" name="name" placeholder="Name" required>
+											<input type="text" name="title" placeholder="Title" required>
 										</label>
-										@if($errors->first('name'))
-											<em class="invalid">{{ $errors->first('name') }}</em>
+										@if($errors->first('title'))
+											<em class="invalid">{{ $errors->first('title') }}</em>
 										@endif
 									</section>
 								</div>

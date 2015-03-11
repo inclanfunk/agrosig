@@ -25,7 +25,7 @@
 				<table class="table table-striped table-forum">
 					<thead>
 						<tr>
-							<th colspan="2">{{ $section->name }}</th>
+							<th colspan="2">{{ $section->title }}</th>
 							<th class="text-center hidden-xs hidden-sm" style="width: 100px;">Posts</th>
 							<th class="hidden-xs hidden-sm" style="width: 200px;">Last Post</th>
 						</tr>
@@ -36,19 +36,31 @@
 							<tr>
 								<td class="text-center" style="width: 40px;"><i class="fa {{ $topic->icon }} fa-2x text-muted"></i></td>
 								<td>
-									<h4><a href="forum-topic.html">
-										{{ $topic->name }}
+									<h4><a href="{{ URL::to('forum/topics', $topic->id) }}">
+										{{ $topic->title }}
 									</a>
 										<small>{{ $topic->description }}</small>
 									</h4>
 								</td>
 								<td class="text-center hidden-xs hidden-sm">
-									<a href="javascript:void(0);">1342</a>
+									<a href="javascript:void(0);">{{ $topic->posts->count() }}</a>
 								</td>
 								<td class="hidden-xs hidden-sm">by 
-									<a href="javascript:void(0);">John Doe</a>
+									<a href="javascript:void(0);">
+										@if(!$topic->posts->count())
+											N/A
+										@else
+											{{ $topic->posts->last()->user->first_name }} {{ $topic->posts->last()->user->last_name }}
+										@endif
+									</a>
 									<br>
-									<small><i>January 1, 2014</i></small>
+									<small><i>
+										@if(!$topic->posts->count())
+											N/A
+										@else
+											<span title="{{ $topic->posts->last()->created_at }}">{{ $topic->posts->last()->created_at->diffForHumans() }}</span>
+										@endif
+									</i></small>
 								</td>
 							</tr>
 						@endforeach

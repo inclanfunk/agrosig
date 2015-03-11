@@ -329,6 +329,8 @@
 		$(document).ready(function() {
 
 			$('select[name=farm_id]').on('change', function(e){
+				$('select[name=pivot_id]').empty();
+				$('select[name=waterpump_id]').empty();
 				var farm_id = $('select[name=farm_id]').val();
 				$.getJSON('/farm/' + farm_id + '/pivots', function(response){
 					$.each(response, function(i, pivot){

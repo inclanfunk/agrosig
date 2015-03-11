@@ -2,7 +2,7 @@
 
 class Section extends \Eloquent {
 	protected $fillable = [
-		'name'
+		'title'
 	];
 
 	public function topics()

@@ -57,10 +57,10 @@
 								<div class="row">
 									<section class="col col-6">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
-											<input type="text" name="name" placeholder="Name" required>
+											<input type="text" name="title" placeholder="Title" required>
 										</label>
-										@if($errors->first('name'))
-											<em class="invalid">{{ $errors->first('name') }}</em>
+										@if($errors->first('title'))
+											<em class="invalid">{{ $errors->first('title') }}</em>
 										@endif
 									</section>
 									<section class="col col-6">
@@ -69,7 +69,7 @@
                                                 <option selected="" disabled="">Please Select a Section</option>
                                                 @foreach($sections as $section)
                                                 	<option value="{{ $section->id }}">
-                                                		{{ $section->name }}
+                                                		{{ $section->title }}
                                                 	</option>
                                                 @endforeach
                                             </select> <i></i> </label>

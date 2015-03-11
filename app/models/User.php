@@ -29,4 +29,9 @@ class User extends SentryModel implements UserInterface, RemindableInterface {
 		return $this->hasOne('Distributor');
 	}
 
+	public function posts()
+	{
+		return $this->hasMany('Post');
+	}
+
 }

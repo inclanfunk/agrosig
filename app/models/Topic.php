@@ -3,7 +3,7 @@
 class Topic extends \Eloquent {
 	protected $fillable = [
 		'section_id',
-		'name',
+		'title',
 		'icon',
 		'description',
 	];
@@ -11,5 +11,10 @@ class Topic extends \Eloquent {
 	public function section()
 	{
 		return $this->belongsTo('Section');
+	}
+
+	public function posts()
+	{
+		return $this->hasMany('Post');
 	}
 }

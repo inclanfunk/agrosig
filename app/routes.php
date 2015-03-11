@@ -54,9 +54,12 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('chatrooms', 'ChatroomController');
 
 	Route::get('/forum', 'ForumController@showForum');
+	Route::get('/forum/topics/{id}', 'ForumController@showTopic');
 
 	Route::resource('sections', 'SectionController');
 	Route::resource('topics', 'TopicController');
+	Route::resource('posts', 'PostController');
+	Route::resource('replies', 'ReplyController');
 
 });
 

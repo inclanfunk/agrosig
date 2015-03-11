@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSectionsTable extends Migration {
+class CreatePostsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,15 @@ class CreateSectionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sections', function(Blueprint $table)
+		Schema::create('posts', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->integer('topic_id')->unsigned();
+			$table->foreign('topic_id')->references('id')->on('topics');
 			$table->string('title');
+			$table->text('body');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +33,7 @@ class CreateSectionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sections');
+		Schema::drop('posts');
 	}
 
 }
