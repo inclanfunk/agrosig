@@ -43,15 +43,15 @@ class PostController extends \BaseController {
 			'topic_id' => 'required|exists:topics,id'
 		]);
 
-		// if($validator->fails()){
-		// 	return Redirect::back()->withErrors($validator->messages());
-		// }
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator->messages());
+		}
 
 		$data['user_id'] = Sentry::getUser()->id;
 
 		$post = Post::create($data);
 
-		return 'Placeholder';
+		return Response::json($post, 200);
 	}
 
 
@@ -65,9 +65,11 @@ class PostController extends \BaseController {
 	{
 		$breadcrumbs = ['Home', 'Forum', 'Topic', 'Post'];
 		$user = Sentry::getUser();
-		$post = Post::with('topic.section', 'user', 'replies.user')->find($id);
+		$post = Post::with('topic.section', 'user')->find($id);
+		$replies = Reply::with('user')->where('post_id', '=', $post->id)->paginate(10);
 		return View::make('post.show')
 					->withPost($post)
+					->withReplies($replies)
 					->withUser($user)
 					->withBreadcrumbs($breadcrumbs);
 	}

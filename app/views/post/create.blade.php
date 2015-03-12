@@ -126,7 +126,7 @@
 						url: '/posts',
 						data: data,
 						success: function(response){
-							//
+							window.location.href = '/posts/' + response.id;
 						},
 					});
 				}else{

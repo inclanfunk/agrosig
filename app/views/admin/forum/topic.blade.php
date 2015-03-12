@@ -39,13 +39,13 @@
 					</thead>
 					<tbody>
 
-						@if(!$topic->posts->count())
+						@if(!$posts->count())
 							<tr>
 								<td colspan="3" class="text-center"><em>No posts yet! <br />Be the first one to post!</em></td>
 							</tr>
 						@else
 
-							@foreach($topic->posts as $post)
+							@foreach($posts as $post)
 								<tr>
 									<td colspan="2">
 										<h4><a href="{{ URL::to('/posts', $post->id) }}">
@@ -83,16 +83,8 @@
 				</table>
 	
 				<div class="text-center">
-	                <ul class="pagination pagination-sm">
-	                    <li class="disabled"><a href="javascript:void(0);">Prev</a></li>
-	                    <li class="active"><a href="javascript:void(0);">1</a></li>
-	                    <li><a href="javascript:void(0);">2</a></li>
-	                    <li><a href="javascript:void(0);">3</a></li>
-	                    <li><a href="javascript:void(0);">...</a></li>
-	                    <li><a href="javascript:void(0);">99</a></li>
-	                    <li><a href="javascript:void(0);">Next</a></li>
-	                </ul>
-	            </div>
+					{{$posts->links()}}
+				</div>
 	
 			</div>
 		</div>

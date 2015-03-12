@@ -39,7 +39,7 @@
 						</tr>
 						<!-- end Post -->
 
-						@foreach($post->replies as $reply)
+						@foreach($replies as $reply)
 
 							<!-- Post -->
 							<tr>
@@ -98,29 +98,7 @@
 				</table>
 
 				<div class="text-center">
-					<ul class="pagination pagination-sm">
-						<li class="disabled">
-							<a href="javascript:void(0);">Prev</a>
-						</li>
-						<li class="active">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">2</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">3</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">...</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">99</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">Next</a>
-						</li>
-					</ul>
+					{{$replies->links()}}
 				</div>
 
 			</div>
@@ -138,6 +116,9 @@
 
 	<script type="text/javascript">
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+		// Declaring the post id in JS for further events
+		{{ 'var post_id = ' . $post->id }}
 
 		$(document).ready(function() {
 
@@ -166,6 +147,16 @@
 					});
 				}else{
 					$('#error').removeClass('hidden');
+				}
+			});
+
+			// Needs work!
+
+			var pusher = new Pusher('082bab423e2a8be3da2a');
+			var reply = pusher.subscribe('reply');
+			reply.bind('new_reply', function(response){
+				if(post_id == response[0].post_id){
+					console.log(5);
 				}
 			});
 			

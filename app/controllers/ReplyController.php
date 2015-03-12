@@ -36,13 +36,22 @@ class ReplyController extends \BaseController {
 			'post_id' => 'required|exists:posts,id'
 		]);
 
-		// if($validator->fails()){
-		// 	return Redirect::back()->withErrors($validator->messages());
-		// }
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator->messages());
+		}
 
 		$data['user_id'] = Sentry::getUser()->id;
 
 		$reply = Reply::create($data);
+		// $reply = Reply::with('post')->find($reply->id);
+
+		$pusher = new Pusher(
+			Config::get('services.pusher.public'),
+			Config::get('services.pusher.private'),
+			Config::get('services.pusher.app_id')
+		);
+
+		$pusher->trigger('reply', 'new_reply', [$reply]);
 
 		return 'Placeholder';
 	}
