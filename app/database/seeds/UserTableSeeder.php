@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder {
 
 		$user = Sentry::createUser(array(
 			'email'     	=> 'julienbaudet@sigagro.com',
-			'password'  	=> 'password',
+			'password'  	=> 'Sigagro2015',
 			'first_name'	=> 'Julien',
 			'last_name'		=> 'Baudet',
 			'phone'			=> $faker->phoneNumber,
