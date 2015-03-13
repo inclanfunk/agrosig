@@ -14,7 +14,7 @@ class ForumController extends \BaseController {
 	public function showTopic($id)
 	{
 		$topic = Topic::with('posts.replies.user')->find($id);
-		$posts = Post::with('user')->where('topic_id', '=', $topic->id)->paginate(10);
+		$posts = Post::with('user')->where('topic_id', '=', $topic->id)->orderBy('created_at', 'desc')->paginate(10);
 		$breadcrumbs = ['Home', 'Forum', 'Topic'];
 		return View::make('admin.forum.topic')
 					->withTopic($topic)
