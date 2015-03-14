@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder {
 
 		// Only admin user needed right now!
 
-		/*foreach(range(1, 100) as $index)
+		foreach(range(1, 100) as $index)
 		{
 
 			switch ($faker->numberBetween(2, 4)){
@@ -83,7 +83,7 @@ class UserTableSeeder extends Seeder {
 					WaterPumpReseller::create($water_pump_reseller_details);
 					break;
 			}
-		}*/
+		}
 	}
 
 }

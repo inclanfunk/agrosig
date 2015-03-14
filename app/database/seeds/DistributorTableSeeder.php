@@ -13,7 +13,7 @@ class DistributorTableSeeder extends Seeder {
 		{
 			$user = Sentry::createUser(array(
 				'email'     	=> $faker->email,
-				'password'  	=> $faker->word,
+				'password'  	=> 'password',
 				'first_name'	=> $faker->firstName,
 				'last_name'		=> $faker->lastName,
 				'phone'			=> $faker->phoneNumber,

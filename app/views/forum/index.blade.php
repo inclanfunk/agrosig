@@ -50,7 +50,11 @@
 										@if(!$topic->posts->count())
 											N/A
 										@else
-											{{ $topic->posts->last()->user->first_name }} {{ $topic->posts->last()->user->last_name }}
+											@if($topic->posts->last()->user->id == Sentry::getUser()->id)
+												Me
+											@else
+												{{ $topic->posts->last()->user->first_name  }} {{ $topic->posts->last()->user->last_name  }}
+											@endif
 										@endif
 									</a>
 									<br>

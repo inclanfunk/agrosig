@@ -23,7 +23,7 @@ class PostController extends \BaseController {
 		$breadcrumbs = ['Home', 'Forum', 'Topic', 'Post', 'Create'];
 		$user = Sentry::getUser();
 		$topic = Topic::find(Input::get('topic_id'));
-		return View::make('post.create')
+		return View::make('forum.post.create')
 					->withTopic($topic)
 					->withUser($user)
 					->withBreadcrumbs($breadcrumbs);
@@ -67,7 +67,7 @@ class PostController extends \BaseController {
 		$user = Sentry::getUser();
 		$post = Post::with('topic.section', 'user')->find($id);
 		$replies = Reply::with('user')->where('post_id', '=', $post->id)->paginate(10);
-		return View::make('post.show')
+		return View::make('forum.post.show')
 					->withPost($post)
 					->withReplies($replies)
 					->withUser($user)

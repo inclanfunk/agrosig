@@ -19,7 +19,17 @@
 
 						<!-- Post -->
 						<tr>
-							<td class="text-center"><a href="profile.html"><img alt="" src="img/flags/us.png"> &nbsp; <strong>{{ $post->user->first_name }} {{ $post->user->last_name }}</strong></a></td>
+							<td class="text-center">
+								<a href="profile.html">
+									<strong>
+										@if($post->user->id == Sentry::getUser()->id)
+											Me
+										@else
+											{{ $post->user->first_name  }} {{ $post->user->last_name  }}
+										@endif
+									</strong>
+								</a>
+							</td>
 							<td><em><span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span></em></td>
 						</tr>
 						<tr>
@@ -43,7 +53,17 @@
 
 							<!-- Post -->
 							<tr>
-								<td class="text-center"><a href="profile.html"><img alt="" src="img/flags/us.png"> &nbsp; <strong>{{ $post->user->first_name }} {{ $post->user->last_name }}</strong></a></td>
+								<td class="text-center">
+									<a href="profile.html">
+										<strong>
+											@if($reply->user->id == Sentry::getUser()->id)
+												Me
+											@else
+												{{ $reply->user->first_name  }} {{ $reply->user->last_name  }}
+											@endif
+										</strong>
+									</a>
+								</td>
 								<td><em><span title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span></em></td>
 							</tr>
 							<tr>

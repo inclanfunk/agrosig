@@ -51,7 +51,16 @@
 										<h4><a href="{{ URL::to('/posts', $post->id) }}">
 											{{ $post->title }}
 										</a>
-											<small><a href="#">{{ $post->user->first_name  }} {{ $post->user->last_name  }}</a> <em><span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span></em></small>
+											<small>
+												<a href="#">
+													@if($post->user->id == Sentry::getUser()->id)
+														Me
+													@else
+														{{ $post->user->first_name  }} {{ $post->user->last_name  }}
+													@endif
+												</a> 
+												<em><span title="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</span></em>
+											</small>
 										</h4>
 									</td>
 									<td class="text-center hidden-xs hidden-sm">
@@ -62,7 +71,11 @@
 											@if(!$post->replies->count())
 												N/A
 											@else
-												{{ $post->replies->last()->user->first_name }} {{ $post->replies->last()->user->last_name }}
+												@if($post->replies->last()->user->id == Sentry::getUser()->id)
+													Me
+												@else
+													{{ $post->replies->last()->user->first_name  }} {{ $post->replies->last()->user->last_name  }}
+												@endif
 											@endif
 										</a>
 										<br>
