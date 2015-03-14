@@ -3,7 +3,7 @@
 <div id="logo-group">
 
     <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo"> <a href="{{ URL::route('dashboard') }}"><img src="{{URL::to('img/logo.png')}}" alt="Sig Agro"></a> </span>
+    <span id="logo"> <a href="{{ URL::route('dashboard') }}"><img src="{{ URL::to('img/logo.png') }}" alt="Sig Agro"></a> </span>
     <!-- END LOGO PLACEHOLDER -->
 </div>
 <!-- end projects dropdown -->
