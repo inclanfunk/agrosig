@@ -162,7 +162,7 @@
 						url: '/replies',
 						data: data,
 						success: function(response){
-							//
+							window.location.reload();
 						},
 					});
 				}else{
