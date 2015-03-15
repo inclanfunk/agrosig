@@ -84,4 +84,6 @@ Route::get('test', function(){
 	// $pusher = new Pusher('082bab423e2a8be3da2a', '23f89ae57ba5ff17c82d', '109193');
 	// $pusher->trigger('chat', 'new_message', []);
 	// return 'Done';
+
+	return User::first()->groups()->first();
 });

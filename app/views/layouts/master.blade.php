@@ -228,6 +228,43 @@
 		<!-- Mapbox-->
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
 
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				/*$('#chat-filter').on('input', null, null, function(e){
+					$('.display-users a').filter(function(){
+						return $(this).data('chatFname') == $('#chat-filter').val();
+					}).hide();
+				});*/
+
+				/*$('#chat-filter').on('keyup', function(e){
+				    var filterValue = $('#chat-filter').val();
+				    $('.display-users a').show()
+				    .filter(function(){
+				        return $(this).data('chatFname') != filterValue;
+				    }).hide();
+				});*/
+
+				$('#chat-filter').on('keyup', function(e){
+				    var filterValue = $('#chat-filter').val();
+				    $('.display-users a').show()
+				    .filter(function(){
+				        if ($(this).data('chatFname').toLowerCase().indexOf(filterValue) !== -1) {
+				            return false;
+				        }
+				        if ($(this).data('chatLname').toLowerCase().indexOf(filterValue) !== -1) {
+				            return false;
+				        }
+				        if ($(this).data('chatRole').toLowerCase().indexOf(filterValue) !== -1) {
+				            return false;
+				        }
+				        return true;
+				    }).hide();
+				});
+			});
+
+		</script>
+
         @yield('custom-js')
 
 	</body>
