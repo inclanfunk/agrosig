@@ -231,20 +231,6 @@
 		<script type="text/javascript">
 
 			$(document).ready(function(){
-				/*$('#chat-filter').on('input', null, null, function(e){
-					$('.display-users a').filter(function(){
-						return $(this).data('chatFname') == $('#chat-filter').val();
-					}).hide();
-				});*/
-
-				/*$('#chat-filter').on('keyup', function(e){
-				    var filterValue = $('#chat-filter').val();
-				    $('.display-users a').show()
-				    .filter(function(){
-				        return $(this).data('chatFname') != filterValue;
-				    }).hide();
-				});*/
-
 				$('#chat-filter').on('keyup', function(e){
 				    var filterValue = $('#chat-filter').val();
 				    $('.display-users a').show()

@@ -53,6 +53,8 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('chat', 'ChatController');
 	Route::resource('chatrooms', 'ChatroomController');
 
+	Route::get('chat-users', 'UserController@findUsersForChat');
+
 	Route::get('/forum', 'ForumController@showForum');
 	Route::get('/forum/topics/{id}', 'ForumController@showTopic');
 

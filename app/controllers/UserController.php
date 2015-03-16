@@ -265,5 +265,14 @@ class UserController extends \BaseController {
 		//
 	}
 
+	public function findUsersForChat()
+	{
+		$users = Sentry::findAllUsers();
+		$breadcrumbs = ['Home', 'Chat'];
+		return View::make('chat')
+					->withUsers($users)
+					->withBreadcrumbs($breadcrumbs);
+	}
+
 
 }
