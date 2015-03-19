@@ -413,7 +413,7 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="line_fuse_caliber" placeholder="Line Fuse Caliber" required>
+                                        <input type="number" name="line_fuse_caliber" placeholder="Line Fuse Caliber" required>
                                     </label>
                                     @if($errors->first('line_fuse_caliber'))
                                         <em class="invalid">{{ $errors->first('line_fuse_caliber') }}</em>

@@ -70,37 +70,37 @@
     <!-- multiple lang dropdown : find all flags in the flags page -->
     <ul class="header-dropdown-list hidden-xs">
         <li>
-            <a id="selectedLocale" href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="img/blank.gif" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
+            <a id="selectedLocale" href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="{{ URL::to('img/blank.gif') }}" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
             <ul class="dropdown-menu pull-right">
                 <li class="{{ Sentry::getUser()->locale == 'en' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=en"><img src="img/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
+                    <a href="/changeLocale?locale=en"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-us" alt="United States"> English (US)</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'fr' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=fr"><img src="img/blank.gif" class="flag flag-fr" alt="France"> Français</a>
+                    <a href="/changeLocale?locale=fr"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-fr" alt="France"> Français</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'es' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=es"><img src="img/blank.gif" class="flag flag-es" alt="Spanish"> Español</a>
+                    <a href="/changeLocale?locale=es"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-es" alt="Spanish"> Español</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'de' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=de"><img src="img/blank.gif" class="flag flag-de" alt="German"> Deutsch</a>
+                    <a href="/changeLocale?locale=de"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-de" alt="German"> Deutsch</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'jp' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=jp"><img src="img/blank.gif" class="flag flag-jp" alt="Japan"> 日本語</a>
+                    <a href="/changeLocale?locale=jp"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-jp" alt="Japan"> 日本語</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'cn' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=cn"><img src="img/blank.gif" class="flag flag-cn" alt="China"> 中文</a>
+                    <a href="/changeLocale?locale=cn"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-cn" alt="China"> 中文</a>
                 </li>   
                 <li class="{{ Sentry::getUser()->locale == 'it' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=it"><img src="img/blank.gif" class="flag flag-it" alt="Italy"> Italiano</a>
+                    <a href="/changeLocale?locale=it"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-it" alt="Italy"> Italiano</a>
                 </li>   
                 <li class="{{ Sentry::getUser()->locale == 'pt' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=pt"><img src="img/blank.gif" class="flag flag-pt" alt="Portugal"> Portugal</a>
+                    <a href="/changeLocale?locale=pt"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-pt" alt="Portugal"> Portugal</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'ru' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=ru"><img src="img/blank.gif" class="flag flag-ru" alt="Russia"> Русский язык</a>
+                    <a href="/changeLocale?locale=ru"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-ru" alt="Russia"> Русский язык</a>
                 </li>
                 <li class="{{ Sentry::getUser()->locale == 'kr' ? 'active' : '' }}">
-                    <a href="/changeLocale?locale=kr"><img src="img/blank.gif" class="flag flag-kr" alt="Korea"> 한국어</a>
+                    <a href="/changeLocale?locale=kr"><img src="{{ URL::to('img/blank.gif') }}" class="flag flag-kr" alt="Korea"> 한국어</a>
                 </li>                       
                 
             </ul>

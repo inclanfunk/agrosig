@@ -90,8 +90,20 @@
 											<em class="invalid">{{ $errors->first('order_number') }}</em>
 										@endif
 									</section>
+									<section class="col col-4">
+										<label class="input"> <i class="icon-append fa fa-clock-o"></i>
+											<input type="text" id="my-date-picker" name="date" placeholder="Please Select a Date">
+										</label>
+										@if($errors->first('date'))
+											<em class="invalid">{{ $errors->first('date') }}</em>
+										@endif
+									</section>
 	                            </div>
 	                        </fieldset>
+
+	                        <header>
+								Pivot
+							</header>
 
 	                        <fieldset>
 	                            <div class="row">
@@ -110,6 +122,7 @@
                                                 <option selected="" disabled="">Please Select a Task</option>
                                                 <option value="1">Labor</option>
                                                 <option value="2">Changing Parts</option>
+                                                <option value="3">Labor & Changing Part</option>
                                             </select> <i></i> </label>
                                             @if($errors->first('pivot_task'))
 												<em class="invalid">{{ $errors->first('pivot_task') }}</em>
@@ -201,6 +214,7 @@
                                                 <option selected="" disabled="">Please Select a Task</option>
                                                 <option value="1">Labor</option>
                                                 <option value="2">Changing Parts</option>
+                                                <option value="3">Labor & Changing Part</option>
                                             </select> <i></i> </label>
                                             @if($errors->first('waterpump_task'))
 												<em class="invalid">{{ $errors->first('waterpump_task') }}</em>
@@ -208,6 +222,10 @@
                                     </section>
 	                            </div>
 	                        </fieldset>
+
+	                        <header>
+								Waterpump
+							</header>
 
 	                        <fieldset>
 	                            <div class="row">
@@ -327,6 +345,10 @@
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
 		$(document).ready(function() {
+
+			$(function() {
+				$( "#my-date-picker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+			});
 
 			$('select[name=farm_id]').on('change', function(e){
 				$('select[name=pivot_id]').empty();

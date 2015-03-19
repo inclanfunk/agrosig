@@ -7,6 +7,7 @@ class Order extends \Eloquent {
 		'pivot_id',
 		'waterpump_id',
 		'order_number',
+		'date',
 		'pivot_task',
 		'pivot_category',
 		'gear_train',

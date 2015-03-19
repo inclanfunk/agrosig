@@ -24,13 +24,14 @@ class CreateOrdersTable extends Migration {
 			$table->integer('waterpump_id')->unsigned();
 			$table->foreign('waterpump_id')->references('id')->on('waterpumps');
 			$table->string('order_number');
-			$table->enum('pivot_task', array('Labor', 'Changing Parts'));
+			$table->date('date');
+			$table->enum('pivot_task', array('Labor', 'Changing Parts', 'Labor & Changing Part'));
 			$table->enum('pivot_category', array('Gear Train', 'Electricity', 'Sprinkling'));
 			$table->enum('gear_train', array('Masa', 'Motor Reduction', 'Cross Head'))->nullable();
 			$table->enum('electricity', array('Electronic', 'Box Section', 'Panels'))->nullable();
 			$table->enum('sprinkling', array('Wear', 'Flow Changes', 'Others'))->nullable();
 			$table->string('pivot_cost');
-			$table->enum('waterpump_task', array('Labor', 'Changing Parts'));
+			$table->enum('waterpump_task', array('Labor', 'Changing Parts', 'Labor & Changing Part'));
 			$table->enum('waterpump_category', array('Motor', 'Electrical Board', 'Waterpump'));
 			$table->enum('motor', array('Mechanical Break', 'Burnout'))->nullable();
 			$table->enum('electrical_board', array('Protection Failure', 'Others'))->nullable();
