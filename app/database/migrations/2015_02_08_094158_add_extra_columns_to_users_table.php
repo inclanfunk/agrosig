@@ -20,6 +20,7 @@ class AddExtraColumnsToUsersTable extends Migration {
 			$table->timestamp('last_active')->nullable();
 			$table->string('facebook');
 			$table->string('twitter');
+			$table->string('locale')->default('en');
 		});
 	}
 
@@ -39,6 +40,7 @@ class AddExtraColumnsToUsersTable extends Migration {
 			$table->dropColumn('last_active');
 			$table->dropColumn('facebook');
 			$table->dropColumn('twitter');
+			$table->dropColumn('locale');
 		});
 	}
 

@@ -93,7 +93,7 @@
                                             </ul>
                                             <br>
                                             <p class="font-md">
-                                                <i>A little about me...</i>
+                                                <i>{{ trans('profile.little') }}</i>
                                             </p>
                                             <p>
                                               {{ Sentry::getUser()->description }}
@@ -103,7 +103,7 @@
                                             <br>
 
                                              <button class="btn btn-warning" id="clickme">
-                                                  Edit Your Profile Now
+                                                  {{ trans('profile.edit_now') }}
                                              </button>
                                              <br> <br>
 
@@ -151,7 +151,7 @@
                                        				-->
                                        				<header>
                                        					<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-                                       					<h2> Edit your profile </h2>
+                                       					<h2> {{ trans('profile.edit') }} </h2>
 
                                        				</header>
 
@@ -172,7 +172,7 @@
 
                                        						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{URL::to('editProfile')}}" method="post" enctype="multipart/form-data" >
                                        							<header>
-                                       								Profile Details
+                                       								{{ trans('profile.details') }}
                                        							</header>
                                                                   <!-- For Larevel PUT METHOD ! -->
                                                                   <input type="hidden" name="_method" value="put" />
@@ -226,7 +226,7 @@
                                                             <textarea name="description" rows="4" class="custom-scroll">{{ Sentry::getUser()->description }}</textarea> 
                                                           </label>
                                                           <div class="note">
-                                                            <strong>Provide a small description about yourself!</strong>
+                                                            <strong>{{ trans('profile.description') }}</strong>
                                                           </div>
                 
                                                         </section>
@@ -239,7 +239,7 @@
                                        							<div class="col-md-10">
                                                         <input type="file" class="btn btn-default" id="profile_pic" name="photo">
                                                         <p class="help-block">
-                                                           Upload your profile photo
+                                                           {{ trans('profile.upload') }}
                                                         </p>
                                                     </div>
 
@@ -248,7 +248,7 @@
 
                                        							<footer>
                                        								<button type="submit" class="btn btn-primary">
-                                       									Update Profile
+                                       									{{ trans('profile.update') }}
                                        								</button>
                                      								     <span style="color: red;"> {{ $errors->first('email'); }} </span><br>
                                                          <span style="color: red;"> {{ $errors->first('first_name'); }} </span>

@@ -212,49 +212,6 @@
                 <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">Forum</span></a>
             </li>
 
-            <li class="{{ Request::is('chat-users') ? 'active' : '' }}">
-                <a href="{{ URL::to('chat-users') }}"><i class="fa fa-lg fa-fw fa-comment-o"></i> <span class="menu-item-parent">Chat Users</span></a>
-            </li>
-
-            <!-- <li class="chat-users top-menu-invisible">
-                <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"></i> <span class="menu-item-parent">Chat</span></a>
-                <ul>
-                    <li>
-                        <div class="display-users">
-
-                            <input id="chat-filter" class="form-control chat-user-filter" placeholder="Filter" type="text">
-
-                            {{--*/ $users = User::all() /*--}}
-                            @foreach($users as $user)
-                                <a href="#" class="usr"
-                                    data-chat-id="{{ $user->id }}" 
-                                    data-chat-fname="{{ $user->first_name }}" 
-                                    data-chat-lname="{{ $user->last_name }}" 
-                                    data-chat-role="{{ $user->groups()->first()->name }}"
-                                    data-chat-status="online" 
-                                    data-chat-alertmsg="" 
-                                    data-chat-alertshow="false" 
-                                    data-rel="popover-hover" 
-                                    data-placement="right" 
-                                    data-html="true" 
-                                    data-content="
-                                        <div class='usr-card'>
-                                            <img src='{{ $user->photo != '' ? '/photos/' . $user->photo : '/img/avatar.png' }}' alt='{{ $user->first_name }} {{ $user->last_name }}' width='50px'>
-                                            <div class='usr-card-content'>
-                                                <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
-                                                <p>{{ $user->groups()->first()->name }}</p>
-                                            </div>
-                                        </div>
-                                    "> 
-                                    <i></i>{{ $user->first_name }} {{ $user->last_name }}
-                                </a>
-                            @endforeach
-
-                        </div>
-                    </li>
-                </ul>   
-            </li> -->
-
 		</ul>
 
 	</nav>

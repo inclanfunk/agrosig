@@ -231,21 +231,14 @@
 		<script type="text/javascript">
 
 			$(document).ready(function(){
-				$('#chat-filter').on('keyup', function(e){
-				    var filterValue = $('#chat-filter').val();
-				    $('.display-users a').show()
-				    .filter(function(){
-				        if ($(this).data('chatFname').toLowerCase().indexOf(filterValue) !== -1) {
-				            return false;
-				        }
-				        if ($(this).data('chatLname').toLowerCase().indexOf(filterValue) !== -1) {
-				            return false;
-				        }
-				        if ($(this).data('chatRole').toLowerCase().indexOf(filterValue) !== -1) {
-				            return false;
-				        }
-				        return true;
-				    }).hide();
+				$('ul.dropdown-menu li').each(function(i){
+					if($(this).hasClass('active')){
+						$('a#selectedLocale span').text($(this).text());
+
+						$('a#selectedLocale > img')
+							.removeClass()
+							.addClass($(this).find('img').attr('class'));
+					}
 				});
 			});
 

@@ -10,10 +10,12 @@ class ProfileController extends \BaseController {
 
 	public function editProfile()
 	{
+		$current_user = Sentry::getUser()->id;
+
 		$validator = Validator::make($data = Input::all(), [
 			'first_name' => 'required|alpha',
 			'last_name' => 'required|alpha',
-			'email' => 'required|email',
+			'email' => 'required|email|unique:users,email,' . $current_user,
 			'phone' => 'required'
 		]);
 
@@ -45,6 +47,21 @@ class ProfileController extends \BaseController {
 		$user->update($data);
 
 		return Redirect::to('profile');
+	}
+
+	public function changeLocale()
+	{
+		$validator = Validator::make(Input::all(), [
+			'locale' => 'required|in:en,fr,es,de,jp,cn,it,pt,ru,kr'
+		]);
+
+		if($validator->fails()){
+			return Redirect::back();
+		}
+
+		Sentry::getUser()->update(['locale' => Input::get('locale')]);
+
+		return Redirect::back();
 	}
 
 

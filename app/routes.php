@@ -10,6 +10,9 @@ Route::get('/logout', 'LoginController@logout');
 
 // All routes and resources will pass the auth filter in this group.
 Route::group(['before' => 'auth'], function(){
+
+	App::setLocale(Sentry::getUser()->locale);
+
 	Route::get('/dashboard', [
 		'as' => 'dashboard',
 		'uses' => 'DashboardController@showDashboard'
@@ -24,6 +27,8 @@ Route::group(['before' => 'auth'], function(){
 		'as' => 'editProfile',
 		'uses' => 'ProfileController@editProfile'
 	]);
+
+	Route::get('changeLocale', 'ProfileController@changeLocale');
 
 	Route::resource('users', 'UserController');
 	Route::resource('companies', 'CompanyController');
@@ -52,8 +57,6 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('calendar', 'CalendarController');
 	Route::resource('chat', 'ChatController');
 	Route::resource('chatrooms', 'ChatroomController');
-
-	Route::get('chat-users', 'UserController@findUsersForChat');
 
 	Route::get('/forum', 'ForumController@showForum');
 	Route::get('/forum/topics/{id}', 'ForumController@showTopic');
@@ -86,6 +89,6 @@ Route::get('test', function(){
 	// $pusher = new Pusher('082bab423e2a8be3da2a', '23f89ae57ba5ff17c82d', '109193');
 	// $pusher->trigger('chat', 'new_message', []);
 	// return 'Done';
-
-	return User::first()->groups()->first();
+	// return User::first()->groups()->first();
+	// return Config::get('app.locale');
 });
