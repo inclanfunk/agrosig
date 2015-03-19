@@ -1,5 +1,9 @@
 <?php
 
+if(Sentry::check()){
+	App::setLocale(Sentry::getUser()->locale);
+}
+
 // Logged in users cannot access these routes. Only guests.
 Route::group(['before' => 'guest'], function(){
 	Route::get('/', 'LoginController@showLogin');
@@ -10,8 +14,6 @@ Route::get('/logout', 'LoginController@logout');
 
 // All routes and resources will pass the auth filter in this group.
 Route::group(['before' => 'auth'], function(){
-
-	App::setLocale(Sentry::getUser()->locale);
 
 	Route::get('/dashboard', [
 		'as' => 'dashboard',
