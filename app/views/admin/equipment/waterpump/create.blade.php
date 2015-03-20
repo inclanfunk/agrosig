@@ -126,7 +126,7 @@
                                 </section>
                                 <section class="col col-3">
                                     <label class="select">
-                                        <select name="brand" class="farm">
+                                        <select name="g_brand" class="farm">
                                             <option selected="" disabled="">Brand</option>
                                                 <option value="1">Rotorpump</option>
                                                 <option value="2">KSB</option>
@@ -134,8 +134,8 @@
                                                 <option value="4">Sylwan</option>
                                                 <option value="5">Banfy</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('brand'))
-                                            <em class="invalid">{{ $errors->first('brand') }}</em>
+                                        @if($errors->first('g_brand'))
+                                            <em class="invalid">{{ $errors->first('g_brand') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-3">
@@ -152,30 +152,30 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="type" class="farm">
+                                        <select name="g_type" class="farm">
                                             <option selected="" disabled="">Type</option>
                                                 <option value="1">Submergible</option>
                                                 <option value="2">Mechanical</option>
                                                 <option value="3">Centrifuged</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('type'))
-                                            <em class="invalid">{{ $errors->first('type') }}</em>
+                                        @if($errors->first('g_type'))
+                                            <em class="invalid">{{ $errors->first('g_type') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="number" name="power" placeholder="Power" required>
+                                        <input type="number" name="g_power" placeholder="Power" required>
                                     </label>
-                                    @if($errors->first('power'))
-                                        <em class="invalid">{{ $errors->first('power') }}</em>
+                                    @if($errors->first('g_power'))
+                                        <em class="invalid">{{ $errors->first('g_power') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="number" name="volume" placeholder="Input Voltage" required>
+                                        <input type="number" name="g_volume" placeholder="Input Voltage" required>
                                     </label>
-                                    @if($errors->first('volume'))
-                                        <em class="invalid">{{ $errors->first('volume') }}</em>
+                                    @if($errors->first('g_volume'))
+                                        <em class="invalid">{{ $errors->first('g_volume') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -184,40 +184,40 @@
                             <div class="row">
                                 <section class="col col-3">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="number" name="height" placeholder="Height" required>
+                                        <input type="number" name="g_hieght" placeholder="Height" required>
                                     </label>
-                                    @if($errors->first('height'))
-                                        <em class="invalid">{{ $errors->first('height') }}</em>
+                                    @if($errors->first('g_hieght'))
+                                        <em class="invalid">{{ $errors->first('g_hieght') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-3">
                                     <label class="select">
-                                        <select name="engine_type" class="farm">
+                                        <select name="g_engine_type" class="farm">
                                             <option selected="" disabled="">Type of Engine</option>
                                                 <option value="1">Capped</option>
                                                 <option value="2">Rewindable</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('engine_type'))
-                                            <em class="invalid">{{ $errors->first('engine_type') }}</em>
+                                        @if($errors->first('g_engine_type'))
+                                            <em class="invalid">{{ $errors->first('g_engine_type') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-3">
                                     <label class="select">
-                                        <select name="voltage" class="farm">
+                                        <select name="g_voltage" class="farm">
                                             <option selected="" disabled="">Voltage</option>
                                                 <option value="1">380</option>
                                                 <option value="2">380/660V</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('voltage'))
-                                            <em class="invalid">{{ $errors->first('voltage') }}</em>
+                                        @if($errors->first('g_voltage'))
+                                            <em class="invalid">{{ $errors->first('g_voltage') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-3">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="number" name="amperage" placeholder="Amperage" required>
+                                        <input type="number" name="g_amperage" placeholder="Amperage" required>
                                     </label>
-                                    @if($errors->first('amperage'))
-                                        <em class="invalid">{{ $errors->first('amperage') }}</em>
+                                    @if($errors->first('g_amperage'))
+                                        <em class="invalid">{{ $errors->first('g_amperage') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -234,26 +234,26 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="time_shift_boot" placeholder="Time Shift Boot" required>
+                                        <input type="text" name="s_time_shift_boot" placeholder="Time Shift Boot" required>
                                     </label>
-                                    @if($errors->first('time_shift_boot'))
-                                        <em class="invalid">{{ $errors->first('time_shift_boot') }}</em>
+                                    @if($errors->first('s_time_shift_boot'))
+                                        <em class="invalid">{{ $errors->first('s_time_shift_boot') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="imbalance" placeholder="Imblance" required>
+                                        <input type="text" name="s_imbalance" placeholder="Imblance" required>
                                     </label>
-                                    @if($errors->first('imbalance'))
-                                        <em class="invalid">{{ $errors->first('imbalance') }}</em>
+                                    @if($errors->first('s_imbalance'))
+                                        <em class="invalid">{{ $errors->first('s_imbalance') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="restart_time" placeholder="Restart time" required>
+                                        <input type="text" name="s_restart_time" placeholder="Restart time" required>
                                     </label>
-                                    @if($errors->first('restart_time'))
-                                        <em class="invalid">{{ $errors->first('restart_time') }}</em>
+                                    @if($errors->first('s_restart_time'))
+                                        <em class="invalid">{{ $errors->first('s_restart_time') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -262,26 +262,26 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="low_voltage" placeholder="Low Voltage" required>
+                                        <input type="text" name="s_low_voltage" placeholder="Low Voltage" required>
                                     </label>
-                                    @if($errors->first('low_voltage'))
-                                        <em class="invalid">{{ $errors->first('low_voltage') }}</em>
+                                    @if($errors->first('s_low_voltage'))
+                                        <em class="invalid">{{ $errors->first('s_low_voltage') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="high_voltage" placeholder="High Voltage" required>
+                                        <input type="text" name="s_high_voltage" placeholder="High Voltage" required>
                                     </label>
-                                    @if($errors->first('high_voltage'))
-                                        <em class="invalid">{{ $errors->first('high_voltage') }}</em>
+                                    @if($errors->first('s_high_voltage'))
+                                        <em class="invalid">{{ $errors->first('s_high_voltage') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="low_charge" placeholder="Low charge" required>
+                                        <input type="text" name="s_low_charge" placeholder="Low charge" required>
                                     </label>
-                                    @if($errors->first('low_charge'))
-                                        <em class="invalid">{{ $errors->first('low_charge') }}</em>
+                                    @if($errors->first('s_low_charge'))
+                                        <em class="invalid">{{ $errors->first('s_low_charge') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -293,26 +293,26 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="amps_phase_r" placeholder="Phase R" required>
+                                        <input type="text" name="s_amps_phase_r" placeholder="Phase R" required>
                                     </label>
-                                    @if($errors->first('amps_phase_r'))
-                                        <em class="invalid">{{ $errors->first('amps_phase_r') }}</em>
+                                    @if($errors->first('s_amps_phase_r'))
+                                        <em class="invalid">{{ $errors->first('s_amps_phase_r') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="amps_phase_s" placeholder="Phase S" required>
+                                        <input type="text" name="s_amps_phase_s" placeholder="Phase S" required>
                                     </label>
-                                    @if($errors->first('amps_phase_s'))
-                                        <em class="invalid">{{ $errors->first('amps_phase_s') }}</em>
+                                    @if($errors->first('s_amps_phase_s'))
+                                        <em class="invalid">{{ $errors->first('s_amps_phase_s') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="amps_phase_t" placeholder="Phase T" required>
+                                        <input type="text" name="s_amps_phase_t" placeholder="Phase T" required>
                                     </label>
-                                    @if($errors->first('amps_phase_t'))
-                                        <em class="invalid">{{ $errors->first('amps_phase_t') }}</em>
+                                    @if($errors->first('s_amps_phase_t'))
+                                        <em class="invalid">{{ $errors->first('s_amps_phase_t') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -324,26 +324,26 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="line_phase_r" placeholder="Phase R" required>
+                                        <input type="text" name="s_line_phase_r" placeholder="Phase R" required>
                                     </label>
-                                    @if($errors->first('line_phase_r'))
-                                        <em class="invalid">{{ $errors->first('line_phase_r') }}</em>
+                                    @if($errors->first('s_line_phase_r'))
+                                        <em class="invalid">{{ $errors->first('s_line_phase_r') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="line_phase_s" placeholder="Phase S" required>
+                                        <input type="text" name="s_line_phase_s" placeholder="Phase S" required>
                                     </label>
-                                    @if($errors->first('line_phase_s'))
-                                        <em class="invalid">{{ $errors->first('line_phase_s') }}</em>
+                                    @if($errors->first('s_line_phase_s'))
+                                        <em class="invalid">{{ $errors->first('s_line_phase_s') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="line_phase_t" placeholder="Phase T" required>
+                                        <input type="text" name="s_line_phase_t" placeholder="Phase T" required>
                                     </label>
-                                    @if($errors->first('line_phase_t'))
-                                        <em class="invalid">{{ $errors->first('line_phase_t') }}</em>
+                                    @if($errors->first('s_line_phase_t'))
+                                        <em class="invalid">{{ $errors->first('s_line_phase_t') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -355,26 +355,26 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="power_phase_r" placeholder="Phase R" required>
+                                        <input type="text" name="s_power_phase_r" placeholder="Phase R" required>
                                     </label>
-                                    @if($errors->first('power_phase_r'))
-                                        <em class="invalid">{{ $errors->first('power_phase_r') }}</em>
+                                    @if($errors->first('s_power_phase_r'))
+                                        <em class="invalid">{{ $errors->first('s_power_phase_r') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="power_phase_s" placeholder="Phase S" required>
+                                        <input type="text" name="s_power_phase_s" placeholder="Phase S" required>
                                     </label>
-                                    @if($errors->first('power_phase_s'))
-                                        <em class="invalid">{{ $errors->first('power_phase_s') }}</em>
+                                    @if($errors->first('s_power_phase_s'))
+                                        <em class="invalid">{{ $errors->first('s_power_phase_s') }}</em>
                                     @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="power_phase_t" placeholder="Phase T" required>
+                                        <input type="text" name="s_power_phase_t" placeholder="Phase T" required>
                                     </label>
-                                    @if($errors->first('power_phase_t'))
-                                        <em class="invalid">{{ $errors->first('power_phase_t') }}</em>
+                                    @if($errors->first('s_power_phase_t'))
+                                        <em class="invalid">{{ $errors->first('s_power_phase_t') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -388,35 +388,35 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="electrical_board_type" class="farm">
+                                        <select name="eb_type" class="farm">
                                             <option selected="" disabled="">Type</option>
                                                 <option value="1">Triangle</option>
                                                 <option value="2">Star</option>
                                                 <option value="3">Soft</option>
                                                 <option value="4">Direct</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('electrical_board_type'))
-                                            <em class="invalid">{{ $errors->first('electrical_board_type') }}</em>
+                                        @if($errors->first('eb_type'))
+                                            <em class="invalid">{{ $errors->first('eb_type') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="electrical_board_protection" class="farm">
+                                        <select name="eb_protection" class="farm">
                                             <option selected="" disabled="">Protection Type</option>
                                                 <option value="1">Thermal</option>
                                                 <option value="2">Electrical</option>
                                                 <option value="3">Sub-Monitor</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('electrical_board_protection'))
-                                            <em class="invalid">{{ $errors->first('electrical_board_protection') }}</em>
+                                        @if($errors->first('eb_protection'))
+                                            <em class="invalid">{{ $errors->first('eb_protection') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="number" name="line_fuse_caliber" placeholder="Line Fuse Caliber" required>
+                                        <input type="number" name="eb_line_fuse_caliber" placeholder="Line Fuse Caliber" required>
                                     </label>
-                                    @if($errors->first('line_fuse_caliber'))
-                                        <em class="invalid">{{ $errors->first('line_fuse_caliber') }}</em>
+                                    @if($errors->first('eb_line_fuse_caliber'))
+                                        <em class="invalid">{{ $errors->first('eb_line_fuse_caliber') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -428,7 +428,7 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="contactor_brand" class="farm">
+                                        <select name="eb_contactor_brand" class="farm">
                                             <option selected="" disabled="">Brand</option>
                                                 <option value="1">Weg</option>
                                                 <option value="2">Siemens</option>
@@ -437,16 +437,16 @@
                                                 <option value="5">Schneider</option>
                                                 <option value="6">Others</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('contactor_brand'))
-                                            <em class="invalid">{{ $errors->first('contactor_brand') }}</em>
+                                        @if($errors->first('eb_contactor_brand'))
+                                            <em class="invalid">{{ $errors->first('eb_contactor_brand') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="contactor_power" placeholder="Power" required>
+                                        <input type="text" name="eb_contactor_power" placeholder="Power" required>
                                     </label>
-                                    @if($errors->first('contactor_power'))
-                                        <em class="invalid">{{ $errors->first('contactor_power') }}</em>
+                                    @if($errors->first('eb_contactor_power'))
+                                        <em class="invalid">{{ $errors->first('eb_contactor_power') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -458,21 +458,21 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="contactor_triange" class="farm">
+                                        <select name="eb_contactor_triange" class="farm">
                                             <option selected="" disabled="">Contactor Triangle</option>
                                                 <option value="1">Yes</option>
                                                 <option value="2">No</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('contactor_triange'))
-                                            <em class="invalid">{{ $errors->first('contactor_triange') }}</em>
+                                        @if($errors->first('eb_contactor_triange'))
+                                            <em class="invalid">{{ $errors->first('eb_contactor_triange') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="contactor_triangle_comment" placeholder="Contactors Triangle Comment" required>
+                                        <input type="text" name="eb_contactor_triangle_comment" placeholder="Contactors Triangle Comment" required>
                                     </label>
-                                    @if($errors->first('contactor_triangle_comment'))
-                                        <em class="invalid">{{ $errors->first('contactor_triangle_comment') }}</em>
+                                    @if($errors->first('eb_contactor_triangle_comment'))
+                                        <em class="invalid">{{ $errors->first('eb_contactor_triangle_comment') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -484,21 +484,21 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="contactor_star" class="farm">
+                                        <select name="eb_contactor_star" class="farm">
                                             <option selected="" disabled="">Contactor Star</option>
                                                 <option value="1">Yes</option>
                                                 <option value="2">No</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('contactor_star'))
-                                            <em class="invalid">{{ $errors->first('contactor_star') }}</em>
+                                        @if($errors->first('eb_contactor_star'))
+                                            <em class="invalid">{{ $errors->first('eb_contactor_star') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
                                         <input type="text" name="contactors_star_comment" placeholder="Contactors Star Comment" required>
                                     </label>
-                                    @if($errors->first('contactor_star_comment'))
-                                        <em class="invalid">{{ $errors->first('contactor_star_comment') }}</em>
+                                    @if($errors->first('eb_contactor_star_comment'))
+                                        <em class="invalid">{{ $errors->first('eb_contactor_star_comment') }}</em>
                                     @endif
                                 </section>
                             </div>
@@ -510,21 +510,21 @@
                             <div class="row">
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="contactor_line" class="farm">
+                                        <select name="eb_contactor_line" class="farm">
                                             <option selected="" disabled="">Contactor of Line</option>
                                                 <option value="1">Yes</option>
                                                 <option value="2">No</option>
                                         </select> <i></i> </label>
-                                        @if($errors->first('contactor_line'))
-                                            <em class="invalid">{{ $errors->first('contactor_line') }}</em>
+                                        @if($errors->first('eb_contactor_line'))
+                                            <em class="invalid">{{ $errors->first('eb_contactor_line') }}</em>
                                         @endif
                                 </section>
                                 <section class="col col-4">
                                     <label class="input"> <i class="icon-append fa fa-gear"></i>
-                                        <input type="text" name="contactor_line_comment" placeholder="Contactors of Line Comment" required>
+                                        <input type="text" name="eb_contactor_line_comment" placeholder="Contactors of Line Comment" required>
                                     </label>
-                                    @if($errors->first('contactor_line_comment'))
-                                        <em class="invalid">{{ $errors->first('contactor_line_comment') }}</em>
+                                    @if($errors->first('eb_contactor_line_comment'))
+                                        <em class="invalid">{{ $errors->first('eb_contactor_line_comment') }}</em>
                                     @endif
                                 </section>
                             </div>
