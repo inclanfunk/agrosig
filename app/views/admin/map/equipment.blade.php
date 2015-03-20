@@ -283,17 +283,6 @@
 							$('#pivotGeneral').empty()
 							$('#pivotSettings').empty()
 							$('#pivotEbSettings').empty()
-									// .append("<li>Brand: " + pivot_item.brand + "</li>")
-									// .append("<li>Model: " + pivot_item.model + "</li>")
-									// .append("<li>QOA: " + pivot_item.coa + "</li>")
-									// .append("<li>QOA Model: " + pivot_item.coa_model + "</li>")
-									// .append("<li>No. of Downspot Drops: " + pivot_item.ndd + "</li>")
-									// .append("<li>Distance Between Downspot Drops: " + pivot_item.ddd + "</li>")
-									// .append("<li>Sprinkler Model: " + pivot_item.sprinkler_model + "</li>")
-									// .append("<li>Sprinkler Type: " + pivot_item.sprikler_type + "</li>");
-							/*$.each(pivot_item, function(i, item){
-								console.log(item);
-							});*/
 
 							for (var key in pivot_item) {
 								var current = key.split('_');
@@ -302,7 +291,6 @@
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
-									console.log(current);
 									$('#pivotGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
 								}
 								if(current[0] == 's'){
@@ -323,14 +311,6 @@
 								}
 							}
 
-							
-									// .append("<li>Minimum Rotation Time: " + pivot_item.rotation_time + "</li>")
-									// .append("<li>Sheet: " + pivot_item.sheet + "</li>")
-									// .append("<li>Minimum Working Pressure: " + pivot_item.minimum_working_pressure + "</li>");
-							
-									// .append("<li>Model: " + pivot_item.electrical_board_model + "</li>")
-									// .append("<li>Contactors: " + pivot_item.electrical_board_contactors + "</li>")
-									// .append("<li>Brand: " + pivot_item.electrical_board_brand + "</li>");
 							marker.on('click', function(e){
 								$('#pivotTab').removeClass('hidden');
 								$('#waterpumpTab').addClass('hidden');
@@ -346,17 +326,34 @@
 						if(pivot_item.lat != ''){
 							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
 							$('#waterpumpGeneral').empty()
-									.append("<li>Type: " + pivot_item.type + "</li>")
-									.append("<li>Power: " + pivot_item.power + "</li>")
-									.append("<li>Brand: " + pivot_item.brand + "</li>")
-									.append("<li>Voltage: " + pivot_item.voltage + "</li>");
 							$('#waterpumpSettings').empty()
-									.append("<li>Time Shift Boot: " + pivot_item.time_shift_boot + "</li>")
-									.append("<li>Imbalance: " + pivot_item.imbalance + "</li>")
-									.append("<li>Restart Time: " + pivot_item.restart_time + "</li>");
 							$('#waterpumpEbSettings').empty()
-									.append("<li>Type: " + pivot_item.electrical_board_type + "</li>")
-									.append("<li>Protection: " + pivot_item.electrical_board_protection + "</li>");
+							for (var key in pivot_item) {
+								var current = key.split('_');
+								if(current[0] == 'g'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									$('#waterpumpGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+								if(current[0] == 's'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									console.log(current);
+									$('#waterpumpSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+								if(current[0] == 'eb'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									console.log(current);
+									$('#waterpumpEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+							}
 							$('#waterpumpDwInfo').empty()
 									.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>')
 							marker.on('click', function(e){
