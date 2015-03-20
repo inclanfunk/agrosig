@@ -19,12 +19,12 @@
 		height: 500px;
 	}
 
-	#waterpumpTab {
+	/*#waterpumpTab {
 		margin: 10px;
 	    font-size: 11px;
 	    line-height: 18px;
 	    border-radius: 2px;
-	}
+	}*/
 
 	#waterpumpTab ul{
 		list-style-type: none;
@@ -32,12 +32,12 @@
 		margin: 0px;
 	}
 
-	#pivotTab{
+	/*#pivotTab{
 		margin: 10px;
 	    font-size: 11px;
 	    line-height: 18px;
 	    border-radius: 2px;
-	}
+	}*/
 
 	#pivotTab ul{
 		list-style-type: none;
@@ -58,7 +58,7 @@
 		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 			<!-- Widget ID (each widget will need unique ID)-->
-			<div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
+			<div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-fullscreenbutton="true" data-widget-editbutton="false" data-widget-deletebutton="false">
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -76,43 +76,15 @@
 					<span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
 					<h2>Equipment Map</h2>
 
-					<div class="widget-toolbar">
-						<!-- add: non-hidden - to disable auto hide -->
-
-						<div class="btn-group">
-							<button class="btn dropdown-toggle btn-xs btn-primary" data-toggle="dropdown">
-								Load XML <i class="icon-caret-down"></i>
-							</button>
-							<ul class="dropdown-menu pull-right">
-								<li>
-									<a href="javascript:void(0);"><i class="icon-circle txt-color-green"></i> Realestate XML</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);"><i class="icon-circle txt-color-red"></i> Clients XML</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="javascript:void(0);"><i class="icon-delete"></i> Cancel</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-
 				</header>
 
 				<!-- widget div-->
 				<div>
 
-					<!-- widget edit box -->
-					<div class="jarviswidget-editbox">
-						<!-- This area used as dropdown edit box -->
-
-					</div>
-					<!-- end widget edit box -->
-
 					<!-- widget content -->
 					<div class="widget-body no-padding">
 						<div id='map'></div>
+
 						<div id="pivotTab" class="col-xs-6 col-md-4 hidden">
 							<ul>
 								<li>
@@ -141,7 +113,7 @@
 								</ul>
 							</div>
 						</div>
-						<div id="waterpumpTab" class="col-xs-6 col-md-4 hidden">
+						<div id="waterpumpTab" class="col-xs-10 col-md-4 hidden">
 							<ul>
 								<li>
 									<a href="#tabs-a">Waterpump</a>
@@ -308,23 +280,57 @@
 							        'marker-color': '#74DF00'
 							    })
 							}).addTo(pivotsLayer);
-							$('#pivotGeneral')
-									.append("<li>Brand: " + pivot_item.brand + "</li>")
-									.append("<li>Model: " + pivot_item.model + "</li>")
-									.append("<li>QOA: " + pivot_item.coa + "</li>")
-									.append("<li>QOA Model: " + pivot_item.coa_model + "</li>")
-									.append("<li>No. of Downspot Drops: " + pivot_item.ndd + "</li>")
-									.append("<li>Distance Between Downspot Drops: " + pivot_item.ddd + "</li>")
-									.append("<li>Sprinkler Model: " + pivot_item.sprinkler_model + "</li>")
-									.append("<li>Sprinkler Type: " + pivot_item.sprikler_type + "</li>");
-							$('#pivotSettings')
-									.append("<li>Minimum Rotation Time: " + pivot_item.rotation_time + "</li>")
-									.append("<li>Sheet: " + pivot_item.sheet + "</li>")
-									.append("<li>Minimum Working Pressure: " + pivot_item.minimum_working_pressure + "</li>");
-							$('#pivotEbSettings')
-									.append("<li>Model: " + pivot_item.electrical_board_model + "</li>")
-									.append("<li>Contactors: " + pivot_item.electrical_board_contactors + "</li>")
-									.append("<li>Brand: " + pivot_item.electrical_board_brand + "</li>");
+							$('#pivotGeneral').empty()
+							$('#pivotSettings').empty()
+							$('#pivotEbSettings').empty()
+									// .append("<li>Brand: " + pivot_item.brand + "</li>")
+									// .append("<li>Model: " + pivot_item.model + "</li>")
+									// .append("<li>QOA: " + pivot_item.coa + "</li>")
+									// .append("<li>QOA Model: " + pivot_item.coa_model + "</li>")
+									// .append("<li>No. of Downspot Drops: " + pivot_item.ndd + "</li>")
+									// .append("<li>Distance Between Downspot Drops: " + pivot_item.ddd + "</li>")
+									// .append("<li>Sprinkler Model: " + pivot_item.sprinkler_model + "</li>")
+									// .append("<li>Sprinkler Type: " + pivot_item.sprikler_type + "</li>");
+							/*$.each(pivot_item, function(i, item){
+								console.log(item);
+							});*/
+
+							for (var key in pivot_item) {
+								var current = key.split('_');
+								if(current[0] == 'g'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									console.log(current);
+									$('#pivotGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+								if(current[0] == 's'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									console.log(current);
+									$('#pivotSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+								if(current[0] == 'eb'){
+									current = current.slice(1);
+									$.each(current, function(i, item){
+										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+									});
+									console.log(current);
+									$('#pivotEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+								}
+							}
+
+							
+									// .append("<li>Minimum Rotation Time: " + pivot_item.rotation_time + "</li>")
+									// .append("<li>Sheet: " + pivot_item.sheet + "</li>")
+									// .append("<li>Minimum Working Pressure: " + pivot_item.minimum_working_pressure + "</li>");
+							
+									// .append("<li>Model: " + pivot_item.electrical_board_model + "</li>")
+									// .append("<li>Contactors: " + pivot_item.electrical_board_contactors + "</li>")
+									// .append("<li>Brand: " + pivot_item.electrical_board_brand + "</li>");
 							marker.on('click', function(e){
 								$('#pivotTab').removeClass('hidden');
 								$('#waterpumpTab').addClass('hidden');
@@ -339,19 +345,19 @@
 					$.each(data, function(pivot_i, pivot_item){
 						if(pivot_item.lat != ''){
 							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
-							$('#waterpumpGeneral')
+							$('#waterpumpGeneral').empty()
 									.append("<li>Type: " + pivot_item.type + "</li>")
 									.append("<li>Power: " + pivot_item.power + "</li>")
 									.append("<li>Brand: " + pivot_item.brand + "</li>")
 									.append("<li>Voltage: " + pivot_item.voltage + "</li>");
-							$('#waterpumpSettings')
+							$('#waterpumpSettings').empty()
 									.append("<li>Time Shift Boot: " + pivot_item.time_shift_boot + "</li>")
 									.append("<li>Imbalance: " + pivot_item.imbalance + "</li>")
 									.append("<li>Restart Time: " + pivot_item.restart_time + "</li>");
-							$('#waterpumpEbSettings')
+							$('#waterpumpEbSettings').empty()
 									.append("<li>Type: " + pivot_item.electrical_board_type + "</li>")
 									.append("<li>Protection: " + pivot_item.electrical_board_protection + "</li>");
-							$('#waterpumpDwInfo')
+							$('#waterpumpDwInfo').empty()
 									.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>')
 							marker.on('click', function(e){
 								$('#waterpumpTab').removeClass('hidden');
