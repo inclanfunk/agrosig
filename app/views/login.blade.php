@@ -20,8 +20,10 @@
 		 This RTL CSS will be released in version 1.5
 	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
 
+	<!--Custom Style
 	<link rel="stylesheet" type="text/css" media="screen" href="css/sigagro_style.css">
-
+	-->
+	
 	<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
 	<link rel="stylesheet" type="text/css" media="screen" href=" {{URL::to('css/demo.min.css')}}   ">
 

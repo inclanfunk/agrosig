@@ -1,11 +1,11 @@
 <?php
 
 	return [
-		'little' 		=> 'Un poco de mí ...',
-		'edit_now'		=> 'Editar su Perfil Ahora',
+		'little' 		=> 'Sobre mí ...',
+		'edit_now'		=> 'Editar su Perfil',
 		'edit'			=> 'Edite su perfil',
 		'details'		=> 'Detalles del perfil',
-		'description'	=> 'Proporcionar una pequeña descripción acerca de usted mismo!',
-		'upload'		=> 'Sube tu foto de perfil',
-		'update'		=> 'Perfil de actualización'
+		'description'	=> 'Pequeña descripción de su actividad',
+		'upload'		=> 'Suba su foto',
+		'update'		=> 'Actualizar'
 	];
