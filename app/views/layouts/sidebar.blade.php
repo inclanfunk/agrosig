@@ -36,19 +36,19 @@
 
 		<ul>
 			<li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-				<a href="{{ URL::to('dashboard') }}" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span class="menu-item-parent">Dashboard</span></a>
+				<a href="{{ URL::to('dashboard') }}" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span class="menu-item-parent">{{ trans('sidebar.dashboard') }}</span></a>
 			</li>
 
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Manage Companies</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.companies') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('companies') ? 'active' : '' }}">
-                        <a href="{{ URL::to('companies') }}">List Companies</a>
+                        <a href="{{ URL::to('companies') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('companies/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('companies/create') }}">Create Company</a>
+                        <a href="{{ URL::to('companies/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -56,13 +56,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-tree"></i> <span class="menu-item-parent">Manage Farms</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-tree"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.farms') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('farms') ? 'active' : '' }}">
-                        <a href="{{ URL::to('farms') }}">List Farms</a>
+                        <a href="{{ URL::to('farms') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('farms/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('farms/create') }}">Create Farm</a>
+                        <a href="{{ URL::to('farms/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -70,13 +70,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Manage Users</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.users') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('users') ? 'active' : '' }}">
-                        <a href="{{ URL::to('users') }}">List Users</a>
+                        <a href="{{ URL::to('users') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('users/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('users/create') }}">Create User</a>
+                        <a href="{{ URL::to('users/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -84,19 +84,19 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-wrench"></i> <span class="menu-item-parent">Manage Equipment</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-wrench"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.equipment') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('equipment') ? 'active' : '' }}">
-                        <a href="{{ URL::to('equipment') }}">List Equipment</a>
+                        <a href="{{ URL::to('equipment') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li>
-                        <a href="#">Create Eqiupment</a>
+                        <a href="#">{{ trans('sidebar.create') }}</a>
                         <ul>
                             <li class="{{ Request::is('pivots/create') ? 'active' : '' }}">
-                                <a href="{{ URL::to('pivots/create') }}">Create Pivot</a>
+                                <a href="{{ URL::to('pivots/create') }}">{{ trans('sidebar.pivot') }}</a>
                             </li>   
                             <li class="{{ Request::is('waterpumps/create') ? 'active' : '' }}">
-                                <a href="{{ URL::to('waterpumps/create') }}">Create Water Pump</a>
+                                <a href="{{ URL::to('waterpumps/create') }}">{{ trans('sidebar.waterpump') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -106,13 +106,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-reorder"></i> <span class="menu-item-parent">Manage W. Orders</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-reorder"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.orders') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('orders') ? 'active' : '' }}">
-                        <a href="{{ URL::to('orders') }}">List</a>
+                        <a href="{{ URL::to('orders') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('orders/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('orders/create') }}">Create</a>
+                        <a href="{{ URL::to('orders/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -120,13 +120,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">Manage Chatrooms</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.chatrooms') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('chatrooms') ? 'active' : '' }}">
-                        <a href="{{ URL::to('chatrooms') }}">List</a>
+                        <a href="{{ URL::to('chatrooms') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('chatrooms/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('chatrooms/create') }}">Create</a>
+                        <a href="{{ URL::to('chatrooms/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -134,13 +134,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Manage Order Parts</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.parts') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('parts') ? 'active' : '' }}">
-                        <a href="{{ URL::to('parts') }}">List</a>
+                        <a href="{{ URL::to('parts') }}">{{ trans('sidebar.list') }}</a>
                     </li>
                     <li class="{{ Request::is('parts/create') ? 'active' : '' }}">
-                        <a href="{{ URL::to('parts/create') }}">Create</a>
+                        <a href="{{ URL::to('parts/create') }}">{{ trans('sidebar.create') }}</a>
                     </li>
                 </ul>
             </li>
@@ -148,38 +148,38 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Manage Forum</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.forum') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('chatrooms') ? 'active' : '' }}">
-                        <a href="#">Manage Sections</a>
+                        <a href="#">{{ trans('sidebar.manage') }} {{ trans('sidebar.sections') }}</a>
                         <ul>
                             <li class="{{ Request::is('sections') ? 'active' : '' }}">
                                 <a href="{{ URL::to('sections') }}">
                                     <i class="fa fa-table"></i>
-                                    List
+                                    {{ trans('sidebar.list') }}
                                 </a>
                             </li>   
                             <li class="{{ Request::is('sections/create') ? 'active' : '' }}">
                                 <a href="{{ URL::to('sections/create') }}">
                                     <i class="fa fa-pencil"></i>
-                                    Create
+                                    {{ trans('sidebar.create') }}
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Manage Topics</a>
+                        <a href="#">{{ trans('sidebar.manage') }} {{ trans('sidebar.topics') }}</a>
                         <ul>
                             <li class="{{ Request::is('topics') ? 'active' : '' }}">
                                 <a href="{{ URL::to('topics') }}">
                                     <i class="fa fa-table"></i>
-                                    List
+                                    {{ trans('sidebar.list') }}
                                 </a>
                             </li>   
                             <li class="{{ Request::is('topics/create') ? 'active' : '' }}">
                                 <a href="{{ URL::to('topics/create') }}">
                                     <i class="fa fa-pencil"></i>
-                                    Create
+                                    {{ trans('sidebar.create') }}
                                 </a>
                             </li>
                         </ul>
@@ -190,13 +190,13 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">Maps</span></a>
+                <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">{{ trans('sidebar.maps') }}</span></a>
                 <ul>
                     <li>
-                        <a href="#">Crops</a>
+                        <a href="#">{{ trans('sidebar.crops') }}</a>
                     </li>
                     <li class="{{ Request::is('equipment-map') ? 'active' : '' }}">
-                        <a href="{{ URL::to('equipment-map') }}">Equipment</a>
+                        <a href="{{ URL::to('equipment-map') }}">{{ trans('sidebar.equipment') }}</a>
                     </li>
                 </ul>
             </li>
@@ -204,12 +204,12 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li class="{{ Request::is('calendar') ? 'active' : '' }}">
-                <a href="{{ URL::to('calendar') }}"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Calendar</span></a>
+                <a href="{{ URL::to('calendar') }}"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">{{ trans('sidebar.calendar') }}</span></a>
             </li>
             @endif
 
             <li class="{{ Request::is('forum') ? 'active' : '' }}">
-                <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">Forum</span></a>
+                <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">{{ trans('sidebar.forum') }}</span></a>
             </li>
 
 		</ul>
