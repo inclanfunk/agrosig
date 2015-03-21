@@ -19,12 +19,19 @@
 		height: 500px;
 	}
 
-	/*#waterpumpTab {
+	#waterpumpTab {
+		z-index: 10;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding: 10px;
 		margin: 10px;
 	    font-size: 11px;
 	    line-height: 18px;
 	    border-radius: 2px;
-	}*/
+	    height: 200px;
+	    overflow-y: scroll;
+	}
 
 	#waterpumpTab ul{
 		list-style-type: none;
@@ -32,17 +39,50 @@
 		margin: 0px;
 	}
 
-	/*#pivotTab{
+	#pivotTab{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding: 10px;
 		margin: 10px;
 	    font-size: 11px;
 	    line-height: 18px;
 	    border-radius: 2px;
-	}*/
+	    height: 200px;
+	    overflow-y: scroll;
+	}
 
 	#pivotTab ul{
 		list-style-type: none;
 		padding: 0px;
 		margin: 0px;
+	}
+
+	ul#waterpumpGeneral > li:before,
+	ul#pivotGeneral > li:before{
+		font-family: 'FontAwesome';
+		content: '\f01a';
+		margin:0 10px 0 0;
+	}
+
+	ul#waterpumpEbSettings > li:before,
+	ul#pivotEbSettings > li:before{
+		font-family: 'FontAwesome';
+		content: '\f0e7';
+		margin:0 10px 0 0;
+	}
+
+	ul#waterpumpSettings > li:before,
+	ul#pivotSettings> li:before{
+		font-family: 'FontAwesome';
+		content: '\f013';
+		margin:0 10px 0 0;
+	}
+
+	ul#waterpumpDwInfo > li:before{
+		font-family: 'FontAwesome';
+		content: '\f01b';
+		margin:0 10px 0 0;
 	}
 
 </style>
@@ -85,16 +125,31 @@
 					<div class="widget-body no-padding">
 						<div id='map'></div>
 
-						<div id="pivotTab" class="col-xs-6 col-md-4 hidden">
+						<div id="pivotTab" class="col-xs-8 col-md-4 hidden">
 							<ul>
 								<li>
-									<a href="#tabs-a">Pivot</a>
+									<a href="#tabs-a">
+										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Pivot
+										</span>
+									</a>
 								</li>
 								<li>
-									<a href="#tabs-b">Settings</a>
+									<a href="#tabs-b">
+										<i class="fa fa-lg fa-gear"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Settings
+										</span>
+									</a>
 								</li>
 								<li>
-									<a href="#tabs-c">Electircal Board</a>
+									<a href="#tabs-c">
+										<i class="fa fa-lg fa-bolt"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Electrical Board
+										</span>
+									</a>
 								</li>
 							</ul>
 							<div id="tabs-a">
@@ -113,19 +168,39 @@
 								</ul>
 							</div>
 						</div>
-						<div id="waterpumpTab" class="col-xs-10 col-md-4 hidden">
+						<div id="waterpumpTab" class="col-xs-8 col-md-4 hidden">
 							<ul>
 								<li>
-									<a href="#tabs-a">Waterpump</a>
+									<a href="#tabs-a">
+										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Waterpump
+										</span>
+									</a>
 								</li>
 								<li>
-									<a href="#tabs-b">Settings</a>
+									<a href="#tabs-b">
+										<i class="fa fa-lg fa-gear"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Settings
+										</span>
+									</a>
 								</li>
 								<li>
-									<a href="#tabs-c">Electircal Board</a>
+									<a href="#tabs-c">
+										<i class="fa fa-lg fa-bolt"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Electrical Board
+										</span>
+									</a>
 								</li>
 								<li>
-									<a href="#tabs-d">Deep Well Info</a>
+									<a href="#tabs-d">
+										<i class="fa fa-lg fa-arrow-circle-o-up"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Deep Well
+										</span>
+									</a>
 								</li>
 							</ul>
 							<div id="tabs-a">
@@ -287,7 +362,12 @@
 							for (var key in pivot_item) {
 								var current = key.split('_');
 								if(current[0] == 'g'){
-									current = current.slice(1);
+									if(current[1] == 'quantity'){
+										current = current.slice(4);
+										current.unshift('QOA');
+									}else{
+										current = current.slice(1);
+									}
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
@@ -298,7 +378,6 @@
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
-									console.log(current);
 									$('#pivotSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
 								}
 								if(current[0] == 'eb'){
@@ -306,7 +385,6 @@
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
-									console.log(current);
 									$('#pivotEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
 								}
 							}
@@ -342,7 +420,6 @@
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
-									console.log(current);
 									$('#waterpumpSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
 								}
 								if(current[0] == 'eb'){
@@ -350,7 +427,6 @@
 									$.each(current, function(i, item){
 										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
 									});
-									console.log(current);
 									$('#waterpumpEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
 								}
 							}
