@@ -335,17 +335,21 @@
 		    plotDistributorCompanies();
 
 		    map.on('click', function(e){
-				map.setView([-39.67, -69.26], 4);
-				removeFarmsLayers();
-				removePivotsLayer();
-				removeWaterpumpsLayer();
-				map.addLayer(distributorCompaniesLayer);
-				map.addLayer(farmsLayer);
-				map.addLayer(pivotsLayer);
-				map.addLayer(waterpumpsLayer);
-				plotDistributorCompanies();
-				$('#wid-id-1').addClass('hidden');
-				$('#wid-id-2').addClass('hidden');
+		    	if(!$('#wid-id-1').hasClass('hidden') || !$('#wid-id-2').hasClass('hidden')){
+		    		$('#wid-id-1').addClass('hidden');
+		    		$('#wid-id-2').addClass('hidden');
+		    	}else{
+					map.setView([-39.67, -69.26], 4);
+					removeFarmsLayers();
+					removePivotsLayer();
+					removeWaterpumpsLayer();
+					map.addLayer(distributorCompaniesLayer);
+					map.addLayer(farmsLayer);
+					map.addLayer(pivotsLayer);
+					map.addLayer(waterpumpsLayer);
+					plotDistributorCompanies();
+		    	}
+					
 			});
 
 		    var distributorCompanies = false;
