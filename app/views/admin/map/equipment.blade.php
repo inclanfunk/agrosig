@@ -4,55 +4,41 @@
 @section('content')
 
 <style>
-	body {
-		margin: 0;
-		padding: 0; 
-	}
-	#map {
-		position: relative;
-		top: 0;
-		bottom: 0;
+	#map{
 		width: 100%;
-		height: 100%;
-	}
-	div.widget-body.no-padding {
 		height: 500px;
 	}
 
-	#waterpumpTab {
-		z-index: 10;
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		padding: 10px;
-		margin: 10px;
-	    font-size: 11px;
-	    line-height: 18px;
-	    border-radius: 2px;
-	    height: 200px;
-	    overflow-y: scroll;
+	article#wrapper{
+		position: relative;
 	}
 
-	#waterpumpTab ul{
+	div#wid-id-1{
+		position: absolute;
+		top: 5px;
+		right: 20px;
+		z-index: 99;
+	}
+
+	div#wid-id-2{
+		position: absolute;
+		top: 5px;
+		right: 20px;
+		z-index: 99;
+	}
+
+	div.widget-body {
+		height: 300px;
+		overflow-y: scroll;
+	}
+
+	#pivotTab ul{
 		list-style-type: none;
 		padding: 0px;
 		margin: 0px;
 	}
 
-	#pivotTab{
-		position: absolute;
-		top: 0px;
-		right: 0px;
-		padding: 10px;
-		margin: 10px;
-	    font-size: 11px;
-	    line-height: 18px;
-	    border-radius: 2px;
-	    height: 200px;
-	    overflow-y: scroll;
-	}
-
-	#pivotTab ul{
+	#waterpumpTab ul{
 		list-style-type: none;
 		padding: 0px;
 		margin: 0px;
@@ -87,45 +73,47 @@
 
 </style>
 
-<!-- widget grid -->
 <section id="widget-grid" class="">
-
-	<!-- row -->
-
 	<div class="row">
 
-		<!-- NEW WIDGET START -->
-		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+		<article id="wrapper" class="col-xs-12">
+			<div id="map"></div>
 			<!-- Widget ID (each widget will need unique ID)-->
-			<div class="jarviswidget jarviswidget-color-white" id="wid-id-0" data-widget-fullscreenbutton="true" data-widget-editbutton="false" data-widget-deletebutton="false">
+			<div class="jarviswidget col-xs-6 col-md-5 hidden" id="wid-id-1" data-widget-fullscreenbutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-custombutton="false" data-widget-deletebutton="false">
 				<!-- widget options:
-				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-				data-widget-colorbutton="false"
-				data-widget-editbutton="false"
-				data-widget-togglebutton="false"
-				data-widget-deletebutton="false"
-				data-widget-fullscreenbutton="false"
-				data-widget-custombutton="false"
-				data-widget-collapsed="true"
-				data-widget-sortable="false"
-
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
 				-->
 				<header>
-					<span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
-					<h2>Equipment Map</h2>
-
+					<h2><strong>Default</strong> <i>Widget</i></h2>				
+					
 				</header>
 
 				<!-- widget div-->
 				<div>
-
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+						<input class="form-control" type="text">
+						<span class="note"><i class="fa fa-check text-success"></i> Change title to update and save instantly!</span>
+						
+					</div>
+					<!-- end widget edit box -->
+					
 					<!-- widget content -->
-					<div class="widget-body no-padding">
-						<div id='map'></div>
-
-						<div id="pivotTab" class="col-xs-8 col-md-4 hidden">
+					<div class="widget-body">
+						
+						<div id="pivotTab">
 							<ul>
 								<li>
 									<a href="#tabs-a">
@@ -168,7 +156,54 @@
 								</ul>
 							</div>
 						</div>
-						<div id="waterpumpTab" class="col-xs-8 col-md-4 hidden">
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+
+			<div id="map"></div>
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget col-xs-6 col-md-5 hidden" id="wid-id-2" data-widget-fullscreenbutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-custombutton="false" data-widget-deletebutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<h2><strong>Default</strong> <i>Widget</i></h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+						<input class="form-control" type="text">
+						<span class="note"><i class="fa fa-check text-success"></i> Change title to update and save instantly!</span>
+						
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div id="waterpumpTab">
 							<ul>
 								<li>
 									<a href="#tabs-a">
@@ -224,26 +259,66 @@
 								</ul>
 							</div>
 						</div>
+						
 					</div>
 					<!-- end widget content -->
-
+					
 				</div>
 				<!-- end widget div -->
-
+				
 			</div>
 			<!-- end widget -->
 
 		</article>
-		<!-- WIDGET END -->
+
+
 
 	</div>
-
-	<!-- end row -->
 </section>
 
 @stop
 
 @section('custom-js')
+
+		<script type="text/javascript">
+		
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+		
+		$(document).ready(function() {
+			
+			pageSetUp();
+			
+			// PAGE RELATED SCRIPTS
+		
+			// switch style change
+			$('input[name="checkbox-style"]').change(function() {
+				//alert($(this).val())
+				$this = $(this);
+		
+				if ($this.attr('value') === "switch-1") {
+					$("#switch-1").show();
+					$("#switch-2").hide();
+				} else if ($this.attr('value') === "switch-2") {
+					$("#switch-1").hide();
+					$("#switch-2").show();
+				}
+		
+			}); 
+			
+			// tab - pills toggle
+			$('#show-tabs').click(function() {
+				$this = $(this);
+				if($this.prop('checked')){
+					$("#widget-tab-1").removeClass("nav-pills").addClass("nav-tabs");
+				} else {
+					$("#widget-tab-1").removeClass("nav-tabs").addClass("nav-pills");
+				}
+				
+			});			
+		
+		});
+
+		</script>
 
 	<script type="text/javascript">
 		L.mapbox.accessToken = 'pk.eyJ1Ijoicm9oYW4wNzkzIiwiYSI6IjhFeGVzVzgifQ.MQBzoHJmjH19bXDW0b8nKQ';
@@ -252,7 +327,8 @@
 		}).setView([-39.67, -69.26], 4);
 
 		$(document).ready(function(){
-		    $('header h2').text('Equipment Map');
+			$('#wid-id-1 h2').text('Pivot Data');
+			$('#wid-id-2 h2').text('Waterpump Data');
 		    $('#pivotTab').tabs();
 		    $('#waterpumpTab').tabs();
 
@@ -268,8 +344,8 @@
 				map.addLayer(pivotsLayer);
 				map.addLayer(waterpumpsLayer);
 				plotDistributorCompanies();
-				$('#pivotTab').addClass('hidden');
-				$('#waterpumpTab').addClass('hidden');
+				$('#wid-id-1').addClass('hidden');
+				$('#wid-id-2').addClass('hidden');
 			});
 
 		    var distributorCompanies = false;
@@ -390,8 +466,8 @@
 							}
 
 							marker.on('click', function(e){
-								$('#pivotTab').removeClass('hidden');
-								$('#waterpumpTab').addClass('hidden');
+								$('#wid-id-1').removeClass('hidden');
+								$('#wid-id-2').addClass('hidden');
 							});
 						}
 					});
@@ -433,8 +509,8 @@
 							$('#waterpumpDwInfo').empty()
 									.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>')
 							marker.on('click', function(e){
-								$('#waterpumpTab').removeClass('hidden');
-								$('#pivotTab').addClass('hidden');
+								$('#wid-id-2').removeClass('hidden');
+								$('#wid-id-1').addClass('hidden');
 							});
 						}
 					});
