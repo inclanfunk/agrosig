@@ -3,13 +3,13 @@
 	return [
 		'dashboard' => 'Panel de control',
 
-		'manage' => 'Administra',
-		'list' => 'Lista',
-		'create' => 'Crea',
+		'manage' => 'Manejar',
+		'list' => 'Listar',
+		'create' => 'Crear',
 
 		'companies' => 'Companias',
-		'sections' => 'Sectiones',
-		'sections' => 'Sectiones',
+		'sections' => 'Secciones ',
+		'sections' => 'Secciones ',
 
 		'farms' => 'Explotaci&ograve; Agr&igrave;cola',
 		'users' => 'Usuarios',
@@ -19,7 +19,7 @@
 		'parts' => 'Pedido de piezas',
 		'forum' => 'Forum',
 		'topics' => 'Temas',
-		'sections' => 'Sectiones',
+		'sections' => 'Secciones ',
 
 		'pivot' => 'Pivote',
 		'waterpump' => 'Bomba',
