@@ -35,4 +35,9 @@ class Farm extends \Eloquent {
 	{
 		return $this->hasMany('Waterpump');
 	}
+
+	public function orders()
+	{
+		return $this->hasMany('Order');
+	}
 }

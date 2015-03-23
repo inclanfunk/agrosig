@@ -6,4 +6,9 @@ class Manager extends \Eloquent {
 		'company_id',
 		'farm_id'
 	];
+
+	public function farm()
+	{
+		return $this->belongsTo('Farm');
+	}
 }

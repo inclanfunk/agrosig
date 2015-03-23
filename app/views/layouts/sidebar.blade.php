@@ -216,6 +216,10 @@
                 <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">{{ trans('sidebar.forum') }}</span></a>
             </li>
 
+            <li class="{{ Request::is('orders') ? 'active' : '' }}">
+                <a href="{{ URL::to('orders') }}"><i class="fa fa-lg fa-fw fa-reorder"></i> <span class="menu-item-parent">{{ trans('sidebar.orders') }}</span></a>
+            </li>
+
 		</ul>
 
 	</nav>
