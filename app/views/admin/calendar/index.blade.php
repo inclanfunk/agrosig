@@ -312,14 +312,11 @@ $(document).ready(function() {
 	            copiedEventObject.start = date.getTime()/1000 + 86400; // Some weird bug. Day keeps shifting back by 1.
 	            copiedEventObject.allDay = allDay;
 
-	            console.log(date);
-
 	            $.ajax({
 					type: "POST",
 					url: 'calendar',
 					data: copiedEventObject,
 					success: function(response){
-						console.log(response);
 						response.data.className = response.data.class;
 						$('#calendar').fullCalendar('renderEvent', response.data, true);
 					},
@@ -343,14 +340,13 @@ $(document).ready(function() {
 	        	if(copiedEventObject.end != null){
 	        		copiedEventObject.end = copiedEventObject.end.getTime()/1000;
 	        	}
-	        	console.log(copiedEventObject);
 				$.ajax({
 					type: "PUT",
 					url: 'calendar/' + copiedEventObject.id,
 					data: copiedEventObject,
-					success: function(response){
-						console.log(response);
-					},
+					error: function(response){
+						revertFunc();
+					}
 				});
 	        },
 
@@ -360,14 +356,13 @@ $(document).ready(function() {
 	        	if(copiedEventObject.end != null){
 	        		copiedEventObject.end = copiedEventObject.end.getTime()/1000;
 	        	}
-	        	console.log(copiedEventObject);
 				$.ajax({
 					type: "PUT",
 					url: 'calendar/' + copiedEventObject.id,
 					data: copiedEventObject,
-					success: function(response){
-						console.log(response);
-					},
+					error: function(response){
+						revertFunc();
+					}
 				});
 	        },
 

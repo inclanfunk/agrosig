@@ -11,14 +11,36 @@ class CalendarController extends \BaseController {
 	public function index()
 	{
 		if(Request::ajax()){
-			$calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
-						->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
-						->get();
+			if(Request::ajax()){
+				$logged_in_user = Sentry::getUser();
 
-			foreach($calendar as $cal){
-				$cal->className = $cal->class;
+				if($logged_in_user->groups->first()->name == 'Super Administrator'){
+
+					$calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
+								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
+								->get();
+
+					foreach($calendar as $cal){
+						$cal->className = $cal->class;
+					}
+
+					return Response::json($calendar, 200);
+
+				}elseif($logged_in_user->groups->first()->name == 'Manager'){
+
+					$calendar = Calendar::where('user_id', '=', $logged_in_user->id)
+								->orWhere('user_id', '=', '51')
+								->where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
+								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
+								->get();
+
+					foreach($calendar as $cal){
+						$cal->className = $cal->class;
+					}
+
+					return Response::json($calendar, 200);
+				}
 			}
-			return Response::json($calendar, 200);
 		}
 
 		$breadcrumbs = ['Home', 'Calendar'];
@@ -104,14 +126,16 @@ class CalendarController extends \BaseController {
 	{
 		$data = Input::all();
 
-		if($data['user_id'] == Sentry::getUser()->id){
-			$data['start'] = Carbon::createFromTimeStamp($data['start'])->toDateTimeString();
+		if($data['user_id'] != Sentry::getUser()->id){
+			return Response::make('Forbidden', 403);
+		}
 
-			if(Input::has('end')){
-				$data['end'] = Carbon::createFromTimeStamp($data['end'])->toDateTimeString();
-			}else{
-				$data['end'] = $data['start'];
-			}
+		$data['start'] = Carbon::createFromTimeStamp($data['start'])->toDateTimeString();
+
+		if(Input::has('end')){
+			$data['end'] = Carbon::createFromTimeStamp($data['end'])->toDateTimeString();
+		}else{
+			$data['end'] = $data['start'];
 		}
 
 		$calendar = Calendar::find($data['id'])->update($data);
