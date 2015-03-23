@@ -30,5 +30,7 @@
 
 		'calendar' => 'Calendar',
 
+		'chat' => 'Chat',
+
 		'forum' => 'Forum',
 	];

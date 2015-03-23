@@ -9,19 +9,31 @@ class ChatController extends \BaseController {
 	 */
 	public function index()
 	{
-		if(!Input::has('date')){
-			$date = Carbon::now();
+		if(Request::ajax()){
+			if(!Input::has('date')){
+				$date = Carbon::now();
+			}else{
+				$date = Input::get('date');
+			}
+
+			// All messages were loaded already
+			if(Chat::first()->created_at == $date){
+				return;
+			}
+
+			$chats = Chat::with('user')
+				->where('created_at', '<=', $date)
+				->orderBy('created_at', 'DESC')
+				->take(10)
+				->get();
+
+			return Response::json($chats, 200);
 		}else{
-			$date = Input::get('date');
+			$breadcrumbs = ['Home', 'Chat'];
+			return View::make('chat')
+						->withBreadcrumbs($breadcrumbs);
 		}
-
-		$chats = Chat::with('user')
-			->where('created_at', '<=', $date)
-			->orderBy('created_at', 'DESC')
-			->take(10)
-			->get();
-
-		return Response::json($chats, 200);
+			
 	}
 
 

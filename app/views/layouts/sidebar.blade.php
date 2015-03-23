@@ -188,7 +188,6 @@
             </li>
             @endif
 
-            @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">{{ trans('sidebar.maps') }}</span></a>
                 <ul>
@@ -200,11 +199,16 @@
                     </li>
                 </ul>
             </li>
-            @endif
 
-            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            @if(Sentry::getUser()->groups()->first()->name == 'Manager' || Sentry::getUser()->groups()->first()->name == 'Super Administrator')
             <li class="{{ Request::is('calendar') ? 'active' : '' }}">
                 <a href="{{ URL::to('calendar') }}"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">{{ trans('sidebar.calendar') }}</span></a>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->groups()->first()->name == 'Manager')
+            <li class="{{ Request::is('chat') ? 'active' : '' }}">
+                <a href="{{ URL::to('chat') }}"><i class="fa fa-lg fa-fw fa-comment-o"></i> <span class="menu-item-parent">{{ trans('sidebar.chat') }}</span></a>
             </li>
             @endif
 
