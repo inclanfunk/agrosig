@@ -3,21 +3,21 @@
 	return [
 		'dashboard' => 'Panel de control',
 
-		'manage' => 'Manejar',
-		'list' => 'Listar',
+		'manage' => 'Editar',
+		'list' => 'Lista',
 		'create' => 'Crear',
 
-		'companies' => 'Companias',
+		'companies' => 'Empresas',
 		'sections' => 'Secciones ',
 		'sections' => 'Secciones ',
 
-		'farms' => 'Explotaci&ograve; Agr&igrave;cola',
+		'farms' => 'Explot. Agr&igrave;.',
 		'users' => 'Usuarios',
-		'equipment' => 'Equipo',
-		'orders' => 'Ordenes de Trabajo',
+		'equipment' => 'Equipos',
+		'orders' => 'Ord. de Trabajo',
 		'chatrooms' => 'Chatrooms',
-		'parts' => 'Pedido de piezas',
-		'forum' => 'Forum',
+		'parts' => 'Piezas',
+		'forum' => 'Foro',
 		'topics' => 'Temas',
 		'sections' => 'Secciones ',
 
@@ -26,9 +26,9 @@
 
 		'maps' => 'Mapas',
 		'crops' => 'Cultivos',
-		'equipment' => 'Equipo',
+		'equipment' => 'Equipos',
 
 		'calendar' => 'Calendario',
 
-		'forum' => 'Forum',
+		'forum' => 'Foro',
 	];

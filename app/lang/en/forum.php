@@ -34,7 +34,7 @@
 
 				'today' => 'Today',
 				'title' => 'Title',
-				'required' => 'The Title and Body are requried!',
+				'required' => 'The Title and Body are required!',
 				'post' => 'Post'
 
 			],
@@ -42,7 +42,7 @@
 			'show' => [
 
 				'now' => 'Now',
-				'required' => 'The Reply Body is requried!',
+				'required' => 'The Reply Body is required!',
 				'reply' => 'Reply'
 
 			],
