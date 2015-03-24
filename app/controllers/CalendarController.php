@@ -44,7 +44,7 @@ class CalendarController extends \BaseController {
 		}
 
 		$breadcrumbs = ['Home', 'Calendar'];
-		return View::make('admin.calendar.index')
+		return View::make('calendar')
 					->withBreadcrumbs($breadcrumbs);
 	}
 

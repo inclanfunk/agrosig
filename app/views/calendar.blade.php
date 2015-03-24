@@ -5,9 +5,9 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 		<h1 class="page-title txt-color-blueDark"><i class="fa fa-calendar fa-fw "></i> 
-			Calendar
+			{{ trans('calendar.calendar') }}
 			<span>>
-			Add events
+			{{ trans('calendar.add') }}
 			</span>
 		</h1>
 	</div>
@@ -20,7 +20,7 @@
 		<!-- new widget -->
 		<div class="jarviswidget jarviswidget-color-blueDark">
 			<header>
-				<h2> Add Events </h2>
+				<h2> {{ trans('calendar.add') }} </h2>
 			</header>
 
 			<!-- widget div-->
@@ -33,7 +33,7 @@
 						<fieldset>
 
 							<div class="form-group">
-								<label>Select Event Icon</label>
+								<label>{{ trans('calendar.icon') }}</label>
 								<div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
 									<label class="btn btn-default active">
 										<input type="radio" name="iconselect" id="icon-1" value="fa-info" checked>
@@ -57,17 +57,17 @@
 							</div>
 
 							<div class="form-group">
-								<label>Event Title</label>
+								<label>{{ trans('calendar.title') }}</label>
 								<input class="form-control"  id="title" name="title" maxlength="40" type="text" placeholder="Event Title">
 							</div>
 							<div class="form-group">
-								<label>Event Description</label>
-								<textarea class="form-control" placeholder="Please be brief" rows="3" maxlength="40" id="description"></textarea>
-								<p class="note">Maxlength is set to 40 characters</p>
+								<label>{{ trans('calendar.description') }}</label>
+								<textarea class="form-control" placeholder="{{ trans('calendar.brief') }}" rows="3" maxlength="40" id="description"></textarea>
+								<p class="note">{{ trans('calendar.max') }}</p>
 							</div>
 
 							<div class="form-group">
-								<label>Select Event Color</label>
+								<label>{{ trans('calendar.color') }}</label>
 								<div class="btn-group btn-group-justified btn-select-tick" data-toggle="buttons">
 									<label class="btn bg-color-darken active">
 										<input type="radio" name="priority" id="option1" value="bg-color-darken txt-color-white" checked>
@@ -95,7 +95,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<button class="btn btn-default" type="button" id="add-event" >
-										Add Event
+										{{ trans('calendar.add') }}
 									</button>
 								</div>
 							</div>
@@ -114,23 +114,23 @@
 			<form>
 				<fieldset>
 					<legend>
-						Draggable Events
+						{{ trans('calendar.draggable') }}
 					</legend>
 					<ul id='external-events' class="list-unstyled">
 						<li>
-							<span class="bg-color-darken txt-color-white" data-description="Currently busy" data-icon="fa-time">Office Meeting</span>
+							<span class="bg-color-darken txt-color-white" data-description="{{ trans('calendar.busy') }}" data-icon="fa-time">{{ trans('calendar.office') }}</span>
 						</li>
 						<li>
-							<span class="bg-color-blue txt-color-white" data-description="No Description" data-icon="fa-pie">Lunch Break</span>
+							<span class="bg-color-blue txt-color-white" data-description="{{ trans('calendar.no') }}" data-icon="fa-pie">{{ trans('calendar.lunch') }}</span>
 						</li>
 						<li>
-							<span class="bg-color-red txt-color-white" data-description="Urgent Tasks" data-icon="fa-alert">URGENT</span>
+							<span class="bg-color-red txt-color-white" data-description="{{ trans('calendar.tasks') }}" data-icon="fa-alert">{{ trans('calendar.urgent') }}</span>
 						</li>
 					</ul>
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" id="drop-remove" class="checkbox style-0" checked="checked">
-							<span>remove after drop</span> </label>
+							<span>{{ trans('calendar.remove') }}</span> </label>
 	
 					</div>
 				</fieldset>
@@ -158,22 +158,22 @@
 			-->
 			<header>
 				<span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
-				<h2> My Events </h2>
+				<h2> {{ trans('calendar.my') }} </h2>
 				<div class="widget-toolbar">
 					<!-- add: non-hidden - to disable auto hide -->
 					<div class="btn-group">
 						<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-							Showing <i class="fa fa-caret-down"></i>
+							{{ trans('calendar.showing') }} <i class="fa fa-caret-down"></i>
 						</button>
 						<ul class="dropdown-menu js-status-update pull-right">
 							<li>
-								<a href="javascript:void(0);" id="mt">Month</a>
+								<a href="javascript:void(0);" id="mt">{{ trans('calendar.month') }}</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);" id="ag">Agenda</a>
+								<a href="javascript:void(0);" id="ag">{{ trans('calendar.agenda') }}</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);" id="td">Today</a>
+								<a href="javascript:void(0);" id="td">{{ trans('calendar.today') }}</a>
 							</li>
 						</ul>
 					</div>
