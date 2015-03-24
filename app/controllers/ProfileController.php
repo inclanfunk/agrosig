@@ -34,16 +34,6 @@ class ProfileController extends \BaseController {
 
 		$user = Sentry::getUser();
 		
-		if(Input::hasFile('photo')){
-			$hashName = sha1(time() . Sentry::getUser());
-			Image::make(Input::file('photo'))->resize(100, 100)->save(Config::get('path.photos') . $hashName . '.jpg');
-			$data['photo'] = $hashName . '.jpg';
-			File::delete(Config::get('path.photos') . $user->photo);
-		}else{
-			unset($data['photo']);
-		}
-
-		
 		$user->update($data);
 
 		return Redirect::to('profile');
@@ -62,6 +52,27 @@ class ProfileController extends \BaseController {
 		Sentry::getUser()->update(['locale' => Input::get('locale')]);
 
 		return Redirect::back();
+	}
+
+	public function changePhoto()
+	{
+		$user = Sentry::getUser();
+
+		$hashName = sha1(time() . Sentry::getUser());
+		Image::make(Input::file('file'))->resize(100, 100)->save(Config::get('path.photos') . $hashName . '.jpg');
+		$data['photo'] = $hashName . '.jpg';
+		File::delete(Config::get('path.photos') . $user->photo);
+
+		$user->update($data);
+
+		return Response::json([], 200);
+	}
+
+	public function myProfile()
+	{
+		$user = Sentry::getUser();
+
+		return Response::json($user, 200);
 	}
 
 

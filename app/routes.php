@@ -31,6 +31,8 @@ Route::group(['before' => 'auth'], function(){
 	]);
 
 	Route::get('changeLocale', 'ProfileController@changeLocale');
+	Route::post('changePhoto', 'ProfileController@changePhoto');
+	Route::get('myProfile', 'ProfileController@myProfile');
 
 	Route::resource('users', 'UserController');
 	Route::resource('companies', 'CompanyController');

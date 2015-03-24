@@ -3,6 +3,10 @@
 
 @section('content')
 
+<style type="text/css">
+
+</style>
+
 
 <div class="row">
 
@@ -58,19 +62,10 @@
 
                                         <div class="col-sm-3 profile-pic">
                                             @if(Sentry::getUser()->photo)
-                                            <img src="{{URL::to('/photos/' . Sentry::getUser()->photo)}}" alt="demo user">
+                                            	<img id="photo" src="{{URL::to('/photos/' . Sentry::getUser()->photo)}}" alt="demo user" data-toggle="modal" data-target="#myModal">
                                             @else
-                                             <img src=" {{URL::to('/img/avatar.png') }} " alt="demo user">
+                                            	<img id="photo" src=" {{URL::to('/img/avatar.png') }} " alt="demo user" data-toggle="modal" data-target="#myModal">
                                             @endif
-                                            <div class="padding-10">
-                                                <h4 class="font-md"><strong>   </strong>
-                                                <br>
-                                                <small> </small></h4>
-                                                <br>
-                                                <h4 class="font-md"><strong>   </strong>
-                                                <br>
-                                                <small>  </small></h4>
-                                            </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <h1>{{ Sentry::getUser()->first_name }}<span class="semi-bold">  {{ Sentry::getUser()->last_name }}  </span>
@@ -92,13 +87,15 @@
 
                                             </ul>
                                             <br>
-                                            <p class="font-md">
-                                                <i>{{ trans('profile.little') }}</i>
-                                            </p>
-                                            <p>
-                                              {{ Sentry::getUser()->description }}
 
-                                            </p>
+                                            @if(Sentry::getUser()->description)
+	                                            <p class="font-md">
+	                                                <i>{{ trans('profile.little') }}</i>
+	                                            </p>
+	                                            <p>
+	                                              {{ Sentry::getUser()->description }}
+	                                            </p>
+	                                        @endif
 
                                             <br>
 
@@ -170,7 +167,7 @@
                                        					<!-- widget content -->
                                        					<div class="widget-body no-padding">
 
-                                       						<form id="order-form" class="smart-form" novalidate="novalidate" action="{{URL::to('editProfile')}}" method="post" enctype="multipart/form-data" >
+                                       						<form id="profile-form" class="smart-form" novalidate="novalidate" action="{{URL::to('editProfile')}}" method="post" enctype="multipart/form-data" >
                                        							<header>
                                        								{{ trans('profile.details') }}
                                        							</header>
@@ -181,7 +178,7 @@
                                        								<div class="row">
                                        									<section class="col col-6">
                                        										<label class="input"> <i class="icon-append fa fa-user"></i>
-                                       											<input type="text" name="first_name" placeholder="First Name" value="{{ Sentry::getUser()->first_name }}">
+                                       											<input type="text" name="first_name" placeholder="First Name" value="{{ Sentry::getUser()->first_name }}" required>
                                        										</label>
                                        									</section>
                                        									<section class="col col-6">
@@ -207,7 +204,7 @@
                                        								<div class="row">
                                                            <section class="col col-6">
                                                                <label class="input"> <i class="icon-append fa  fa-lock"></i>
-                                                                   <input type="password" name="password" placeholder="Password">
+                                                                   <input id="password" type="password" name="password" placeholder="Password">
                                                                </label>
                                                            </section>
                                                            <section class="col col-6">
@@ -233,43 +230,15 @@
 
                                                     </fieldset>
 
-
-                                       							<fieldset>
-
-                                       							<div class="col-md-10">
-                                                        <input type="file" class="btn btn-default" id="profile_pic" name="photo">
-                                                        <p class="help-block">
-                                                           {{ trans('profile.upload') }}
-                                                        </p>
-                                                    </div>
-
-
-                                       							</fieldset>
-
                                        							<footer>
                                        								<button type="submit" class="btn btn-primary">
                                        									{{ trans('profile.update') }}
                                        								</button>
-                                     								     <span style="color: red;"> {{ $errors->first('email'); }} </span><br>
-                                                         <span style="color: red;"> {{ $errors->first('first_name'); }} </span>
-                                                         <span style="color: red;"> {{ $errors->first('last_name'); }} </span>
-                                                         <span style="color: red;"> {{ $errors->first('phone'); }} </span>
-                                                         <span style="color: red;"> {{ $errors->first('password'); }} </span>
-                                                         <span style="color: red;"> {{ $errors->first('password_confirm'); }} </span>
                                        							</footer>
                                        						</form>
 
                                        					</div>
                                        					<!-- end widget content -->
-
-
-                                                               @if(Session::has('error_msg'))
-                                                                               <p class="alert alert-danger">{{Session::get('error_msg')}}</p>
-                                                               @endif
-
-                                                               @if (Session::has('message'))
-                                                                  <div class="alert alert-info">{{ Session::get('message') }}</div>
-                                                               @endif
 
 
                                        				</div>
@@ -291,6 +260,26 @@
 </div>
 <!-- end row -->
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload a New Photo</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/file-upload" class="dropzone" id="mydropzone"></form>
+        <small><b>Max upload size is 5MB</b></small>
+      </div>
+      <div class="modal-footer">
+      	<button id="upload" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button id="upload" type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -301,19 +290,96 @@
 
 
 @section('custom-js')
-<script type="text/javascript">
 
+	<script src="js/plugin/dropzone/dropzone.min.js"></script>
 
+  	<script type="text/javascript">
 
-$( "#clickme" ).click(function() {
-  $( "#toggleprofile" ).toggle( "slow", function() {
-    // Animation complete.
-  });
-});
+  		$(document).ready(function(){
 
+  			Dropzone.autoDiscover = false;
+			$("#mydropzone").dropzone({
+				url: "/changePhoto",
+				addRemoveLinks : true,
+				maxFilesize: 20,
+				dictDefaultMessage: '<span class="text-center"><span class="font-lg visible-xs-block visible-sm-block visible-lg-block"><span class="font-lg"><i class="fa fa-caret-right text-danger"></i> Drop files <span class="font-xs">to upload</span></span><span>&nbsp&nbsp<h4 class="display-inline"> (Or Click)</h4></span>',
+				dictResponseError: 'Error uploading file!'
+			});
 
+			$('#upload').on('click', function(e){
+				$.ajax({
+					type: "GET",
+					url: '/myProfile',
+					success: function(response){
+						$('img#photo').attr('src', '/photos/' + response.photo);
+					}
+				});
+			});
 
-</script>
+  			$( "#clickme" ).click(function() {
+		      $( "#toggleprofile" ).toggle("slow");
+		    });
+
+		    var $profileForm = $('#profile-form').validate({
+		      // Rules for form validation
+		        rules : {
+		          first_name : {
+		            required : true
+		          },
+		          last_name : {
+		            required : true
+		          },
+		          email : {
+		            required : true,
+		            email: true
+		          },
+		          phone : {
+		            required : true
+		          },
+		          password : {
+		            minlength : 6,
+		            maxlength : 20
+		          },
+		          password_confirm : {
+		            minlength : 6,
+		            maxlength : 20,
+		            equalTo : '#password'
+		          },
+		        },
+		    
+		        // Messages for form validation
+		        messages : {
+		          first_name : {
+		            required : 'Please enter your first name'
+		          },
+		          last_name : {
+		            required : 'Please enter your last name'
+		          },
+		          email : {
+		            required : 'Please enter your email',
+		            email: 'Please enter a valid email'
+		          },
+		          phone : {
+		            required : 'Please enter your phone number'
+		          },
+		          password : {
+		            required : 'Please enter your password'
+		          },
+		          password_confirm : {
+		            required : 'Please enter your password one more time',
+		            equalTo : 'Password confirmation does not match!'
+		          },
+		        },
+		    
+		        // Do not change code below
+		        errorPlacement : function(error, element) {
+		          error.insertAfter(element.parent());
+		        }
+		      });
+
+  		});
+
+  </script>
 
 
 @stop
