@@ -17,8 +17,8 @@ class CreatePivotsTable extends Migration {
 			$table->increments('id');
 			$table->integer('farm_id')->unsigned();
 			$table->foreign('farm_id')->references('id')->on('farms');
-			$table->integer('distributor_id')->unsigned();
-			$table->foreign('distributor_id')->references('id')->on('users');
+			$table->integer('company_id')->unsigned();
+			$table->foreign('company_id')->references('id')->on('companies');
 			$table->double('lat', 15, 8);
 			$table->double('long', 15, 8);
 			$table->decimal('radius', 5, 2);

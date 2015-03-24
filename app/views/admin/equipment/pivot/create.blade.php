@@ -88,16 +88,16 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="distributor_id" class="farm">
-                                            <option selected="" disabled="">Please Select a Distributor</option>
-                                            @foreach($distributors as $distributor)
-                                                <option value="{{ $distributor->id }}">
-                                                    {{ $distributor->first_name }} {{ $distributor->last_name }}
+                                        <select name="company_id" class="farm">
+                                            <option selected="" disabled="">Please Select a Distributor Company</option>
+                                            @foreach($distributor_companies as $distributor_company)
+                                                <option value="{{ $distributor_company->id }}">
+                                                    {{ $distributor_company->name }}
                                                 </option>
                                             @endforeach
                                         </select> <i></i> </label>
-                                        @if($errors->first('distributor_id'))
-                                            <em class="invalid">{{ $errors->first('distributor_id') }}</em>
+                                        @if($errors->first('company_id'))
+                                            <em class="invalid">{{ $errors->first('company_id') }}</em>
                                         @endif
                                 </section>
                             </div>

@@ -92,16 +92,16 @@
                                 </section>
                                 <section class="col col-4">
                                     <label class="select">
-                                        <select name="waterpump_reseller_id" class="farm">
-                                            <option selected="" disabled="">Please Select a Water Pump Reseller</option>
-                                            @foreach($waterpump_resellers as $waterpump_reseller)
-                                                <option value="{{ $waterpump_reseller->id }}">
-                                                    {{ $waterpump_reseller->first_name }} {{ $waterpump_reseller->last_name }}
+                                        <select name="company_id" class="farm">
+                                            <option selected="" disabled="">Please Select a Distributor Company</option>
+                                            @foreach($distributor_companies as $distributor_company)
+                                                <option value="{{ $distributor_company->id }}">
+                                                    {{ $distributor_company->name }}
                                                 </option>
                                             @endforeach
                                         </select> <i></i> </label>
-                                        @if($errors->first('waterpump_reseller_id'))
-                                            <em class="invalid">{{ $errors->first('waterpump_reseller_id') }}</em>
+                                        @if($errors->first('company_id'))
+                                            <em class="invalid">{{ $errors->first('company_id') }}</em>
                                         @endif
                                 </section>
                             </div>

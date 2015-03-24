@@ -3,7 +3,7 @@
 class Pivot extends \Eloquent {
 	protected $fillable = [
 		'farm_id',
-		'distributor_id',
+		'company_id',
 		'lat',
 		'long',
 		'name',

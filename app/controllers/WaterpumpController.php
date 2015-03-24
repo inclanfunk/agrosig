@@ -22,11 +22,11 @@ class WaterpumpController extends \BaseController {
 	{
 		$farms = Farm::all();
 		$group = Sentry::findGroupByName('Water Pump Reseller');
-		$waterpump_resellers = Sentry::findAllUsersInGroup($group);
+		$distributor_companies = Company::where('type', '=', 'Distributor')->get();
 		$breadcrumbs = ['Home', 'Equipment', 'Waterpump', 'Create'];
 		return View::make('admin.equipment.waterpump.create')
 					->withFarms($farms)
-					->withWaterpumpResellers($waterpump_resellers)
+					->withDistributorCompanies($distributor_companies)
 					->withBreadcrumbs($breadcrumbs);
 	}
 

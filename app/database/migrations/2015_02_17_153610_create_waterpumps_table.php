@@ -17,8 +17,8 @@ class CreateWaterpumpsTable extends Migration {
 			$table->increments('id');
 			$table->integer('farm_id')->unsigned();
 			$table->foreign('farm_id')->references('id')->on('farms');
-			$table->integer('waterpump_reseller_id')->unsigned();
-			$table->foreign('waterpump_reseller_id')->references('id')->on('users');
+			$table->integer('company_id')->unsigned();
+			$table->foreign('company_id')->references('id')->on('companies');
 			$table->double('lat', 15, 8);
 			$table->double('long', 15, 8);
 			$table->string('name');

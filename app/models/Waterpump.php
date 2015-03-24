@@ -3,7 +3,7 @@
 class Waterpump extends \Eloquent {
 	protected $fillable = [
 		'farm_id',
-		'waterpump_reseller_id',
+		'company_id',
 		'lat',
 		'long',
 		'name',

@@ -22,11 +22,11 @@ class PivotController extends \BaseController {
 	{
 		$farms = Farm::all();
 		$group = Sentry::findGroupByName('Distributor');
-		$distributors = Sentry::findAllUsersInGroup($group);
+		$distributor_companies = Company::where('type', '=', 'Distributor')->get();
 		$breadcrumbs = ['Home', 'Equipment', 'Pivots', 'Create'];
 		return View::make('admin.equipment.pivot.create')
 					->withFarms($farms)
-					->withDistributors($distributors)
+					->withDistributorCompanies($distributor_companies)
 					->withBreadcrumbs($breadcrumbs);
 	}
 
