@@ -20,8 +20,8 @@
 
 						<!-- Post -->
 						<tr>
-							<td class="text-center"><a href="profile.html"><strong>Me</strong></a></td>
-							<td><em>Today</em></td>
+							<td class="text-center"><a href="profile.html"><strong>{{ trans('forum.me') }}</strong></a></td>
+							<td><em>{{ trans('forum.post.create.today') }}</em></td>
 						</tr>
 						<tr>
 							<td class="text-center" style="width: 12%;">
@@ -33,13 +33,13 @@
                                     	<img src=" {{URL::to('/img/avatar.png') }} " alt="demo user" width="50">
                                     @endif
 								</a>
-							</div><small>{{ $user->posts->count() }} Posts</small></td>
+							</div><small>{{ Lang::choice('forum.number_of_posts', $user->posts->count(), [$user->posts->count()]) }}</small></td>
 							<td>
 								<div class="row">
 									<div class="col-md-8">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-											<input type="text" class="form-control" placeholder="Title" name='title'>
+											<input type="text" class="form-control" placeholder="{{ trans('forum.post.create.title') }}" name='title'>
 										</div>
 									</div>
 								</div>
@@ -49,10 +49,10 @@
 								<input type="hidden" name="topic_id" value="{{ Input::get('topic_id') }}">
 
 								<div id="forumPost"></div>
-								<em id="error" class="invalid hidden"><p>The Title and Body are requried!</p></em>
+								<em id="error" class="invalid hidden"><p>{{ trans('forum.create.required') }}</p></em>
 									
 								<button id="post" class="btn btn-primary margin-top-10">
-									Post
+									{{ trans('forum.create.post') }}
 								</button>
 							</td>
 						</tr>
@@ -60,32 +60,6 @@
 
 					</tbody>
 				</table>
-
-				<div class="text-center">
-					<ul class="pagination pagination-sm">
-						<li class="disabled">
-							<a href="javascript:void(0);">Prev</a>
-						</li>
-						<li class="active">
-							<a href="javascript:void(0);">1</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">2</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">3</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">...</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">99</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);">Next</a>
-						</li>
-					</ul>
-				</div>
 
 			</div>
 		</div>

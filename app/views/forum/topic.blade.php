@@ -11,7 +11,7 @@
 		    <ul id="sparks">
 
 		        <li class="sparks-info">
-		            <a href="{{ URL::to('posts/create') . '?topic_id=' . $topic->id }}" class="btn btn-success">Create A New Post</a>
+		            <a href="{{ URL::to('posts/create') . '?topic_id=' . $topic->id }}" class="btn btn-success">{{ trans('forum.topic.create') }}</a>
 		        </li>
 
 		    </ul>
@@ -32,16 +32,16 @@
 				<table class="table table-striped table-forum">
 					<thead>
 						<tr>
-							<th colspan="2"><a href="{{ URL::to('forum') }}"> Forum </a> > {{ $topic->title }}</th>
-							<th class="text-center hidden-xs hidden-sm" style="width: 100px;">Replies</th>
-							<th class="hidden-xs hidden-sm" style="width: 200px;">Last Reply</th>
+							<th colspan="2"><a href="{{ URL::to('forum') }}"> {{ trans('forum.topic.forum') }} </a> > {{ $topic->title }}</th>
+							<th class="text-center hidden-xs hidden-sm" style="width: 100px;">{{ trans('forum.replies') }}</th>
+							<th class="hidden-xs hidden-sm" style="width: 200px;">{{ trans('forum.topic.last') }}</th>
 						</tr>
 					</thead>
 					<tbody>
 
 						@if(!$posts->count())
 							<tr>
-								<td colspan="3" class="text-center"><em>No posts yet! <br />Be the first one to post!</em></td>
+								<td colspan="3" class="text-center"><em>{{ trans('forum.topic.no_post') }} <br />{{ trans('forum.topic.first') }}</em></td>
 							</tr>
 						@else
 
@@ -54,7 +54,7 @@
 											<small>
 												<a href="#">
 													@if($post->user->id == Sentry::getUser()->id)
-														Me
+														{{ trans('forum.me') }}
 													@else
 														{{ $post->user->first_name  }} {{ $post->user->last_name  }}
 													@endif
@@ -69,10 +69,10 @@
 									<td class="hidden-xs hidden-sm">by 
 										<a href="javascript:void(0);">
 											@if(!$post->replies->count())
-												N/A
+												{{ trans('forum.na') }}
 											@else
 												@if($post->replies->last()->user->id == Sentry::getUser()->id)
-													Me
+													{{ trans('forum.me') }}
 												@else
 													{{ $post->replies->last()->user->first_name  }} {{ $post->replies->last()->user->last_name  }}
 												@endif
@@ -81,7 +81,7 @@
 										<br>
 										<small><i>
 											@if(!$post->replies->count())
-												N/A
+												{{ trans('forum.na') }}
 											@else
 												<span title="{{ $post->replies->last()->created_at }}">{{ $post->replies->last()->created_at->diffForHumans() }}</span>
 											@endif

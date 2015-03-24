@@ -7,8 +7,8 @@
 
 	<!-- col -->
 	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-		<h1 class="page-title txt-color-blueDark"><!-- PAGE HEADER --><i class="fa-fw fa fa-file-o"></i> Other Pages <span>>
-			Forum Layout </span></h1>
+		<h1 class="page-title txt-color-blueDark"><!-- PAGE HEADER --><i class="fa-fw fa fa-file-o"></i> {{ trans('forum.index.other') }} <span>>
+			{{ trans('forum.index.layout') }} </span></h1>
 	</div>
 	<!-- end col -->
 
@@ -26,8 +26,8 @@
 					<thead>
 						<tr>
 							<th colspan="2">{{ $section->title }}</th>
-							<th class="text-center hidden-xs hidden-sm" style="width: 100px;">Posts</th>
-							<th class="hidden-xs hidden-sm" style="width: 200px;">Last Post</th>
+							<th class="text-center hidden-xs hidden-sm" style="width: 100px;">{{ trans('forum.posts') }}</th>
+							<th class="hidden-xs hidden-sm" style="width: 200px;">{{ trans('forum.index.last') }}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,13 +45,13 @@
 								<td class="text-center hidden-xs hidden-sm">
 									<a href="javascript:void(0);">{{ $topic->posts->count() }}</a>
 								</td>
-								<td class="hidden-xs hidden-sm">by 
+								<td class="hidden-xs hidden-sm">{{ trans('forum.by') }} 
 									<a href="javascript:void(0);">
 										@if(!$topic->posts->count())
-											N/A
+											{{ trans('forum.na') }}
 										@else
 											@if($topic->posts->last()->user->id == Sentry::getUser()->id)
-												Me
+												{{ trans('forum.me') }}
 											@else
 												{{ $topic->posts->last()->user->first_name  }} {{ $topic->posts->last()->user->last_name  }}
 											@endif
@@ -60,7 +60,7 @@
 									<br>
 									<small><i>
 										@if(!$topic->posts->count())
-											N/A
+											{{ trans('forum.na') }}
 										@else
 											<span title="{{ $topic->posts->last()->created_at }}">{{ $topic->posts->last()->created_at->diffForHumans() }}</span>
 										@endif

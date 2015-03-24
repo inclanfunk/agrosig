@@ -23,7 +23,7 @@
 								<a href="profile.html">
 									<strong>
 										@if($post->user->id == Sentry::getUser()->id)
-											Me
+											{{ trans('forum.me') }}
 										@else
 											{{ $post->user->first_name  }} {{ $post->user->last_name  }}
 										@endif
@@ -57,7 +57,7 @@
 									<a href="profile.html">
 										<strong>
 											@if($reply->user->id == Sentry::getUser()->id)
-												Me
+												{{ trans('forum.me') }}
 											@else
 												{{ $reply->user->first_name  }} {{ $reply->user->last_name  }}
 											@endif
@@ -87,8 +87,8 @@
 
 						<!-- Post -->
 						<tr>
-							<td class="text-center"><a href="profile.html"><strong>Me</strong></a></td>
-							<td><em>Now</em></td>
+							<td class="text-center"><a href="profile.html"><strong>{{ trans('forum.me') }}</strong></a></td>
+							<td><em>{{ trans('forum.post.show.now') }}</em></td>
 						</tr>
 						<tr>
 							<td class="text-center" style="width: 12%;">
@@ -100,15 +100,15 @@
                                     	<img src=" {{URL::to('/img/avatar.png') }} " alt="demo user" width="50">
                                     @endif
 								</a>
-							</div><small>{{ $post->user->posts->count() }} Posts</small></td>
+							</div><small>{{ Lang::choice('forum.number_of_posts', $user->posts->count(), [$user->posts->count()]) }}</small></td>
 							<td>
 								<input type="hidden" name="post_id" value="{{ $post->id }}">
 
 								<div id="forumReply"></div>
-								<em id="error" class="invalid hidden"><p>The Reply Body is requried!</p></em>
+								<em id="error" class="invalid hidden"><p>{{ trans('forum.post.show.required') }}</p></em>
 									
 								<button id="reply" class="btn btn-primary margin-top-10">
-									Reply
+									{{ trans('forum.post.show.reply') }}
 								</button>
 							</td>
 						</tr>
