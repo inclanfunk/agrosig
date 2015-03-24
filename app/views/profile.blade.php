@@ -178,12 +178,12 @@
                                        								<div class="row">
                                        									<section class="col col-6">
                                        										<label class="input"> <i class="icon-append fa fa-user"></i>
-                                       											<input type="text" name="first_name" placeholder="First Name" value="{{ Sentry::getUser()->first_name }}" required>
+                                       											<input type="text" name="first_name" placeholder="{{ trans('profile.first_name') }}" value="{{ Sentry::getUser()->first_name }}" required>
                                        										</label>
                                        									</section>
                                        									<section class="col col-6">
                                        										<label class="input"> <i class="icon-append fa fa-user"></i>
-                                       											<input type="text" name="last_name" placeholder="Last Name" value="{{ Sentry::getUser()->last_name }}">
+                                       											<input type="text" name="last_name" placeholder="{{ trans('profile.last_name') }}" value="{{ Sentry::getUser()->last_name }}">
                                        										</label>
                                        									</section>
                                        								</div>
@@ -191,12 +191,12 @@
                                        								<div class="row">
                                        									<section class="col col-6">
                                        										<label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-                                       											<input type="email" name="email" placeholder="E-mail" value="{{ Sentry::getUser()->email }}">
+                                       											<input type="email" name="email" placeholder="{{ trans('profile.email') }}" value="{{ Sentry::getUser()->email }}">
                                        										</label>
                                        									</section>
                                        									<section class="col col-6">
                                        										<label class="input"> <i class="icon-append fa fa-phone"></i>
-                                       											<input type="tel" name="phone" placeholder="Phone" data-mask="(999) 999-9999" value="{{ Sentry::getUser()->phone }}">
+                                       											<input type="tel" name="phone" placeholder="{{ trans('profile.phone') }}" data-mask="(999) 999-9999" value="{{ Sentry::getUser()->phone }}">
                                        										</label>
                                        									</section>
                                        								</div>
@@ -204,12 +204,12 @@
                                        								<div class="row">
                                                            <section class="col col-6">
                                                                <label class="input"> <i class="icon-append fa  fa-lock"></i>
-                                                                   <input id="password" type="password" name="password" placeholder="Password">
+                                                                   <input id="password" type="password" name="password" placeholder="{{ trans('profile.password') }}">
                                                                </label>
                                                            </section>
                                                            <section class="col col-6">
                                                                <label class="input"> <i class="icon-append fa  fa-lock"></i>
-                                                                   <input type="password" name="password_confirm" placeholder="Confirm Password">
+                                                                   <input type="password" name="password_confirm" placeholder="{{ trans('profile.password_confirm') }}">
                                                                </label>
                                                            </section>
                                                       </div>
@@ -273,7 +273,7 @@
         <small><b>Max upload size is 5MB</b></small>
       </div>
       <div class="modal-footer">
-      	<button id="upload" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <button id="upload" type="button" class="btn btn-primary" data-dismiss="modal">Upload</button>
       </div>
     </div>
