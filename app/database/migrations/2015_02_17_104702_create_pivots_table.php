@@ -81,6 +81,7 @@ class CreatePivotsTable extends Migration {
 			$table->string('eb_lightning_arrester_code');
 			$table->string('eb_voltage_source_code');
 			$table->string('eb_pressure_sensor_code');
+			$table->double('area', 15, 8);
 			$table->timestamps();
 		});
 	}

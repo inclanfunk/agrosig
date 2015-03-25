@@ -66,6 +66,7 @@ class Pivot extends \Eloquent {
 		'eb_lightning_arrester_code',
 		'eb_voltage_source_code',
 		'eb_pressure_sensor_code',
+		'area',
 	];
 
 	public function farm()
