@@ -22,4 +22,21 @@ class ForumController extends \BaseController {
 					->withBreadcrumbs($breadcrumbs);
 	}
 
+	public function forumUpload()
+	{
+		if(Input::hasFile('file')){
+			$path = Config::get('path.forum_uploads');
+
+			$hash_name = sha1(time() . Sentry::getUser());
+			$extension = Input::file('file')->getClientOriginalExtension();
+			$name = $hash_name . '.' . $extension;
+
+			Input::file('file')->move($path, $name);
+
+			$url = '/forum_uploads/' . $name;
+
+			return Response::json($url, 200);
+		}
+	}
+
 }

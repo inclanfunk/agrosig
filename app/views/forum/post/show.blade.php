@@ -150,8 +150,28 @@
 			$('#forumReply').summernote({
 				height : 180,
 				focus : false,
-				tabsize : 2
+				tabsize : 2,
+				onImageUpload: function(files, editor, welEditable) {
+	                sendFile(files[0], editor, welEditable);
+	            }
 			});
+
+			function sendFile(file, editor, welEditable) {
+	            data = new FormData();
+	            data.append("file", file);
+	            $.ajax({
+	                data: data,
+	                type: "POST",
+	                url: "/forum/upload",
+	                cache: false,
+	                contentType: false,
+	                processData: false,
+	                success: function(url) {
+	                	console.log(url);
+	                    editor.insertImage(welEditable, url);
+	                }
+	            });
+	        }
 
 			$('#reply').on('click', function(e){
 				if($('#forumReply').code() != '' && $('input[name="post_id"]').val()  != ''){

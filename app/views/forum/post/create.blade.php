@@ -68,6 +68,26 @@
 
 	<!-- end row -->
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Progress</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="progress">
+			<div aria-valuenow="25" style="width: 25%;" class="progress-bar bg-color-teal" aria-valuetransitiongoal="25">25%</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @stop
 
 @section('custom-js')
@@ -84,8 +104,55 @@
 			$('#forumPost').summernote({
 				height : 180,
 				focus : false,
-				tabsize : 2
+				tabsize : 2,
+				onImageUpload: function(files, editor, welEditable) {
+	                sendFile(files[0], editor, welEditable);
+	            }
 			});
+
+			function sendFile(file, editor, welEditable) {
+	            data = new FormData();
+	            data.append("file", file);
+	            $.ajax({
+	                data: data,
+	                type: "POST",
+	                xhr: function() {
+		                var myXhr = $.ajaxSettings.xhr();
+		                if (myXhr.upload) myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+		                return myXhr;
+		            },
+	                url: "/forum/upload",
+	                cache: false,
+	                contentType: false,
+	                processData: false,
+	                success: function(url) {
+	                    editor.insertImage(welEditable, url);
+	                }
+	            });
+		    	$('#myModal').modal({ show: true });
+	        }
+
+	        
+
+	        function progressHandlingFunction(e){
+	        	console.log(e);
+			    if(e.lengthComputable){
+			        var progress = $('.progress > div').attr('aria-valuetransitiongoal');
+			        $('.progress > div').attr('aria-valuetransitiongoal', e.loaded / e.total * 100);
+			        $('.progress > div').attr('aria-valuenow', e.loaded / e.total * 100);
+			        $('.progress > div').width(e.loaded / e.total * 100 + '%');
+			        $('.progress > div').text(e.loaded / e.total * 100 + '%');
+
+
+			        if (e.loaded == e.total) {
+			        	$('#myModal').modal({ show: false });
+			         //    $('.progress > div').attr('aria-valuetransitiongoal', 0);
+				        // $('.progress > div').attr('aria-valuenow', 0);
+				        // $('.progress > div').width(0 + '%');
+				        // $('.progress > div').text(0 + '%');
+			        }
+			    }
+			}
 
 			$('#post').on('click', function(e){
 				if($('input[name="title"]').val() != '' && $('#forumPost').code()  != '' && $('input[name="topic_id"]').val()  != ''){
@@ -111,22 +178,4 @@
 		})
 
 	</script>
-
-	<!-- Your GOOGLE ANALYTICS CODE Below -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script');
-			ga.type = 'text/javascript';
-			ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(ga, s);
-		})();
-
-	</script>
-
 @stop

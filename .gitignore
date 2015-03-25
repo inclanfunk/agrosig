@@ -4,6 +4,7 @@
 /public/geojson/
 /public/logos/
 /public/deepwell/
+/public/forum_uploads/
 composer.phar
 composer.lock
 .env.*.php

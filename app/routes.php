@@ -64,6 +64,7 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::get('/forum', 'ForumController@showForum');
 	Route::get('/forum/topics/{id}', 'ForumController@showTopic');
+	Route::post('/forum/upload', 'ForumController@forumUpload');
 
 	Route::resource('sections', 'SectionController');
 	Route::resource('topics', 'TopicController');
