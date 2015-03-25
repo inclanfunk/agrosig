@@ -52,7 +52,7 @@
 								<em id="error" class="invalid hidden"><p>{{ trans('forum.create.required') }}</p></em>
 									
 								<button id="post" class="btn btn-primary margin-top-10">
-									{{ trans('forum.create.post') }}
+									{{ trans('forum.post.create.post') }}
 								</button>
 							</td>
 						</tr>

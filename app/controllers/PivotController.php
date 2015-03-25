@@ -39,6 +39,15 @@ class PivotController extends \BaseController {
 	public function store()
 	{
 		// Need to work on validation
+
+		$validator = Validator::make($data = Input::all(), [
+			'name' => 'required|unique:pivots'
+		]);
+
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator->messages());
+		}
+		
 		Pivot::create(Input::all());
 		return Redirect::back()->with('success', 'Pivot Created Successfully');
 	}

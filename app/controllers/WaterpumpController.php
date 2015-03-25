@@ -40,7 +40,13 @@ class WaterpumpController extends \BaseController {
 	{
 		// Need to work on validation
 
-		$data = Input::all();
+		$validator = Validator::make($data = Input::all(), [
+			'name' => 'required|unique:waterpumps'
+		]);
+
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator->messages());
+		}
 
 		if(Input::hasFile('deepwell_info')){
 			if(Input::file('deepwell_info')->getClientOriginalExtension() == 'jpeg' || Input::file('deepwell_info')->getClientOriginalExtension() == 'jpg'){

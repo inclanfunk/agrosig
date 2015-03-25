@@ -64,19 +64,22 @@
 										</strong>
 									</a>
 								</td>
-								<td><em><span title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span></em></td>
+								<td>
+									<em><span title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span></em>
+								</td>
 							</tr>
 							<tr>
 								<td class="text-center" style="width: 12%;">
-								<div class="push-bit">
-									<a href="#"> 
-										@if($reply->user->photo)
-	                                    	<img src="{{URL::to('/photos/' . $reply->user->photo)}}" alt="demo user" width="50">
-	                                    @else
-	                                    	<img src=" {{URL::to('/img/avatar.png') }} " alt="demo user" width="50">
-	                                    @endif
-									</a>
-								</div><small>{{ $post->user->posts->count() }} Posts</small></td>
+									<div class="push-bit">
+										<a href="#"> 
+											@if($reply->user->photo)
+		                                    	<img src="{{URL::to('/photos/' . $reply->user->photo)}}" alt="demo user" width="50">
+		                                    @else
+		                                    	<img src=" {{URL::to('/img/avatar.png') }} " alt="demo user" width="50">
+		                                    @endif
+										</a>
+									</div><small>{{ $post->user->posts->count() }} Posts</small>
+								</td>
 								<td>
 									{{ $reply->body }}
 								</td>
