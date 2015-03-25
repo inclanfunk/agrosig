@@ -72,6 +72,27 @@ class FarmController extends \BaseController {
 			return Redirect::route('farms.create')->withErrors($validator->messages());
 		}*/
 
+		if(Input::get('same') == true){
+			$validator = Validator::make(
+				$input = Input::all(),
+				$rules = [
+					'farm_company_id' => 'required|exists:companies,id',
+					'distributor_company_id' => 'required|exists:companies,id',
+				]
+			);
+
+			if($validator->fails()){
+				return Redirect::route('farms.create')->withErrors($validator->messages());
+			}
+
+			$data = Company::find($input['farm_company_id'])->toArray();
+			$data['farm_company_id'] = $input['farm_company_id'];
+			$data['distributor_company_id'] = $input['distributor_company_id'];
+			Farm::create($data);
+
+			return Redirect::back()->with('success', 'Farm Created Successfully');
+		}
+
 		$data = Input::all();
 		$hash_name = sha1(time() . Sentry::getUser());
 		Image::make(Input::file('logo'))->resize(100, 100)->save(Config::get('path.logos') . $hash_name . '.jpg');

@@ -180,12 +180,20 @@
 												<em class="invalid">{{ $errors->first('logo') }}</em>
 										@endif
 									</section>
+									<section class="col col-3 pull-right">
+										<label class="checkbox">
+											<input name="same" type="checkbox">
+											<i></i>Information Same as Company
+										</label>
+									</section>
                                </div>
+                               
 
                             </fieldset>
 
 							<footer>
 								<button type="submit" class="btn btn-primary">
+
 									Create Farm
 								</button>
 							</footer>
@@ -193,15 +201,6 @@
 
 					</div>
 					<!-- end widget content -->
-
-
-                        @if(Session::has('error_msg'))
-                                        <p class="alert alert-danger">{{Session::get('error_msg')}}</p>
-                        @endif
-
-                        @if (Session::has('message'))
-                           <div class="alert alert-info">{{ Session::get('message') }}</div>
-                        @endif
 
 
 				</div>

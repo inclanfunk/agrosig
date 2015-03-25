@@ -5,6 +5,11 @@
 
 <style type="text/css">
 
+  img#photo:hover:before{
+    font-family: 'FontAwesome';
+    content: '\f01a';
+  }
+
 </style>
 
 
