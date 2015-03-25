@@ -131,6 +131,26 @@
 
 	<!-- end row -->
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Progress</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="progress">
+			<div aria-valuenow="0" style="width: 0%;" class="progress-bar bg-color-teal" aria-valuetransitiongoal="0">0%</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @stop
 
 @section('custom-js')
@@ -162,6 +182,11 @@
 	            $.ajax({
 	                data: data,
 	                type: "POST",
+	                xhr: function() {
+		                var myXhr = $.ajaxSettings.xhr();
+		                if (myXhr.upload) myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+		                return myXhr;
+		            },
 	                url: "/forum/upload",
 	                cache: false,
 	                contentType: false,
@@ -171,7 +196,18 @@
 	                    editor.insertImage(welEditable, url);
 	                }
 	            });
+	            $('#myModal').modal({ show: true });
 	        }
+
+	        function progressHandlingFunction(e){
+			    if(e.lengthComputable){
+			        var progress = $('.progress > div').attr('aria-valuetransitiongoal');
+			        $('.progress > div').attr('aria-valuetransitiongoal', Math.round(e.loaded / e.total * 100));
+			        $('.progress > div').attr('aria-valuenow', Math.round(e.loaded / e.total * 100));
+			        $('.progress > div').width(Math.round(e.loaded / e.total * 100) + '%');
+			        $('.progress > div').text(Math.round(e.loaded / e.total * 100) + '%');
+			    }
+			}
 
 			$('#reply').on('click', function(e){
 				if($('#forumReply').code() != '' && $('input[name="post_id"]').val()  != ''){

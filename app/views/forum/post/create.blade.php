@@ -78,11 +78,11 @@
       </div>
       <div class="modal-body">
       	<div class="progress">
-			<div aria-valuenow="25" style="width: 25%;" class="progress-bar bg-color-teal" aria-valuetransitiongoal="25">25%</div>
+			<div aria-valuenow="0" style="width: 0%;" class="progress-bar bg-color-teal" aria-valuetransitiongoal="0">0%</div>
 		</div>
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -132,25 +132,13 @@
 		    	$('#myModal').modal({ show: true });
 	        }
 
-	        
-
 	        function progressHandlingFunction(e){
-	        	console.log(e);
 			    if(e.lengthComputable){
 			        var progress = $('.progress > div').attr('aria-valuetransitiongoal');
-			        $('.progress > div').attr('aria-valuetransitiongoal', e.loaded / e.total * 100);
-			        $('.progress > div').attr('aria-valuenow', e.loaded / e.total * 100);
-			        $('.progress > div').width(e.loaded / e.total * 100 + '%');
-			        $('.progress > div').text(e.loaded / e.total * 100 + '%');
-
-
-			        if (e.loaded == e.total) {
-			        	$('#myModal').modal({ show: false });
-			         //    $('.progress > div').attr('aria-valuetransitiongoal', 0);
-				        // $('.progress > div').attr('aria-valuenow', 0);
-				        // $('.progress > div').width(0 + '%');
-				        // $('.progress > div').text(0 + '%');
-			        }
+			        $('.progress > div').attr('aria-valuetransitiongoal', Math.round(e.loaded / e.total * 100));
+			        $('.progress > div').attr('aria-valuenow', Math.round(e.loaded / e.total * 100));
+			        $('.progress > div').width(Math.round(e.loaded / e.total * 100) + '%');
+			        $('.progress > div').text(Math.round(e.loaded / e.total * 100) + '%');
 			    }
 			}
 
