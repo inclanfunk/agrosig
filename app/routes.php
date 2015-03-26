@@ -71,6 +71,10 @@ Route::group(['before' => 'auth'], function(){
 	Route::resource('posts', 'PostController');
 	Route::resource('replies', 'ReplyController');
 
+	Route::resource('notifications', 'NotificationController');
+
+	Route::get('/forum/notifications', 'NotificationController@forumNotifications');
+
 });
 
 // Just for testing. To be removed before production.

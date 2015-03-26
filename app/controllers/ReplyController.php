@@ -43,7 +43,21 @@ class ReplyController extends \BaseController {
 		$data['user_id'] = Sentry::getUser()->id;
 
 		$reply = Reply::create($data);
-		// $reply = Reply::with('post')->find($reply->id);
+
+		if($reply->user_id == $reply->post->user_id){
+			return;
+		}
+
+		$notification_data = [
+			'user_id' => $reply->post->user_id,
+			'type' => 'forum',
+			'body' => $reply->user->first_name . ' ' . $reply->user->last_name . 
+						' replied on your post ' . 
+						'<a href="' . '/posts/' . $reply->post->id . '">' . $reply->post->title . '</a>'
+		];
+
+		$notification = Notification::create($notification_data);
+		$notification->human_time = $notification->created_at->diffForHumans();
 
 		$pusher = new Pusher(
 			Config::get('services.pusher.public'),
@@ -51,9 +65,9 @@ class ReplyController extends \BaseController {
 			Config::get('services.pusher.app_id')
 		);
 
-		$pusher->trigger('reply', 'new_reply', [$reply]);
+		$pusher->trigger('notifications', 'forum_notification', $notification);
 
-		return 'Placeholder';
+		return;
 	}
 
 

@@ -240,6 +240,43 @@
 							.addClass($(this).find('img').attr('class'));
 					}
 				});
+
+				$(function() {
+
+					var pusher = new Pusher('082bab423e2a8be3da2a');
+					var chat = pusher.subscribe('notifications');
+					chat.bind('forum_notification', function(response){
+
+						var logged_in_user_id = null;
+
+						$.ajax({
+							type: "GET",
+							url: '/myProfile',
+							success: function(response){
+								logged_in_user_id = response.id;
+							}
+						}).then(function(){
+							if(logged_in_user_id == response.user_id){
+								var count = parseInt($('span#forum').text());
+								$('span#forum').text(count+1);
+
+								var count = parseInt($('b.badge').text());
+								$('b.badge').text(count+1);
+								$('b.badge').addClass('bg-color-red');
+
+								if($('ul#forum').length){
+									var new_notification = $('ul#forum li').last();
+									new_notification.find('span#whole').addClass('unread');
+									new_notification.find('span#body').html(response.body);
+									new_notification.find('span#body')
+									.append('<br /><span id="time" class="pull-right font-xs text-muted"><i>' + response.human_time + '</i></span>');
+									$('ul#forum').prepend(new_notification);
+								}
+							}
+						});
+					});
+
+				});
 			});
 
 		</script>
