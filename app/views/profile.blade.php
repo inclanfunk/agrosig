@@ -5,9 +5,41 @@
 
 <style type="text/css">
 
-  img#photo:hover:before{
-    font-family: 'FontAwesome';
-    content: '\f01a';
+  .img-wrap {    
+      position: relative;
+      max-width:350px;
+  }
+
+
+  .img-wrap .icon-wrap,
+  .img-wrap .fa {
+      opacity:0;
+      position: absolute;
+      top:40px;
+      right:0;
+      left:0;
+      margin:auto;
+      width:15px;
+      height:15px;
+      transition:all 0.2s ease;
+      z-index: 99;
+  }
+
+  .img-wrap .fa {
+      opacity:0;
+  }
+
+  .icon-wrap::before {
+      font-family: FontAwesome;
+      content: '\f030';   
+      display:block;
+  }
+
+
+  .img-wrap:hover .icon-wrap,
+  .img-wrap:hover .fa {
+      opacity:1;
+      z-index: 99;
   }
 
 </style>
@@ -64,14 +96,20 @@
                                 <div class="col-sm-12">
 
                                     <div class="row">
-
-                                        <div class="col-sm-3 profile-pic">
-                                            @if(Sentry::getUser()->photo)
-                                            	<img id="photo" src="{{URL::to('/photos/' . Sentry::getUser()->photo)}}" alt="demo user" data-toggle="modal" data-target="#myModal">
-                                            @else
-                                            	<img id="photo" src=" {{URL::to('/img/avatar.png') }} " alt="demo user" data-toggle="modal" data-target="#myModal">
-                                            @endif
-                                        </div>
+                                        <a href="#">
+                                          <div class="col-sm-3 profile-pic img-wrap">
+                                              @if(Sentry::getUser()->photo)
+                                              	<img id="photo" src="{{URL::to('/photos/' . Sentry::getUser()->photo)}}" alt="demo user" data-toggle="modal" data-target="#myModal">
+                                              @else
+                                              	<img id="photo" src=" {{URL::to('/img/avatar.png') }} " alt="demo user" data-toggle="modal" data-target="#myModal">
+                                              @endif
+                                              <i class="fa fa-camera"></i>
+                                          </div>
+                                        </a>
+                                        <!-- <div class="img-wrap">
+                                          <img id="photo" src="http://placehold.it/350x150" alt="dummy photo" />
+                                          <i class="fa fa-camera"></i>
+                                        </div> -->
                                         <div class="col-sm-6">
                                             <h1>{{ Sentry::getUser()->first_name }}<span class="semi-bold">  {{ Sentry::getUser()->last_name }}  </span>
                                             <br>
