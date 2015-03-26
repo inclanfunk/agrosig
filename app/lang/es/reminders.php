@@ -19,7 +19,7 @@ return array(
 
 	"token" => "El restablecimiento de la contraseña es imposible",
 
-	"sent" => "Recordatorio de la contraseña enviado!",
+	"sent" => "Recordatorio de contraseña enviado!",
 
 	"reset" => "La contraseña se reinicializo!",
 
