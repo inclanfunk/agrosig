@@ -23,22 +23,22 @@
             <label class="btn btn-default">
                 <input type="radio" name="activity" id="{{ URL::to('/forum/notifications') }}">
                 Forum 
-                (<span id="forum">
+                (<span id="forum-count">
                     {{ Notification::where('type', '=', 'forum')->where('user_id', '=', Sentry::getUser()->id)->where('read', '=', 0)->count() }} 
                 </span>)
             </label>
                 
             <label class="btn btn-default">
                 <input type="radio" name="activity" id="{{ URL::route('notifications.index') }}">
-                Calendar 
-                (<span id="calendar">
+                Calendar
+                (<span id="calendar-count">
                     0
-                </span>) 
+                </span>)
             </label>
             <label class="btn btn-default">
                 <input type="radio" name="activity" id="{{ URL::route('notifications.index') }}">
                 Chat 
-                (<span id="forum">
+                (<span id="chat-count">
                     0
                 </span>) 
             </label>

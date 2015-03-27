@@ -257,8 +257,8 @@
 							}
 						}).then(function(){
 							if(logged_in_user_id == response.user_id){
-								var count = parseInt($('span#forum').text());
-								$('span#forum').text(count+1);
+								var count = parseInt($('span#forum-count').text());
+								$('span#forum-count').text(count+1);
 
 								var count = parseInt($('b.badge').text());
 								$('b.badge').text(count+1);
