@@ -23,7 +23,7 @@ class UserTableSeeder extends Seeder {
 
 		$user->addGroup($superAdmin);
 
-		// Only admin user needed right now!
+		/*// Only admin user needed right now!
 
 		foreach(range(1, 100) as $index)
 		{
@@ -83,7 +83,7 @@ class UserTableSeeder extends Seeder {
 					WaterPumpReseller::create($water_pump_reseller_details);
 					break;
 			}
-		}
+		}*/
 	}
 
 }
