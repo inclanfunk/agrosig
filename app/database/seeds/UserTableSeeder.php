@@ -17,13 +17,14 @@ class UserTableSeeder extends Seeder {
 			'last_name'		=> 'Baudet',
 			'phone'			=> $faker->phoneNumber,
 			'activated' 	=> true,
+			'last_active'	=> Carbon::now()
 		));
 
 		$superAdmin = Sentry::findGroupById(1);
 
 		$user->addGroup($superAdmin);
 
-		/*// Only admin user needed right now!
+		// Only admin user needed right now!
 
 		foreach(range(1, 100) as $index)
 		{
@@ -38,6 +39,7 @@ class UserTableSeeder extends Seeder {
 						'last_name'		=> $faker->lastName,
 						'phone'			=> $faker->phoneNumber,
 						'activated' 	=> true,
+						'last_active'	=> Carbon::now()
 					));
 
 					// Decide group for user using random number which is used later to create add. info
@@ -66,6 +68,7 @@ class UserTableSeeder extends Seeder {
 						'last_name'		=> $faker->lastName,
 						'phone'			=> $faker->phoneNumber,
 						'activated' 	=> true,
+						'last_active'	=> Carbon::now()
 					));
 
 					// Decide group for user using random number which is used later to create add. info
@@ -83,7 +86,7 @@ class UserTableSeeder extends Seeder {
 					WaterPumpReseller::create($water_pump_reseller_details);
 					break;
 			}
-		}*/
+		}
 	}
 
 }

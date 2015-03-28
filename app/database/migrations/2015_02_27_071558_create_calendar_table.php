@@ -23,6 +23,7 @@ class CreateCalendarTable extends Migration {
 			$table->string('icon');
 			$table->string('description');
 			$table->string('class');
+			$table->boolean('allDay');
 			$table->timestamps();
 		});
 	}

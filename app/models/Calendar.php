@@ -8,7 +8,8 @@ class Calendar extends \Eloquent {
 		'end',
 		'icon',
 		'description',
-		'class'
+		'class',
+		'allDay'
 	];
 
 	protected $table = 'calendar';

@@ -18,6 +18,7 @@ class DistributorTableSeeder extends Seeder {
 				'last_name'		=> $faker->lastName,
 				'phone'			=> $faker->phoneNumber,
 				'activated' 	=> true,
+				'last_active'	=> Carbon::now()
 			));
 
 			$group = Sentry::findGroupById(3);

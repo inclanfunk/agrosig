@@ -22,6 +22,11 @@ class CalendarController extends \BaseController {
 
 					foreach($calendar as $cal){
 						$cal->className = $cal->class;
+						if($cal->allDay == 0){
+							$cal->allDay = false;
+						}else{
+							$cal->allDay = true;
+						}
 					}
 
 					return Response::json($calendar, 200);
@@ -36,6 +41,11 @@ class CalendarController extends \BaseController {
 
 					foreach($calendar as $cal){
 						$cal->className = $cal->class;
+						if($cal->allDay == 0){
+							$cal->allDay = false;
+						}else{
+							$cal->allDay = true;
+						}
 					}
 
 					return Response::json($calendar, 200);

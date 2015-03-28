@@ -27,11 +27,6 @@
 		z-index: 99;
 	}
 
-	div.widget-body {
-		height: 300px;
-		overflow-y: scroll;
-	}
-
 	#pivotTab ul{
 		list-style-type: none;
 		padding: 0px;
@@ -112,48 +107,50 @@
 					
 					<!-- widget content -->
 					<div class="widget-body">
+						<div class="custom-scroll table-responsive" style="height:290px; overflow-y: scroll;">
 						
-						<div id="pivotTab">
-							<ul>
-								<li>
-									<a href="#tabs-a">
-										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Pivot
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="#tabs-b">
-										<i class="fa fa-lg fa-gear"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Settings
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="#tabs-c">
-										<i class="fa fa-lg fa-bolt"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Electrical Board
-										</span>
-									</a>
-								</li>
-							</ul>
-							<div id="tabs-a">
-								<ul id="pivotGeneral">
-									
+							<div id="pivotTab">
+								<ul>
+									<li>
+										<a href="#tabs-a">
+											<i class="fa fa-lg fa-arrow-circle-o-down"></i>
+											<span class="hidden-mobile hidden-tablet">
+												Pivot
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="#tabs-b">
+											<i class="fa fa-lg fa-gear"></i>
+											<span class="hidden-mobile hidden-tablet">
+												Settings
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="#tabs-c">
+											<i class="fa fa-lg fa-bolt"></i>
+											<span class="hidden-mobile hidden-tablet">
+												Electrical Board
+											</span>
+										</a>
+									</li>
 								</ul>
-							</div>
-							<div id="tabs-b">
-								<ul id="pivotSettings">
-									
-								</ul>
-							</div>
-							<div id="tabs-c">
-								<ul id="pivotEbSettings">
-									
-								</ul>
+								<div id="tabs-a">
+									<ul id="pivotGeneral">
+										
+									</ul>
+								</div>
+								<div id="tabs-b">
+									<ul id="pivotSettings">
+										
+									</ul>
+								</div>
+								<div id="tabs-c">
+									<ul id="pivotEbSettings">
+										
+									</ul>
+								</div>
 							</div>
 						</div>
 						
