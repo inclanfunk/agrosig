@@ -29,9 +29,7 @@
 					<header>
 						<span class="widget-icon"> <i class="fa fa-comments txt-color-white"></i> </span>
 						<h2> SmartChat </h2>
-						<div class="widget-toolbar">
-							<!-- add: non-hidden - to disable auto hide -->
-
+						<!-- <div class="widget-toolbar">
 							<div class="btn-group">
 								<button class="btn dropdown-toggle btn-xs btn-success" data-toggle="dropdown">
 									Status <i class="fa fa-caret-down"></i>
@@ -52,7 +50,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</header>
 
 					<!-- widget div-->
@@ -75,30 +73,17 @@
 
 								<div class="chat-list-body custom-scroll">
 									<ul id="chat-users">
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/5.png" alt="">Robin Berry <span class="badge badge-inverse">23</span><span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Mark Zeukartech <span class="state"><i class="last-online pull-right">2hrs</i></span></a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Belmain Dolson <span class="state"><i class="last-online pull-right">45m</i></span></a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Galvitch Drewbery <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Sadi Orlaf <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Markus <span class="state"><i class="last-online pull-right">2m</i></span> </a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/sunny.png" alt="">Sunny <span class="state"><i class="last-online pull-right">2m</i></span> </a>
-										</li>
-										<li>
-											<a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Denmark <span class="state"><i class="last-online pull-right">2m</i></span> </a>
-										</li>
+										@foreach($users as $user)
+											@if($user->last_active->diffInMinutes(Carbon::now()) < 10)
+												<li>
+													<a href="javascript:void(0);"><img src="{{ $user->photo ? '/photos/' . $user->photo : '/img/avatar.png' }}" alt="">{{ $user->first_name }} {{ $user->last_name }} <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+												</li>
+											@elseif($user->last_active->diffInMinutes(Carbon::now()) > 10)
+												<li>
+													<a href="javascript:void(0);"><img src="{{ $user->photo ? '/photos/' . $user->photo : '/img/avatar.png' }}" alt="">{{ $user->first_name }} {{ $user->last_name }} <span class="state"><i class="last-online pull-right">{{ $user->last_active->diffForHumans() }}</i></span></a>
+												</li>
+											@endif
+										@endforeach
 									</ul>
 								</div>
 								<div class="chat-list-footer">
@@ -161,6 +146,8 @@
 				<!-- end widget -->
 
 			</article>
+
+			
 
 		</div>
 
