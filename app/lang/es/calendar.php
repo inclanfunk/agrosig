@@ -24,7 +24,7 @@
 		'lunch' => 'Siembra',
 		'no' => 'Maiz Foraje',
 
-		'urgent' => 'Fertilizaci&ograve;'
+		'urgent' => 'Fertilizaci&ograve;',
 		'tasks' => 'Campo 2, nitr&ograve;geno',
 		
 	];
