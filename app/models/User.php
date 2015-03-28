@@ -39,4 +39,9 @@ class User extends SentryModel implements UserInterface, RemindableInterface {
 		return $this->hasMany('Post');
 	}
 
+	public function getDates()
+	{
+		return ['created_at', 'updated_at', 'last_active'];
+	}
+
 }
