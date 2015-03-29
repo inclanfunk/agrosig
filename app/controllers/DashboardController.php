@@ -13,9 +13,11 @@ class DashboardController extends \BaseController {
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Manager'){
 			$breadcrumbs = ['Home', 'Dashboard'];
 			$users = User::orderBy('last_active', 'DESC')->get();
+			$posts = Post::orderBy('created_at', 'DESC')->take(10)->get();
 			return View::make('manager.dashboard')
 						->withBreadcrumbs($breadcrumbs)
-						->withUsers($users);
+						->withUsers($users)
+						->withPosts($posts);
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
 			$breadcrumbs = ['Home', 'Dashboard'];
 			$users = User::orderBy('last_active', 'DESC')->get();

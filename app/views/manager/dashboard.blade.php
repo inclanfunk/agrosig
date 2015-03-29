@@ -35,8 +35,9 @@
 	<!-- row -->
 	<div class="row">
 		<article class="col-sm-12">
-			<!-- new widget -->
-			<div class="jarviswidget" id="wid-id-0" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget" id="wid-id-6" data-widget-editbutton="false">
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -51,228 +52,32 @@
 
 				-->
 				<header>
-					<span class="widget-icon"> <i class="glyphicon glyphicon-stats txt-color-darken"></i> </span>
-					<h2>Live Feeds </h2>
-
-					<ul class="nav nav-tabs pull-right in" id="myTab">
-						<li class="active">
-							<a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Live Stats</span></a>
-						</li>
-
-						<li>
-							<a data-toggle="tab" href="#s2"><i class="fa fa-facebook"></i> <span class="hidden-mobile hidden-tablet">Social Network</span></a>
-						</li>
-
-						<li>
-							<a data-toggle="tab" href="#s3"><i class="fa fa-dollar"></i> <span class="hidden-mobile hidden-tablet">Revenue</span></a>
-						</li>
-					</ul>
+					<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+					<h2>Working Order Costs</h2>
 
 				</header>
 
 				<!-- widget div-->
-				<div class="no-padding">
+				<div>
+
 					<!-- widget edit box -->
 					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
 
-						test
 					</div>
 					<!-- end widget edit box -->
 
-					<div class="widget-body">
-						<!-- content -->
-						<div id="myTabContent" class="tab-content">
-							<div class="tab-pane fade active in padding-10 no-padding-bottom" id="s1">
-								<div class="row no-space">
-									<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-										<span class="demo-liveupdate-1"> <span class="onoffswitch-title">Live switch</span> <span class="onoffswitch">
-												<input type="checkbox" name="start_interval" class="onoffswitch-checkbox" id="start_interval">
-												<label class="onoffswitch-label" for="start_interval"> 
-													<span class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></span> 
-													<span class="onoffswitch-switch"></span> </label> </span> </span>
-										<div id="updating-chart" class="chart-large txt-color-blue"></div>
+					<!-- widget content -->
+					<div class="widget-body no-padding">
 
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 show-stats">
+						<div id="saleschart" class="chart"></div>
 
-										<div class="row">
-											<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12"> <span class="text"> My Tasks <span class="pull-right">130/200</span> </span>
-												<div class="progress">
-													<div class="progress-bar bg-color-blueDark" style="width: 65%;"></div>
-												</div> </div>
-											<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12"> <span class="text"> Transfered <span class="pull-right">440 GB</span> </span>
-												<div class="progress">
-													<div class="progress-bar bg-color-blue" style="width: 34%;"></div>
-												</div> </div>
-											<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12"> <span class="text"> Bugs Squashed<span class="pull-right">77%</span> </span>
-												<div class="progress">
-													<div class="progress-bar bg-color-blue" style="width: 77%;"></div>
-												</div> </div>
-											<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12"> <span class="text"> User Testing <span class="pull-right">7 Days</span> </span>
-												<div class="progress">
-													<div class="progress-bar bg-color-greenLight" style="width: 84%;"></div>
-												</div> </div>
-
-											<span class="show-stat-buttons"> <span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> <a href="javascript:void(0);" class="btn btn-default btn-block hidden-xs">Generate PDF</a> </span> <span class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> <a href="javascript:void(0);" class="btn btn-default btn-block hidden-xs">Report a bug</a> </span> </span>
-
-										</div>
-
-									</div>
-								</div>
-
-								<div class="show-stat-microcharts">
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-
-										<div class="easy-pie-chart txt-color-orangeDark" data-percent="33" data-pie-size="50">
-											<span class="percent percent-sign">35</span>
-										</div>
-										<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span>
-										<ul class="smaller-stat hidden-sm pull-right">
-											<li>
-												<span class="label bg-color-greenLight"><i class="fa fa-caret-up"></i> 97%</span>
-											</li>
-											<li>
-												<span class="label bg-color-blueLight"><i class="fa fa-caret-down"></i> 44%</span>
-											</li>
-										</ul>
-										<div class="sparkline txt-color-greenLight hidden-sm hidden-md pull-right" data-sparkline-type="line" data-sparkline-height="33px" data-sparkline-width="70px" data-fill-color="transparent">
-											130, 187, 250, 257, 200, 210, 300, 270, 363, 247, 270, 363, 247
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										<div class="easy-pie-chart txt-color-greenLight" data-percent="78.9" data-pie-size="50">
-											<span class="percent percent-sign">78.9 </span>
-										</div>
-										<span class="easy-pie-title"> Disk Space <i class="fa fa-caret-down icon-color-good"></i></span>
-										<ul class="smaller-stat hidden-sm pull-right">
-											<li>
-												<span class="label bg-color-blueDark"><i class="fa fa-caret-up"></i> 76%</span>
-											</li>
-											<li>
-												<span class="label bg-color-blue"><i class="fa fa-caret-down"></i> 3%</span>
-											</li>
-										</ul>
-										<div class="sparkline txt-color-blue hidden-sm hidden-md pull-right" data-sparkline-type="line" data-sparkline-height="33px" data-sparkline-width="70px" data-fill-color="transparent">
-											257, 200, 210, 300, 270, 363, 130, 187, 250, 247, 270, 363, 247
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										<div class="easy-pie-chart txt-color-blue" data-percent="23" data-pie-size="50">
-											<span class="percent percent-sign">23 </span>
-										</div>
-										<span class="easy-pie-title"> Transfered <i class="fa fa-caret-up icon-color-good"></i></span>
-										<ul class="smaller-stat hidden-sm pull-right">
-											<li>
-												<span class="label bg-color-darken">10GB</span>
-											</li>
-											<li>
-												<span class="label bg-color-blueDark"><i class="fa fa-caret-up"></i> 10%</span>
-											</li>
-										</ul>
-										<div class="sparkline txt-color-darken hidden-sm hidden-md pull-right" data-sparkline-type="line" data-sparkline-height="33px" data-sparkline-width="70px" data-fill-color="transparent">
-											200, 210, 363, 247, 300, 270, 130, 187, 250, 257, 363, 247, 270
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										<div class="easy-pie-chart txt-color-darken" data-percent="36" data-pie-size="50">
-											<span class="percent degree-sign">36 <i class="fa fa-caret-up"></i></span>
-										</div>
-										<span class="easy-pie-title"> Temperature <i class="fa fa-caret-down icon-color-good"></i></span>
-										<ul class="smaller-stat hidden-sm pull-right">
-											<li>
-												<span class="label bg-color-red"><i class="fa fa-caret-up"></i> 124</span>
-											</li>
-											<li>
-												<span class="label bg-color-blue"><i class="fa fa-caret-down"></i> 40 F</span>
-											</li>
-										</ul>
-										<div class="sparkline txt-color-red hidden-sm hidden-md pull-right" data-sparkline-type="line" data-sparkline-height="33px" data-sparkline-width="70px" data-fill-color="transparent">
-											2700, 3631, 2471, 2700, 3631, 2471, 1300, 1877, 2500, 2577, 2000, 2100, 3000
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<!-- end s1 tab pane -->
-
-							<div class="tab-pane fade" id="s2">
-								<div class="widget-body-toolbar bg-color-white">
-
-									<form class="form-inline" role="form">
-
-										<div class="form-group">
-											<label class="sr-only" for="s123">Show From</label>
-											<input type="email" class="form-control input-sm" id="s123" placeholder="Show From">
-										</div>
-										<div class="form-group">
-											<input type="email" class="form-control input-sm" id="s124" placeholder="To">
-										</div>
-
-										<div class="btn-group hidden-phone pull-right">
-											<a class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown"><i class="fa fa-cog"></i> More <span class="caret"> </span> </a>
-											<ul class="dropdown-menu pull-right">
-												<li>
-													<a href="javascript:void(0);"><i class="fa fa-file-text-alt"></i> Export to PDF</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);"><i class="fa fa-question-sign"></i> Help</a>
-												</li>
-											</ul>
-										</div>
-
-									</form>
-
-								</div>
-								<div class="padding-10">
-									<div id="statsChart" class="chart-large has-legend-unique"></div>
-								</div>
-
-							</div>
-							<!-- end s2 tab pane -->
-
-							<div class="tab-pane fade" id="s3">
-
-								<div class="widget-body-toolbar bg-color-white smart-form" id="rev-toggles">
-
-									<div class="inline-group">
-
-										<label for="gra-0" class="checkbox">
-											<input type="checkbox" name="gra-0" id="gra-0" checked="checked">
-											<i></i> Target </label>
-										<label for="gra-1" class="checkbox">
-											<input type="checkbox" name="gra-1" id="gra-1" checked="checked">
-											<i></i> Actual </label>
-										<label for="gra-2" class="checkbox">
-											<input type="checkbox" name="gra-2" id="gra-2" checked="checked">
-											<i></i> Signups </label>
-									</div>
-
-									<div class="btn-group hidden-phone pull-right">
-										<a class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown"><i class="fa fa-cog"></i> More <span class="caret"> </span> </a>
-										<ul class="dropdown-menu pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file-text-alt"></i> Export to PDF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-question-sign"></i> Help</a>
-											</li>
-										</ul>
-									</div>
-
-								</div>
-
-								<div class="padding-10">
-									<div id="flotcontainer" class="chart-large has-legend-unique"></div>
-								</div>
-							</div>
-							<!-- end s3 tab pane -->
-						</div>
-
-						<!-- end content -->
 					</div>
+					<!-- end widget content -->
 
 				</div>
 				<!-- end widget div -->
+
 			</div>
 			<!-- end widget -->
 
@@ -424,7 +229,7 @@
 			<!-- end widget -->
 
 			<!-- new widget -->
-			<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-colorbutton="false">
+			<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-deletebutton="false" data-widget-editbutton="false" data-widget-colorbutton="false">
 
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -500,7 +305,7 @@
 		<article class="col-sm-12 col-md-12 col-lg-6">
 
 			<!-- new widget -->
-			<div class="jarviswidget" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false">
+			<div class="jarviswidget" id="wid-id-2" data-widget-deletebutton="false" data-widget-colorbutton="false" data-widget-editbutton="false">
 
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -519,12 +324,6 @@
 				<header>
 					<span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
 					<h2>Birds Eye</h2>
-					<div class="widget-toolbar hidden-mobile">
-						<span class="onoffswitch-title"><i class="fa fa-location-arrow"></i> Realtime</span>
-						<span class="onoffswitch">
-							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" checked="checked" id="myonoffswitch">
-							<label class="onoffswitch-label" for="myonoffswitch"> <span class="onoffswitch-inner" data-swchon-text="YES" data-swchoff-text="NO"></span> <span class="onoffswitch-switch"></span> </label> </span>
-					</div>
 				</header>
 
 				<!-- widget div-->
@@ -539,230 +338,10 @@
 					<!-- end widget edit box -->
 
 					<div class="widget-body no-padding">
+
 						<!-- content goes here -->
 
-						<div id="vector-map" class="vector-map"></div>
-						<div id="heat-fill">
-							<span class="fill-a">0</span>
-
-							<span class="fill-b">5,000</span>
-						</div>
-
-						<table class="table table-striped table-hover table-condensed">
-							<thead>
-								<tr>
-									<th>Country</th>
-									<th>Visits</th>
-									<th class="text-align-center">User Activity</th>
-									<th class="text-align-center hidden-xs">Online</th>
-									<th class="text-align-center">Demographic</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><a href="javascript:void(0);">USA</a></td>
-									<td>4,977</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										2700, 3631, 2471, 1300, 1877, 2500, 2577, 2700, 3631, 2471, 2000, 2100, 3000
-									</div></td>
-									<td class="text-align-center hidden-xs">143</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										17,83
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-								<tr>
-									<td><a href="javascript:void(0);">Australia</a></td>
-									<td>4,873</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										1000, 1100, 3030, 1300, -1877, -2500, -2577, -2700, 3631, 2471, 4700, 1631, 2471
-									</div></td>
-									<td class="text-align-center hidden-xs">247</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										22,88
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-								<tr>
-									<td><a href="javascript:void(0);">India</a></td>
-									<td>3,671</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										3631, 1471, 2400, 3631, 471, 1300, 1177, 2500, 2577, 3000, 4100, 3000, 7700
-									</div></td>
-									<td class="text-align-center hidden-xs">373</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										10,90
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-								<tr>
-									<td><a href="javascript:void(0);">Brazil</a></td>
-									<td>2,476</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										2700, 1877, 2500, 2577, 2000, 3631, 2471, -2700, -3631, 2471, 1300, 2100, 3000,
-									</div></td>
-									<td class="text-align-center hidden-xs ">741</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										34,66
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-								<tr>
-									<td><a href="javascript:void(0);">Turkey</a></td>
-									<td>1,476</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										1300, 1877, 2500, 2577, 2000, 2100, 3000, -2471, -2700, -3631, -2471, 2700, 3631
-									</div></td>
-									<td class="text-align-center hidden-xs">123</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										75,25
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-								<tr>
-									<td><a href="javascript:void(0);">Canada</a></td>
-									<td>146</td>
-									<td class="text-align-center">
-									<div class="sparkline txt-color-orange text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
-										5, 34, 10, 1, 4, 6, -9, -1, 0, 0, 5, 6, 7
-									</div></td>
-									<td class="text-align-center hidden-xs">23</td>
-									<td class="text-align-center">
-									<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
-										50,50
-									</div>
-									<div class="btn-group display-inline pull-right text-align-left hidden-tablet">
-										<button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-											<i class="fa fa-cog fa-lg"></i>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-xs pull-right">
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-file fa-lg fa-fw txt-color-greenLight"></i> <u>P</u>DF</a>
-											</li>
-											<li>
-												<a href="javascript:void(0);"><i class="fa fa-times fa-lg fa-fw txt-color-red"></i> <u>D</u>elete</a>
-											</li>
-											<li class="divider"></li>
-											<li class="text-align-center">
-												<a href="javascript:void(0);">Cancel</a>
-											</li>
-										</ul>
-									</div></td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan=5>
-									<ul class="pagination pagination-xs no-margin">
-										<li class="prev disabled">
-											<a href="javascript:void(0);">Previous</a>
-										</li>
-										<li class="active">
-											<a href="javascript:void(0);">1</a>
-										</li>
-										<li>
-											<a href="javascript:void(0);">2</a>
-										</li>
-										<li>
-											<a href="javascript:void(0);">3</a>
-										</li>
-										<li class="next">
-											<a href="javascript:void(0);">Next</a>
-										</li>
-									</ul></td>
-								</tr>
-							</tfoot>
-						</table>
+						<div id="map" style="width: 100%; height: 300px;"></div>
 
 						<!-- end content -->
 
@@ -773,9 +352,8 @@
 			</div>
 			<!-- end widget -->
 
-			<!-- new widget -->
-			<div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false">
-
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-5" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false">
 				<!-- widget options:
 				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
@@ -789,89 +367,62 @@
 				data-widget-sortable="false"
 
 				-->
-
 				<header>
-					<span class="widget-icon"> <i class="fa fa-check txt-color-white"></i> </span>
-					<h2> ToDo's </h2>
-					<!-- <div class="widget-toolbar">
-					add: non-hidden - to disable auto hide
+					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+					<h2>Forum Activity</h2>
 
-					</div>-->
 				</header>
 
 				<!-- widget div-->
 				<div>
+
 					<!-- widget edit box -->
 					<div class="jarviswidget-editbox">
-						<div>
-							<label>Title:</label>
-							<input type="text" />
-						</div>
+						<!-- This area used as dropdown edit box -->
+
 					</div>
 					<!-- end widget edit box -->
 
-					<div class="widget-body no-padding smart-form">
-						<!-- content goes here -->
-						<h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (<small class="num-of-tasks">1</small>)</h5>
-						<ul id="sortable1" class="todo">
-							<li>
-								<span class="handle"> <label class="checkbox">
-										<input type="checkbox" name="checkbox-inline">
-										<i></i> </label> </span>
-								<p>
-									<strong>Ticket #17643</strong> - Hotfix for WebApp interface issue [<a href="javascript:void(0);" class="font-xs">More Details</a>] <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
-									<span class="date">Jan 1, 2014</span>
-								</p>
-							</li>
-						</ul>
-						<h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (<small class="num-of-tasks">3</small>)</h5>
-						<ul id="sortable2" class="todo">
-							<li>
-								<span class="handle"> <label class="checkbox">
-										<input type="checkbox" name="checkbox-inline">
-										<i></i> </label> </span>
-								<p>
-									<strong>Ticket #1347</strong> - Inbox email is being sent twice <small>(bug fix)</small> [<a href="javascript:void(0);" class="font-xs">More Details</a>] <span class="date">Nov 22, 2013</span>
-								</p>
-							</li>
-							<li>
-								<span class="handle"> <label class="checkbox">
-										<input type="checkbox" name="checkbox-inline">
-										<i></i> </label> </span>
-								<p>
-									<strong>Ticket #1314</strong> - Call customer support re: Issue <a href="javascript:void(0);" class="font-xs">#6134</a><small>(code review)</small>
-									<span class="date">Nov 22, 2013</span>
-								</p>
-							</li>
-							<li>
-								<span class="handle"> <label class="checkbox">
-										<input type="checkbox" name="checkbox-inline">
-										<i></i> </label> </span>
-								<p>
-									<strong>Ticket #17643</strong> - Hotfix for WebApp interface issue [<a href="javascript:void(0);" class="font-xs">More Details</a>] <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
-									<span class="date">Jan 1, 2014</span>
-								</p>
-							</li>
-						</ul>
-
-						<h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (<small class="num-of-tasks">1</small>)</h5>
-						<ul id="sortable3" class="todo">
-							<li class="complete">
-								<span class="handle" style="display:none"> <label class="checkbox state-disabled">
-										<input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
-										<i></i> </label> </span>
-								<p>
-									<strong>Ticket #17643</strong> - Hotfix for WebApp interface issue [<a href="javascript:void(0);" class="font-xs">More Details</a>] <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
-									<span class="date">Jan 1, 2014</span>
-								</p>
-							</li>
-						</ul>
-
-						<!-- end content -->
+					<!-- widget content -->
+					<div class="widget-body">
+						<p><b>Recent Posts</b></p>
+						
+						<div class="table-responsive">
+						
+							<table class="table borderless">
+								<thead>
+									<tr>
+										<th>Post</th>
+										<th>Topic</th>
+										<th class="text-right">Replies</th>
+										<th class="text-right">Last Reply</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach($posts as $post)
+										<tr>
+											<td><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></td>
+											<td><a href='/forum/topics/{{ $post->topic->id }}'>{{ $post->topic->title }}</a></td>
+											<td class="text-right">{{ $post->replies->count() }}</td>
+											<td class="text-right">
+												@if($post->replies->count())
+													{{ $post->replies->last()->user->first_name }}
+												@else
+													N/A
+												@endif
+											</td>
+										</tr>
+									@endforeach
+								</tbody>
+							</table>
+							
+						</div>
 					</div>
+					<!-- end widget content -->
 
 				</div>
 				<!-- end widget div -->
+
 			</div>
 			<!-- end widget -->
 
@@ -951,260 +502,6 @@
 			});
 
 		}
-
-		/*
-		* RUN PAGE GRAPHS
-		*/
-
-		/* TAB 1: UPDATING CHART */
-		// For the demo we use generated data, but normally it would be coming from the server
-
-		var data = [], totalPoints = 200, $UpdatingChartColors = $("#updating-chart").css('color');
-
-		function getRandomData() {
-			if (data.length > 0)
-				data = data.slice(1);
-
-			// do a random walk
-			while (data.length < totalPoints) {
-				var prev = data.length > 0 ? data[data.length - 1] : 50;
-				var y = prev + Math.random() * 10 - 5;
-				if (y < 0)
-					y = 0;
-				if (y > 100)
-					y = 100;
-				data.push(y);
-			}
-
-			// zip the generated y values with the x values
-			var res = [];
-			for (var i = 0; i < data.length; ++i)
-				res.push([i, data[i]])
-			return res;
-		}
-
-		// setup control widget
-		var updateInterval = 1500;
-		$("#updating-chart").val(updateInterval).change(function() {
-
-			var v = $(this).val();
-			if (v && !isNaN(+v)) {
-				updateInterval = +v;
-				$(this).val("" + updateInterval);
-			}
-
-		});
-
-		// setup plot
-		var options = {
-			yaxis : {
-				min : 0,
-				max : 100
-			},
-			xaxis : {
-				min : 0,
-				max : 100
-			},
-			colors : [$UpdatingChartColors],
-			series : {
-				lines : {
-					lineWidth : 1,
-					fill : true,
-					fillColor : {
-						colors : [{
-							opacity : 0.4
-						}, {
-							opacity : 0
-						}]
-					},
-					steps : false
-
-				}
-			}
-		};
-
-		var plot = $.plot($("#updating-chart"), [getRandomData()], options);
-
-		/* live switch */
-		$('input[type="checkbox"]#start_interval').click(function() {
-			if ($(this).prop('checked')) {
-				$on = true;
-				updateInterval = 1500;
-				update();
-			} else {
-				clearInterval(updateInterval);
-				$on = false;
-			}
-		});
-
-		function update() {
-			if ($on == true) {
-				plot.setData([getRandomData()]);
-				plot.draw();
-				setTimeout(update, updateInterval);
-
-			} else {
-				clearInterval(updateInterval)
-			}
-
-		}
-
-		var $on = false;
-
-		/*end updating chart*/
-
-		/* TAB 2: Social Network  */
-
-		$(function() {
-			// jQuery Flot Chart
-			var twitter = [[1, 27], [2, 34], [3, 51], [4, 48], [5, 55], [6, 65], [7, 61], [8, 70], [9, 65], [10, 75], [11, 57], [12, 59], [13, 62]], facebook = [[1, 25], [2, 31], [3, 45], [4, 37], [5, 38], [6, 40], [7, 47], [8, 55], [9, 43], [10, 50], [11, 47], [12, 39], [13, 47]], data = [{
-				label : "Twitter",
-				data : twitter,
-				lines : {
-					show : true,
-					lineWidth : 1,
-					fill : true,
-					fillColor : {
-						colors : [{
-							opacity : 0.1
-						}, {
-							opacity : 0.13
-						}]
-					}
-				},
-				points : {
-					show : true
-				}
-			}, {
-				label : "Facebook",
-				data : facebook,
-				lines : {
-					show : true,
-					lineWidth : 1,
-					fill : true,
-					fillColor : {
-						colors : [{
-							opacity : 0.1
-						}, {
-							opacity : 0.13
-						}]
-					}
-				},
-				points : {
-					show : true
-				}
-			}];
-
-			var options = {
-				grid : {
-					hoverable : true
-				},
-				colors : ["#568A89", "#3276B1"],
-				tooltip : true,
-				tooltipOpts : {
-					//content : "Value <b>$x</b> Value <span>$y</span>",
-					defaultTheme : false
-				},
-				xaxis : {
-					ticks : [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4, "APR"], [5, "MAY"], [6, "JUN"], [7, "JUL"], [8, "AUG"], [9, "SEP"], [10, "OCT"], [11, "NOV"], [12, "DEC"], [13, "JAN+1"]]
-				},
-				yaxes : {
-
-				}
-			};
-
-			var plot3 = $.plot($("#statsChart"), data, options);
-		});
-
-		// END TAB 2
-
-		// TAB THREE GRAPH //
-		/* TAB 3: Revenew  */
-
-		$(function() {
-
-			var trgt = [[1354586000000, 153], [1364587000000, 658], [1374588000000, 198], [1384589000000, 663], [1394590000000, 801], [1404591000000, 1080], [1414592000000, 353], [1424593000000, 749], [1434594000000, 523], [1444595000000, 258], [1454596000000, 688], [1464597000000, 364]], prft = [[1354586000000, 53], [1364587000000, 65], [1374588000000, 98], [1384589000000, 83], [1394590000000, 980], [1404591000000, 808], [1414592000000, 720], [1424593000000, 674], [1434594000000, 23], [1444595000000, 79], [1454596000000, 88], [1464597000000, 36]], sgnups = [[1354586000000, 647], [1364587000000, 435], [1374588000000, 784], [1384589000000, 346], [1394590000000, 487], [1404591000000, 463], [1414592000000, 479], [1424593000000, 236], [1434594000000, 843], [1444595000000, 657], [1454596000000, 241], [1464597000000, 341]], toggles = $("#rev-toggles"), target = $("#flotcontainer");
-
-			var data = [{
-				label : "Target Profit",
-				data : trgt,
-				bars : {
-					show : true,
-					align : "center",
-					barWidth : 30 * 30 * 60 * 1000 * 80
-				}
-			}, {
-				label : "Actual Profit",
-				data : prft,
-				color : '#3276B1',
-				lines : {
-					show : true,
-					lineWidth : 3
-				},
-				points : {
-					show : true
-				}
-			}, {
-				label : "Actual Signups",
-				data : sgnups,
-				color : '#71843F',
-				lines : {
-					show : true,
-					lineWidth : 1
-				},
-				points : {
-					show : true
-				}
-			}]
-
-			var options = {
-				grid : {
-					hoverable : true
-				},
-				tooltip : true,
-				tooltipOpts : {
-					//content: '%x - %y',
-					//dateFormat: '%b %y',
-					defaultTheme : false
-				},
-				xaxis : {
-					mode : "time"
-				},
-				yaxes : {
-					tickFormatter : function(val, axis) {
-						return "$" + val;
-					},
-					max : 1200
-				}
-
-			};
-
-			plot2 = null;
-
-			function plotNow() {
-				var d = [];
-				toggles.find(':checkbox').each(function() {
-					if ($(this).is(':checked')) {
-						d.push(data[$(this).attr("name").substr(4, 1)]);
-					}
-				});
-				if (d.length > 0) {
-					if (plot2) {
-						plot2.setData(d);
-						plot2.draw();
-					} else {
-						plot2 = $.plot(target, d, options);
-					}
-				}
-
-			};
-
-			toggles.find(':checkbox').on('change', function() {
-				plotNow();
-			});
-			plotNow()
-
-		});
 
 		/*
 		 * VECTOR MAP
@@ -1473,6 +770,210 @@
 			});
 		});
 
+		/* chart colors default */
+			var $chrt_border_color = "#efefef";
+			var $chrt_grid_color = "#DDD"
+			var $chrt_main = "#E24913";
+			/* red       */
+			var $chrt_second = "#6595b4";
+			/* blue      */
+			var $chrt_third = "#FF9F01";
+			/* orange    */
+			var $chrt_fourth = "#7e9d3a";
+			/* green     */
+			var $chrt_fifth = "#BD362F";
+			/* dark red  */
+			var $chrt_mono = "#000";
+
+		/* sales chart */
+
+		if ($("#saleschart").length) {
+			var d = [[1196463600000, 0], [1196550000000, 0], [1196636400000, 0], [1196722800000, 77], [1196809200000, 3636], [1196895600000, 3575], [1196982000000, 2736], [1197068400000, 1086], [1197154800000, 676], [1197241200000, 1205], [1197327600000, 906], [1197414000000, 710], [1197500400000, 639], [1197586800000, 540], [1197673200000, 435], [1197759600000, 301], [1197846000000, 575], [1197932400000, 481], [1198018800000, 591], [1198105200000, 608], [1198191600000, 459], [1198278000000, 234], [1198364400000, 1352], [1198450800000, 686], [1198537200000, 279], [1198623600000, 449], [1198710000000, 468], [1198796400000, 392], [1198882800000, 282], [1198969200000, 208], [1199055600000, 229], [1199142000000, 177], [1199228400000, 374], [1199314800000, 436], [1199401200000, 404], [1199487600000, 253], [1199574000000, 218], [1199660400000, 476], [1199746800000, 462], [1199833200000, 500], [1199919600000, 700], [1200006000000, 750], [1200092400000, 600], [1200178800000, 500], [1200265200000, 900], [1200351600000, 930], [1200438000000, 1200], [1200524400000, 980], [1200610800000, 950], [1200697200000, 900], [1200783600000, 1000], [1200870000000, 1050], [1200956400000, 1150], [1201042800000, 1100], [1201129200000, 1200], [1201215600000, 1300], [1201302000000, 1700], [1201388400000, 1450], [1201474800000, 1500], [1201561200000, 546], [1201647600000, 614], [1201734000000, 954], [1201820400000, 1700], [1201906800000, 1800], [1201993200000, 1900], [1202079600000, 2000], [1202166000000, 2100], [1202252400000, 2200], [1202338800000, 2300], [1202425200000, 2400], [1202511600000, 2550], [1202598000000, 2600], [1202684400000, 2500], [1202770800000, 2700], [1202857200000, 2750], [1202943600000, 2800], [1203030000000, 3245], [1203116400000, 3345], [1203202800000, 3000], [1203289200000, 3200], [1203375600000, 3300], [1203462000000, 3400], [1203548400000, 3600], [1203634800000, 3700], [1203721200000, 3800], [1203807600000, 4000], [1203894000000, 4500]];
+
+			for (var i = 0; i < d.length; ++i)
+				d[i][0] += 60 * 60 * 1000;
+
+			function weekendAreas(axes) {
+				var markings = [];
+				var d = new Date(axes.xaxis.min);
+				// go to the first Saturday
+				d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 1) % 7))
+				d.setUTCSeconds(0);
+				d.setUTCMinutes(0);
+				d.setUTCHours(0);
+				var i = d.getTime();
+				do {
+					// when we don't set yaxis, the rectangle automatically
+					// extends to infinity upwards and downwards
+					markings.push({
+						xaxis : {
+							from : i,
+							to : i + 2 * 24 * 60 * 60 * 1000
+						}
+					});
+					i += 7 * 24 * 60 * 60 * 1000;
+				} while (i < axes.xaxis.max);
+
+				return markings;
+			}
+
+			var options = {
+				xaxis : {
+					mode : "time",
+					tickLength : 5
+				},
+				series : {
+					lines : {
+						show : true,
+						lineWidth : 1,
+						fill : true,
+						fillColor : {
+							colors : [{
+								opacity : 0.1
+							}, {
+								opacity : 0.15
+							}]
+						}
+					},
+					//points: { show: true },
+					shadowSize : 0
+				},
+				selection : {
+					mode : "x"
+				},
+				grid : {
+					hoverable : true,
+					clickable : true,
+					tickColor : $chrt_border_color,
+					borderWidth : 0,
+					borderColor : $chrt_border_color,
+				},
+				tooltip : true,
+				tooltipOpts : {
+					content : "Your costs for <b>%x</b> was <span>$%y</span>",
+					dateFormat : "%y-%0m-%0d",
+					defaultTheme : false
+				},
+				colors : [$chrt_second],
+
+			};
+
+			var plot = $.plot($("#saleschart"), [d], options);
+		};
+
+		/* end sales chart */
+
+
+		L.mapbox.accessToken = 'pk.eyJ1Ijoicm9oYW4wNzkzIiwiYSI6IjhFeGVzVzgifQ.MQBzoHJmjH19bXDW0b8nKQ';
+		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99', {
+			zoomControl: false
+		}).setView([-39.67, -69.26], 4);
+
+
+		var pivotsLayer = L.mapbox.featureLayer().addTo(map);
+		var waterpumpsLayer = L.mapbox.featureLayer().addTo(map);
+
+		var farm_id = {{ Sentry::getUser()->manager->farm->id }};
+
+		plotPivots(farm_id);
+		plotWaterpumps(farm_id);
+
+		function plotPivots(farm_id){
+			$.getJSON('farm/' + farm_id + '/pivots', function(data){
+				$.each(data, function(pivot_i, pivot_item){
+					if(pivot_item.lat != ''){
+						var circle = L.circle([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], parseFloat(pivot_item.radius)).addTo(pivotsLayer);
+						var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], {
+							icon: L.mapbox.marker.icon({
+						        'marker-symbol': 'circle-stroked',
+						        'marker-color': '#74DF00'
+						    })
+						}).addTo(pivotsLayer);
+						$('#pivotGeneral').empty()
+						$('#pivotSettings').empty()
+						$('#pivotEbSettings').empty()
+
+						for (var key in pivot_item) {
+							var current = key.split('_');
+							if(current[0] == 'g'){
+								if(current[1] == 'quantity'){
+									current = current.slice(4);
+									current.unshift('QOA');
+								}else{
+									current = current.slice(1);
+								}
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#pivotGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+							if(current[0] == 's'){
+								current = current.slice(1);
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#pivotSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+							if(current[0] == 'eb'){
+								current = current.slice(1);
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#pivotEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+						}
+
+						/*marker.on('click', function(e){
+							$('#wid-id-1').removeClass('hidden');
+							$('#wid-id-2').addClass('hidden');
+						});*/
+					}
+				});
+			});
+		}
+
+		function plotWaterpumps(farm_id){
+			$.getJSON('farm/' + farm_id + '/waterpumps', function(data){
+				$.each(data, function(pivot_i, pivot_item){
+					if(pivot_item.lat != ''){
+						var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
+						$('#waterpumpGeneral').empty()
+						$('#waterpumpSettings').empty()
+						$('#waterpumpEbSettings').empty()
+						for (var key in pivot_item) {
+							var current = key.split('_');
+							if(current[0] == 'g'){
+								current = current.slice(1);
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#waterpumpGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+							if(current[0] == 's'){
+								current = current.slice(1);
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#waterpumpSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+							if(current[0] == 'eb'){
+								current = current.slice(1);
+								$.each(current, function(i, item){
+									current[i] = item.charAt(0).toUpperCase() + item.slice(1);
+								});
+								$('#waterpumpEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
+							}
+						}
+						$('#waterpumpDwInfo').empty()
+								.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>')
+						/*marker.on('click', function(e){
+							$('#wid-id-2').removeClass('hidden');
+							$('#wid-id-1').addClass('hidden');
+						});*/
+					}
+				});
+			});
+		}
 	});
 
 </script>
