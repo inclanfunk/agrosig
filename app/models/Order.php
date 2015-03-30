@@ -22,4 +22,14 @@ class Order extends \Eloquent {
 		'waterpump_cost',
 		'total_cost'
 	];
+
+	public function farm()
+	{
+		return $this->belongsTo('Farm');
+	}
+
+	public function getDates()
+	{
+		return ['created_at', 'updated_at', 'date'];
+	}
 }

@@ -14,10 +14,12 @@ class DashboardController extends \BaseController {
 			$breadcrumbs = ['Home', 'Dashboard'];
 			$users = User::orderBy('last_active', 'DESC')->get();
 			$posts = Post::orderBy('created_at', 'DESC')->take(10)->get();
+			$orders = Order::where('farm_id', '=', Sentry::getUser()->manager->farm->id)->orderBy('date', 'ASC')->get();
 			return View::make('manager.dashboard')
 						->withBreadcrumbs($breadcrumbs)
 						->withUsers($users)
-						->withPosts($posts);
+						->withPosts($posts)
+						->withOrders($orders);
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
 			$breadcrumbs = ['Home', 'Dashboard'];
 			$users = User::orderBy('last_active', 'DESC')->get();

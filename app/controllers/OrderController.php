@@ -10,16 +10,17 @@ class OrderController extends \BaseController {
 	public function index()
 	{
 		$logged_in_user = Sentry::getUser();
-		if($logged_in_user->groups()->first()->name = 'Super Administrator'){
+
+		if($logged_in_user->groups->first()->name == 'Super Administrator'){
 			$orders = Order::all();
-			$breadcrumbs = ['Home', 'Parts'];
+			$breadcrumbs = ['Home', 'W. Orders'];
 			return View::make('admin.order.index')
 						->withOrders($orders)
 						->withBreadcrumbs($breadcrumbs);
-		}elseif($logged_in_user->groups()->first()->name = 'Manager'){
+		}elseif($logged_in_user->groups->first()->name == 'Manager'){
 			$orders = $logged_in_user->manager->farm->orders;
-			$breadcrumbs = ['Home', 'Parts'];
-			return View::make('admin.order.index')
+			$breadcrumbs = ['Home', 'W. Orders'];
+			return View::make('manager.orders')
 						->withOrders($orders)
 						->withBreadcrumbs($breadcrumbs);
 		}

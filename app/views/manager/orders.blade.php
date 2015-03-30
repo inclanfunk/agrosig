@@ -9,20 +9,6 @@
 	</div>
 	<!-- end col -->
 
-	<!-- col -->
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	    <!-- sparks -->
-	    <ul id="sparks">
-
-	        <li class="sparks-info">
-	            <a href="{{ URL::to('parts/create') }}" class="btn btn-success">Create A New Order</a>
-	        </li>
-
-	    </ul>
-	    <!-- end sparks -->
-	</div>
-	 <!-- end col -->
-
 
 </div>
 
@@ -52,7 +38,7 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>All Orders</h2>
+									<h2>Your Orders</h2>
 								</header>
 				
 								<!-- widget div-->
@@ -75,7 +61,7 @@
 						                            <th data-class="expand">Number</th>
 						                            <th data-hide="phone">Farm</th>
 						                            <th data-hide="phone,tablet">Total Cost</th>
-						                            <th>Edit/Delete</th>
+						                            <th>View</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -86,8 +72,7 @@
 							                            <td>{{ $order->farm->name }}</td>
 							                            <td>{{ $order->total_cost }}</td>
 							                            <td>
-							                                <a href="#" class="btn btn-info btn-xs">View</a>
-							                                <a href="#" class="btn btn-danger btn-xs">Delete</a>
+							                                <a href="#" class="btn btn-info btn-xs">View Order</a>
 							                            </td>
 							                        </tr>
 						                        @endforeach
@@ -215,7 +200,7 @@
 		    } );
 		    /* END COLUMN FILTER */
 
-		    $('header h2').text('All Orders');
+		    $('header h2').text('Your Orders');
 
 
 
