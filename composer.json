@@ -10,7 +10,8 @@
 		"greggilbert/recaptcha": "1.1.5",
 		"intervention/image": "~2.1",
 		"nesbot/carbon": "~1.14",
-		"pusher/pusher-php-server": "~2.2"
+		"pusher/pusher-php-server": "~2.2",
+		"indatus/dispatcher": "1.4.*@dev"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",

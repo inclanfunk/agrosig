@@ -124,7 +124,8 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Greggilbert\Recaptcha\RecaptchaServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+		'Indatus\Dispatcher\ServiceProvider',
 
 	),
 
