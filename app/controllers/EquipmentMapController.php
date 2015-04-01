@@ -4,10 +4,24 @@ class EquipmentMapController extends \BaseController {
 
 	public function showMap()
 	{
-		$breadcrumbs = ['Home', 'Maps', 'Equipment'];
 
-		return View::make('admin.map.equipment')
-					->withBreadcrumbs($breadcrumbs);
+		if(Sentry::getUser()->groups()->first()->name == 'Super Administrator'){
+
+			$breadcrumbs = ['Home', 'Maps', 'Equipment'];
+
+			return View::make('admin.map.equipment')
+						->withBreadcrumbs($breadcrumbs);
+
+		}elseif(Sentry::getUser()->groups()->first()->name == 'Manager'){
+
+			$breadcrumbs = ['Home', 'Maps', 'Equipment'];
+
+			return View::make('manager.map.equipment')
+						->withBreadcrumbs($breadcrumbs);
+
+		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
+
+		}
 
 	}
 

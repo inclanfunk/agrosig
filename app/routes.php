@@ -101,24 +101,28 @@ Route::get('test', function(){
 	// return User::first()->groups()->first();
 	// return Config::get('app.locale');
 
-	$stocks = simplexml_load_file('http://www.matba.com.ar/xml/ajustes.xml');
+	// $stocks = simplexml_load_file('http://www.matba.com.ar/xml/ajustes.xml');
 		
-	foreach($stocks->children() as $stock){
-		$stock_item = [];
+	// foreach($stocks->children() as $stock){
+	// 	$stock_item = [];
 
-		foreach($stock as $stock_key => $stock_value){
+	// 	foreach($stock as $stock_key => $stock_value){
 
-			if($stock_key == 'fecha'){
-				$date = explode('/', $stock_value);
-				// dd($date);
-				$date_required_format = $date[2] . '-' . $date[1] . '-' . $date[0];
-				$stock_item[$stock_key] = $date_required_format;
-			}else{
-				$stock_item[$stock_key] = $stock_value;
-			}
+	// 		if($stock_key == 'fecha'){
+	// 			$date = explode('/', $stock_value);
+	// 			// dd($date);
+	// 			$date_required_format = $date[2] . '-' . $date[1] . '-' . $date[0];
+	// 			$stock_item[$stock_key] = $date_required_format;
+	// 		}else{
+	// 			$stock_item[$stock_key] = $stock_value;
+	// 		}
 			
-		}
+	// 	}
 
-		Stock::create($stock_item);
-	}
+	// 	Stock::create($stock_item);
+	// }
+
+	// return App::environment();
+
+	return Config::get('database.connections.mysql.username');
 });

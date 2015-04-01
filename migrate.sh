@@ -5,8 +5,8 @@ php artisan migrate:reset
 echo "Clearing cache:"
 php artisan cache:clear
 echo "Running migrations:"
-php artisan migrate --package=cartalyst/sentry --env=local
-php artisan migrate --env=local
+php artisan migrate --package=cartalyst/sentry
+php artisan migrate
 echo "Seeding database:"
-php artisan db:seed --env=local --force
+php artisan db:seed --force
 echo "-------Installation Complete --------"
