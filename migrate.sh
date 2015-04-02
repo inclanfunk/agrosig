@@ -8,5 +8,5 @@ echo "Running migrations:"
 php artisan migrate --package=cartalyst/sentry
 php artisan migrate
 echo "Seeding database:"
-php artisan db:seed --force
+php artisan db:seed
 echo "-------Installation Complete --------"
