@@ -20,6 +20,7 @@ class CreateCompaniesTable extends Migration {
 			$table->string('ceo_first_name');
 			$table->string('ceo_last_name');
 			$table->string('direction');
+			$table->string('locality');
 			$table->integer('zip');
 			$table->string('state');
 			$table->string('country');

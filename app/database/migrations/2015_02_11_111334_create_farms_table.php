@@ -21,6 +21,7 @@ class CreateFarmsTable extends Migration {
 			$table->foreign('distributor_company_id')->references('id')->on('companies');
 			$table->string('name');
 			$table->string('direction');
+			$table->string('locality');
 			$table->integer('zip');
 			$table->string('state');
 			$table->string('country');

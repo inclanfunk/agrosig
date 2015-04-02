@@ -6,6 +6,7 @@ class Farm extends \Eloquent {
 		'farm_company_id',
 		'distributor_company_id',
 		'direction',
+		'locality',
 		'zip',
 		'state',
 		'country',

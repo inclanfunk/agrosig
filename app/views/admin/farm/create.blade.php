@@ -106,7 +106,7 @@
 							<fieldset>
 
 								<div class="row">
-									<section class="col col-4">
+									<section class="col col-3">
 										<label class="input"> <i class="icon-append fa fa-globe"></i>
 											<input type="text" name="direction" placeholder="Direction">
 										</label>
@@ -114,7 +114,15 @@
 											<em class="invalid">{{ $errors->first('direction') }}</em>
 										@endif
 									</section>
-									<section class="col col-4">
+									<section class="col col-3">
+										<label class="input"> <i class="icon-append fa fa-globe"></i>
+											<input type="text" name="locality" placeholder="Locality">
+										</label>
+										@if($errors->first('locality'))
+											<em class="invalid">{{ $errors->first('locality') }}</em>
+										@endif
+									</section>
+									<section class="col col-3">
 										<label class="input"> <i class="icon-append fa fa-globe"></i>
 											<input type="text" name="zip" placeholder="Zip">
 										</label>
@@ -122,7 +130,7 @@
 											<em class="invalid">{{ $errors->first('zip') }}</em>
 										@endif
 									</section>
-									<section class="col col-4">
+									<section class="col col-3">
 										<label class="input"> <i class="icon-append fa fa-globe"></i>
 											<input type="text" name="state" placeholder="State">
 										</label>

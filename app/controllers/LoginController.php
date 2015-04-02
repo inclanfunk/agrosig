@@ -14,7 +14,7 @@ class LoginController extends \BaseController {
 		$validator = Validator::make(Input::all(), [
 				'email' => 'required',
 				'password' => 'required',
-				'g-recaptcha-response' => 'required|recaptcha'
+				// 'g-recaptcha-response' => 'required|recaptcha'
 			]);
 
 		if($validator->fails()){

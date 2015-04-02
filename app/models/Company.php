@@ -7,6 +7,7 @@ class Company extends \Eloquent {
 		'ceo_first_name',
 		'ceo_last_name',
 		'direction',
+		'locality',
 		'zip',
 		'state',
 		'country',
