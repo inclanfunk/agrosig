@@ -10,22 +10,6 @@ class UserTableSeeder extends Seeder {
 		// Creatin an instance of Faker
 		$faker = Faker::create();
 
-		$user = Sentry::createUser(array(
-			'email'     	=> 'julienbaudet@sigagro.com',
-			'password'  	=> 'Sigagro2015',
-			'first_name'	=> 'Julien',
-			'last_name'		=> 'Baudet',
-			'phone'			=> $faker->phoneNumber,
-			'activated' 	=> true,
-			'last_active'	=> Carbon::now()
-		));
-
-		$superAdmin = Sentry::findGroupById(1);
-
-		$user->addGroup($superAdmin);
-
-		// Only admin user needed right now!
-
 		foreach(range(1, 100) as $index)
 		{
 
