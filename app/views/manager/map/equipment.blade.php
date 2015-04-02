@@ -324,6 +324,8 @@
 
 	    		$('#wid-id-1').addClass('hidden');
 	    		$('#wid-id-2').addClass('hidden');
+
+	    		plotFarm();
 	    		
 			});
 
@@ -363,6 +365,8 @@
 
 							marker.on('click', function(e){
 
+								map.setView(e.latlng, 13);
+								
 								$('#wid-id-1').removeClass('hidden');
 								$('#wid-id-2').addClass('hidden');
 
@@ -417,7 +421,8 @@
 							var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
 								
 							marker.on('click', function(e){
-								console.log(e);
+
+								map.setView(e.latlng, 13);
 
 								$('#wid-id-2').removeClass('hidden');
 								$('#wid-id-1').addClass('hidden');

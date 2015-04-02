@@ -4,43 +4,16 @@
 
 <style type="text/css">
 
-	#pivotTab ul{
+	#infoTab ul{
 		list-style-type: none;
 		padding: 0px;
 		margin: 0px;
 	}
 
-	#waterpumpTab ul{
-		list-style-type: none;
-		padding: 0px;
-		margin: 0px;
-	}
-
-	ul#waterpumpGeneral > li:before,
-	ul#pivotGeneral > li:before{
-		font-family: 'FontAwesome';
-		content: '\f01a';
-		margin:0 10px 0 0;
-	}
-
-	ul#waterpumpEbSettings > li:before,
-	ul#pivotEbSettings > li:before{
-		font-family: 'FontAwesome';
-		content: '\f0e7';
-		margin:0 10px 0 0;
-	}
-
-	ul#waterpumpSettings > li:before,
-	ul#pivotSettings> li:before{
+	div#infoTab li:before{
 		font-family: 'FontAwesome';
 		content: '\f013';
-		margin:0 10px 0 0;
-	}
-
-	ul#waterpumpDwInfo > li:before{
-		font-family: 'FontAwesome';
-		content: '\f01b';
-		margin:0 10px 0 0;
+		margin:0 5px 0 3px;
 	}
 
 </style>
@@ -378,66 +351,9 @@
 
 						<div id="map" style="width: 100%; height: 300px;"></div>
 
-						<div id="pivotTab"></div>
+						<div id="infoTab"></div>
 
 					</div>
-
-						<div id="waterpumpTab">
-							<ul>
-								<li>
-									<a href="#tabs-a">
-										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Waterpump
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="#tabs-b">
-										<i class="fa fa-lg fa-gear"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Settings
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="#tabs-c">
-										<i class="fa fa-lg fa-bolt"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Electrical Board
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="#tabs-d">
-										<i class="fa fa-lg fa-arrow-circle-o-up"></i>
-										<span class="hidden-mobile hidden-tablet">
-											Deep Well
-										</span>
-									</a>
-								</li>
-							</ul>
-							<div id="tabs-a">
-								<ul id="waterpumpGeneral">
-									
-								</ul>
-							</div>
-							<div id="tabs-b">
-								<ul id="waterpumpSettings">
-									
-								</ul>
-							</div>
-							<div id="tabs-c">
-								<ul id="waterpumpEbSettings">
-									
-								</ul>
-							</div>
-							<div id="tabs-d">
-								<ul id="waterpumpDwInfo">
-									
-								</ul>
-							</div>
-						</div>
 
 						<!-- end content -->
 
@@ -970,10 +886,13 @@
 			zoomControl: false
 		}).setView([-39.67, -69.26], 4);
 
-		map.dragging.disable();
-		map.touchZoom.disable();
-		map.doubleClickZoom.disable();
-		map.scrollWheelZoom.disable();
+		map.on('click', function(e){
+
+    		plotFarm();
+
+    		$('div#infoTab').empty();
+    		
+		});
 
 		var farmGeoJson = "{{ Sentry::getUser()->manager->farm->geojson }}";
 
@@ -1008,18 +927,19 @@
 						    })
 						}).addTo(pivotsLayer);
 
-						/*marker.on('click', function(e){
-							$('div#pivotTab').removeClass('hidden');
-							$('div#waterpumpTab').addClass('hidden');
+						marker.on('click', function(e){
+							map.setView(e.latlng, 13);
 
-							$('#pivotTab').empty();
-
-							$('#pivotTab').append('<ul>');
-							$('#pivotTab').append('<li>');
-							$('#pivotTab').append('Hello');
-							$('#pivotTab').append('</li>');
-							$('#pivotTab').append('</ul>');
-						});*/
+							$('div#infoTab').html('<div class="col-sm-4"><h3><u>Pivot Info</u></h3><ul><li>Name: ' 
+													+ pivot_item.name 
+													+ '</li><li>Area: ' 
+													+ pivot_item.area 
+													+ '</li><li>Sheet: ' 
+													+ pivot_item.s_sheet 
+													+ '</li><li>Cost: ' 	
+													+ pivot_item.cost 
+													+ '</li></ul><br /></div>');
+						});
 					}
 				});
 			});
@@ -1031,41 +951,19 @@
 					if(pivot_item.lat != ''){
 						var marker = L.marker([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)]).addTo(waterpumpsLayer);
 						
-						/*marker.on('click', function(e){
-							$('div#waterpumpTab').removeClass('hidden');
-							$('div#pivotTab').addClass('hidden');
+						marker.on('click', function(e){
+							map.setView(e.latlng, 13);
 
-							$('#waterpumpGeneral').empty();
-							$('#waterpumpSettings').empty();
-							$('#waterpumpEbSettings').empty();
-
-							for (var key in pivot_item) {
-								var current = key.split('_');
-								if(current[0] == 'g'){
-									current = current.slice(1);
-									$.each(current, function(i, item){
-										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
-									});
-									$('#waterpumpGeneral').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
-								}
-								if(current[0] == 's'){
-									current = current.slice(1);
-									$.each(current, function(i, item){
-										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
-									});
-									$('#waterpumpSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
-								}
-								if(current[0] == 'eb'){
-									current = current.slice(1);
-									$.each(current, function(i, item){
-										current[i] = item.charAt(0).toUpperCase() + item.slice(1);
-									});
-									$('#waterpumpEbSettings').append("<li>" + current.join(' ') + ': ' + pivot_item[key] + "</li>");
-								}
-							}
-							$('#waterpumpDwInfo').empty()
-									.append('<li>Download Info: <a href="/deepwell/' + pivot_item.deepwell_info + '">Download</a></li>');
-						});*/
+							$('div#infoTab').html('<div class="col-sm-4"><h3><u>Waterpump Info</u></h3><ul><li>Name: ' 
+													+ pivot_item.name 
+													+ '</li><li>Brand: ' 
+													+ pivot_item.g_brand 
+													+ '</li><li>Type: ' 
+													+ pivot_item.g_type 
+													+ '</li><li>Power: ' 	
+													+ pivot_item.g_power
+													+ '</li></ul><br /></div>');
+						});
 					}
 				});
 			});
