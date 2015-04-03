@@ -30,8 +30,10 @@ class ChatController extends \BaseController {
 			return Response::json($chats, 200);
 		}else{
 			$breadcrumbs = ['Home', 'Chat'];
+			$users = User::orderBy('last_active', 'DESC')->get();
 			return View::make('chat')
-						->withBreadcrumbs($breadcrumbs);
+						->withBreadcrumbs($breadcrumbs)
+						->withUsers($users);
 		}
 			
 	}
