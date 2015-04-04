@@ -351,7 +351,130 @@
 
 						<div id="map" style="width: 100%; height: 300px;"></div>
 
-						<div id="infoTab"></div>
+						<div id="info">
+							<ul>
+								<li>
+									<a href="#tabs-a">
+										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Pivot
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="#tabs-b">
+										<i class="fa fa-lg fa-arrow-circle-o-up"></i>
+										<span class="hidden-mobile hidden-tablet">
+											Water Pump
+										</span>
+									</a>
+								</li>
+							</ul>
+
+							<div id="tabs-a">
+
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr>
+											<th rowspan="2">Name</th>
+											<th rowspan="2" class="text-center">Sheet</th>
+											<th rowspan="2" class="text-center">Area</th>
+											<th colspan="2" class="text-center">Cost</th>
+										</tr>
+										<tr>
+											<th class="text-center">Month</th>
+											<th class="text-center">Year</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach($pivots as $pivot)
+											<tr>
+												<td>
+													<a href="javascript:selectEquip({{ $pivot->lat }}, {{ $pivot->long }})">
+														{{ $pivot->name }}
+													</a>
+												</td>
+												<td class="text-center">{{ $pivot->s_sheet }}</td>
+												<td class="text-center">{{ round($pivot->area) }}</td>
+												<td class="text-center">{{ $pivot->monthly_cost }}</td>
+												<td class="text-center">{{ $pivot->yearly_cost }}</td>
+											</tr>
+										@endforeach
+
+										{{--*/ $area = 0 /*--}}
+										{{--*/ $total_monthly_pivot_cost = 0 /*--}}
+										{{--*/ $total_yearly_pivot_cost = 0 /*--}}
+										@foreach($pivots as $pivot)
+											{{--*/$area += $pivot->area /*--}}
+											{{--*/$total_monthly_pivot_cost += $pivot->monthly_cost /*--}}
+											{{--*/$total_yearly_pivot_cost += $pivot->yearly_cost /*--}}
+										@endforeach
+										<tr>
+											<td colspan="2" class="text-right"><b>Total: </b></td>
+											<td class="text-center">
+												<b>{{ round($area) }}</b>
+											</td>
+											<td class="text-center">
+												<b>{{ $total_monthly_pivot_cost }}</b>
+											</td>
+											<td class="text-center">
+												<b>{{ $total_yearly_pivot_cost }}</b>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+							<div id="tabs-b">
+
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr>
+											<th rowspan="2">Name</th>
+											<th rowspan="2" class="text-center">Brand</th>
+											<th rowspan="2" class="text-center">Power</th>
+											<th colspan="2" class="text-center">Cost</th>
+										</tr>
+										<tr>
+											<th class="text-center">Month</th>
+											<th class="text-center">Year</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach($waterpumps as $waterpump)
+											<tr>
+												<td>
+													<a href="javascript:selectEquip({{ $waterpump->lat }}, {{ $waterpump->long }})">
+														{{ $waterpump->name }}
+													</a>
+												</td>
+												<td class="text-center">{{ $waterpump->g_brand }}</td>
+												<td class="text-center">{{ $waterpump->g_power }}</td>
+												<td class="text-center">{{ $waterpump->monthly_cost }}</td>
+												<td class="text-center">{{ $waterpump->yearly_cost }}</td>
+											</tr>
+										@endforeach
+										{{--*/ $total_monthly_waterpump_cost = 0 /*--}}
+										{{--*/ $total_yearly_waterpump_cost = 0 /*--}}
+										@foreach($waterpumps as $waterpump)
+											{{--*/$total_monthly_waterpump_cost += $waterpump->monthly_cost /*--}}
+											{{--*/$total_yearly_waterpump_cost += $waterpump->yearly_cost /*--}}
+										@endforeach
+										<tr>
+											<td colspan="3" class="text-right"><b>Total: </b></td>
+											<td class="text-center">
+												<b>{{ $total_monthly_waterpump_cost }}</b>
+											</td>
+											<td class="text-center">
+												<b>{{ $total_yearly_waterpump_cost }}</b>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
 
 					</div>
 
@@ -804,8 +927,6 @@
 			@foreach($orders as $order)
 				d.push([{{ $order->date->timestamp * 1000 }}, {{ $order->total_cost }}]);
 			@endforeach
-			console.log(d);
-			// var d = [[1196463600000, 0], [1196550000000, 0], [1196636400000, 0], [1196722800000, 77], [1196809200000, 3636], [1196895600000, 3575], [1196982000000, 2736], [1197068400000, 1086], [1197154800000, 676], [1197241200000, 1205], [1197327600000, 906], [1197414000000, 710], [1197500400000, 639], [1197586800000, 540], [1197673200000, 435], [1197759600000, 301], [1197846000000, 575], [1197932400000, 481], [1198018800000, 591], [1198105200000, 608], [1198191600000, 459], [1198278000000, 234], [1198364400000, 1352], [1198450800000, 686], [1198537200000, 279], [1198623600000, 449], [1198710000000, 468], [1198796400000, 392], [1198882800000, 282], [1198969200000, 208], [1199055600000, 229], [1199142000000, 177], [1199228400000, 374], [1199314800000, 436], [1199401200000, 404], [1199487600000, 253], [1199574000000, 218], [1199660400000, 476], [1199746800000, 462], [1199833200000, 500], [1199919600000, 700], [1200006000000, 750], [1200092400000, 600], [1200178800000, 500], [1200265200000, 900], [1200351600000, 930], [1200438000000, 1200], [1200524400000, 980], [1200610800000, 950], [1200697200000, 900], [1200783600000, 1000], [1200870000000, 1050], [1200956400000, 1150], [1201042800000, 1100], [1201129200000, 1200], [1201215600000, 1300], [1201302000000, 1700], [1201388400000, 1450], [1201474800000, 1500], [1201561200000, 546], [1201647600000, 614], [1201734000000, 954], [1201820400000, 1700], [1201906800000, 1800], [1201993200000, 1900], [1202079600000, 2000], [1202166000000, 2100], [1202252400000, 2200], [1202338800000, 2300], [1202425200000, 2400], [1202511600000, 2550], [1202598000000, 2600], [1202684400000, 2500], [1202770800000, 2700], [1202857200000, 2750], [1202943600000, 2800], [1203030000000, 3245], [1203116400000, 3345], [1203202800000, 3000], [1203289200000, 3200], [1203375600000, 3300], [1203462000000, 3400], [1203548400000, 3600], [1203634800000, 3700], [1203721200000, 3800], [1203807600000, 4000], [1203894000000, 4500]];
 
 			for (var i = 0; i < d.length; ++i)
 				d[i][0] += 60 * 60 * 1000;
@@ -929,16 +1050,6 @@
 
 						marker.on('click', function(e){
 							map.setView(e.latlng, 13);
-
-							$('div#infoTab').html('<div class="col-sm-4"><h3><u>Pivot Info</u></h3><ul><li>Name: ' 
-													+ pivot_item.name 
-													+ '</li><li>Area: ' 
-													+ pivot_item.area 
-													+ '</li><li>Sheet: ' 
-													+ pivot_item.s_sheet 
-													+ '</li><li>Cost: ' 	
-													+ pivot_item.cost 
-													+ '</li></ul><br /></div>');
 						});
 					}
 				});
@@ -953,24 +1064,17 @@
 						
 						marker.on('click', function(e){
 							map.setView(e.latlng, 13);
-
-							$('div#infoTab').html('<div class="col-sm-4"><h3><u>Waterpump Info</u></h3><ul><li>Name: ' 
-													+ pivot_item.name 
-													+ '</li><li>Brand: ' 
-													+ pivot_item.g_brand 
-													+ '</li><li>Type: ' 
-													+ pivot_item.g_type 
-													+ '</li><li>Power: ' 	
-													+ pivot_item.g_power
-													+ '</li></ul><br /></div>');
 						});
 					}
 				});
 			});
 		}
 
-		$('div#pivotTab').tabs();
-		$('div#waterpumpTab').tabs();
+		 selectEquip = function(lat, lng){
+			map.setView([lat, lng], 13);
+		}
+
+		$('#info').tabs();
 
 		$('div#pivotTab').addClass('hidden');
 		$('div#waterpumpTab').addClass('hidden');

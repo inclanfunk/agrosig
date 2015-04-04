@@ -49,4 +49,9 @@ class Waterpump extends \Eloquent {
 	{
 		return $this->belongsTo('Farm');
 	}
+
+	public function orders()
+	{
+		return $this->hasMany('Order');
+	}
 }
