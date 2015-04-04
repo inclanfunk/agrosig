@@ -124,5 +124,17 @@ Route::get('test', function(){
 
 	// return App::environment();
 
-	return Config::get('database.connections.mysql.username');
+	// return Config::get('database.connections.mysql.username');
+
+
+	// $pivots = Sentry::getUser()->manager->farm->pivots;
+
+	// foreach($pivots as $pivot){
+	// 	$pivot->monthly_cost = Order::where('pivot_id', '=', $pivot->id)->where('date', '>', Carbon::now()->firstOfMonth())->sum('pivot_cost');
+	// 	$pivot->yearly_cost = Order::where('pivot_id', '=', $pivot->id)->where('date', '>', Carbon::now()->firstOfYear())->sum('pivot_cost');
+	// }
+
+	// return $pivots;
+
+
 });

@@ -16,7 +16,8 @@ class CalendarController extends \BaseController {
 
 				if($logged_in_user->groups->first()->name == 'Super Administrator'){
 
-					$calendar = Calendar::where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
+					$calendar = Calendar::where('user_id', '=', $logged_in_user->id)
+								->where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
 								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
 								->get();
 
@@ -34,7 +35,7 @@ class CalendarController extends \BaseController {
 				}elseif($logged_in_user->groups->first()->name == 'Manager'){
 
 					$calendar = Calendar::where('user_id', '=', $logged_in_user->id)
-								->orWhere('user_id', '=', '51')
+								->orWhere('user_id', '=', '1')
 								->where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
 								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
 								->get();
@@ -88,9 +89,13 @@ class CalendarController extends \BaseController {
 			$data['end'] = $data['start'];
 		}
 
-		$data['user_id'] = Sentry::getUser()->id;
+		if($data['allDay'] == 'true'){
+			$data['allDay'] = 1;
+		}else{
+			$data['allDay'] = 0;
+		}
 
-		// dd($data['user_id']);
+		$data['user_id'] = Sentry::getUser()->id;
 
 		$calendar = Calendar::create($data);
 
@@ -146,6 +151,12 @@ class CalendarController extends \BaseController {
 			$data['end'] = Carbon::createFromTimeStamp($data['end'])->toDateTimeString();
 		}else{
 			$data['end'] = $data['start'];
+		}
+
+		if($data['allDay'] == 'true'){
+			$data['allDay'] = 1;
+		}else{
+			$data['allDay'] = 0;
 		}
 
 		$calendar = Calendar::find($data['id'])->update($data);

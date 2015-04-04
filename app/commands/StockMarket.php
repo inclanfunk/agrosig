@@ -61,7 +61,6 @@ class StockMarket extends ScheduledCommand {
 
 				if($stock_key == 'fecha'){
 					$date = explode('/', $stock_value);
-					// dd($date);
 					$date_required_format = $date[2] . '-' . $date[1] . '-' . $date[0];
 					$stock_item[$stock_key] = $date_required_format;
 				}else{
@@ -72,6 +71,7 @@ class StockMarket extends ScheduledCommand {
 
 			Stock::create($stock_item);
 		}
+
 	}
 
 }
