@@ -20,9 +20,9 @@
 		 This RTL CSS will be released in version 1.5
 	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
 
-	<!--Custom Style
+	
 	<link rel="stylesheet" type="text/css" media="screen" href="css/sigagro_style.css">
-	-->
+	
 	
 	<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
 	<link rel="stylesheet" type="text/css" media="screen" href=" {{URL::to('css/demo.min.css')}}   ">
@@ -55,28 +55,28 @@
 
 <body class="animated fadeInDown">
 
-<header id="header">
+<header id="header" style="height:40px;">
 
 	<div id="logo-group">
-		<span id="logo"> <img src="{{URL::to('img/logo.png')}}" alt="SmartAdmin"> </span>
+		<span id="logo" style="margin-top:5px"> <img src="{{URL::to('img/logo.png')}}" alt="Sig Agro"> </span>
 	</div>
 
     <!--	<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span> -->
 
 </header>
 
-<div id="main" role="main">
+<div id="main" role="main" style="padding-bottom: 22px;">
 
 	<!-- MAIN CONTENT -->
 	<div id="content" class="container">
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-				<h1 class="txt-color-red login-header-big">Web App</h1>
+				<h1 class="login-header-big sigagroColorOrange">Web App</h1>
 				<div class="hero">
 
 					<div class="pull-left login-desc-box-l">
-						<h4 class="paragraph-header">The App for farmers using precision irrigation system. Experience the simplicity of Sig Agro, everywhere you go!</h4>
+						<h4 class="paragraph-header-sigagro">La aplicación para el cultivador que usa riego de precisión con Pivotes. Disfrute de la experiencia Sig Agro para operar su campo.</h4>
 
 
 					
@@ -95,17 +95,26 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	                
-						<h5 class="about-heading">About Sig Agro - Are you up to date?</h5>
-						<p>
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
-						</p>
-                   
+						<h5 class="about-heading">Con Sig Agro podrá</h5>
+						
+						<ul class="list-group">
+						<li class="list-group-item loginPodra sigagroColorOrange80">Consultar un mapa de los equipos geo-localizados</li>
+						<li class="list-group-item loginPodra sigagroColorVert80">Ver el costo de mantenimiento por pivote o bomba</li>
+						<li class="list-group-item loginPodra sigagroColorBleu80">Organizar sus tareas de campo con el calendario</li>
+						<li class="list-group-item loginPodra sigagroColorOrange80">Chatear con los usuarios del sistema</li>
+						<li class="list-group-item loginPodra sigagroColorVert80">Chatear con los servicios técnicos de los proveedores</li>
+						<li class="list-group-item loginPodra sigagroColorBleu80">Participar del foro y compartir experiencias</li>
+						<li class="list-group-item loginPodra sigagroColorOrange80">Estudiar el precio de los commodities en gráficos</li>
+						</ul>
+						
+							
+					                  
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     
-						<h5 class="about-heading">Not just your average template!</h5>
+						<h5 class="about-heading">Registrense ahora: un año de actualización gratis!</h5>
 						<p>
-							Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+							
 						</p>
                    
 					</div>
@@ -115,8 +124,8 @@
 			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 				<div class="well no-padding">
 					<form action="{{ URL::to('/') }}" method="post" id="login-form" class="smart-form client-form">
-						<header>
-							Sign In
+						<header class="sigagroColorBleu80">
+							Area Cliente
 						</header>
 
 						<fieldset>
@@ -125,18 +134,18 @@
 								<label class="label">E-mail</label>
 								<label class="input"> <i class="icon-append fa fa-user"></i>
 									<input type="email" name="email">
-									<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address</b></label>
+									<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Ingrese su dirección de mail</b></label>
 							</section>
 
 							<section>
 
-								<label class="label">Password</label>
+								<label class="label">Contraseña</label>
 								<label class="input"> <i class="icon-append fa fa-lock"></i>
 									<input type="password" name="password">
-									<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+									<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su contraseña</b> </label>
 							
 								<div class="note">
-									<a href="{{URL::to('/password/remind')}}">Forgot password?</a>
+									<a href="{{URL::to('/password/remind')}}">Olvido su contraseña?</a>
 								</div>
 
 							</section>
@@ -146,15 +155,15 @@
 							<section>
 								<label class="checkbox">
 									<input type="checkbox" name="remember" >
-									<i></i>Stay signed in</label>
+									<i></i>Permanecer conectado</label>
 							</section>
 
 
 
 						</fieldset>
 						<footer>
-							<button type="submit" class="btn btn-primary">
-								Sign in
+							<button type="submit" class="btn sigagroColorBleu80">
+								Entrar
 							</button>
 						</footer>
 					</form>

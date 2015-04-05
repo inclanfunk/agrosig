@@ -7,8 +7,7 @@
 		'details'		=> 'Detalles del perfil',
 		'description'	=> 'Pequeña descripción de su actividad',
 		'upload'		=> 'Suba su foto',
-		'update'		=> 'Actualizar'
-		
+		'update'		=> 'Actualizar',
 		'first_name'		=> 'Nombre',
 		'last_name'			=> 'Apellido',
 		'password'			=> 'Contrase&ntilde;a',

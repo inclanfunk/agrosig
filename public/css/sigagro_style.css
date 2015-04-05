@@ -1,0 +1,13 @@
+li.loginPodra {
+padding: 5px 10px;
+}
+.sigagroColorOrange80{background-color:rgba(255,116,0,0.8); color:white}
+.sigagroColorRouge80{background-color:rgba(255,0,0,0.8); color:white}
+.sigagroColorVert80{background-color:rgba(0,163,18,0.8); color:white}
+.sigagroColorBleu80{background-color:rgba(5,177,245,0.8); color:white}
+
+.sigagroColorOrange{color:rgb(255,116,0);}
+.sigagroColorBleu{color:rgb(5,177,245);}
+
+h4.paragraph-header-sigagro{color:#565656;font-size:15px;font-weight:400;line-height:22px;margin-top:15px;width:350px}
+
