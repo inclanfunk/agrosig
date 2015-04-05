@@ -136,7 +136,7 @@
 									<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
 							
 								<div class="note">
-									<a href="forgotpassword.html">Forgot password?</a>
+									<a href="{{URL::to('/password/remind')}}">Forgot password?</a>
 								</div>
 
 							</section>
@@ -160,7 +160,7 @@
 					</form>
 
                     @if(Session::has('message'))
-                    				<p class="alert alert-danger">{{Session::get('message')}}</p>
+        				<p class="alert alert-danger">{{Session::get('message')}}</p>
                     @endif
 
 				</div>
@@ -203,7 +203,6 @@
 <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 
 <![endif]-->
-
 
 
 </body>

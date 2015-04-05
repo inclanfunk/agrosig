@@ -23,4 +23,6 @@ return array(
 
 	"reset" => "Password has been reset!",
 
+	"subject" => "Password Reset Link | SigAgro",
+
 );

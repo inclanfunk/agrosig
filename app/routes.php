@@ -8,6 +8,8 @@ if(Sentry::check()){
 Route::group(['before' => 'guest'], function(){
 	Route::get('/', 'LoginController@showLogin');
 	Route::post('/', 'LoginController@postLogin');
+
+	Route::controller('password', 'RemindersController');
 });
 
 Route::get('/logout', 'LoginController@logout');
