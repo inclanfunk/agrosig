@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Sig Agro | Login</title>
-	<meta name="description" content="">
+	<meta name="description" content="La plataforma en la nube de la comunidad Agropecuaria de riego">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -19,11 +19,9 @@
 	<!-- SmartAdmin RTL Support is under construction
 		 This RTL CSS will be released in version 1.5
 	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
-
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="css/sigagro_style.css">
-	
-	
+	<link href="css/grayscale.css" rel="stylesheet">	
 	<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
 	<link rel="stylesheet" type="text/css" media="screen" href=" {{URL::to('css/demo.min.css')}}   ">
 
@@ -62,37 +60,38 @@
 	</div>
 
     <!--	<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span> -->
-
 </header>
 
-<div id="main" role="main" style="padding-bottom: 22px;">
+<div id="main" role="main" style="padding-top: 0px;">
 
 	<!-- MAIN CONTENT -->
+<div class="img-intro-background">
 	<div id="content" class="container">
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-				<h1 class="login-header-big sigagroColorOrange">Web App</h1>
+				<!--<h1 class="login-header-big sigagroColorOrange">Web App</h1>-->
 				<div class="hero">
 
 					<div class="pull-left login-desc-box-l">
-						<h4 class="paragraph-header-sigagro">La aplicación para el cultivador que usa riego de precisión con Pivotes. Disfrute de la experiencia Sig Agro para operar su campo.</h4>
+						<h1 class="paragraph-header-sigagro sigagroColorBlanc">La plataforma web de la comunidad Agropecuaria de riego<!--Disfrute de la experiencia Sig Agro para operar su campo.--></h4>
 
 
-					
+					<!--
 						<div class="login-app-icons">
-							<a href="http://www.sigagro.com.ar" target="_blank" class="btn btn-success btn-sm">Frontend Template</a>
-							<a href="http://www.sigagro.com.ar" target="_blank" class="btn btn-success btn-sm">Find out more</a>
+							<a href="" class="btn sigagroColorVert80 btn-sm">Beneficios</a>
+							<a href="http://www.sigagro.com.ar" target="_blank" class="btn sigagroColorOrange80 btn-sm">Find out more</a>
 						</div>
 					
-
+					-->
 					</div>
-
+					<!--
 					<img src="img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">
-
+					-->
 				</div>
-
+				<!--
 				<div class="row">
+					
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	                
 						<h5 class="about-heading">Con Sig Agro podrá</h5>
@@ -118,8 +117,9 @@
 						</p>
                    
 					</div>
+					
 				</div>
-
+				-->
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 				<div class="well no-padding">
@@ -178,7 +178,128 @@
 			</div>
 		</div>
 	</div>
+</div>
 
+    <section class="container content-section text-left">
+		
+	<div class="row destacados">
+		<div class="col-md-4">
+    		<div>
+				<img src="img/chat.jpg" alt="Chat en vivo" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">Chat Campo</h2>
+				<p>Encontrate en el "Chat Campo", para intercambiar ideas y proyectos o despejar dudas con los miembros de la comunidad y los servicios técnicos de los proveedores.</p>
+				<!--
+				<ul style="list-style-type: none;margin:0;padding:0">
+				<li class="page-scroll">
+				<a href="#que" class="btn btn-primary" title="Enlace">Leer m&aacute;s &rsaquo;&rsaquo;</a>
+				</li>
+				</ul>
+				-->
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<div>
+				<img src="img/forum.jpg" alt="Republica Argentina" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">Foro Agro</h2>
+				<p>Participa del "Foro Agro" en las temáticas de tu interés, ej: compra-venta de material, guía y consejo sobre proveedores, experiencias en el campo, opinión sobre servicios y productos.</p>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div>
+				<img src="img/agenda.jpg" alt="Agenda" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">Multi-Agenda</h2>
+				<p>Utiliza la "Multi-Agenda"; Una Agenda Pública para estar al día de los eventos del sector y una Agenda Personal para la gestión de tus tareas programadas y/o recordatorios.</p>
+			</div>
+		</div>
+	</div>
+	</section>
+	
+	<section id="about2" class="container content-section text-center" style="padding-top:0px">
+		
+	<div class="row destacados">
+	
+		<div class="col-md-4">
+			<div>
+				<img src="img/sir.jpg" alt="Seguimiento Riego" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">S.I.R.</h2>
+				<p>Seguí tus Instalaciones de Riego en directo. Consulta todos los reglajes de los equipos, los históricos de intervención, de mantenimiento (ej: piezas instaladas, cambiadas, costos correspondientes)</p>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<div>
+				<img src="img/asesor.jpg" alt="Republica Argentina" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">Agro Asesor</h2>
+				<p>Subí periódicamente la información de tus lotes a través de SIG Agro y recibí un informe detallado con gráficos y prescripciones.</p>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<div>
+				<img src="img/fotogrametria.jpg" alt="Republica Argentina" class="img-circle img-thumbnail" style="border-radius:5%">
+				<h2 class="sigagroColorOrange">Fotogrametría</h2>
+				<p>Mejora tu rentabilidad ya! Contratando nuestro servicio de fotografía aérea de alta resolución a un costo bonificado. Dispone en tu cuenta SIG Agro de los mapas temáticos: Indices de verde (NDVI, NDWI, DVI, SAVI), Limites precisos de lotes, Modelo de Elevación Digital para mejorar el riego, Detección de plagas.</p>
+			</div>
+		</div>
+		
+	</div>
+	</section>
+	
+	<section id="contacto" class="container content-section-footer-sigagro text-center sigagroColorOrange80">
+	<hr>
+        <div class="container">    
+		  <div class="row sigagroColorOrange">
+			<div class="col-lg-12">
+			  <div class="col-md-3">
+				<ul class="list-unstyled">
+				  <li class="sigagroColorRouge">Nuestra Direcci&oacute;n:<li>
+				  <li>Lynx Monitoreo</li>
+				  <li>Las Chacras Norte</li>
+				  <li>X58885 Villa de Las Rosas</li>
+				  <li>Provincia de C&oacute;rdoba</li>
+				  <li>Argentina</li>
+				</ul>
+			  </div>
+			  <div class="col-md-3">
+				<ul class="list-unstyled">
+				  <li class="sigagroColorRouge">Aplicaciones<li>
+				  <li>Sistema de Informaci&oacute;n Geogr&agrave;fico</li>
+				  <li>Geo-Localizaci&oacute;n de personas y vehículos (Seguimiento Satelital)</li>              
+				</ul>
+			  </div>
+			  <div class="col-md-3">
+				<ul class="list-unstyled">
+				  <li class="sigagroColorRouge">Servicios<li>
+				  <li>Fotograf&igrave;a a&eacute;rea</li>
+				  <li>Diseño y Arquitectura de Software</li>             
+				</ul>
+			  </div>
+			  <div class="col-md-3">
+				<ul class="list-unstyled ">
+				  <li class="sigagroColorRouge">Contactos<li>
+				  <li><u>Julien Baudet</u></li>
+				  <li><span class="glyphicon glyphicon-phone"></span> 03544 15 532750</li>
+				  <li><span class="glyphicon glyphicon-envelope"></span> julien.baudet@gmail.com</li>   
+					<li><u>Victor Hugo Teyssedou</u></li>
+				  <li><span class="glyphicon glyphicon-phone"></span> 03544 612333</li>
+				  <li><span class="glyphicon glyphicon-envelope"></span> tecnoriego.valley@gmail.com</li> 
+				</ul>
+			  </div>  
+			</div>
+		  </div>
+		  
+		  <div class="row">
+			<div class="col-lg-12">
+				</br>
+				</br>
+				<p class="muted" style="font-size:14px; text-align:right;">&copy; 2015 Sig Agro: Proyecto de Victor Hugo Teyssedou y Julien Baudet. Todos derechos reservados</p>
+			</div>
+		  </div>
+		</div>
+    </section>
+	
 </div>
 
 

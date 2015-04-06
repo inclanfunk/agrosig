@@ -7,7 +7,13 @@ padding: 5px 10px;
 .sigagroColorBleu80{background-color:rgba(5,177,245,0.8); color:white}
 
 .sigagroColorOrange{color:rgb(255,116,0);}
+.sigagroColorRouge{color:rgb(255,0,0);}
 .sigagroColorBleu{color:rgb(5,177,245);}
+.sigagroColorBlanc{color:rgb(255,255,255);}
 
-h4.paragraph-header-sigagro{color:#565656;font-size:15px;font-weight:400;line-height:22px;margin-top:15px;width:350px}
+h1.paragraph-header-sigagro{margin-top:100px;background-color:rgba(69,10,15,0.8);padding:5px 0px 5px 5px;letter-spacing:initial;}
+
+.img-intro-background {background-image:url('../img/intro-bg2.jpg');background-repeat:no-repeat;}
+.content-section-footer-sigagro {background-color:rgba(255,116,0,0.05);width:100%}
+
 
