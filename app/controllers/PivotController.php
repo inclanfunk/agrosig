@@ -48,8 +48,8 @@ class PivotController extends \BaseController {
 			return Redirect::back()->withErrors($validator->messages());
 		}
 		
-		// Calculating area for the pivot manually
-		$data['area'] = 3.1416 * $data['radius'] * $data['radius'];
+		// Calculating area for the pivot manually and converting it into hectares
+		$data['area'] = 3.1416 * $data['radius'] * $data['radius'] / 10000;
 
 		Pivot::create($data);
 		return Redirect::back()->with('success', 'Pivot Created Successfully');
