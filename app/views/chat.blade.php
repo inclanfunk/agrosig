@@ -28,27 +28,27 @@
 
 					<header>
 						<span class="widget-icon"> <i class="fa fa-comments txt-color-white"></i> </span>
-						<h2> SmartChat </h2>
+						<h2> {{ trans('chat.SmartChat') }} </h2>
 						<div class="widget-toolbar">
 							<!-- add: non-hidden - to disable auto hide -->
 
 							<div class="btn-group">
 								<button class="btn dropdown-toggle btn-xs btn-success" data-toggle="dropdown">
-									Status <i class="fa fa-caret-down"></i>
+									{{ trans('chat.Status') }} <i class="fa fa-caret-down"></i>
 								</button>
 								<ul class="dropdown-menu pull-right js-status-update">
 									<li>
-										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-green"></i> Online</a>
+										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-green"></i> {{ trans('chat.Online') }}</a>
 									</li>
 									<li>
-										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-red"></i> Busy</a>
+										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-red"></i> {{ trans('chat.Busy') }}</a>
 									</li>
 									<li>
-										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-orange"></i> Away</a>
+										<a href="javascript:void(0);"><i class="fa fa-circle txt-color-orange"></i> {{ trans('chat.Away') }}</a>
 									</li>
 									<li class="divider"></li>
 									<li>
-										<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Log Off</a>
+										<a href="javascript:void(0);"><i class="fa fa-power-off"></i> {{ trans('chat.LogOff') }}</a>
 									</li>
 								</ul>
 							</div>
@@ -96,7 +96,7 @@
 
 											<section>
 												<label class="input">
-													<input type="text" id="filter-chat-list" placeholder="Filter">
+													<input type="text" id="filter-chat-list" placeholder="{{ trans('chat.Filter') }}">
 												</label>
 											</section>
 
@@ -110,7 +110,7 @@
 
 							<!-- CHAT BODY -->
 							<div id="chat-body" class="chat-body custom-scroll">
-								<div class="text-center text-info" id="click"><a id="load" href="#">Click to load older messages</a></div>
+								<div class="text-center text-info" id="click"><a id="load" href="#">{{ trans('chat.Oldmsg') }}</a></div>
 								<ul id="chat">
 									
 								</ul>
