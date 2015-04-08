@@ -20,7 +20,7 @@
 
 <div class="row">
 	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-		<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard <span>> My Dashboard</span></h1>
+		<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> {{ trans('Manag_dashboard.Dashboard') }} <span>> {{ trans('Manag_dashboard.MyDashboard') }}</span></h1>
 	</div>
 	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
 		<ul id="sparks" class="">
@@ -69,7 +69,7 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-					<h2>Working Order Costs</h2>
+					<h2>{{ trans('Manag_dashboard.WorkingOrderCosts') }}</h2>
 
 				</header>
 
@@ -127,7 +127,7 @@
 
 				<header>
 					<span class="widget-icon"> <i class="fa fa-comments txt-color-white"></i> </span>
-					<h2> SmartChat </h2>
+					<h2> {{ trans('chat.SmartChat') }} </h2>
 					<!-- <div class="widget-toolbar">
 						<div class="btn-group">
 							<button class="btn dropdown-toggle btn-xs btn-success" data-toggle="dropdown">
@@ -157,7 +157,7 @@
 					<!-- widget edit box -->
 					<div class="jarviswidget-editbox">
 						<div>
-							<label>Title:</label>
+							<label>{{ trans('Manag_dashboard.Title') }}:</label>
 							<input type="text" />
 						</div>
 					</div>
@@ -207,7 +207,7 @@
 
 						<!-- CHAT BODY -->
 						<div id="chat-body" class="chat-body custom-scroll">
-							<div class="text-center text-info" id="click"><a id="load" href="javascript:void(0);">Click to load older messages</a></div>
+							<div class="text-center text-info" id="click"><a id="load" href="javascript:void(0);">{{ trans('Manag_dashboard.OldMessage') }}</a></div>
 							<ul id="chat">
 								
 							</ul>
@@ -221,7 +221,7 @@
 							<div class="textarea-div">
 
 								<div class="typearea">
-									<textarea placeholder="Write a reply..." id="textarea-expand" class="custom-scroll"></textarea>
+									<textarea placeholder="{{ trans('Manag_dashboard.Writereply') }}" id="textarea-expand" class="custom-scroll"></textarea>
 								</div>
 
 							</div>
@@ -229,10 +229,10 @@
 							<!-- CHAT REPLY/SEND -->
 							<span class="textarea-controls">
 								<button id="reply" class="btn btn-sm btn-primary pull-right">
-									Reply
+									{{ trans('Manag_dashboard.Reply') }}
 								</button> <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> <label class="checkbox pull-right">
 										<input type="checkbox" name="subscription" id="subscription">
-										<i></i>Press <strong> ENTER </strong> to send </label> </span> <a href="javascript:void(0);" class="pull-left"><i class="fa fa-camera fa-fw fa-lg"></i></a> </span>
+										<i></i>{{ trans('Manag_dashboard.Press') }} <strong> {{ trans('Manag_dashboard.ENTER') }} </strong> {{ trans('Manag_dashboard.tosend') }} </label> </span> <a href="javascript:void(0);" class="pull-left"><i class="fa fa-camera fa-fw fa-lg"></i></a> </span>
 
 						</div>
 
@@ -262,22 +262,22 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
-					<h2> My Events </h2>
+					<h2> {{ trans('Manag_dashboard.MyEvents') }} </h2>
 					<div class="widget-toolbar">
 						<!-- add: non-hidden - to disable auto hide -->
 						<div class="btn-group">
 							<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-								Showing <i class="fa fa-caret-down"></i>
+								{{ trans('Manag_dashboard.Showing') }} <i class="fa fa-caret-down"></i>
 							</button>
 							<ul class="dropdown-menu js-status-update pull-right">
 								<li>
-									<a href="javascript:void(0);" id="mt">Month</a>
+									<a href="javascript:void(0);" id="mt">{{ trans('Manag_dashboard.Month') }}</a>
 								</li>
 								<li>
-									<a href="javascript:void(0);" id="ag">Agenda</a>
+									<a href="javascript:void(0);" id="ag">{{ trans('Manag_dashboard.Agenda') }}</a>
 								</li>
 								<li>
-									<a href="javascript:void(0);" id="td">Today</a>
+									<a href="javascript:void(0);" id="td">{{ trans('Manag_dashboard.Today') }}</a>
 								</li>
 							</ul>
 						</div>
@@ -339,7 +339,7 @@
 
 				<header>
 					<span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
-					<h2>Equipment</h2>
+					<h2>{{ trans('Manag_dashboard.Equipment') }}</h2>
 				</header>
 
 				<!-- widget div-->
@@ -357,7 +357,7 @@
 									<a href="#tabs-a">
 										<i class="fa fa-lg fa-arrow-circle-o-down"></i>
 										<span class="hidden-mobile hidden-tablet">
-											Pivot
+											{{ trans('Manag_dashboard.Pivot') }}
 										</span>
 									</a>
 								</li>
@@ -365,7 +365,7 @@
 									<a href="#tabs-b">
 										<i class="fa fa-lg fa-arrow-circle-o-up"></i>
 										<span class="hidden-mobile hidden-tablet">
-											Water Pump
+											{{ trans('Manag_dashboard.WaterPump') }}
 										</span>
 									</a>
 								</li>
@@ -376,14 +376,14 @@
 								<table class="table table-striped table-hover table-condensed">
 									<thead>
 										<tr>
-											<th rowspan="2">Name</th>
-											<th rowspan="2" class="text-center">Sheet</th>
-											<th rowspan="2" class="text-center">Area</th>
-											<th colspan="2" class="text-center">Cost</th>
+											<th rowspan="2">{{ trans('Manag_dashboard.Name') }}</th>
+											<th rowspan="2" class="text-center">{{ trans('Manag_dashboard.Sheet') }}</th>
+											<th rowspan="2" class="text-center">{{ trans('Manag_dashboard.Area') }}</th>
+											<th colspan="2" class="text-center">{{ trans('Manag_dashboard.Cost') }}</th>
 										</tr>
 										<tr>
-											<th class="text-center">Month</th>
-											<th class="text-center">Year</th>
+											<th class="text-center">{{ trans('Manag_dashboard.Month') }}</th>
+											<th class="text-center">{{ trans('Manag_dashboard.Year') }}</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -410,7 +410,7 @@
 											{{--*/$total_yearly_pivot_cost += $pivot->yearly_cost /*--}}
 										@endforeach
 										<tr>
-											<td colspan="2" class="text-right"><b>Total: </b></td>
+											<td colspan="2" class="text-right"><b>{{ trans('Manag_dashboard.Total') }}: </b></td>
 											<td class="text-center">
 												<b>{{ round($area) }}</b>
 											</td>
@@ -431,14 +431,14 @@
 								<table class="table table-striped table-hover table-condensed">
 									<thead>
 										<tr>
-											<th rowspan="2">Name</th>
-											<th rowspan="2" class="text-center">Brand</th>
-											<th rowspan="2" class="text-center">Power</th>
-											<th colspan="2" class="text-center">Cost</th>
+											<th rowspan="2">{{ trans('Manag_dashboard.Name') }}</th>
+											<th rowspan="2" class="text-center">{{ trans('Manag_dashboard.Brand') }}</th>
+											<th rowspan="2" class="text-center">{{ trans('Manag_dashboard.Power') }}</th>
+											<th colspan="2" class="text-center">{{ trans('Manag_dashboard.Cost') }}</th>
 										</tr>
 										<tr>
-											<th class="text-center">Month</th>
-											<th class="text-center">Year</th>
+											<th class="text-center">{{ trans('Manag_dashboard.Month') }}</th>
+											<th class="text-center">{{ trans('Manag_dashboard.Year') }}</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -504,7 +504,7 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-					<h2>Forum Activity</h2>
+					<h2>{{ trans('Manag_dashboard.ForumActivity') }}</h2>
 
 				</header>
 
@@ -520,17 +520,17 @@
 
 					<!-- widget content -->
 					<div class="widget-body">
-						<p><b>Recent Posts</b></p>
+						<p><b>{{ trans('Manag_dashboard.RecentPosts') }}</b></p>
 						
 						<div class="table-responsive">
 						
 							<table class="table borderless">
 								<thead>
 									<tr>
-										<th>Post</th>
-										<th>Topic</th>
-										<th class="text-right">Replies</th>
-										<th class="text-right">Last Reply</th>
+										<th>{{ trans('Manag_dashboard.Post') }}</th>
+										<th>{{ trans('Manag_dashboard.Topic') }}</th>
+										<th class="text-right">{{ trans('Manag_dashboard.Replies') }}</th>
+										<th class="text-right">{{ trans('Manag_dashboard.LastReply') }}</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -1071,7 +1071,7 @@
 		}
 
 		 selectEquip = function(lat, lng){
-			map.setView([lat, lng], 13);
+			map.setView([lat, lng], 15);
 		}
 
 		$('#info').tabs();

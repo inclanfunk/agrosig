@@ -6,14 +6,138 @@ padding: 5px 10px;
 .sigagroColorVert80{background-color:rgba(0,163,18,0.8); color:white}
 .sigagroColorBleu80{background-color:rgba(5,177,245,0.8); color:white}
 
+.sigagroColorGrey10{background-color:rgba(110,110,110,0.1);}
+
 .sigagroColorOrange{color:rgb(255,116,0);}
 .sigagroColorRouge{color:rgb(255,0,0);}
 .sigagroColorBleu{color:rgb(5,177,245);}
 .sigagroColorBlanc{color:rgb(255,255,255);}
 
-h1.paragraph-header-sigagro{margin-top:100px;background-color:rgba(69,10,15,0.8);padding:5px 0px 5px 5px;letter-spacing:initial;}
+h1.paragraph-header-sigagro{width:85%;margin-top:100px;background-color:rgba(69,10,15,0.8);padding:5px 0px 5px 5px;letter-spacing:initial;}
+h1.paragraph-header-sigagro2{width:100%;margin-top:200px;background-color:rgba(69,10,15,0.8);padding:5px 0px 5px 5px;letter-spacing:initial;}
 
 .img-intro-background {background-image:url('../img/intro-bg2.jpg');background-repeat:no-repeat;}
-.content-section-footer-sigagro {background-color:rgba(255,116,0,0.05);width:100%}
+.content-section-footer-sigagro {width:100%;padding-top:50px;}
+
+.img-intro-background2 {background-image:url('../img/dashall.jpg');background-repeat:no-repeat; padding-top:50px;width:100%; height:1483px}
+
+.container-sigagro {padding-top:50px;}
+/*
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.page-scroll .btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.page-scroll .btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {    
+    0 {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {    
+    0 {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+::-moz-selection {
+    text-shadow: none;
+    background: #fcfcfc;
+    background: rgba(255,255,255,.2);
+}
+
+::selection {
+    text-shadow: none;
+    background: #fcfcfc;
+    background: rgba(255,255,255,.2);
+}
+
+img::selection {
+    background: 0 0;
+}
+
+img::-moz-selection {
+    background: 0 0;
+}
+
+body {
+    webkit-tap-highlight-color: rgba(255,255,255,.2);
+}
+*/
+@media(min-width:767px) {
+.destacados{
+    padding: 20px 0;
+	text-align: center;
+}
+.destacados > div > div{
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	transition: 0.2s;
+}
+.destacados > div:hover > div{
+	margin-top: -10px;
+	border: 1px solid rgb(200, 200, 200);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+	background: rgba(200, 200, 200, 0.1);
+	transition: 0.5s;
+}
 
 

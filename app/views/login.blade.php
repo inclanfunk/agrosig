@@ -54,74 +54,27 @@
 <body class="animated fadeInDown">
 
 <header id="header" style="height:40px;">
-
 	<div id="logo-group">
 		<span id="logo" style="margin-top:5px"> <img src="{{URL::to('img/logo.png')}}" alt="Sig Agro"> </span>
 	</div>
-
-    <!--	<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span> -->
 </header>
 
-<div id="main" role="main" style="padding-top: 0px;">
+<div id="main" role="main" style="padding-top:0px";>
 
 	<!-- MAIN CONTENT -->
-<div class="img-intro-background">
-	<div id="content" class="container">
-
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-				<!--<h1 class="login-header-big sigagroColorOrange">Web App</h1>-->
-				<div class="hero">
-
-					<div class="pull-left login-desc-box-l">
-						<h1 class="paragraph-header-sigagro sigagroColorBlanc">La plataforma web de la comunidad Agropecuaria de riego<!--Disfrute de la experiencia Sig Agro para operar su campo.--></h4>
-
-
-					<!--
-						<div class="login-app-icons">
-							<a href="" class="btn sigagroColorVert80 btn-sm">Beneficios</a>
-							<a href="http://www.sigagro.com.ar" target="_blank" class="btn sigagroColorOrange80 btn-sm">Find out more</a>
+	<div class="img-intro-background">
+		<div id="content" class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+					<div class="hero">
+						<div class="pull-left login-desc-box-l">
+						<h1 class="paragraph-header-sigagro sigagroColorBlanc">La plataforma web de la comunidad Agropecuaria de riego</h1>
 						</div>
-					
-					-->
 					</div>
-					<!--
-					<img src="img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">
-					-->
 				</div>
-				<!--
-				<div class="row">
-					
-					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	                
-						<h5 class="about-heading">Con Sig Agro podrá</h5>
-						
-						<ul class="list-group">
-						<li class="list-group-item loginPodra sigagroColorOrange80">Consultar un mapa de los equipos geo-localizados</li>
-						<li class="list-group-item loginPodra sigagroColorVert80">Ver el costo de mantenimiento por pivote o bomba</li>
-						<li class="list-group-item loginPodra sigagroColorBleu80">Organizar sus tareas de campo con el calendario</li>
-						<li class="list-group-item loginPodra sigagroColorOrange80">Chatear con los usuarios del sistema</li>
-						<li class="list-group-item loginPodra sigagroColorVert80">Chatear con los servicios técnicos de los proveedores</li>
-						<li class="list-group-item loginPodra sigagroColorBleu80">Participar del foro y compartir experiencias</li>
-						<li class="list-group-item loginPodra sigagroColorOrange80">Estudiar el precio de los commodities en gráficos</li>
-						</ul>
-						
-							
-					                  
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    
-						<h5 class="about-heading">Registrense ahora: un año de actualización gratis!</h5>
-						<p>
-							
-						</p>
-                   
-					</div>
-					
-				</div>
-				-->
-			</div>
 			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+			
+			
 				<div class="well no-padding">
 					<form action="{{ URL::to('/') }}" method="post" id="login-form" class="smart-form client-form">
 						<header class="sigagroColorBleu80">
@@ -176,11 +129,12 @@
 
 
 			</div>
+			</div>
 		</div>
 	</div>
-</div>
 
-    <section class="container content-section text-left">
+
+    <section class="container content-section text-center container-sigagro">
 		
 	<div class="row destacados">
 		<div class="col-md-4">
@@ -216,7 +170,7 @@
 	</div>
 	</section>
 	
-	<section id="about2" class="container content-section text-center" style="padding-top:0px">
+	<section class="container content-section text-center container-sigagro">
 		
 	<div class="row destacados">
 	
@@ -247,49 +201,26 @@
 	</div>
 	</section>
 	
-	<section id="contacto" class="container content-section-footer-sigagro text-center sigagroColorOrange80">
+	<section class="container content-section text-center container-sigagro img-intro-background2 hidden-xs hidden-sm">
+	<div class="col-md-7 col-md-offset-3">
+	<h1 class="paragraph-header-sigagro2 sigagroColorBlanc">Experimente la simplicidad de Sig Agro para operar su campo!</h1>
+	</div>
+	</section>
+	
+	<section class="container content-section-footer-sigagro text-left">
 	<hr>
         <div class="container">    
-		  <div class="row sigagroColorOrange">
-			<div class="col-lg-12">
-			  <div class="col-md-3">
-				<ul class="list-unstyled">
-				  <li class="sigagroColorRouge">Nuestra Direcci&oacute;n:<li>
-				  <li>Lynx Monitoreo</li>
-				  <li>Las Chacras Norte</li>
-				  <li>X58885 Villa de Las Rosas</li>
-				  <li>Provincia de C&oacute;rdoba</li>
-				  <li>Argentina</li>
-				</ul>
-			  </div>
-			  <div class="col-md-3">
-				<ul class="list-unstyled">
-				  <li class="sigagroColorRouge">Aplicaciones<li>
-				  <li>Sistema de Informaci&oacute;n Geogr&agrave;fico</li>
-				  <li>Geo-Localizaci&oacute;n de personas y vehículos (Seguimiento Satelital)</li>              
-				</ul>
-			  </div>
-			  <div class="col-md-3">
-				<ul class="list-unstyled">
-				  <li class="sigagroColorRouge">Servicios<li>
-				  <li>Fotograf&igrave;a a&eacute;rea</li>
-				  <li>Diseño y Arquitectura de Software</li>             
-				</ul>
-			  </div>
-			  <div class="col-md-3">
-				<ul class="list-unstyled ">
-				  <li class="sigagroColorRouge">Contactos<li>
-				  <li><u>Julien Baudet</u></li>
-				  <li><span class="glyphicon glyphicon-phone"></span> 03544 15 532750</li>
-				  <li><span class="glyphicon glyphicon-envelope"></span> julien.baudet@gmail.com</li>   
-					<li><u>Victor Hugo Teyssedou</u></li>
-				  <li><span class="glyphicon glyphicon-phone"></span> 03544 612333</li>
-				  <li><span class="glyphicon glyphicon-envelope"></span> tecnoriego.valley@gmail.com</li> 
-				</ul>
-			  </div>  
-			</div>
-		  </div>
-		  
+		  <div class="row">
+		  Sig Agro nace de un encuentro entre <span class="sigagroColorRouge">Victor Hugo Teyssedou</span>, especialista en instalaciones de sistemas de riego de precisión
+		  y <span class="sigagroColorRouge">Julien Baudet</span> analista en sistema de información geográficos.
+		  Juntos, hemos diseñado un sistema integral para operar su campo y mejorar su rentabilidad.
+		  </br>
+		  </br>
+		  Ventas y Prensa: Hugo <span class="glyphicon glyphicon-phone sigagroColorRouge"></span>: 03544 612333 | <span class="glyphicon glyphicon-envelope sigagroColorRouge"></span>: tecnoriego.valley@gmail.com
+		  </br>
+		  Soporte técnico: Julien <span class="glyphicon glyphicon-phone sigagroColorRouge"></span>: 03544 15 532750 | <span class="glyphicon glyphicon-envelope sigagroColorRouge"></span>: julien.baudet@gmail.com
+		  </br>
+		  			  
 		  <div class="row">
 			<div class="col-lg-12">
 				</br>
@@ -297,7 +228,9 @@
 				<p class="muted" style="font-size:14px; text-align:right;">&copy; 2015 Sig Agro: Proyecto de Victor Hugo Teyssedou y Julien Baudet. Todos derechos reservados</p>
 			</div>
 		  </div>
+		 </div>
 		</div>
+
     </section>
 	
 </div>
