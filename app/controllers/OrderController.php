@@ -2,6 +2,11 @@
 
 class OrderController extends \BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('admin', ['except' => ['index']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

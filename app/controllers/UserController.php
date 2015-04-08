@@ -4,7 +4,7 @@ class UserController extends \BaseController {
 
 	function __construct()
 	{
-		$this->beforeFilter('admin', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
+		$this->beforeFilter('admin');
 	}
 
 	/**

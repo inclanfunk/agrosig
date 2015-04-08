@@ -2,6 +2,11 @@
 
 class TopicController extends \BaseController {
 
+	function __construct()
+	{
+		$this->beforeFilter('admin');
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
