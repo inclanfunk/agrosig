@@ -33,4 +33,6 @@
 		'chat' => 'Chat',
 
 		'forum' => 'Forum',
+
+		'crop' => 'Crop',
 	];

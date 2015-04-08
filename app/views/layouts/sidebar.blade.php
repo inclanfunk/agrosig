@@ -148,6 +148,20 @@
 
             @if(Sentry::getUser()->hasAnyAccess(['system']))
             <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-tree"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.crops') }}</span></a>
+                <ul>
+                    <li class="{{ Request::is('crops') ? 'active' : '' }}">
+                        <a href="{{ URL::to('crops') }}">{{ trans('sidebar.list') }}</a>
+                    </li>
+                    <li class="{{ Request::is('crops/create') ? 'active' : '' }}">
+                        <a href="{{ URL::to('crops/create') }}">{{ trans('sidebar.create') }}</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Sentry::getUser()->hasAnyAccess(['system']))
+            <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.forum') }}</span></a>
                 <ul>
                     <li class="{{ Request::is('chatrooms') ? 'active' : '' }}">

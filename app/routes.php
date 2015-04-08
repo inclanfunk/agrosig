@@ -77,6 +77,8 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::get('/forum/notifications', 'NotificationController@forumNotifications');
 
+	Route::resource('crops', 'CropController');
+
 });
 
 // Just for testing. To be removed before production.
