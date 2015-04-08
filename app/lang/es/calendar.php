@@ -2,10 +2,10 @@
 
 	return [
 		'calendar' => 'Calendario',
-		'add' => 'A&ntilde;r un Evento',
+		'add' => 'A&ntilde;adir un Evento',
 		'icon' => 'Elegir un Icono',
 		'title' => 'Titulo del Evento',
-		'description' => 'Descripci&ograve;',
+		'description' => 'Descripci&ograve;n',
 		'brief' => 'Por favor sea breve',
 		'max' => '40 Caracteres maximo',
 		'color' => 'Elegir un Color',
