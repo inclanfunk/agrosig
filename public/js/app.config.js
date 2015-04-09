@@ -87,7 +87,7 @@
  * turn this off if you prefer to use the onSave hook to save
  * these settings to your datatabse instead
  */	
-	localStorageJarvisWidgets = true,
+	localStorageJarvisWidgets = false,
 /*
  * Turn off sortable feature for JarvisWidgets 
  */	
