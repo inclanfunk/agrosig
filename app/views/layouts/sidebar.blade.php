@@ -205,8 +205,8 @@
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">{{ trans('sidebar.maps') }}</span></a>
                 <ul>
-                    <li>
-                        <a href="#">{{ trans('sidebar.crops') }}</a>
+                    <li class="{{ Request::is('crop-map') ? 'active' : '' }}">
+                        <a href="{{ URL::to('crop-map') }}">{{ trans('sidebar.crops') }}</a>
                     </li>
                     <li class="{{ Request::is('equipment-map') ? 'active' : '' }}">
                         <a href="{{ URL::to('equipment-map') }}">{{ trans('sidebar.equipment') }}</a>

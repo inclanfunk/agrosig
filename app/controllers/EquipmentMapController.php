@@ -40,6 +40,7 @@ class EquipmentMapController extends \BaseController {
 	public function findPivotsByFarms($id)
 	{
 		$pivots = Farm::find($id)->pivots;
+		$pivots->load('crop_sections.crop');
 		return Response::json($pivots, 200);
 	}
 

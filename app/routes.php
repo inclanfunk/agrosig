@@ -54,6 +54,11 @@ Route::group(['before' => 'auth'], function(){
 		'uses' => 'EquipmentMapController@showMap'
 	]);
 
+	Route::get('/crop-map', [
+		'as' => 'cropMap',
+		'uses' => 'CropMapController@showMap'
+	]);
+
 	Route::get('/distributor-companies', 'EquipmentMapController@findCompaniesByDistributor');
 
 	Route::get('/distributor/{id}/farms', 'EquipmentMapController@findFarmsByDistributorCompanies');
@@ -78,6 +83,8 @@ Route::group(['before' => 'auth'], function(){
 	Route::get('/forum/notifications', 'NotificationController@forumNotifications');
 
 	Route::resource('crops', 'CropController');
+
+	Route::resource('crop-sections', 'CropSectionController');
 
 });
 
