@@ -12,4 +12,15 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    RewriteCond %{HTTPS} =on
+    RewriteRule ^(.*)$ - [env=protocol:https]
+
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ - [env=protocol:http]
+
+    RewriteCond %{HTTP_HOST} !www.sigagro.com.ar$ [NC]
+    RewriteRule ^(.*)$ %{ENV:protocol}://www.sigagro.com.ar/$1 [L,R=301]
+
 </IfModule>
+

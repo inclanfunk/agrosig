@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Sig Agro | Login</title>
-	<meta name="description" content="La plataforma en la nube de la comunidad Agropecuaria de riego">
+	<meta name="description" content="La plataforma en la nube de la comunidad Agropecuaria de riego con Pivote. Disponga de las ultimas herramientas tecnologicas para mejorar su rentabilidad">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -21,7 +21,6 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="css/sigagro_style.css">
-	<link href="css/grayscale.css" rel="stylesheet">	
 	<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
 	<link rel="stylesheet" type="text/css" media="screen" href=" {{URL::to('css/demo.min.css')}}   ">
 
@@ -59,7 +58,7 @@
 	</div>
 </header>
 
-<div id="main" role="main" style="padding-top:0px";>
+<div id="main" role="main" style="padding-top:0px">
 
 	<!-- MAIN CONTENT -->
 	<div class="img-intro-background">
@@ -214,17 +213,17 @@
 		  Sig Agro nace de un encuentro entre <span class="sigagroColorRouge">Victor Hugo Teyssedou</span>, especialista en instalaciones de sistemas de riego de precisión
 		  y <span class="sigagroColorRouge">Julien Baudet</span> analista en sistema de información geográficos.
 		  Juntos, hemos diseñado un sistema integral para operar su campo y mejorar su rentabilidad.
-		  </br>
-		  </br>
+		  <br>
+		  <br>
 		  Ventas y Prensa: Hugo <span class="glyphicon glyphicon-phone sigagroColorRouge"></span>: 03544 612333 | <span class="glyphicon glyphicon-envelope sigagroColorRouge"></span>: tecnoriego.valley@gmail.com
-		  </br>
+		  <br>
 		  Soporte técnico: Julien <span class="glyphicon glyphicon-phone sigagroColorRouge"></span>: 03544 15 532750 | <span class="glyphicon glyphicon-envelope sigagroColorRouge"></span>: julien.baudet@gmail.com
-		  </br>
+		  <br>
 		  			  
 		  <div class="row">
 			<div class="col-lg-12">
-				</br>
-				</br>
+				<br>
+				<br>
 				<p class="muted" style="font-size:14px; text-align:right;">&copy; 2015 Sig Agro: Proyecto de Victor Hugo Teyssedou y Julien Baudet. Todos derechos reservados</p>
 			</div>
 		  </div>
