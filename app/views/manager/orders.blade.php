@@ -12,87 +12,194 @@
 
 </div>
 
-        				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-					<!-- row -->
-					<div class="row">
-				
-						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
-								<!-- widget options:
-								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-				
-								data-widget-colorbutton="false"
-								data-widget-editbutton="false"
-								data-widget-togglebutton="false"
-								data-widget-deletebutton="false"
-								data-widget-fullscreenbutton="false"
-								data-widget-custombutton="false"
-								data-widget-collapsed="true"
-								data-widget-sortable="false"
-				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>Your Orders</h2>
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-				
-										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
-											<thead>			                
-												<tr>
-													<th data-hide="phone">ID</th>
-						                            <th data-class="expand">Number</th>
-						                            <th data-hide="phone">Farm</th>
-						                            <th data-hide="phone,tablet">Total Cost</th>
-						                            <th>View</th>
-												</tr>
-											</thead>
-											<tbody>
-												@foreach($orders as $order)
-							                        <tr>
-							                            <td>{{ $order->id }}</td>
-							                            <td>{{ $order->order_number }}</td>
-							                            <td>{{ $order->farm->name }}</td>
-							                            <td>{{ $order->total_cost }}</td>
-							                            <td>
-							                                <a href="#" class="btn btn-info btn-xs">View Order</a>
-							                            </td>
-							                        </tr>
-						                        @endforeach
-											</tbody>
-										</table>
+<!-- widget grid -->
+<section id="widget-grid" class="">
 
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-						</article>
-						<!-- new end widget -->
+	<!-- row -->
+	<div class="row">
+
+		<!-- NEW WIDGET START -->
+		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
+				<!-- widget options:
+				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+				data-widget-colorbutton="false"
+				data-widget-editbutton="false"
+				data-widget-togglebutton="false"
+				data-widget-deletebutton="false"
+				data-widget-fullscreenbutton="false"
+				data-widget-custombutton="false"
+				data-widget-collapsed="true"
+				data-widget-sortable="false"
+
+				-->
+				<header>
+					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+					<h2>Your Orders</h2>
+				</header>
+
+				<!-- widget div-->
+				<div>
+
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
 					</div>
-					<!-- end row -->
-				</section>
-				<!-- end section -->
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body no-padding">
+
+						<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+							<thead>			                
+								<tr>
+		                            <th data-class="expand">Number</th>
+		                            <th data-hide="phone">Farm</th>
+		                            <th data-hide="phone,tablet">Total Cost</th>
+		                            <th>View</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach($orders as $order)
+			                        <tr>
+			                            <td>{{ $order->order_number }}</td>
+			                            <td>{{ $order->farm->name }}</td>
+			                            <td>{{ $order->total_cost }}</td>
+			                            <td>
+			                                <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#order-{{ $order->id }}">View Order</a>
+			                            </td>
+			                        </tr>
+		                        @endforeach
+							</tbody>
+						</table>
+
+					</div>
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+			<!-- end widget -->
+		</article>
+		<!-- new end widget -->
+	</div>
+	<!-- end row -->
+</section>
+<!-- end section -->
+
+@foreach($orders as $order)
+
+	<!-- Modal -->
+	<div class="modal fade" id="order-{{ $order->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Order Details</h4>
+				</div>
+				<div class="modal-body">
+
+					<table class="table table-condensed">
+						<thead>
+							<th>
+								Key
+							</th>
+							<th>
+								Value
+							</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Distributor</td>
+								<td>{{ $order->company->name }}</td>
+							</tr>
+							<tr>
+								<td>Pivot Name</td>
+								<td>{{ $order->pivot->name }}</td>
+							</tr>
+							<tr>
+								<td>Waterpump Name</td>
+								<td>{{ $order->waterpumpEquip->name }}</td>
+							</tr>
+							<tr>
+								<td>Number</td>
+								<td>{{ $order->order_number }}</td>
+							</tr>
+							<tr>
+								<td>Date</td>
+								<td>{{ $order->date->format('y-m-d') }} ({{ $order->date->diffForHumans() }})</td>
+							</tr>
+							<tr>
+								<td>Pivot Task</td>
+								<td>{{ $order->pivot_task }}</td>
+							</tr>
+							<tr>
+								<td>Pivot Catergory</td>
+								<td>{{ $order->pivot_category }}</td>
+							</tr>
+							<tr>
+								<td>Gear Train</td>
+								<td>{{ $order->gear_train }}</td>
+							</tr>
+							<tr>
+								<td>Electricity</td>
+								<td>{{ $order->electricity }}</td>
+							</tr>
+							<tr>
+								<td>Sprinkling</td>
+								<td>{{ $order->sprinkling }}</td>
+							</tr>
+							<tr>
+								<td>Pivot Cost</td>
+								<td>{{ $order->pivot_cost }}</td>
+							</tr>
+							<tr>
+								<td>Waterpump Task</td>
+								<td>{{ $order->waterpump_task }}</td>
+							</tr>
+							<tr>
+								<td>Waterpump Catergory</td>
+								<td>{{ $order->waterpump_category }}</td>
+							</tr>
+							<tr>
+								<td>Motor</td>
+								<td>{{ $order->motor }}</td>
+							</tr>
+							<tr>
+								<td>Electrical Board</td>
+								<td>{{ $order->electrical_board }}</td>
+							</tr>
+							<tr>
+								<td>Waterpump</td>
+								<td>{{ $order->waterpump }}</td>
+							</tr>
+							<tr>
+								<td>Waterpump Cost</td>
+								<td>{{ $order->waterpump_cost }}</td>
+							</tr>
+							<tr>
+								<td>Total Cost</td>
+								<td>{{ $order->total_cost }}</td>
+							</tr>
+						</tbody>
+
+					</table>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+@endforeach
+
 @stop
 
 

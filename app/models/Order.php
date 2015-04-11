@@ -28,6 +28,21 @@ class Order extends \Eloquent {
 		return $this->belongsTo('Farm');
 	}
 
+	public function company()
+	{
+		return $this->belongsTo('Company');
+	}
+
+	public function pivot()
+	{
+		return $this->belongsTo('Pivot');
+	}
+
+	public function waterpumpEquip()
+	{
+		return $this->belongsTo('Waterpump', 'waterpump_id');
+	}
+
 	public function getDates()
 	{
 		return ['created_at', 'updated_at', 'date'];
