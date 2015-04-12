@@ -264,8 +264,8 @@
 
 						$.each(pivot_item.crop_sections, function(i, item){
 							var segment = L.circle([parseFloat(pivot_item.lat), parseFloat(pivot_item.long)], parseFloat(pivot_item.radius), {
-								startAngle: item.start_angle,
-								stopAngle: item.stop_angle,
+								startAngle: parseFloat(item.start_angle),
+								stopAngle: parseFloat(item.stop_angle),
 								color: item.crop.color
 							}).addTo(map);
 
@@ -308,8 +308,8 @@
 					success: function(response){
 						$('div#cropSection').modal('toggle');
 						var segment = L.circle([parseFloat(response.pivot.lat), parseFloat(response.pivot.long)], parseFloat(response.pivot.radius), {
-							startAngle: response.start_angle,
-							stopAngle: response.stop_angle,
+							startAngle: parseFloat(response.start_angle),
+							stopAngle: parseFloat(response.stop_angle),
 							color: response.crop.color
 						}).addTo(map);
 

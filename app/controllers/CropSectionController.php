@@ -35,10 +35,10 @@ class CropSectionController extends \BaseController {
 			'crop_id' 			=> 'required|exists:crops,id',
 			'pivot_id' 			=> 'required|exists:pivots,id',
 			'predecessor' 		=> 'required|exists:crops,id',
-			'start_angle'		=> 'required|numeric|between:0,359',
-			'stop_angle'		=> 'required|numeric|between:0,359',
+			'start_angle'		=> 'required|numeric|between:0,360',
+			'stop_angle'		=> 'required|numeric|between:0,360',
 			'variety_or_hybrid'	=> 'required',
-			'years'				=> 'required|in:1,2,3,4,5,6,7,8,9,10,10+',
+			'years'				=> 'required|in:0,1,2,3,4,5,6,7,8,9,10,10+',
 			'seeding_system'	=> 'required|in:1,2',
 			'density'			=> 'required|numeric',
 			'density_type'		=> 'required|in:1,2',
@@ -58,10 +58,6 @@ class CropSectionController extends \BaseController {
 
 		$crop_sections = CropSection::where('pivot_id', '=', $data['pivot_id'])->get();
 
-		/*if($data['start_angle'] > $data['stop_angle']){
-			return Response::json(['stop_angle' => 'Stop Angle should be greater than Start Angle'], 400);
-		}*/
-
 		foreach($crop_sections as $crop_section){
 			if($data['start_angle'] > $crop_section->start_angle && $data['start_angle'] < $crop_section->stop_angle){
 				return Response::json(['angles' => 'Angles are intersecting with existing Crop Sections'], 400);
@@ -80,7 +76,7 @@ class CropSectionController extends \BaseController {
 			}
 
 			if($data['stop_angle'] == $crop_section->start_angle){
-				$data['start_angle']--; 
+				$data['stop_angle']--; 
 			}
 		}
 

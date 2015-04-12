@@ -46,6 +46,12 @@
 
 			var start = this.rotated(this.startAngle(), r),
 				end = this.rotated(this.stopAngle(), r);
+				if(this.startAngle()>this.stopAngle())
+				{
+					start = this.rotated(this.startAngle(), r);
+					end = this.rotated(360*L.LatLng.DEG_TO_RAD+this.stopAngle(), r);
+
+				}
 
 			if (this._checkIfEmpty()) {
 				return '';
@@ -58,7 +64,13 @@
 				//lineTo point on circle startangle from center
 				ret += "L " + start.x + "," + start.y;
 				//make circle from point start - end:
+				if(this.options.startAngle >  this.options.stopAngle && (this.options.startAngle - this.options.stopAngle<180))
+				{
+					ret += "A " + r + "," + r + ",0," + 1 + ",1," + end.x + "," + end.y + " z";
+					return ret;
+				}
 				ret += "A " + r + "," + r + ",0," + largeArc + ",1," + end.x + "," + end.y + " z";
+
 
 				return ret;
 			} else {
@@ -96,9 +108,12 @@
 			this._ctx.beginPath();
 			this._ctx.moveTo(center.x, center.y);
 			this._ctx.lineTo(start.x, start.y);
-
-			this._ctx.arc(center.x, center.y, this._radius,
+			if(this.startAngle()<this.stopAngle())
+			this._ctx.arc(center.x, center.y, this._radius,				
 				this.startAngle(), this.stopAngle(), false);
+		else
+			this._ctx.arc(center.x, center.y, this._radius,				
+				this.startAngle(), 360*L.LatLng.DEG_TO_RAD+this.stopAngle(), false);
 			this._ctx.lineTo(center.x, center.y);
 		}
 
