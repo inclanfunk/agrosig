@@ -15,14 +15,14 @@
 
 	div#wid-id-1{
 		position: absolute;
-		top: 5px;
+		top: 55px;
 		right: 20px;
 		z-index: 99;
 	}
 
 	div#wid-id-2{
 		position: absolute;
-		top: 5px;
+		top: 55px;
 		right: 20px;
 		z-index: 99;
 	}
@@ -310,9 +310,15 @@
 
 	<script type="text/javascript">
 		L.mapbox.accessToken = 'pk.eyJ1Ijoicm9oYW4wNzkzIiwiYSI6IjhFeGVzVzgifQ.MQBzoHJmjH19bXDW0b8nKQ';
-		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99', {
-			zoomControl: false
-		}).setView([-39.67, -69.26], 4);
+		var map = L.mapbox.map('map', 'inclanfunk.l4mg4b99', {zoomControl: true}).setView([-39.67, -69.26], 4);
+
+		var layers = {
+      		Satellite: L.mapbox.tileLayer('inclanfunk.ln85p8ch'),
+		Outdoors: L.mapbox.tileLayer('inclanfunk.ln86dg58')
+  		};
+	
+  		layers.Satellite.addTo(map);
+  		L.control.layers(layers).addTo(map);
 
 		$(document).ready(function(){
 			$('#wid-id-1 h2').text('Pivot Data');
@@ -365,7 +371,8 @@
 
 							marker.on('click', function(e){
 
-								map.setView(e.latlng, 13);
+								map.setView(e.latlng, 14);
+
 								
 								$('#wid-id-1').removeClass('hidden');
 								$('#wid-id-2').addClass('hidden');
@@ -422,7 +429,7 @@
 								
 							marker.on('click', function(e){
 
-								map.setView(e.latlng, 13);
+								map.setView(e.latlng, 15);
 
 								$('#wid-id-2').removeClass('hidden');
 								$('#wid-id-1').addClass('hidden');

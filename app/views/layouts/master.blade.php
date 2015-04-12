@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
-
-		<title> SmartAdmin </title>
+		<title> {{ trans('master.SigAgroAdmin') }}</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 			
@@ -101,11 +100,11 @@
 		<div id="shortcut">
 			<ul>
 				<li>
-					<a href="{{ URL::to('profile') }}" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+					<a href="{{ URL::to('profile') }}" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>{{ trans('master.MyProfile') }} </span> </span> </a>
 				</li>
 
 				<li>
-					<a href="{{ URL::to('calendar') }}" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+					<a href="{{ URL::to('calendar') }}" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>{{ trans('master.Calendar') }} </span> </span> </a>
 				</li>
 				<!--
 				<li>
@@ -114,7 +113,7 @@
 				-->
 				<!--
 				<li>
-					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>{{ trans('master.Maps') }} </span> </span> </a>
 				</li>
 				-->
 
