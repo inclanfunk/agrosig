@@ -78,4 +78,9 @@ class Pivot extends \Eloquent {
 	{
 		return $this->hasMany('Order');
 	}
+
+	public function crop_sections()
+	{
+		return $this->hasMany('CropSection');
+	}
 }

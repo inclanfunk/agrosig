@@ -163,8 +163,6 @@
 			</div>
 			<!-- end widget -->
 
-			<div id="map"></div>
-
 			<!-- Widget ID (each widget will need unique ID)-->
 			<div class="jarviswidget col-xs-6 col-md-5 hidden" id="wid-id-2" data-widget-fullscreenbutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-custombutton="false" data-widget-deletebutton="false">
 				<!-- widget options:
@@ -365,7 +363,7 @@
 
 							marker.on('click', function(e){
 
-								map.setView(e.latlng, 13);
+								map.setView(e.latlng, 15);
 								
 								$('#wid-id-1').removeClass('hidden');
 								$('#wid-id-2').addClass('hidden');
@@ -422,7 +420,7 @@
 								
 							marker.on('click', function(e){
 
-								map.setView(e.latlng, 13);
+								map.setView(e.latlng, 15);
 
 								$('#wid-id-2').removeClass('hidden');
 								$('#wid-id-1').addClass('hidden');

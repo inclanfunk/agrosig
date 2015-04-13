@@ -219,9 +219,6 @@
 		    } );
 		    /* END COLUMN FILTER */
 
-		    $('header h2').text('All Companies');
-
-
 
 		})
 

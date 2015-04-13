@@ -41,4 +41,9 @@ class Farm extends \Eloquent {
 	{
 		return $this->hasMany('Order');
 	}
+
+	public function manager()
+	{
+		return $this->hasOne('Manager');
+	}
 }
