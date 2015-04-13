@@ -33,50 +33,53 @@
 			<h4 class="modal-title" id="myModalLabel">Add Crop Section</h4>
 			</div>
 			<div class="modal-body">
-				<form id="cropSection" method="POST" action="{{ URL::to('crop-sections') }}">
-					<div class="container-fluid">
+				<form id="cropSection" class="smart-form" novalidate="novalidate">
+
+					<header>
+						Crop Section
+					</header>
+
+					<fieldset>
+
 						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>Select Crop</label>
-									<select name="crop_id" class="form-control">
-										@foreach($crops as $crop)
+							<section class="col col-6">
+                                <label class="select">
+                                    <select name="crop_id">
+                                        <option selected="" disabled="">Select Crop</option>
+                                        @foreach($crops as $crop)
 											<option value="{{ $crop->id }}">{{ $crop->title }}</option>
 										@endforeach
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Start Angle</label>
-									<input name="start_angle" type="number" class="form-control" placeholder="Start Angle">
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>Select Predecessor Crop</label>
-									<select name="predecessor" class="form-control">
-										@foreach($crops as $crop)
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="select">
+                                    <select name="predecessor">
+                                        <option selected="" disabled="">Select Predecessor Crop</option>
+                                        @foreach($crops as $crop)
 											<option value="{{ $crop->id }}">{{ $crop->title }}</option>
 										@endforeach
-									</select>
-								</div>
-								<div class="form-group">
-									<label>Stop Angle</label>
-									<input name="stop_angle" type="number" class="form-control" placeholder="Stop Angle">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Variety or Hybrid</label>
-									<input name="variety_or_hybrid" type="text" class="form-control" placeholder="Variety or Hybrid">
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Number of Years</label>
-									<select name="years" class="form-control">
-										<option value="0">0</option>
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="start_angle" placeholder="Start Angle">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="stop_angle" placeholder="Stop Angle">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="text" name="variety_or_hybrid" placeholder="Variety or Hybrid">
+								</label>
+							</section>
+							<section class="col col-6">
+                                <label class="select">
+                                    <select name="years">
+                                        <option selected="" disabled="">Number of Years</option>
+                                        <option value="0">0</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -88,51 +91,41 @@
 										<option value="9">9</option>
 										<option value="10">10</option>
 										<option value="10+">10+</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Seeding System</label>
-									<select name="seeding_system" class="form-control">
-										<option value="1">Direct</option>
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+                                <label class="select">
+                                    <select name="seeding_system">
+                                        <option selected="" disabled="">Seeding System</option>
+                                        <option value="1">Direct</option>
 										<option value="2">Traditional</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Density</label>
-									<input name="density" type="number" class="form-control form-inline" placeholder="Density">
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Density Type</label>
-									<select name="density_type" class="form-control form-inline">
-										<option value="1">KG/Hectares</option>
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="density" placeholder="Density">
+								</label>
+							</section>
+							<section class="col col-6">
+                                <label class="select">
+                                    <select name="density_type">
+                                        <option selected="" disabled="">Density Type</option>
+                                        <option value="1">KG/Hectares</option>
 										<option value="2">Seeds/Hectares</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label>Date of Seeding</label>
-										<input class="form-control form-inline" type="text" id="my-date-picker" name="date_of_seeding" placeholder="Please Select a Date">
-								</div>
-							</div>
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-clock-o"></i>
+									<input type="text" id="my-date-picker" name="date_of_seeding" placeholder="Please Select a Date">
+								</label>
+							</section>
 						</div>
 
-						<div class="row">
-							<div class="col-xs-12">
-								<p id="error" class="text-danger hidden"></p>
-							</div>
-						</div>
-					</div>
+					</fieldset>
 
-					<input name="pivot_id" hidden="true"></input>
+					<input type="hidden" name="pivot_id">
+
+					<p id="error" class="text-danger hidden"></p>
 
 				</form>
 			</div>
@@ -153,16 +146,128 @@
 			<h4 class="modal-title" id="myModalLabel">Add Care to Section</h4>
 			</div>
 			<div class="modal-body">
-				<form id="care" method="POST" action="#">
-					<div class="container-fluid">
-						<h2>Placeholder</h2>
-					</div>
-					<input name="crop_section_id" hidden="true"></input>
+				<form id="care" class="smart-form" novalidate="novalidate" action="{{ URL::to('companies') }}" method="post" enctype="multipart/form-data">
+
+					<header>
+						Care
+					</header>
+
+					<fieldset>
+
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="achieve_density" placeholder="Achieve Density">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="distance_between_lines" placeholder="Distance Between Lines">
+								</label>
+							</section>
+							<section class="col col-6">
+                                <label class="select">
+                                    <select name="irrigation">
+                                        <option selected="" disabled="">Irrigation Month</option>
+                                        <option value="1">July</option>
+                                        <option value="2">August</option>
+                                        <option value="3">Semptember</option>
+                                        <option value="4">October</option>
+                                        <option value="5">November</option>
+                                        <option value="6">December</option>
+                                        <option value="7">January</option>
+                                        <option value="8">February</option>
+                                        <option value="9">March</option>
+                                        <option value="10">April</option>
+                                        <option value="11">May</option>
+                                        <option value="12">June</option>
+                                    </select> <i></i> </label>
+                            </section>
+                            <section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="irrigation_quantity" placeholder="Irrigation">
+								</label>
+							</section>
+						</div>
+
+					</fieldset>
+
+					<header>
+						Fertilization
+					</header>
+
+					<fieldset>
+
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="nitrogen" placeholder="Nitrogen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="phosphorus" placeholder="Phosphorus">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="pottasium" placeholder="Pottasium">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="sulphur" placeholder="Sulphur">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="other" placeholder="Other">
+								</label>
+							</section>
+						</div>
+
+					</fieldset>
+
+					<header>
+						Harvest
+					</header>
+
+					<fieldset>
+
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="yield" placeholder="Yield">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="humidity" placeholder="Humidity">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-clock-o"></i>
+									<input type="text" id="care-date" name="date_of_harvest" placeholder="Please Select a Date">
+								</label>
+							</section>
+						</div>
+
+					</fieldset>
+
+					<input type="hidden" name="crop_section_id" value="">
+
+					<header>
+						Soil Analysis
+					</header>
+
+					<h3 class="text-center">Placeholder</h3>
+
+					<p id="careError" class="text-danger hidden"></p>
 
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button id="createSection" class="btn btn-default">Add Care</button>
+				<button id="addCare" class="btn btn-default">Add Care</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
@@ -224,6 +329,11 @@
 		}).setView([-39.67, -69.26], 4);
 
 		$(document).ready(function(){
+
+			$(function() {
+				$( "#care-date" ).datepicker({ dateFormat: 'yy-mm-dd' });
+			});
+
 			$('#wid-id-1 h2').text('Pivot Data');
 			$('#wid-id-2 h2').text('Waterpump Data');
 		    $('#pivotTab').tabs();
@@ -272,7 +382,7 @@
 							segment.on('click', function(e){
 								map.setView(e.latlng, 16);
 								$('#care').modal({ show: true });
-								$('input[name=crop_section_id]').val(crop_section.id);
+								$('input[name=crop_section_id]').val(item.id);
 							});
 						});
 
@@ -324,6 +434,25 @@
 						$('p#error').empty();
 						$.each(response.responseJSON, function(i, item){
 							$('p#error').append(item).append('<br />');
+						});
+					}
+				});
+			});
+
+			$('#addCare').on('click', function(e){
+				$.ajax({
+					url: '{{ URL::to("cares") }}',
+					type: 'post',
+					dataType: 'json',
+					data: $('form#care').serialize(),
+					success: function(response){
+						$('div#care').modal('toggle');
+					},
+					error: function(response){
+						$('p#careError').removeClass('hidden');
+						$('p#careError').empty();
+						$.each(response.responseJSON, function(i, item){
+							$('p#careError').append(item).append('<br />');
 						});
 					}
 				});

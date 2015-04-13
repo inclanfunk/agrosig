@@ -86,6 +86,8 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::resource('crop-sections', 'CropSectionController');
 
+	Route::resource('cares', 'CareController');
+
 });
 
 // Just for testing. To be removed before production.
