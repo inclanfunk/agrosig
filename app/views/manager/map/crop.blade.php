@@ -426,7 +426,7 @@
 						segment.on('click', function(e){
 							map.setView(e.latlng, 16);
 							$('#care').modal({ show: true });
-							$('input[name=crop_section_id]').val(crop_section.id);
+							$('input[name=crop_section_id]').val(item.id);
 						});
 					},
 					error: function(response){
