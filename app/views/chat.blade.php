@@ -124,7 +124,7 @@
 								<div class="textarea-div">
 
 									<div class="typearea">
-										<textarea placeholder="Write a reply..." id="textarea-expand" class="custom-scroll"></textarea>
+										<textarea placeholder="{{ trans('chat.Writeareply') }}..." id="textarea-expand" class="custom-scroll"></textarea>
 									</div>
 
 								</div>
@@ -132,10 +132,10 @@
 								<!-- CHAT REPLY/SEND -->
 								<span class="textarea-controls">
 									<button id="reply" class="btn btn-sm btn-primary pull-right">
-										Reply
+										{{ trans('chat.Reply') }}
 									</button> <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> <label class="checkbox pull-right">
 											<input type="checkbox" name="subscription" id="subscription">
-											<i></i>Press <strong> ENTER </strong> to send </label> </span> <a href="javascript:void(0);" class="pull-left"><i class="fa fa-camera fa-fw fa-lg"></i></a> </span>
+											<i></i>{{ trans('chat.Press') }}<strong> {{ trans('chat.ENTER') }}</strong> {{ trans('chat.tosend') }} </label> </span> <a href="javascript:void(0);" class="pull-left"><i class="fa fa-camera fa-fw fa-lg"></i></a> </span>
 
 							</div>
 

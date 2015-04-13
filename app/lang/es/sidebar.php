@@ -25,7 +25,7 @@
 		'waterpump' => 'Bomba',
 
 		'maps' => 'Mapas',
-		'crops' => 'Cultivos',
+		'crops' => 'Cultivos (Próximamente)',
 		'equipment' => 'Equipos',
 
 		'calendar' => 'Calendario',

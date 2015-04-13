@@ -25,7 +25,7 @@
 		'waterpump' => 'Waterpump',
 
 		'maps' => 'Maps',
-		'crops' => 'Crops',
+		'crops' => 'Crops (soon)',
 		'equipment' => 'Equipment',
 
 		'calendar' => 'Calendar',
