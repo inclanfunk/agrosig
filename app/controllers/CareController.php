@@ -43,7 +43,7 @@ class CareController extends \BaseController {
 			'other' 					=> 'required|numeric',
 			'date_of_harvest' 			=> 'required|date:yy-mm-dd',
 			'humidity' 					=> 'required|numeric',
-			'yield' 					=> 'required|numeric'
+			'yield' 					=> 'required|numeric',
 		]);
 
 		if($validator->fails()){
@@ -58,6 +58,23 @@ class CareController extends \BaseController {
 		}
 
 		$care = Care::create($data);
+
+		foreach($data['layers'] as $layer){
+			$layer_data = ['layer' => $layer];
+
+			foreach($data as $key => $value){
+				$exploded = explode('_', $key);
+				if($exploded[0] == $layer){
+					$layer_data['' . $exploded[1] . ''] = $value;
+					// dd($value);
+				}
+			}
+
+			// dd($layer_data);
+
+			$new_layer = new Layer($layer_data);
+			$care->layers()->save($new_layer);
+		}
 
 		return Response::json($care, 201);
 
