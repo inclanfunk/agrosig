@@ -88,6 +88,8 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::resource('cares', 'CareController');
 
+	Route::resource('stocks', 'StockController');
+
 });
 
 // Just for testing. To be removed before production.

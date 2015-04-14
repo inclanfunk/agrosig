@@ -234,6 +234,10 @@
                 <a href="{{ URL::to('orders') }}"><i class="fa fa-lg fa-fw fa-reorder"></i> <span class="menu-item-parent">{{ trans('sidebar.orders') }}</span></a>
             </li>
 
+            <li class="{{ Request::is('stocks') ? 'active' : '' }}">
+                <a href="{{ URL::to('stocks') }}"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">{{ trans('sidebar.stocks') }}</span></a>
+            </li>
+
 		</ul>
 
 	</nav>

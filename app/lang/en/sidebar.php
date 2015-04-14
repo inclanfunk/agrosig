@@ -35,4 +35,6 @@
 		'forum' => 'Forum',
 
 		'crop' => 'Crop',
+
+		'stocks' => 'Stocks',
 	];
