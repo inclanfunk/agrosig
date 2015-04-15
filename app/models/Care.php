@@ -15,4 +15,9 @@ class Care extends \Eloquent {
 		'humidity',
 		'yield',
 	];
+
+	public function layers()
+	{
+		return $this->hasMany('Layer');
+	}
 }

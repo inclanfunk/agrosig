@@ -260,7 +260,254 @@
 						Soil Analysis
 					</header>
 
-					<h3 class="text-center">Placeholder</h3>
+					<fieldset>
+
+						<div class="row">
+							<section class="col col-12">
+								<label class="label">Select Layers</label>
+								<label class="select select-multiple">
+									<select id="layers" name="layers[]" multiple="" class="custom-scroll">
+										<option value="1">0-20 cm</option>
+										<option value="2">20-40 cm</option>
+										<option value="3">40-60 cm</option>
+										<option value="4">60-80 cm</option>
+										<option value="5">80-100 cm</option>
+									</select> </label>
+								<div class="note">
+									<strong>Note:</strong> hold down the ctrl/cmd button to select multiple options.
+								</div>
+							</section>
+						</div>
+
+					</fieldset>
+
+					<header>0-20 cm</header>
+					<fieldset>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_mo" placeholder="M.O.">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_nno3" placeholder="N-NO3">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_ntot" placeholder="N tot">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_pbray" placeholder="P Bray">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_polsen" placeholder="P Olsen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_dap" placeholder="Dap">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_ph" placeholder="pH">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="1_ce" placeholder="CE">
+								</label>
+							</section>
+						</div>'
+					</fieldset>
+
+					<header>20-40 cm</header>
+					<fieldset>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_mo" placeholder="M.O.">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_nno3" placeholder="N-NO3">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_ntot" placeholder="N tot">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_pbray" placeholder="P Bray">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_polsen" placeholder="P Olsen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_dap" placeholder="Dap">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_ph" placeholder="pH">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="2_ce" placeholder="CE">
+								</label>
+							</section>
+						</div>'
+					</fieldset>
+					<header>40-60 cm</header>
+					<fieldset>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_mo" placeholder="M.O.">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_nno3" placeholder="N-NO3">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_ntot" placeholder="N tot">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_pbray" placeholder="P Bray">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_polsen" placeholder="P Olsen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_dap" placeholder="Dap">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_ph" placeholder="pH">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="3_ce" placeholder="CE">
+								</label>
+							</section>
+						</div>'
+					</fieldset>
+					<header>60-80 cm</header>
+					<fieldset>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_mo" placeholder="M.O.">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_nno3" placeholder="N-NO3">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_ntot" placeholder="N tot">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_pbray" placeholder="P Bray">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_polsen" placeholder="P Olsen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_dap" placeholder="Dap">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_ph" placeholder="pH">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="4_ce" placeholder="CE">
+								</label>
+							</section>
+						</div>'
+					</fieldset>
+
+					<header>80-100 cm</header>
+					<fieldset>
+						<div class="row">
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_mo" placeholder="M.O.">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_nno3" placeholder="N-NO3">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_ntot" placeholder="N tot">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_pbray" placeholder="P Bray">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_polsen" placeholder="P Olsen">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_dap" placeholder="Dap">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_ph" placeholder="pH">
+								</label>
+							</section>
+							<section class="col col-6">
+								<label class="input"> <i class="icon-append fa fa-globe"></i>
+									<input type="number" name="5_ce" placeholder="CE">
+								</label>
+							</section>
+						</div>'
+					</fieldset>
 
 					<p id="careError" class="text-danger hidden"></p>
 
@@ -457,6 +704,247 @@
 					}
 				});
 			});
+
+			/*$('select#layers').on('change', function(e){
+				$.each($('select#layers').val(), function(i, item){
+					console.log(item);
+
+					$('header#' + item).removeClass('hidden');
+					$('fieldset#f' + item).removeClass('hidden');
+					switch(item){
+						case '1':
+
+							$('header#1').html('0-20 cm');
+							$('fieldset#f1').html('<div class="row">' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="mo" placeholder="M.O.">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="nno3" placeholder="N-NO3">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ntot" placeholder="N tot">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="pbray" placeholder="P Bray">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="polsen" placeholder="P Olsen">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="dap" placeholder="Dap">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ph" placeholder="pH">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ce" placeholder="CE">' +
+														'</label>' +
+													'</section>' +
+												'</div>');
+						break;
+						case '2':
+
+							$('header#2').html('20-40 cm');
+							$('fieldset#f2').html('<div class="row">' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="mo" placeholder="M.O.">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="nno3" placeholder="N-NO3">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ntot" placeholder="N tot">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="pbray" placeholder="P Bray">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="polsen" placeholder="P Olsen">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="dap" placeholder="Dap">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ph" placeholder="pH">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ce" placeholder="CE">' +
+														'</label>' +
+													'</section>' +
+												'</div>');
+						break;
+						case '3':
+
+							$('header#3').html('40-60 cm');
+							$('fieldset#f3').html('<div class="row">' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="mo" placeholder="M.O.">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="nno3" placeholder="N-NO3">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ntot" placeholder="N tot">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="pbray" placeholder="P Bray">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="polsen" placeholder="P Olsen">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="dap" placeholder="Dap">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ph" placeholder="pH">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ce" placeholder="CE">' +
+														'</label>' +
+													'</section>' +
+												'</div>');
+						break;
+						case '4':
+
+							$('header#5').html('60-80 cm');
+							$('fieldset#f5').html('<div class="row">' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="mo" placeholder="M.O.">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="nno3" placeholder="N-NO3">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ntot" placeholder="N tot">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="pbray" placeholder="P Bray">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="polsen" placeholder="P Olsen">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="dap" placeholder="Dap">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ph" placeholder="pH">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ce" placeholder="CE">' +
+														'</label>' +
+													'</section>' +
+												'</div>');
+						break;
+						case '5':
+
+							$('header#5').html('80-100 cm');
+							$('fieldset#f5').html('<div class="row">' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="mo" placeholder="M.O.">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="nno3" placeholder="N-NO3">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ntot" placeholder="N tot">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="pbray" placeholder="P Bray">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="polsen" placeholder="P Olsen">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="dap" placeholder="Dap">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ph" placeholder="pH">' +
+														'</label>' +
+													'</section>' +
+													'<section class="col col-6">' +
+														'<label class="input"> <i class="icon-append fa fa-globe"></i>' +
+															'<input type="number" name="ce" placeholder="CE">' +
+														'</label>' +
+													'</section>' +
+												'</div>');
+						break;
+					}
+				});
+			});*/
 
 			    
 		});
