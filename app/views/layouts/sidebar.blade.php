@@ -214,11 +214,9 @@
                 </ul>
             </li>
 
-            @if(Sentry::getUser()->groups()->first()->name == 'Manager' || Sentry::getUser()->groups()->first()->name == 'Super Administrator')
             <li class="{{ Request::is('calendar') ? 'active' : '' }}">
                 <a href="{{ URL::to('calendar') }}"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">{{ trans('sidebar.calendar') }}</span></a>
             </li>
-            @endif
 
             @if(Sentry::getUser()->groups()->first()->name == 'Manager')
             <li class="{{ Request::is('chat') ? 'active' : '' }}">

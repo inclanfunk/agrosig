@@ -36,6 +36,25 @@ class CalendarController extends \BaseController {
 
 					$calendar = Calendar::where('user_id', '=', $logged_in_user->id)
 								->orWhere('user_id', '=', '1')
+								->orWhere('user_id', '=', $logged_in_user->manager->farm->distributorCompany->distributor->user->id)
+								->where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
+								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
+								->get();
+
+					foreach($calendar as $cal){
+						$cal->className = $cal->class;
+						if($cal->allDay == 0){
+							$cal->allDay = false;
+						}else{
+							$cal->allDay = true;
+						}
+					}
+
+					return Response::json($calendar, 200);
+				}elseif($logged_in_user->groups->first()->name == 'Distributor'){
+
+					$calendar = Calendar::where('user_id', '=', $logged_in_user->id)
+								->orWhere('user_id', '=', '1')
 								->where('start', '>=', Carbon::createFromTimestamp(Input::get('start')))
 								->where('end', '<=', Carbon::createFromTimestamp(Input::get('end')))
 								->get();

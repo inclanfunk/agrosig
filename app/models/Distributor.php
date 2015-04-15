@@ -10,4 +10,9 @@ class Distributor extends \Eloquent {
 	{
 		return $this->belongsTo('Company');
 	}
+
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
 }

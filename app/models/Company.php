@@ -24,4 +24,9 @@ class Company extends \Eloquent {
 	{
 		return $this->hasMany('Farm', 'distributor_company_id');
 	}
+
+	public function distributor()
+	{
+		return $this->hasOne('Distributor');
+	}
 }

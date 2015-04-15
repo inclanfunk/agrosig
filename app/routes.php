@@ -164,5 +164,7 @@ Route::get('test', function(){
 	// $farms = Sentry::getUser()->distributor->company->farms->load('manager.user');
 	// return $farms;
 
+	return Sentry::getUser()->manager->farm->distributorCompany->distributor->user->id;
+
 
 });
