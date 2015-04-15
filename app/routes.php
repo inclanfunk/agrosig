@@ -90,6 +90,8 @@ Route::group(['before' => 'auth'], function(){
 
 	Route::resource('stocks', 'StockController');
 
+	Route::resource('clients', 'DistributorClientController');
+
 });
 
 // Just for testing. To be removed before production.
@@ -150,6 +152,17 @@ Route::get('test', function(){
 	// }
 
 	// return $pivots;
+
+	// $group = Sentry::findGroupByName('Distributor');
+	// $clients = Sentry::findAllUsersInGroup($group)->company->farms;
+	// return $clients;
+
+	// $user = Sentry::getUser();
+	// $distributor_company = $user->distributor->company;
+	// return Company::find(97)->farms;
+
+	// $farms = Sentry::getUser()->distributor->company->farms->load('manager.user');
+	// return $farms;
 
 
 });

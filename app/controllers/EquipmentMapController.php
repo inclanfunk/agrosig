@@ -21,6 +21,11 @@ class EquipmentMapController extends \BaseController {
 
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
 
+			$breadcrumbs = ['Home', 'Maps', 'Equipment'];
+
+			return View::make('admin.map.equipment')
+						->withBreadcrumbs($breadcrumbs);
+
 		}
 
 	}

@@ -89,6 +89,11 @@ Route::filter('admin', function()
 	if(!Sentry::getUser()->hasAccess('system')) return Response::make('<h1>403 Forbidden</h1>', 403);
 });
 
+Route::filter('distributor', function()
+{
+	if(Sentry::getUser()->groups()->first()->name != 'Distributor') return Response::make('<h1>403 Forbidden</h1>', 403);
+});
+
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter

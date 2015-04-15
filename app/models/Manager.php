@@ -11,4 +11,9 @@ class Manager extends \Eloquent {
 	{
 		return $this->belongsTo('Farm');
 	}
+
+	public function user()
+	{
+		return $this->belongsTo('User');
+	}
 }

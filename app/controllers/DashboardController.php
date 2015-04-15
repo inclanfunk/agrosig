@@ -39,10 +39,10 @@ class DashboardController extends \BaseController {
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
 
 			$breadcrumbs = ['Home', 'Dashboard'];
-			$users = User::orderBy('last_active', 'DESC')->get();
+			$farms = Sentry::getUser()->distributor->company->farms->load('manager.user');
 			return View::make('distributor.dashboard')
 						->withBreadcrumbs($breadcrumbs)
-						->withUsers($users);
+						->withFarms($farms);
 
 		}
 	}

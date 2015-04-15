@@ -37,4 +37,6 @@
 		'crop' => 'Crop',
 
 		'stocks' => 'Stocks',
+
+		'clients' => 'Clients',
 	];

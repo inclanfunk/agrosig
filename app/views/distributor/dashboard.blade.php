@@ -73,14 +73,14 @@
 
 								<div class="chat-list-body custom-scroll">
 									<ul id="chat-users">
-										@foreach($users as $user)
-											@if($user->last_active->diffInMinutes(Carbon::now()) < 10)
+										@foreach($farms as $farm)
+											@if($farm->manager->user->last_active->diffInMinutes(Carbon::now()) < 10)
 												<li>
-													<a href="javascript:void(0);"><img src="{{ $user->photo ? '/photos/' . $user->photo : '/img/avatar.png' }}" alt="">{{ $user->first_name }} {{ $user->last_name }} <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+													<a href="javascript:void(0);"><img src="{{ $farm->manager->user->photo ? '/photos/' . $farm->manager->user->photo : '/img/avatar.png' }}" alt="">{{ $farm->manager->user->first_name }} {{ $farm->manager->user->last_name }} <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
 												</li>
-											@elseif($user->last_active->diffInMinutes(Carbon::now()) > 10)
+											@elseif($farm->manager->user->last_active->diffInMinutes(Carbon::now()) > 10)
 												<li>
-													<a href="javascript:void(0);"><img src="{{ $user->photo ? '/photos/' . $user->photo : '/img/avatar.png' }}" alt="">{{ $user->first_name }} {{ $user->last_name }} <span class="state"><i class="last-online pull-right">{{ $user->last_active->diffForHumans() }}</i></span></a>
+													<a href="javascript:void(0);"><img src="{{ $farm->manager->user->photo ? '/photos/' . $farm->manager->user->photo : '/img/avatar.png' }}" alt="">{{ $farm->manager->user->first_name }} {{ $farm->manager->user->last_name }} <span class="state"><i class="last-online pull-right">{{ $farm->manager->user->last_active->diffForHumans() }}</i></span></a>
 												</li>
 											@endif
 										@endforeach

@@ -107,6 +107,7 @@ class UserController extends \BaseController {
 					'twitter'  => $data['twitter'],
 					'photo'  => $data['photo'],
 					'activated' => true,
+					'last_active' => Carbon::now()
 				));
 
 				// Find the group using the group id
@@ -153,6 +154,7 @@ class UserController extends \BaseController {
 					'twitter'  => $data['twitter'],
 					'photo'  => $data['photo'],
 					'activated' => true,
+					'last_active' => Carbon::now()
 				));
 
 				// Find the group using the group id
@@ -198,6 +200,7 @@ class UserController extends \BaseController {
 					'twitter'  => $data['twitter'],
 					'photo'  => $data['photo'],
 					'activated' => true,
+					'last_active' => Carbon::now()
 				));
 
 				// Find the group using the group id

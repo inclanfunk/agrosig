@@ -226,6 +226,12 @@
             </li>
             @endif
 
+            @if(Sentry::getUser()->groups()->first()->name == 'Distributor')
+            <li class="{{ Request::is('clients') ? 'active' : '' }}">
+                <a href="{{ URL::to('clients') }}"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">{{ trans('sidebar.clients') }}</span></a>
+            </li>
+            @endif
+
             <li class="{{ Request::is('forum') ? 'active' : '' }}">
                 <a href="{{ URL::to('forum') }}"><i class="fa fa-lg fa-fw fa-question-circle"></i> <span class="menu-item-parent">{{ trans('sidebar.forum') }}</span></a>
             </li>
