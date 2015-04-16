@@ -202,6 +202,20 @@
             </li>
             @endif
 
+            @if(Sentry::getUser()->groups()->first()->name == 'Distributor')
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-tree"></i> <span class="menu-item-parent">{{ trans('sidebar.manage') }} {{ trans('sidebar.topics') }}</span></a>
+                <ul>
+                    <li class="{{ Request::is('topics') ? 'active' : '' }}">
+                        <a href="{{ URL::to('topics') }}">{{ trans('sidebar.list') }}</a>
+                    </li>
+                    <li class="{{ Request::is('topics/create') ? 'active' : '' }}">
+                        <a href="{{ URL::to('topics/create') }}">{{ trans('sidebar.create') }}</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
+
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-globe"></i> <span class="menu-item-parent">{{ trans('sidebar.maps') }}</span></a>
                 <ul>

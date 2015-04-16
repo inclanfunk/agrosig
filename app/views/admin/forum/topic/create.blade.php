@@ -2,7 +2,6 @@
 
 
 @section('content')
-
 <!-- Widget ID (each widget will need unique ID)-->
 			<div class="jarviswidget" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
 				<!-- widget options:
@@ -79,10 +78,10 @@
                                     </section>
                                     <section class="col col-6">
 										<label class="input"> <i class="icon-append fa fa-pencil"></i>
-											<input type="text" name="icon" placeholder="fa-icon" required>
+											<input type="text" name="icon" class="iconpicker" required>
 										</label>
-										@if($errors->first('icon'))
-											<em class="invalid">{{ $errors->first('icon') }}</em>
+										@if($errors->first('description'))
+											<em class="invalid">{{ $errors->first('description') }}</em>
 										@endif
 									</section>
 									<section class="col col-6">
@@ -132,14 +131,16 @@
 
 <!-- JQUERY MASKED INPUT -->
 <script src="{{URL::to('js/plugin/masked-input/jquery.maskedinput.min.js')}} "></script>
-<!-- JQUERY MASKED INPUT -->
-<script src="{{URL::to('js/libs/fontawesome-iconpicker.min.js')}} "></script>
+
+<script src="{{URL::to('js/plugin/iconpicker/fontawesome-iconpicker.min.js')}} "></script>
 
 <script type="text/javascript">
 
 		// DO NOT REMOVE : GLOBAL FUNCTIONS!
 
 		$(document).ready(function() {
+
+			$('.iconpicker').iconpicker();
 
 
 			// START AND FINISH DATE

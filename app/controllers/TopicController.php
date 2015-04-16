@@ -4,7 +4,7 @@ class TopicController extends \BaseController {
 
 	function __construct()
 	{
-		$this->beforeFilter('admin');
+		$this->beforeFilter('admin-or-distributor');
 	}
 
 	/**
@@ -44,7 +44,16 @@ class TopicController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
+		$validator = Validator::make($data = Input::all(), [
+			'section_id' 	=> 'required|exists:sections,id',
+			'title' 		=> 'required',
+			'icon' 			=> 'required',
+			'description' 	=> 'required'
+		]);
+
+		if($validator->fails()){
+			return Redirect::route('topics.create')->withErrors($validator->messages());
+		}
 
 		Topic::create($data);
 

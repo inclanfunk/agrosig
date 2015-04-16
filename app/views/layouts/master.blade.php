@@ -12,6 +12,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/font-awesome.min.css') }}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{{URL::to('css/fontawesome-iconpicker.min.css')}}">
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
 		<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::to('css/smartadmin-production-plugins.min.css') }}">
