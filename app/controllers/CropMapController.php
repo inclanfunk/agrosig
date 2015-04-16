@@ -23,6 +23,13 @@ class CropMapController extends \BaseController {
 
 		}elseif(Sentry::getUser()->groups()->first()->name == 'Distributor'){
 
+			$breadcrumbs = ['Home', 'Maps', 'Crops'];
+			$crops = Crop::all();
+
+			return View::make('distributor.map.crop')
+						->withCrops($crops)
+						->withBreadcrumbs($breadcrumbs);
+
 		}
 
 	}
