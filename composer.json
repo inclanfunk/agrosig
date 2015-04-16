@@ -11,7 +11,8 @@
 		"intervention/image": "~2.1",
 		"nesbot/carbon": "~1.14",
 		"pusher/pusher-php-server": "~2.2",
-		"indatus/dispatcher": "1.4.*@dev"
+		"indatus/dispatcher": "1.4.*@dev",
+		"guzzlehttp/guzzle": "~4.0"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
