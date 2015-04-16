@@ -19,8 +19,8 @@ class CreateCropSectionsTable extends Migration {
 			$table->foreign('crop_id')->references('id')->on('crops');
 			$table->integer('pivot_id')->unsigned();
 			$table->foreign('pivot_id')->references('id')->on('pivots');
-			$table->integer('start_angle');
-			$table->integer('stop_angle');
+			$table->decimal('start_angle', 5, 1);
+			$table->decimal('stop_angle', 5, 1);
 			$table->string('variety_or_hybrid');
 			$table->integer('predecessor')->unsigned();
 			$table->foreign('predecessor')->references('id')->on('crops');
